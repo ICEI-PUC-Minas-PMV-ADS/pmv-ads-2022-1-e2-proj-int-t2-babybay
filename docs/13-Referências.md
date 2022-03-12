@@ -1,7 +1,3 @@
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
-
-> **Links Úteis**:
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
+CAMARGO, Fernanda. O custo por trás da indústria da moda é maior do que você pensa. Estadão, 2021. Disponível em: https://einvestidor.estadao.com.br/colunas/fernanda-camargo/impacto-ambiental-industria-moda
