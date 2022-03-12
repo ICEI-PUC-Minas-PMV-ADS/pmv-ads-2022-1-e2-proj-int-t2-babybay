@@ -1,4 +1,4 @@
-# Especificações do Projeto
+# 2. Especificações do Projeto
 
 
 A definição do problema e os pontos mais relevantes a serem tratados nesse projeto, foram levantados com a participação de stakeholders e representados no formato de personas e histórias de usuários: 
