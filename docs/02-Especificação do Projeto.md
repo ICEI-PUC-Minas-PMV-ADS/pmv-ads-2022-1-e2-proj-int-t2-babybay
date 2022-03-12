@@ -34,10 +34,6 @@ Aplicativos | Motivações | Frustrações | Hobbies/História
  Twitter;<br> YouTube;<br> Linkedin. | Terminar o mestrado e conseguir um emprego com bom salário para que os avós do menino parem de ter tantas despesas com ele e seu filho (moram na casa dos pais de Carlos). |  Bolsa do mestrado insuficiente para arcar com os custos de vida dele e do filho;<br>  Menino entrando em uma intensa fase de crescimento acaba demandando muito investimento. |  Gosta de jogar videogames, com o filho e também sozinho;<br> Decidiu fazer o mestrado após ser demitido do seu antigo emprego e achar que possibilitaria melhores oportunidades em sua carreira.
 ________________________________________________________________________________________
 
-
-
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
-
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
@@ -60,9 +56,9 @@ Apresente aqui as histórias de usuário que são relevantes para o projeto de s
 > - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
 > - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
 
-## Requisitos
+## Requisitos do Projeto
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
+O escopo funcional do projeto é definido por requisitos funcionais que descrevem a interação dos usuários com a aplicação, e por requisitos não-funcionais que descrevem aspectos do sistema. Esses requisitos estão apresentados abaixo:	
 
 ### Requisitos Funcionais
 
