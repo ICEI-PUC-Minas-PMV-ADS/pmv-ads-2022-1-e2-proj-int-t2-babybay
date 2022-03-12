@@ -1,10 +1,11 @@
 # 1. Introdução
 
-Quando se observa um site especializado em roupas infantis ou até mesmo uma vitrine de lojas desse segmento, um ponto que chama atenção logo à primeira vista é o alto custo das peças. Com o rápido crescimento das crianças, é intuitivo pensar que em poucos meses as roupas e o alto investimento serão perdidos. Essas roupas em bom estado acabam armazenadas nas casas, sofrendo a ação do tempo, ou são descartadas e causam prejuízos ambientais significativos. 
+Quando se observa um site especializado em roupas infantis ou até mesmo uma vitrine de lojas desse segmento, um ponto que chama atenção logo à primeira vista é o alto custo das peças. Com o rápido crescimento das crianças, é intuitivo pensar que em poucos meses as roupas e o alto investimento serão perdidos. Essas roupas em bom estado acabam armazenadas nas casas, sofrendo a ação do tempo, ou são descartadas e causam prejuízos ambientais significativos.
 
-O ciclo de compra, uso e possível descarte se torna insustentável ao longo do tempo. Segundo reportagem do Estadão (2021), a indústria da moda é responsável por cerca de 8% da emissão de gás carbônico na atmosfera, ficando atrás apenas do setor petrolífero. Soma-se a isso o descarte da própria indústria, que gira em torno de 25% de tudo que é produzido, temos um quadro desafiador.    
+O ciclo de compra, uso e possível descarte se torna insustentável ao longo do tempo. Segundo reportagem do Estadão (2021), a indústria da moda é responsável por cerca de 8% da emissão de gás carbônico na atmosfera, ficando atrás apenas do setor petrolífero. Soma-se a isso o descarte da própria indústria, que gira em torno de 25% de tudo que é produzido, temos um quadro desafiador.   
 
-Levando em consideração o alto índice de desemprego que assola o Brasil, juntamente com a crise causada pela pandemia da COVID-19, é coerente pensar em alternativas ao consumo desenfreado de itens que possam ser reaproveitados. Diante das dificuldades financeiras vividas por inúmeras famílias, é importante a reflexão sobre os recursos que serão descartados por uma pessoa e que podem ser úteis a outra. 
+Levando em consideração o alto índice de desemprego que assola o Brasil, juntamente com a crise causada pela pandemia da COVID-19, é coerente pensar em alternativas ao consumo desenfreado de itens que possam ser reaproveitados. Diante das dificuldades financeiras vividas por inúmeras famílias, é importante a reflexão sobre os recursos que serão descartados por uma pessoa e que podem ser úteis a outra.
+
 
 ## Problema
 
