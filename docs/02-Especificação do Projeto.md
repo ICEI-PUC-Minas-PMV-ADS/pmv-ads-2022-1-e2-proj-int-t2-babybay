@@ -112,5 +112,5 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 
 O diagrama de casos de uso a seguir demonstra as principais ligações entre casos de usos e atores, permitindo detalhar os requisitos funcionais identificados na etapa de elicitação. 
 
-![CasoDeUso](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/issues/1#issue-1167357027)
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/issues/1#issue-1167357027
 
