@@ -1,25 +1,41 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+A definição do problema e os pontos mais relevantes a serem tratados nesse projeto, foram levantados com a participação de stakeholders e representados no formato de personas e histórias de usuários: 
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+As personas levantadas durante o processo, estão representadas abaixo: 
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+________________________________________________________________________________________
+Nome | Idade | Ocupação
+---|---|---
+![Contadora]  )**Ana Alice Soares** | 27 anos | Estudante de Enfermagem. Mãe solteira, também trabalha meio período em uma livraria local pertencente ao avô de uma de suas amigas, com o intuito de conseguir manter seus estudos e ainda colaborar em casa e na criação de seu filho.
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
+Aplicativos | Motivações | Frustrações | Hobbies/História
+---|---|---|---
+Instagram;<br> TikTok;<br> Twitter |  Encontrar o equilíbrio entre investir em si mesma para alcançar seu sonho de ser enfermeira, agora que está de volta ao ensino superior, e prover as melhores condições e oportunidades para o crescimento de seu filho, agora com 5 anos, colaborando em suas despesas que são arcadas majoritariamente pelos avós do menino (seus pais). |  Não sobra dinheiro algum para extras (roupas, cursos, cinema, entre outros);<br> Pouco ou nenhum tempo livre. | Gosta de gravar conteúdo para a rede social Instagram sobre ser mãe de primeira viagem e solteira, tendo uma base modesta, mas sólida de seguidores. Ultimamente tem se interessado por ambientalismo e sustentabilidade.<br> Tornou-se mãe solteira aos 22 anos, quando ainda estava no 3º período de enfermagem; decidiu dar uma pausa nos estudos por uns anos até que seu filho fosse maior.  
+
+ ________________________________________________________________________________________
+ Nome | Idade | Ocupação
+---|---|---
+![Empresário](https://user-images.githubusercontent.com/91077484/136857072-9d8dabcd-d3a7-43fa-95b3-6c69cb6e0ba3.png)<br>**João Guilherme Pereira** | 66 anos | Empresário e proprietário de um supermercado de pequeno porte. 
+
+Aplicativos | Motivações | Frustrações | Hobbies/História
+---|---|---|---
+Facebook. | Ensinar o filho sobre a empresa para que ele possa dar continuidade e até mesmo expandir. | Alto custo na compra de produtos para revenda;<br> Inflação diminuindo o poder de compra dos clientes;<br> Despreparo do filho para assumir o negócio da família. | Assistir futebol com o filho Mateus;<br> Adora o silêncio da pescaria no fim de semana.
+________________________________________________________________________________________
+ Nome | Idade | Ocupação
+---|---|---
+![Marketing](https://user-images.githubusercontent.com/91077484/136857076-523e11fb-09a5-4bb5-ac53-c30230ae78f8.png)**Cristina Vieira Netto** | 39 anos | Tecnóloga em marketing, cursando bacharelado em administração, empreendedora e proprietária de microempresa no ramo de publicidade. 
+
+Aplicativos | Motivações | Frustrações | Hobbies/História
+---|---|---|---
+ Instagram;<br> Facebook;<br> Tik Tok. | Expandir a empresa e abrir filiais. | Dificuldade no início do negócio;<br> Dificuldade de implementação de tecnologia para expandir a empresa. | Ama música, tendo preferência para rock e pop;<br> Gosta de uma boa leitura, especialmente de romances.    
+________________________________________________________________________________________
+
+
+
 Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
 
 ## Histórias de Usuários
