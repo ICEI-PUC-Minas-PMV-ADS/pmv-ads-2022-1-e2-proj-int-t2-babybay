@@ -1,26 +1,29 @@
 # TÍTULO DO PROJETO
 
-`CURSO`
+`ANÁLISE E DESENVOLVIMENTO DE SISTEMAS`
 
-`DISCIPLINA`
+`PROJETO: DESENVOLVIMENTO DE APLICAÇÃO INTERATIVA`
 
-`SEMESTRE`
+`EIXO 2`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O objetivo do projeto é o desenvolimento de uma aplicação para realizar a troca de roupas infantis entre pais ou responsáveis por crianças
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-
+* Adriana Silva Lacerda  
+* Carlos Hilario Siqueira Camuzzi
+* Ezequiel Silva de Souza Almeida 
+* Gabriel Antônio Lopes Costa  
+* Ila Feitosa da Nóbrega  
+* Júlia de Oliveira Sartori  
+* 
 ## Orientador
 
-* Nome completo do professor 1
+* Professor José Wilson da Costa
 
 ## Instruções de utilização
 
+COMPLETAR APÓS PRIMEIRA VERSÃO
 Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 
 # Documentação
