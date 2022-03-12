@@ -16,13 +16,10 @@ O objetivo geral desse trabalho é fornecer meios para que pais ou responsáveis
 
 Como objetivos específicos, podemos listar: 
 
-   Disponibilizar um meio seguro e acessível para trocas de peças roupas infantis; 
-
-   Garantis formas eficientes de registro em vídeos e fotos para avaliação das peças; 
-
-   Intermediar formas de entregas, fornecendo ferramentas de geolocalização; 
-
-   Permitir fácil comunicação entre as partes envolvidas na negociação; 
+- Disponibilizar um meio seguro e acessível para trocas de peças roupas infantis; 
+- Garantis formas eficientes de registro em vídeos e fotos para avaliação das peças;
+- Intermediar formas de entregas, fornecendo ferramentas de geolocalização; 
+- Permitir fácil comunicação entre as partes envolvidas na negociação; 
 
 ## Justificativa
 
