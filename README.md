@@ -6,7 +6,7 @@
 
 `EIXO 2`
 
-O objetivo do projeto é o desenvolimento de uma aplicação para realizar a troca de roupas infantis entre pais ou responsáveis por crianças
+O objetivo desse projeto é o desenvolvimento de uma aplicação para realizar a troca de roupas infantis entre pais ou responsáveis por crianças.
 
 ## Integrantes
 
@@ -16,7 +16,7 @@ O objetivo do projeto é o desenvolimento de uma aplicação para realizar a tro
 * Gabriel Antônio Lopes Costa  
 * Ila Feitosa da Nóbrega  
 * Júlia de Oliveira Sartori  
-* 
+
 ## Orientador
 
 * Professor José Wilson da Costa
