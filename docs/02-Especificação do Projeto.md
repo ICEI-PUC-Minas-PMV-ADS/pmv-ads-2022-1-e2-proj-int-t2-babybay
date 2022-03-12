@@ -19,7 +19,7 @@ Instagram<br> TikTok<br> Twitter | Encontrar o equilíbrio entre investir em si 
  ________________________________________________________________________________________
  Nome | Idade | Ocupação
 ---|---|---
-![Empresário]()<br>**João Guilherme Pereira** | 35 anos | Recém-desempregado, mas trabalha com Design em empresas de Publicidade e Propaganda. 
+![JoseGuilherme](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/f79e28c42272fe9ec4eacb73846f3c603b5f5c16/image-readme/Persona-Jo%C3%A3oGuilherme.png)<br>**João Guilherme Pereira** | 35 anos | Recém-desempregado, mas trabalha com Design em empresas de Publicidade e Propaganda. 
 
 Aplicativos | Motivações | Frustrações | Hobbies/História
 ---|---|---|---
@@ -27,7 +27,7 @@ Twitter<br> YouTube | Encontrar outro emprego o quão antes possível, para que 
 ________________________________________________________________________________________
  Nome | Idade | Ocupação
 ---|---|---
-![Marketing]()**Carlos Oliveira** | 29 anos | Mestrando na área de Ciências da Computação, é pai solteiro, ex-namorada e mãe de seu filho mora em outro continente e não possui meios financeiros o suficiente para ajudar financeiramente. 
+![CarlosOliveira](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/f79e28c42272fe9ec4eacb73846f3c603b5f5c16/image-readme/Persona-CarlosOliveira.png)**Carlos Oliveira** | 29 anos | Mestrando na área de Ciências da Computação, é pai solteiro, ex-namorada e mãe de seu filho mora em outro continente e não possui meios financeiros o suficiente para ajudar financeiramente. 
 
 Aplicativos | Motivações | Frustrações | Hobbies/História
 ---|---|---|---
@@ -112,5 +112,5 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 
 O diagrama de casos de uso a seguir demonstra as principais ligações entre casos de usos e atores, permitindo detalhar os requisitos funcionais identificados na etapa de elicitação. 
 
-
+![DiagramaCasoUso](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/f79e28c42272fe9ec4eacb73846f3c603b5f5c16/image-readme/Diagrama%20caso%20de%20uso%20%20finalizado.png)
 
