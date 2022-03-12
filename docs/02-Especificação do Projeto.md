@@ -14,7 +14,7 @@ Nome | Idade | Ocupação
 
 Aplicativos | Motivações | Frustrações | Hobbies/História
 ---|---|---|---
-- Instagram<br> - TikTok<br> Twitter | - Encontrar o equilíbrio entre investir em si mesma para alcançar seu sonho de ser enfermeira, agora que está de volta ao ensino superior, e prover as melhores condições e oportunidades para o crescimento de seu filho, agora com 5 anos, colaborando em suas despesas que são arcadas majoritariamente pelos avós do menino (seus pais). | - Não sobra dinheiro algum para extras (roupas, cursos, cinema, entre outros);<br><br> - Pouco ou nenhum tempo livre. | - Gosta de gravar conteúdo para a rede social Instagram sobre ser mãe de primeira viagem e solteira, tendo uma base modesta, mas sólida de seguidores. Ultimamente tem se interessado por ambientalismo e sustentabilidade.<br><br> - Tornou-se mãe solteira aos 22 anos, quando ainda estava no 3º período de enfermagem; decidiu dar uma pausa nos estudos por uns anos até que seu filho fosse maior.  
+Instagram<br> TikTok<br> Twitter | Encontrar o equilíbrio entre investir em si mesma para alcançar seu sonho de ser enfermeira, agora que está de volta ao ensino superior, e prover as melhores condições e oportunidades para o crescimento de seu filho, agora com 5 anos, colaborando em suas despesas que são arcadas majoritariamente pelos avós do menino (seus pais). | Não sobra dinheiro algum para extras (roupas, cursos, cinema, entre outros);<br><br> ouco ou nenhum tempo livre. | Gosta de gravar conteúdo para a rede social Instagram sobre ser mãe de primeira viagem e solteira, tendo uma base modesta, mas sólida de seguidores. Ultimamente tem se interessado por ambientalismo e sustentabilidade.<br><br> Tornou-se mãe solteira aos 22 anos, quando ainda estava no 3º período de enfermagem; decidiu dar uma pausa nos estudos por uns anos até que seu filho fosse maior.  
 
  ________________________________________________________________________________________
  Nome | Idade | Ocupação
@@ -23,7 +23,7 @@ Aplicativos | Motivações | Frustrações | Hobbies/História
 
 Aplicativos | Motivações | Frustrações | Hobbies/História
 ---|---|---|---
-- Twitter<br> - YouTube | - Encontrar outro emprego o quão antes possível, para que sua esposa não tenha que arcar com os gastos da família (eles e seus dois filhos) sozinha.<br><br> - Preocupado com a quantidade de despesas que os filhos geram anualmente, devido ao seu crescimento e custos com educação. | -Falência da empresa em que trabalhava depois de tanto tempo e energia investidos.<br><br> - Preços de quaisquer bens de consumo aumentando constantemente.<br><br> - Não estar conseguindo ser contratado por outra empresa. | - Ciclismo e ensinar sua filha mais velha (8 anos) sobre.<br><br> - Assistir e incentivar sua filha mais nova (5 anos) no novo interesse dela, jogar vôlei. 
+Twitter<br> YouTube | Encontrar outro emprego o quão antes possível, para que sua esposa não tenha que arcar com os gastos da família (eles e seus dois filhos) sozinha.<br><br> Preocupado com a quantidade de despesas que os filhos geram anualmente, devido ao seu crescimento e custos com educação. | Falência da empresa em que trabalhava depois de tanto tempo e energia investidos.<br><br> Preços de quaisquer bens de consumo aumentando constantemente.<br><br> Não estar conseguindo ser contratado por outra empresa. | Ciclismo e ensinar sua filha mais velha (8 anos) sobre.<br><br> Assistir e incentivar sua filha mais nova (5 anos) no novo interesse dela, jogar vôlei. 
 ________________________________________________________________________________________
  Nome | Idade | Ocupação
 ---|---|---
@@ -31,7 +31,7 @@ ________________________________________________________________________________
 
 Aplicativos | Motivações | Frustrações | Hobbies/História
 ---|---|---|---
- - Twitter<br> - YouTube<br> Linkedin. | - Terminar o mestrado e conseguir um emprego com bom salário para que os avós do menino parem de ter tantas despesas com ele e seu filho (moram na casa dos pais de Carlos). | - Bolsa do mestrado insuficiente para arcar com os custos de vida dele e do filho.<br><br> - Menino entrando em uma intensa fase de crescimento acaba demandando muito investimento. | - Gosta de jogar videogames, com o filho e também sozinho.<br><br> - Decidiu fazer o mestrado após ser demitido do seu antigo emprego e achar que possibilitaria melhores oportunidades em sua carreira.
+ Twitter<br> YouTube<br> Linkedin. | Terminar o mestrado e conseguir um emprego com bom salário para que os avós do menino parem de ter tantas despesas com ele e seu filho (moram na casa dos pais de Carlos). | Bolsa do mestrado insuficiente para arcar com os custos de vida dele e do filho.<br><br> Menino entrando em uma intensa fase de crescimento acaba demandando muito investimento. | Gosta de jogar videogames, com o filho e também sozinho.<br><br> Decidiu fazer o mestrado após ser demitido do seu antigo emprego e achar que possibilitaria melhores oportunidades em sua carreira.
 ________________________________________________________________________________________
 
 ## Histórias de Usuários
