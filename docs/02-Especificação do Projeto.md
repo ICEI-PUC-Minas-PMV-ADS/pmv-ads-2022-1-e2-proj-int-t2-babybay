@@ -6,11 +6,11 @@ A definição do problema e os pontos mais relevantes a serem tratados nesse pro
 ## Personas
 
 As personas levantadas durante o processo, estão representadas abaixo: 
-
+x
 ________________________________________________________________________________________
 Nome | Idade | Ocupação
 ---|---|---
-![AnaAlice](image-readme/Persona-AnaAlice.png)**Ana Alice Soares** | 27 anos | Estudante de Enfermagem. Mãe solteira, também trabalha meio período em uma livraria local pertencente ao avô de uma de suas amigas, com o intuito de conseguir manter seus estudos e ainda colaborar em casa e na criação de seu filho.
+![AnaAlice](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/0f63a4cfea122d5909331dfd03d480f6153851eb/image-readme/Persona-AnaAlice.png)**Ana Alice Soares** | 27 anos | Estudante de Enfermagem. Mãe solteira, também trabalha meio período em uma livraria local pertencente ao avô de uma de suas amigas, com o intuito de conseguir manter seus estudos e ainda colaborar em casa e na criação de seu filho.
 
 Aplicativos | Motivações | Frustrações | Hobbies/História
 ---|---|---|---
