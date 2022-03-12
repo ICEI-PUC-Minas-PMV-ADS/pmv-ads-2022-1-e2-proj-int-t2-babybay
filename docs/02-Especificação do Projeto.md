@@ -47,15 +47,6 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 | Carlos Oliveira | Aplicação para buscar outros pais ou responsáveis em sua região | Facilidade a aquisição de peças e garantir formas de mediação da entrega |
 | João Guilherme Teixeira | Comprar menos roupas novas | Ajudar na preservação do meio ambiente 
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
-
 ## Requisitos do Projeto
 
 O escopo funcional do projeto é definido por requisitos funcionais que descrevem a interação dos usuários com a aplicação, e por requisitos não-funcionais que descrevem aspectos do sistema. Esses requisitos estão apresentados abaixo:	
@@ -121,5 +112,5 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 
 O diagrama de casos de uso a seguir demonstra as principais ligações entre casos de usos e atores, permitindo detalhar os requisitos funcionais identificados na etapa de elicitação. 
 
+![CasoDeUso](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/issues/1#issue-1167357027)
 
-IMAGEM AQUI
