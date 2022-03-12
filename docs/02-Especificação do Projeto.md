@@ -10,7 +10,7 @@ As personas levantadas durante o processo, estão representadas abaixo:
 ________________________________________________________________________________________
 Nome | Idade | Ocupação
 ---|---|---
-![Contadora]()**Ana Alice Soares** | 27 anos | Estudante de Enfermagem. Mãe solteira, também trabalha meio período em uma livraria local pertencente ao avô de uma de suas amigas, com o intuito de conseguir manter seus estudos e ainda colaborar em casa e na criação de seu filho.
+![AnaAlice](image-readme/Persona-AnaAlice.png)**Ana Alice Soares** | 27 anos | Estudante de Enfermagem. Mãe solteira, também trabalha meio período em uma livraria local pertencente ao avô de uma de suas amigas, com o intuito de conseguir manter seus estudos e ainda colaborar em casa e na criação de seu filho.
 
 Aplicativos | Motivações | Frustrações | Hobbies/História
 ---|---|---|---
@@ -112,5 +112,5 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 
 O diagrama de casos de uso a seguir demonstra as principais ligações entre casos de usos e atores, permitindo detalhar os requisitos funcionais identificados na etapa de elicitação. 
 
-https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/issues/1#issue-1167357027
+
 
