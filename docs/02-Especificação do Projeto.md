@@ -10,7 +10,7 @@ As personas levantadas durante o processo, estão representadas abaixo:
 ________________________________________________________________________________________
 Nome | Idade | Ocupação
 ---|---|---
-![Contadora]  )**Ana Alice Soares** | 27 anos | Estudante de Enfermagem. Mãe solteira, também trabalha meio período em uma livraria local pertencente ao avô de uma de suas amigas, com o intuito de conseguir manter seus estudos e ainda colaborar em casa e na criação de seu filho.
+![Contadora]()**Ana Alice Soares** | 27 anos | Estudante de Enfermagem. Mãe solteira, também trabalha meio período em uma livraria local pertencente ao avô de uma de suas amigas, com o intuito de conseguir manter seus estudos e ainda colaborar em casa e na criação de seu filho.
 
 Aplicativos | Motivações | Frustrações | Hobbies/História
 ---|---|---|---
@@ -19,19 +19,19 @@ Instagram;<br> TikTok;<br> Twitter |  Encontrar o equilíbrio entre investir em 
  ________________________________________________________________________________________
  Nome | Idade | Ocupação
 ---|---|---
-![Empresário](https://user-images.githubusercontent.com/91077484/136857072-9d8dabcd-d3a7-43fa-95b3-6c69cb6e0ba3.png)<br>**João Guilherme Pereira** | 66 anos | Empresário e proprietário de um supermercado de pequeno porte. 
+![Empresário]()<br>**João Guilherme Pereira** | 35 anos | Recém-desempregado, mas trabalha com Design em empresas de Publicidade e Propaganda. 
 
 Aplicativos | Motivações | Frustrações | Hobbies/História
 ---|---|---|---
-Facebook. | Ensinar o filho sobre a empresa para que ele possa dar continuidade e até mesmo expandir. | Alto custo na compra de produtos para revenda;<br> Inflação diminuindo o poder de compra dos clientes;<br> Despreparo do filho para assumir o negócio da família. | Assistir futebol com o filho Mateus;<br> Adora o silêncio da pescaria no fim de semana.
+Twitter;<br> YouTube |   Encontrar outro emprego o quão antes possível, para que sua esposa não tenha que arcar com os gastos da família (eles e seus dois filhos) sozinha;<br> Preocupado com a quantidade de despesas que os filhos geram anualmente, devido ao seu crescimento e custos com educação.  |   Falência da empresa em que trabalhava m depois de tanto tempo e energia investidos;<br>   Preços de quaisquer bens de consumo aumentando constantemente;<br> Não estar conseguindo ser contratado por outra empresa. | Ciclismo e ensinar sua filha mais velha (8 anos) sobre;<br> Assistir e incentivar sua filha mais nova (5 anos) no novo interesse dela, jogar vôlei. 
 ________________________________________________________________________________________
  Nome | Idade | Ocupação
 ---|---|---
-![Marketing](https://user-images.githubusercontent.com/91077484/136857076-523e11fb-09a5-4bb5-ac53-c30230ae78f8.png)**Cristina Vieira Netto** | 39 anos | Tecnóloga em marketing, cursando bacharelado em administração, empreendedora e proprietária de microempresa no ramo de publicidade. 
+![Marketing]()**Carlos Oliveira** | 29 anos | Mestrando na área de Ciências da Computação, é pai solteiro, ex-namorada e mãe de seu filho mora em outro continente e não possui meios financeiros o suficiente para ajudar financeiramente. 
 
 Aplicativos | Motivações | Frustrações | Hobbies/História
 ---|---|---|---
- Instagram;<br> Facebook;<br> Tik Tok. | Expandir a empresa e abrir filiais. | Dificuldade no início do negócio;<br> Dificuldade de implementação de tecnologia para expandir a empresa. | Ama música, tendo preferência para rock e pop;<br> Gosta de uma boa leitura, especialmente de romances.    
+ Twitter;<br> YouTube;<br> Linkedin. | Terminar o mestrado e conseguir um emprego com bom salário para que os avós do menino parem de ter tantas despesas com ele e seu filho (moram na casa dos pais de Carlos). |  Bolsa do mestrado insuficiente para arcar com os custos de vida dele e do filho;<br>  Menino entrando em uma intensa fase de crescimento acaba demandando muito investimento. |  Gosta de jogar videogames, com o filho e também sozinho;<br> Decidiu fazer o mestrado após ser demitido do seu antigo emprego e achar que possibilitaria melhores oportunidades em sua carreira.
 ________________________________________________________________________________________
 
 
@@ -44,8 +44,12 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|João Guilherme Teixeira | Roupas de crianças através de permuta ou doação | Para poupar dinheiro com roupas que serão usadas por pouco tempo |
+|Ana Alice Soares | Alternativas para desfazer das roupas que não cabem no filho sem gerar desperdício  | Conseguir efetuas trocas e evitar o acúmulo de roupas em bom estado de conservação |
+| Ana Alice Soares | Aplicação que faça a mediação de trocas de roupas | Contato e confiabilidade entre usuários; centralização de busca por roupas |
+| Carlos Oliveira | Aplicação para visualizar em fotos e vídeos o estado da roupa a ser trocada | Para garantir boas condições das peças |
+| Carlos Oliveira | Aplicação para buscar outros pais ou responsáveis em sua região | Facilidade a aquisição de peças e garantir formas de mediação da entrega |
+| João Guilherme Teixeira | Comprar menos roupas novas | Ajudar na preservação do meio ambiente 
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
