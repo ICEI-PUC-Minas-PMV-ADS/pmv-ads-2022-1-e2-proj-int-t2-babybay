@@ -1,46 +1,33 @@
-# Introdução
+# 1. Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+Quando se observa um site especializado em roupas infantis ou até mesmo uma vitrine de lojas desse segmento, um ponto que chama atenção logo à primeira vista é o alto custo das peças. Com o rápido crescimento das crianças, é intuitivo pensar que em poucos meses as roupas e o alto investimento serão perdidos. Essas roupas em bom estado acabam armazenadas nas casas, sofrendo a ação do tempo, ou são descartadas e causam prejuízos ambientais significativos. 
+
+O ciclo de compra, uso e possível descarte se torna insustentável ao longo do tempo. Segundo reportagem do Estadão (2021), a indústria da moda é responsável por cerca de 8% da emissão de gás carbônico na atmosfera, ficando atrás apenas do setor petrolífero. Soma-se a isso o descarte da própria indústria, que gira em torno de 25% de tudo que é produzido, temos um quadro desafiador.    
+
+Levando em consideração o alto índice de desemprego que assola o Brasil, juntamente com a crise causada pela pandemia da COVID-19, é coerente pensar em alternativas ao consumo desenfreado de itens que possam ser reaproveitados. Diante das dificuldades financeiras vividas por inúmeras famílias, é importante a reflexão sobre os recursos que serão descartados por uma pessoa e que podem ser úteis a outra. 
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+Conforme exposto, as famílias brasileiras, principalmente de baixa renda, não têm condições de se adequar ao consumismo estimulado pelo mercado. Aliado a isso, o alto custo das peças compromete grande parte da renda familiar, tornando o investimento muitas vezes inviável. Com o rápido desuso das peças, elas serão descartadas no meio ambiente, causando problemas ambientais ou serão armazenadas, desgastando com o tempo e perdendo seu propósito de utilidade. 
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+O objetivo geral desse trabalho é fornecer meios para que pais ou responsáveis por crianças obtenham formas de reduzir os custos financeiros e ambientais com vestuário infantil, realizando troca de roupas em comunidade, utilizando para isso ferramentas de tecnologia. 
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+Como objetivos específicos, podemos listar: 
+
+   Disponibilizar um meio seguro e acessível para trocas de peças roupas infantis; 
+
+   Garantis formas eficientes de registro em vídeos e fotos para avaliação das peças; 
+
+   Intermediar formas de entregas, fornecendo ferramentas de geolocalização; 
+
+   Permitir fácil comunicação entre as partes envolvidas na negociação; 
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+Reconhecendo os problemas existentes dentro da lógica de mercado, torna-se cada vez mais necessário criar formas de consumo consciente dentro do ponto de vista financeiro e ecológico. Visando minimizar os impactos negativos na nossa sociedade, a proposta apresentada tem o intuito de desenvolver alternativas tecnológicas e seguras para que pais ou responsáveis por crianças possam ter formas seguras de realizarem troca de peças de vestuário infantil.  
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
-
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
-
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+Embora diversos perfis de pais ou responsáveis possam se beneficiar com essa proposta, o foco desse projeto está em pessoas de classes menos favorecidas, visto que possuem menos recursos financeiros para suprir as necessidades de suas famílias, e em pessoas que querem contribuir com um consumo sustentável, visando também um futuro melhor para seus filhos. 
