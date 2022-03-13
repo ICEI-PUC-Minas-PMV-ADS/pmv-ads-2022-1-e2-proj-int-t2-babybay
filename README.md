@@ -31,8 +31,7 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 <li><a href="src/README.md"> Código Fonte</a></li>
 
 # Apresentação da Solução
-[![thumbnail](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/24e4a8b60aabbba945290ec3db6def505a63be5c/image-readme/Video-humbnail.png)](
-https://www.youtube.com/watch?v=OZXhwpcdUhk)
+<a href="https://www.youtube.com/watch?v=OZXhwpcdUhk" target="_blank">
 
 # Documentação
 
