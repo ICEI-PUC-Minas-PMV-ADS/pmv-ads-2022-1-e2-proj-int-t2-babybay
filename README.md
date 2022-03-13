@@ -23,8 +23,16 @@ O objetivo desse projeto é o desenvolvimento de uma aplicação para realizar a
 
 ## Instruções de utilização
 
-COMPLETAR APÓS PRIMEIRA VERSÃO <br><br>
+*COMPLETAR APÓS PRIMEIRA VERSÃO*<br><br>
 Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+
+# Código
+*COMPLETAR APÓS PRIMEIRA VERSÃO*<br><br>
+<li><a href="src/README.md"> Código Fonte</a></li>
+
+# Apresentação da Solução
+[![thumbnail](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/24e4a8b60aabbba945290ec3db6def505a63be5c/image-readme/Video-humbnail.png)](
+https://www.youtube.com/watch?v=OZXhwpcdUhk)
 
 # Documentação
 
@@ -44,10 +52,3 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 <li><a href="docs/13-Referências.md"> Referências</a></li>
 </ol>
 
-# Código
-
-<li><a href="src/README.md"> Código Fonte</a></li>
-
-# Apresentação
-
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
