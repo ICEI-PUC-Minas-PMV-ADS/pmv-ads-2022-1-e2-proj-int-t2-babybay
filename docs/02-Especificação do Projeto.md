@@ -57,23 +57,25 @@ A tabela a seguir apresenta os requisitos funcionais, conforme o seu grau de rel
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| O usuário deve se cadastrar na plataforma com seus dados pessoais, incluindo endereço e CPF  | ALTA | 
-|RF-002| A aplicação deve permitir a criação de loja virtual para anúncio de roupas destinadas a troca ou doação    | ALTA |
+|RF-001| O usuário deve se cadastrar na plataforma com seus dados pessoais, incluindo endereço completo, nome, CPF e email  | ALTA | 
+|RF-002| A aplicação deve permitir anunciar roupas destinadas a troca ou doação  | ALTA |
 |RF-003| A aplicação deve permitir o cadastro de produto com descrição, tipo, tamanho e idade aproximada da criança que utilizou a roupa | ALTA |
 |RF-004| Aplicação deve permitir a postagem de fotos e descrição no anúncio do produto | ALTA |
 |RF-005| A aplicação deve permitir a postagem de vídeo no anúncio do produto | BAIXA |
-|RF-006| A aplicação deve permitir ao usuário a exclusão de anúncio, produto ou cadastro de usuário | MÉDIA |
+|RF-006| A aplicação deve permitir ao usuário a exclusão de anúncio e cadastro de produto | MÉDIA |
 |RF-007| A aplicação deve exibir para o usuário a opção de curtir produtos de interesse, bem como favoritar lojas | MÉDIA  |
 |RF-008| A aplicação deve ter campo de busca por lojas e produtos | MÉDIA |
 |RF-009| A aplicação deve possuir filtros de busca para idade, categoria, tamanho e gênero  | MÉDIA |
 |RF-010| A aplicação deve fornecer ao usuário a possibilidade de ajustar seu raio geográfico de busca | BAIXA |
 |RF-011| A aplicação deve permitir a troca de informações entre as partes via caixa de perguntas e respostas | MÉDIA |
-|RF-012| A aplicação deve disponibilizar a opção ao usuário doar produto para outros usuários  | BAIXA |
-|RF-013| A aplicação deve permitir ao usuário recusar ou aceitar a solicitação de troca  | MÉDIA |
-|RF-014| A aplicação deve validar com as partes envolvidas a realização da troca  | BAIXA |
-|RF-015| A aplicação deve solicitar as partes envolvidas na negociação a avaliação da troca  | BAIXA |
+|RF-012| O usuário poderá adquirir moedas virtuais BabyCoin, mediante a PIX ou TED, para comprar por peças de roupas | BAIXA |
+|RF-013| A aplicação deve permitir ao usuário aceitar, recusar ou cancelar troca  | MÉDIA |
+|RF-014| A aplicação deve solicitar ao usuário a finalização da troca | BAIXA |
+|RF-015| A aplicação deve solicitar ao usuário a avaliação da troca   | BAIXA |
 |RF-016| A aplicação deve fornecer campo de ajuda e informações para orientação de uso  | BAIXA | 
 |RF-017| A aplicação deve exibir para o usuário a opção de denunciar postagens com conteúdo malicioso | BAIXA |
+|RF-018| O administrador do sistema ter acesso prévio ao anúncio para validá-lo | MÉDIA |
+|RF-019| A aplicação deve permitir ao usuário a exclusão ou desativação de sua conta | MÉDIA |
 
 ### Requisitos não Funcionais
 
