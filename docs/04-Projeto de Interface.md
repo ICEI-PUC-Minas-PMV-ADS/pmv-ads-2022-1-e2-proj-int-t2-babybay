@@ -199,7 +199,7 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 > **Links Úteis**:
 > - [Fluxograma online: seis sites para fazer gráfico sem instalar nada | Produtividade | TechTudo](https://www.techtudo.com.br/listas/2019/03/fluxograma-online-seis-sites-para-fazer-grafico-sem-instalar-nada.ghtml)
 
- <b>Esquema Relacional</b>
+ <b> 6.3 Esquema Relacional</b>
  O modelo a seguir demonstra o esquema das tabelas para um Banco de Dados Relacional. 
 
 ![Exemplo de Wireframe](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/Diagramas/BabyBay_Esquema_Relacional.png)
