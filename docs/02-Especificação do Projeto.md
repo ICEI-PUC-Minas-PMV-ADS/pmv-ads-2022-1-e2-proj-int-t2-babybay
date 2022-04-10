@@ -64,7 +64,7 @@ A tabela a seguir apresenta os requisitos funcionais, conforme o seu grau de rel
 |RF-005| A aplicação deve permitir a postagem de vídeo no anúncio do produto | BAIXA |
 |RF-006| A aplicação deve permitir ao usuário a exclusão de anúncio e cadastro de produto | MÉDIA |
 |RF-007| A aplicação deve exibir para o usuário a opção de curtir produtos de interesse, bem como favoritar lojas | MÉDIA  |
-|RF-008| A aplicação deve ter campo de busca por lojas e produtos | MÉDIA |
+|RF-008| A aplicação deve ter campo de busca de produtos | MÉDIA |
 |RF-009| A aplicação deve possuir filtros de busca para idade, categoria, tamanho e gênero  | MÉDIA |
 |RF-010| A aplicação deve fornecer ao usuário a possibilidade de ajustar seu raio geográfico de busca | BAIXA |
 |RF-011| A aplicação deve permitir a troca de informações entre as partes via caixa de perguntas e respostas | MÉDIA |
@@ -74,8 +74,7 @@ A tabela a seguir apresenta os requisitos funcionais, conforme o seu grau de rel
 |RF-015| A aplicação deve solicitar ao usuário a avaliação da troca   | BAIXA |
 |RF-016| A aplicação deve fornecer campo de ajuda e informações para orientação de uso  | BAIXA | 
 |RF-017| A aplicação deve exibir para o usuário a opção de denunciar postagens com conteúdo malicioso | BAIXA |
-|RF-018| O administrador do sistema ter acesso prévio ao anúncio para validá-lo | MÉDIA |
-|RF-019| A aplicação deve permitir ao usuário a exclusão ou desativação de sua conta | MÉDIA |
+|RF-018| A aplicação deve permitir ao usuário a exclusão ou desativação de sua conta | MÉDIA |
 
 ### Requisitos não Funcionais
 
@@ -85,19 +84,16 @@ A tabela a seguir apresenta os requisitos funcionais, conforme o seu grau de rel
 |RNF-002| O sistema deve ser implementado no back-end utilizando a linguagem C# e banco de dados relacional | MÉDIA | 
 |RNF-003| O sistema deve estar disponível pelo menos 90% das 24h por dia e 7 dias na semana | BAIXA |
 |RNF-004| O sistema deve retornar a busca por produtos em no máximo 5 segundos  | MÉDIA |
-|RNF-005| A aplicação deve fornecer ferramenta de geolocalização | MÉDIA |
-|RNF-006| O sistema deverá suportar arquivos de imagens png e jpeg com tamanho máximo de 8 mb | ALTA |
-|RNF-007| O sistema deve suportar arquivos de vídeo no formato mp4, mkv ou ogv com duração de no máximo 15 segundos | MÉDIA |
-|RNF-008| O sistema não deve validar postagens de produto com menos de três fotos, um vídeo e uma descrição | MÉDIA |
-|RNF-009| O sistema deve ser responsivo, se adaptando a diversos formatos | ALTA |
-|RNF-010| O sistema deve fornecer opções de acessibilidade tais como ajuste de contraste e tamanho fonte | BAIXA |
+|RNF-005| O sistema deverá suportar arquivos de imagens png e jpeg com tamanho máximo de 8 mb | ALTA |
+|RNF-006| O sistema deve suportar arquivos de vídeo no formato mp4, mkv ou ogv com duração de no máximo 15 segundos | MÉDIA |
+|RNF-007| O sistema não deve validar postagens de produto com menos de três fotos, um vídeo e uma descrição | MÉDIA |
+|RNF-008| O sistema deve ser responsivo, se adaptando a diversos formatos | ALTA |
+|RNF-009| O sistema deve fornecer opções de acessibilidade tais como ajuste de contraste e tamanho fonte | BAIXA |
+|RNF-010| As informações cadastrais do cliente devem ser acessadas apenas pelo usuário e pelo administrador do sistema  | MÉDIA |
 |RNF-011| A aplicação deve notificar as partes em eventuais interesses de produtos  | MÉDIA |
 |RNF-012| A aplicação deve registrar e exibir as trocas realizadas através de um histórico de usuário | MÉDIA |
-|RNF-013| A loja virtual deve ser bloqueada automaticamente em caso de 3 denúncias por conteúdo indevido  | BAIXA |
-|RNF-014| Os usuários envolvidos em uma negociação devem ser impedidos de efetuar novas trocas caso não avaliem a última troca realizada | BAIXA |
-|RNF-015| A aplicação deverá permitir ao administrador do sistema realizar análise das peças via foto e vídeo, para posterior validação na moeda interna *BabyCoin*  | MÉDIA |
-|RNF-016| O sistema deve gerenciar o fluxo de entrada e saída da moeda interna *BabyCoin* na conta dos usuários no momento da finalização da troca | BAIXA |
-|RNF-017| A aplicação deverá permitir ao usuário a compra da moeda interna *BabyCoin*, mediante a pagamento via PIX  | BAIXA |
+|RNF-013| A loja virtual deve ser bloqueada automaticamente em caso de 3 denúncias de usuários | BAIXA |
+|RNF-014| A loja virtual deve ser bloqueada automaticamente após 3 dias de pendência na avaliação da troca | BAIXA |
 
 
 ## Restrições
