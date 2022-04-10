@@ -1,17 +1,15 @@
-<b> 4. Projeto da Solução 
+<b> 5. Projeto da Solução 
 
-4.1 Projeto de Interface </b>  
+5.1 Projeto de Interface </b>  
 
 Dentre as preocupações para a montagem da interface do sistema, estamos estabelecendo foco em questões como agilidade, acessibilidade e usabilidade. Desta forma, o projeto tem uma identidade visual padronizada em todas as telas que são projetadas para funcionamento em desktops.  
-
- ![relacoes-tabela](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/relacoes.jpeg)
 
 
 <b> 4.2 Diagrama de Fluxo </b>
 
 O diagrama que define o fluxo do sistema é representado a seguir: 
 
-   ![gitflow](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/gitflow.jpeg)
+   ![fluxousuario](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/fluxo_usuario.jpeg)
 
 Figura 3 – Fluxo do usuário 
 
