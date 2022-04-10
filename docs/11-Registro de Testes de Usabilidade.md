@@ -1,8 +1,13 @@
-# Registro de Testes de Usabilidade
+# 8. Registro de Testes de Usabilidade
 
-Após realizar os testes de usabilidade, obtém-se um relatório a partir das análises realizadas. O Registro de Testes de Usabilidade é um relatório que contém as evidências dos testes e relatos dos usuários participantes, baseado no Plano de Testes de Usabilidade desenvolvido para os casos de uso desta etapa.
+O usuário deve ser capaz de adicionar roupas no seu guarda roupa com as devidas descrições exigidas pela plataforma, com fotos e vídeo para detalhar visualmente a peça. 
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Registro de Testes de Usabilidade”.
+![legenda](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/Teste-Software/Legenda.PNG)
 
-> **Links Úteis**:
-> - [Ferramentas de Testes de Usabilidade](https://www.usability.gov/how-to-and-tools/resources/templates.html)
+![reg1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/Teste-Usabilidade/1.png)
+
+![reg2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/Teste-Usabilidade/2.png)
+
+![reg3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/Teste-Usabilidade/3.png)
+
+![reg4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/Teste-Usabilidade/4.png)
