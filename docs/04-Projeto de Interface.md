@@ -1,6 +1,6 @@
-4. Projeto da Solução 
+<b> 4. Projeto da Solução 
 
-4.1 Projeto de Interface  
+4.1 Projeto de Interface </b>  
 
 Dentre as preocupações para a montagem da interface do sistema, estamos estabelecendo foco em questões como agilidade, acessibilidade e usabilidade. Desta forma, o projeto tem uma identidade visual padronizada em todas as telas que são projetadas para funcionamento em desktops.  
 
