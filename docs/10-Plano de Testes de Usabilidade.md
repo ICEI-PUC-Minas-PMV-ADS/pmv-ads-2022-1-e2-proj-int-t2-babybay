@@ -33,12 +33,10 @@ Critérios de Êxito | O usuário deve ser capaz de realizar o cadastro e logi
 
 Casos de Teste | CT-02. Cadastro de Produto
 --- | --- 
-Requisitos Associados | RF-03: A aplicação deve permitir o cadastro de produto;<br>
-RF-04: Aplicação deve permitir a postagem de fotos e descrição no anúncio do produto;<br> RF-05: A aplicação deve permitir ao usuário a postagem de vídeos no anúncio do produto.  
-Objetivo do Teste | Permitir o cadastro de produto com inclusão de fotos e descrição.
-Passos | 1. Realizar login no sistema;<br> 2. No menu principal, escolher a aba “Guarda Roupa”<br> 3. Escolha a opção “Criar novo anúncio”;<br> 4.Informar um título para a peça;<br> 5. Preencher a descrição geral com informações com o estado da peça e características que achar relevantes;<br> 6. Informar os tipos de filtros nos campos “Idade”, “Categoria” e “Gênero”;<br> 7. Adicionar no mínimo 3 fotos da peça no campo “Adicionar Fotos”;<br> 8. Adicionar vídeo para detalhar visualmente aspectos da peça no campo “Adicionar Vídeo”; 9. Informar o CEP da retirada ou escolher a opção de utilizar o já cadastrado;<br> 10. Clicar em “Publicar postagem”.
+Requisitos Associados | RF-03: A aplicação deve permitir o cadastro de produto;<br> RF-04: Aplicação deve permitir a postagem de fotos e descrição no anúncio do produto;<br> RF-05: A aplicação deve permitir ao usuário a postagem de vídeos no anúncio do produto.  
+Objetivo do Teste | Permitir o cadastro de produto com inclusão de fotos e descrição. 
+Passos | 1. Realizar login no sistema,<br> 2. No menu principal, escolher a aba “Guarda Roupa”;<br> 3. Escolha a opção “Criar novo anúncio”;<br> 4. Informar um título para a peça;<br> 5. Preencher a descrição geral com informações com o estado da peça e características que achar relevantes;<br> 5. Informar os tipos de filtros nos campos “Idade”, “Categoria” e “Gênero”;<br> 6. Adicionar no mínimo 3 fotos da peça no campo “Adicionar Fotos”;<br> 7. Adicionar vídeo para detalhar visualmente aspectos da peça no campo “Adicionar Vídeo”;<br> 8. Informar o CEP da retirada ou escolher a opção de utilizar o já cadastrado;<br> 9. Clicar em “Publicar postagem”. 
 Critérios de Êxito | O usuário deve ser capaz de adicionar roupas no seu guarda roupa com as devidas descrições exigidas pela plataforma, com fotos e vídeo para detalhar visualmente a peça. 
-
 
 Casos de Teste | CT-03. Excluir anúncio de peça cadastrada
 --- | --- 
@@ -131,6 +129,5 @@ Casos de Teste | CT-14 A aplicação deve disponibilizar a opção de denunciar 
 --- | --- 
 Requisitos Associados | RF-17 - A aplicação deve exibir para o usuário a opção de denunciar postagens e usuários falsos ou maliciosos; 
 Objetivo do Teste | Poder denunciar uma postagem de roupa ou usuário; 
-Passos | 1. No anúncio, página de usuário (“Guarda-roupa de usuário) ou página de solicitação de troca (mensagens), clicar nas opções “Denunciar postagem ou usuário”;<br> 2. Escolha o motivo pelo qual está se denunciando aquela postagem ou usuário, dentre as opções listadas; <br> 3.
-Clicar em “Enviar”; 
+Passos | 1. No anúncio, página de usuário (“Guarda-roupa de usuário) ou página de solicitação de troca (mensagens), clicar nas opções “Denunciar postagem ou usuário”;<br> 2. Escolha o motivo pelo qual está se denunciando aquela postagem ou usuário, dentre as opções listadas;<br> 3. Clicar em “Enviar”.
 Critérios de Êxito | Ser capaz de denunciar um usuário ou uma postagem da aba de busca por um motivo específico. 
