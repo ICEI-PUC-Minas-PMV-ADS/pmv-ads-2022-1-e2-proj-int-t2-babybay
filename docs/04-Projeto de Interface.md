@@ -185,16 +185,14 @@ Após clicar na opção de denúncia de postagem ou anunciante que é disponibil
 Figura 29 – Página de denúncia de postagem e/ou usuário 
 
 
-# Projeto de Interface
+  <b>6.o Análise</b>
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
+O Diagrama de Classes representa conceitos e dados no mundo da aplicação. Num segundo momento esse diagrama será detalhado para incremento das tecnologias. 
 
-Dentre as preocupações para a montagem da interface do sistema, estamos estabelecendo foco em questões como agilidade, acessibilidade e usabilidade. Desta forma, o projeto tem uma identidade visual padronizada em todas as telas que são projetadas para funcionamento em desktops.  
+<b> 6.1 Diagrama de classes</b>
+O Diagrama de Classes representa conceitos e dados no mundo da aplicação. Num segundo momento esse diagrama será detalhado para incremento das tecnologias:
 
-## Diagrama de Fluxo
-O diagram de fluxo do sistema é representado a seguir:
-
-![Diagrama de Fluxo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Fluxo%20-%20Copia.png)
+![Diagrama de classes](img/BabyBay_Diagrama_Classe.png)
 
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas de Fluxo”.
 
