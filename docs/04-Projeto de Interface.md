@@ -192,7 +192,7 @@ O Diagrama de Classes representa conceitos e dados no mundo da aplicação. Num 
 <b> 6.1 Diagrama de classes</b>
 O Diagrama de Classes representa conceitos e dados no mundo da aplicação. Num segundo momento esse diagrama será detalhado para incremento das tecnologias:
 
-![Diagrama de classes](img/BabyBay_Diagrama_Classe.png)
+![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
 
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas de Fluxo”.
 
