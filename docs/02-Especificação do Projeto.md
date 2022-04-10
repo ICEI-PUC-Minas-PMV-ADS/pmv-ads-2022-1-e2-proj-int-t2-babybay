@@ -6,7 +6,7 @@ A definição do problema e os pontos mais relevantes a serem tratados nesse pro
 ## Personas
 
 As personas levantadas durante o processo, estão representadas abaixo: 
-x
+
 ________________________________________________________________________________________
 Nome | Idade | Ocupação
 ---|---|---
