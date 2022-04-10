@@ -194,7 +194,7 @@ Dentre as preocupações para a montagem da interface do sistema, estamos estabe
 ## Diagrama de Fluxo
 O diagram de fluxo do sistema é representado a seguir:
 
-![Exemplo de Diagrama de Fluxo](img/diagramafluxo2.jpg)
+![Diagrama de Fluxo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Fluxo%20-%20Copia.png)
 
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas de Fluxo”.
 
