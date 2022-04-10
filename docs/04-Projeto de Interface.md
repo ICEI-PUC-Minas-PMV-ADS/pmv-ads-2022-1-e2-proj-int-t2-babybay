@@ -9,7 +9,7 @@ Dentre as preocupações para a montagem da interface do sistema, estamos estabe
 
 O diagrama que define o fluxo do sistema é representado a seguir: 
 
-   <div style = "text-align:center;">![fluxousuario](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/fluxo_usuario.jpeg)</div>
+   ![fluxousuario](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/fluxo_usuario.jpeg)
 
 Figura 3 – Fluxo do usuário 
 
