@@ -90,3 +90,5 @@ Requisitos Associados |
 Objetivo do Teste |
 Passos |
 Critérios de Êxito |
+
+![Ana](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/Personas/Persona-AnaAlice.png)
