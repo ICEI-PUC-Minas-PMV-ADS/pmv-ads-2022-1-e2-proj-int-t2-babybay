@@ -6,7 +6,7 @@ Dentre as preocupações para a montagem da interface do sistema, estamos estabe
 
  
 
- 4.2 Diagrama de Fluxo 
+<b> 4.2 Diagrama de Fluxo </b>
 
 O diagrama que define o fluxo do sistema é representado a seguir: 
 
@@ -18,7 +18,7 @@ Figura 3 – Fluxo do usuário
 
   
 
-4.3 Wireframes Interativos 
+<b> 4.3 Wireframes Interativos </b> 
 
 Conforme fluxo de telas do projeto, apresentado no item anterior, as telas do sistema são apresentadas em detalhes nos itens que se seguem. As telas do sistema apresentam uma estrutura comum em que existem 3 grandes blocos, descritos a seguir. São eles:  
 
@@ -42,7 +42,7 @@ Figura 5 – Tela inicial do site com a barra lateral oculta
 
   
 
-4.3.1 Tela Login  
+<b> 4.3.1 Tela Login </b>  
 
 A tela Login será a que o usuário irá realizar o login no sistema através do e-mail e senha já cadastrados anteriormente. A tela também contará com opções de “Esqueceu a senha”, caso o usuário não lembre, que irá redirecioná-lo para uma tela em que ele possa recuperar a senha e um botão “Cadastre-se”, para caso o usuário não seja cadastrado, ele será redirecionado para uma tela onde fornecerá seus dados.  
 
@@ -56,7 +56,7 @@ Figura 6 – Login
 
  
 
-4.3.2 Tela de cadastro para usuário 
+<b> 4.3.2 Tela de cadastro para usuário </b>
 
 A tela de cadastro é responsável por obter informações essenciais do usuário. Conta com um redirecionamento para uma tela de cadastro de endereço e outra para confirmação do e-mail cadastrado. 
 
@@ -80,7 +80,7 @@ Figura 8 – Cadastro de endereço
 
   
 
-4.3.3 Tela inicial do usuário/Boas vindas do usuário  
+<b> 4.3.3 Tela inicial do usuário/Boas vindas do usuário </b>  
 
 Após realizado o login ou após finalizado o cadastro, o usuário é redirecionado a um menu principal que conta com as opções de criar novo anúncio, buscar roupas, guarda roupa de usuário e configurações. É possível também redirecionar ao inbox ao clicar no ícone de mensagem e também sair da conta. 
 
@@ -96,7 +96,7 @@ Figura 11 – Menu principal com a barra lateral à mostra
 
   
 
-4.3.4 Tela “Criar novo anúncio”  
+<b> 4.3.4 Tela “Criar novo anúncio” </b>  
 
 Após clicar na opção de criar novo anúncio no menu principal do usuário, redireciona-se para uma tela de postagem de peça de roupa. 
 
@@ -108,7 +108,7 @@ Após clicar na opção de criar novo anúncio no menu principal do usuário, re
 
   
 
-4.3.5 Telas de busca de roupas  
+<b> 4.3.5 Telas de busca de roupas </b>  
 
 Ao clicar em “Buscar roupas” no menu principal, o usuário é redirecionado às telas de busca, onde irá navegar para encontrar as postagens de peças que deseja adquirir, dentro dos critérios de idade, gênero e categoria que definir. 
 
@@ -124,7 +124,7 @@ Figura 14 – Tela de item individual
 
   
 
-4.3.6 Tela de inbox e negociação de troca  
+<b> 4.3.6 Tela de inbox e negociação de troca </b>  
 
 Após clicar no botão “Eu quero!” em uma peça, tanto na busca geral como na postagem individual, o usuário é redirecionado ao inbox do anunciante, que irá aceitar ou recusar a troca. 
 
@@ -136,7 +136,7 @@ Após clicar no botão “Eu quero!” em uma peça, tanto na busca geral como n
 
   
 
-4.3.7 Telas de “Meu guarda roupa” 
+<b> 4.3.7 Telas de “Meu guarda roupa” </b> 
 
 Após clicar em “Meu guarda roupa” no menu principal, o usuário é redirecionado às seções de anúncios já publicados (“Minhas publicações”), pendentes (“Publicações pendentes” - aguardam análise da moderação se o anúncio atende a todos os critérios estabelecidos e regras do site) e peças de outros usuários que foram favoritadas para possível compra posterior (“Favoritos”). 
 
@@ -158,7 +158,7 @@ Figura 18 – Meu guarda roupa: Favoritos
 
  
 
-4.3.8 Telas da seção “Minha carteira” 
+<b> 4.3.8 Telas da seção “Minha carteira” </b> 
 
 Após clicar em “Minha carteira” na barra lateral do site, o usuário é redirecionado à página que o possibilita checar seu saldo de Babycoin, moeda de troca do site, bem como fazer compra de mais Babycoin e também visualizar seu extrato da moeda e histórico de trocas. 
 
@@ -192,7 +192,7 @@ Figura 23 – Histórico de trocas
 
  
 
-4.3.9 Telas de Configurações e Desativar/Excluir Conta 
+<b> 4.3.9 Telas de Configurações e Desativar/Excluir Conta </b> 
 
 Após clicar em “Configurações” no menu principal, o usuário é redirecionado à página de ajustes da conta, onde pode alterar o nome de seu usuário, bem como sua senha, atualizar endereço cadastrado e desativar ou excluir conta. 
 
@@ -220,7 +220,7 @@ Figura 27 – Excluir conta
 
  
 
-4.3.10 Tela de visualização de perfil de usuário 
+<b> 4.3.10 Tela de visualização de perfil de usuário </b>
 
 Após clicar no username de um anunciante, o usuário é redirecionado ao seu perfil, onde todas as peças disponibilizadas por aquele e que ainda não foram trocadas estão dispostas. 
 
@@ -232,7 +232,7 @@ Figura 28 – Perfil de usuário
 
  
 
-4.3.11 Tela de denúncia de usuário ou postagem 
+<b> 4.3.11 Tela de denúncia de usuário ou postagem </b>
 
 Após clicar na opção de denúncia de postagem ou anunciante que é disponibilizada nas páginas das peças individuais ou no perfil deste, o usuário é redirecionado a uma página em que pode denunciar através de um dos motivos listados ou descrever algum outro. 
 
