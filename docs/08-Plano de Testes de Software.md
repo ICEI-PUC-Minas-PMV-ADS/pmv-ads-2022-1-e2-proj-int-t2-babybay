@@ -89,8 +89,7 @@ Saída Esperada | Após ter pago o valor, em um prazo de até 3 dias úteis, o s
 
 Caso de Teste | CT-10. Aceitar / Recusar ou Cancelar a solicitação de troca e finalizar troca (RF-13) / (RF-14)
 --- | ---
-Objetivo | Realizar as funções do ponto de vista do anunciante: Aceitar troca, recusar troca.<br>
-Realizar Funções do ponto de vista do cliente: Cancelar solicitação de troca. 
+Objetivo | Realizar as funções do ponto de vista do anunciante: Aceitar troca, recusar troca.<br> Realizar Funções do ponto de vista do cliente: Cancelar solicitação de troca. 
 Preparação | Após a solicitação de troca pelo cliente, o sistema apresentará uma notificação que para abrir o Menu Troca (tanto para o anunciante, quanto para o cliente). 
 Escolher opção (ENTRADA) | Dentro do Menu Troca:<br> * Anunciante: Opção “Aceitar troca” e “Cancelar troca”.<br> * Cliente: Opção “Cancelar Solicitação”. 
 Saída esperada (Anunciante) | Aceitar troca: O sistema deverá exibir os dados relativos ao produto e abrir a opção de “Chat”, para contato com o cliente.<br> Rejeitar troca: O sistema deverá apresentar a mensagem: "Tem certeza que você deseja cancelar a troca?”, caso “sim”: “Você recusou a troca”. Após isso, redirecionar para o menu do usuário. 
