@@ -1,16 +1,25 @@
-<b> 4. Metodologia  </b>
+# 4. Metodologia
 
 Para o desenvolvimento de Babybay, serão aplicados os princípios AGILE, utilizando as metodologias Scrum e Kanban (conhecido como "Scrumban") para auxiliar o gerenciamento do projeto. 
 
  
-<b> 4.1. Relações de Ambientes de Trabalho </b>
+# 4.1. Relações de Ambientes de Trabalho
 
 Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seus respectivos propósitos é apresentada na tabela que se segue.   
 
-![relacoes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/relacoes.jpeg)
+Ambiente | Plataforma | Link de Acesso
+---|---|---
+Editor | VsCode | Link será inserido na próxima etapa
+Repositório de código fonte | Github | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay
+Documentos do projeto | Github | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay
+Wireframe | Figma | https://www.figma.com/proto/scazJ5vOriyKBWCL3boRgJ/babybay-prototype-test?node-id=210%3A1054&scaling=scale-down&page-id=209%3A351&starting-point-node-id=209%3A887
+Gerenciamento do Projeto | https://trello.com/b/Tj2Pum7g/babybay
+Diagrama de Classes | https://lucid.app/lucidchart/6bdf086a-a1fe-496e-aaea-6b9d8542bc9f/edit?invitationId=inv_d040201c-5621-4f14-9235-9400c334cdf4
+Diagrama de Fluxo | https://lucid.app/lucidchart/c2f43ddc-f3c4-4995-90a1-e1ee378005ab/edit?invitationId=inv_3bd1ba27-5c4d-49a0-ad4b-31dd353e7f3a
+Modelo ER | https://lucid.app/lucidchart/9e8dd976-4525-4798-bea9-929d3740c1d4/edit?invitationId=inv_fe961b99-ee0a-4cf1-878b-201dc15e546c
 
 
-<b> 4.2. Gestão de código fonte </b>  
+# 4.2. Gestão de código fonte
 
 Para a gestão de código fonte do software desenvolvido pela equipe, o grupo utiliza um processo baseado no Git Flow. Desta forma, todas as manutenções no código são realizadas em branches separados, identificados como Hotfix, Release, Develop e Feature. 
  
@@ -21,7 +30,7 @@ Figura 1 - GitFlow
 Fonte: https://expressus.io/diagrams/git-flow-workflow-diagram-template 
 
 
-<b> 4.3 Gerenciamento de Projeto </b>  
+# 4.3 Gerenciamento de Projeto
 
 Assim está dividida a equipe Babybay: 
 
