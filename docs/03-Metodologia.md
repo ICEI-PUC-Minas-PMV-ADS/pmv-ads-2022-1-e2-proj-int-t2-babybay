@@ -13,10 +13,10 @@ Editor | VsCode | Link será inserido na próxima etapa
 Repositório de código fonte | Github | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay
 Documentos do projeto | Github | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay
 Wireframe | Figma | https://www.figma.com/proto/scazJ5vOriyKBWCL3boRgJ/babybay-prototype-test?node-id=210%3A1054&scaling=scale-down&page-id=209%3A351&starting-point-node-id=209%3A887
-Gerenciamento do Projeto | https://trello.com/b/Tj2Pum7g/babybay
-Diagrama de Classes | https://lucid.app/lucidchart/6bdf086a-a1fe-496e-aaea-6b9d8542bc9f/edit?invitationId=inv_d040201c-5621-4f14-9235-9400c334cdf4
-Diagrama de Fluxo | https://lucid.app/lucidchart/c2f43ddc-f3c4-4995-90a1-e1ee378005ab/edit?invitationId=inv_3bd1ba27-5c4d-49a0-ad4b-31dd353e7f3a
-Modelo ER | https://lucid.app/lucidchart/9e8dd976-4525-4798-bea9-929d3740c1d4/edit?invitationId=inv_fe961b99-ee0a-4cf1-878b-201dc15e546c
+Gerenciamento do Projeto | Trello | https://trello.com/b/Tj2Pum7g/babybay
+Diagrama de Classes | Lucidchart | https://lucid.app/lucidchart/6bdf086a-a1fe-496e-aaea-6b9d8542bc9f/edit?invitationId=inv_d040201c-5621-4f14-9235-9400c334cdf4
+Diagrama de Fluxo | Lucidchart | https://lucid.app/lucidchart/c2f43ddc-f3c4-4995-90a1-e1ee378005ab/edit?invitationId=inv_3bd1ba27-5c4d-49a0-ad4b-31dd353e7f3a
+Modelo ER | Lucidchart | https://lucid.app/lucidchart/9e8dd976-4525-4798-bea9-929d3740c1d4/edit?invitationId=inv_fe961b99-ee0a-4cf1-878b-201dc15e546c
 
 
 # 4.2. Gestão de código fonte
