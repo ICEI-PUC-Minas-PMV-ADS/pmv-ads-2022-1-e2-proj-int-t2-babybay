@@ -185,7 +185,7 @@ Após clicar na opção de denúncia de postagem ou anunciante que é disponibil
 Figura 29 – Página de denúncia de postagem e/ou usuário 
 
 
-# 6.0 Análise
+# 6. Análise
 
 O Diagrama de Classes representa conceitos e dados no mundo da aplicação. Num segundo momento esse diagrama será detalhado para incremento das tecnologias. 
 
@@ -197,8 +197,7 @@ O Diagrama de Classes representa conceitos e dados no mundo da aplicação. Num 
 ## 6.2 Esquema Relacional
  O modelo a seguir demonstra o esquema das tabelas para um Banco de Dados Relacional. 
 
-![Exemplo de Wireframe](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/Diagramas/BabyBay_Esquema_Relacional.png)
+![esquemarelacional](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/Diagramas/BabyBay_Esquema_Relacional.png)
 
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
  
 
