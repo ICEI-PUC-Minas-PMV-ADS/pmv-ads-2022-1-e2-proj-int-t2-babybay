@@ -1,11 +1,11 @@
-<b> 5. Projeto da Solução 
+# 5. Projeto da Solução 
 
-5.1 Projeto de Interface </b>  
+## 5.1 Projeto de Interface </b>  
 
 Dentre as preocupações para a montagem da interface do sistema, estamos estabelecendo foco em questões como agilidade, acessibilidade e usabilidade. Desta forma, o projeto tem uma identidade visual padronizada em todas as telas que são projetadas para funcionamento em desktops.  
 
 
-<b> 5.2 Diagrama de Fluxo </b>
+## 5.2 Diagrama de Fluxo
 
 O diagrama que define o fluxo do sistema é representado a seguir: 
 
@@ -14,7 +14,7 @@ O diagrama que define o fluxo do sistema é representado a seguir:
 Figura 3 – Fluxo do usuário 
 
 
-<b> 5.3 Wireframes Interativos </b> 
+ ## 5.3 Wireframes Interativos
 
 Conforme fluxo de telas do projeto, apresentado no item anterior, as telas do sistema são apresentadas em detalhes nos itens que se seguem. As telas do sistema apresentam uma estrutura comum em que existem 3 grandes blocos, descritos a seguir. São eles:  
 
@@ -185,21 +185,16 @@ Após clicar na opção de denúncia de postagem ou anunciante que é disponibil
 Figura 29 – Página de denúncia de postagem e/ou usuário 
 
 
-  <b>6.0 Análise</b>
+# 6.0 Análise
 
 O Diagrama de Classes representa conceitos e dados no mundo da aplicação. Num segundo momento esse diagrama será detalhado para incremento das tecnologias. 
 
-<b> 6.1 Diagrama de classes</b>
+## 6.1 Diagrama de classes
 O Diagrama de Classes representa conceitos e dados no mundo da aplicação. Num segundo momento esse diagrama será detalhado para incremento das tecnologias:
 
 ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas de Fluxo”.
-
-> **Links Úteis**:
-> - [Fluxograma online: seis sites para fazer gráfico sem instalar nada | Produtividade | TechTudo](https://www.techtudo.com.br/listas/2019/03/fluxograma-online-seis-sites-para-fazer-grafico-sem-instalar-nada.ghtml)
-
- <b> 6.2 Esquema Relacional</b>
+## 6.2 Esquema Relacional
  O modelo a seguir demonstra o esquema das tabelas para um Banco de Dados Relacional. 
 
 ![Exemplo de Wireframe](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/Diagramas/BabyBay_Esquema_Relacional.png)
