@@ -7,7 +7,7 @@ O Diagrama de Classes representa conceitos e dados no mundo da aplicação. Num 
 
 ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
 
-## 6.3 Modelo ER
+## 6.2 Modelo ER
 
 O modelo apresentado a seguir demonstra como os conceitos importantes da aplicação se relacionam.
 
