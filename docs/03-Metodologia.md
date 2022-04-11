@@ -3,7 +3,7 @@
 Para o desenvolvimento de Babybay, serão aplicados os princípios AGILE, utilizando as metodologias Scrum e Kanban (conhecido como "Scrumban") para auxiliar o gerenciamento do projeto. 
 
  
-# 4.1. Relações de Ambientes de Trabalho
+## 4.1. Relações de Ambientes de Trabalho
 
 Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seus respectivos propósitos é apresentada na tabela que se segue.   
 
@@ -19,7 +19,7 @@ Diagrama de Fluxo | Lucidchart | https://lucid.app/lucidchart/c2f43ddc-f3c4-4995
 Modelo ER | Lucidchart | https://lucid.app/lucidchart/9e8dd976-4525-4798-bea9-929d3740c1d4/edit?invitationId=inv_fe961b99-ee0a-4cf1-878b-201dc15e546c
 
 
-# 4.2. Gestão de código fonte
+## 4.2. Gestão de código fonte
 
 Para a gestão de código fonte do software desenvolvido pela equipe, o grupo utiliza um processo baseado no Git Flow. Desta forma, todas as manutenções no código são realizadas em branches separados, identificados como Hotfix, Release, Develop e Feature. 
  
@@ -30,7 +30,7 @@ Figura 1 - GitFlow
 Fonte: https://expressus.io/diagrams/git-flow-workflow-diagram-template 
 
 
-# 4.3 Gerenciamento de Projeto
+## 4.3 Gerenciamento de Projeto
 
 Assim está dividida a equipe Babybay: 
 
