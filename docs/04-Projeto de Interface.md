@@ -184,20 +184,5 @@ Após clicar na opção de denúncia de postagem ou anunciante que é disponibil
 
 Figura 29 – Página de denúncia de postagem e/ou usuário 
 
-
-# 6. Análise
-
-O Diagrama de Classes representa conceitos e dados no mundo da aplicação. Num segundo momento esse diagrama será detalhado para incremento das tecnologias. 
-
-## 6.1 Diagrama de classes
-O Diagrama de Classes representa conceitos e dados no mundo da aplicação. Num segundo momento esse diagrama será detalhado para incremento das tecnologias:
-
-![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
-
-## 6.2 Esquema Relacional
- O modelo a seguir demonstra o esquema das tabelas para um Banco de Dados Relacional. 
-
-![esquemarelacional](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/image-readme/Diagramas/BabyBay_Esquema_Relacional.png)
-
  
 
