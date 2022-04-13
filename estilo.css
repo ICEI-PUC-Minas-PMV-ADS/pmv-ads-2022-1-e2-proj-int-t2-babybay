@@ -16,7 +16,7 @@
     width: 420px;
     height: 97vh;/*Aqui ele coloca a altura 97% da viewport,ocupando assim 97% da altura disponivel */
    
-    box-shadow: 3px -2px 0px black;
+    box-shadow: 1.5px -2px 0px black;
     display: flex;
     flex-direction: column;
 
