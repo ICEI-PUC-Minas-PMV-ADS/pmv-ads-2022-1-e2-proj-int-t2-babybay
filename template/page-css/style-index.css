@@ -1,0 +1,303 @@
+/****************LEGENDA****************
+ 
+    0. Variáveis
+    1. Estilos Gerais
+    2. Header > Menu 
+    3. Header > Menu >  Nav 
+    4. Section > Article
+    5. Main
+    6. Aside
+    7. Footer
+
+****************************************/
+
+/****************************************
+    0. Variáveis    
+****************************************/
+@charset "UTF_8";
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Baloo+Bhai+2:wght@800&display=swap');
+:root{  
+    /* Fontes */
+    --fonte-baloo: 'Baloo Bhai 2', cursive;
+    --fonte-alata: 'Alata', sans-serif;
+    overflow: hidden;  
+
+    /* Cores gerais */
+    --clr-yellow-light: #FFDC83;
+    --clr-yellow-dark: #F2D133;
+    --clr--pink-light: #DA8BD2;
+    --clr--pink-dark: #dd5ed0;
+    --clr-purple-light: #a3a1f3;  
+    --clr-purple-dark:  #9594f8;    
+    --clr-primary-background: #F5F5F5;
+    --clr-second-background: #e6e3e318;     /* Para todas as caixas */
+    
+    /* Bordas e sombras Elementos*/
+    --clr--border-box: #CECECE;
+    --clr--box-shadow: 1px 1px 2px #b6b6b694;  
+    --clr--box-shadow-hover: 2px 2px 4px #97969681; 
+    --clr--box-shadow-btn-hover: 2px 2px 4px #a7a7a781; 
+    --clr--box-shadow-content: 2px 2px 6px #b6b6b646;   /* Para todas as caixas */
+       
+    /* Texto */
+    --clr--text-shadow: 1px 2px #7c7c7cd7;
+}
+/****************************************/
+
+/****************************************
+    1. Estilos Gerais
+/****************************************/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+body{
+    background-color: var(--clr-primary-background);
+    font-family: var(--fonte-alata);       
+}
+
+a,
+a:link,
+a:visited{
+    color: rgb(255, 255, 255);
+    text-decoration: none
+}
+
+.nav__list{
+    list-style: none;
+}
+
+.nav__link--bold:hover{
+    font-weight: bold;
+}
+
+/****************************************/
+
+/****************************************
+    2. Header > Menu 
+/****************************************/
+.menu-bg{
+    background-color: var(--clr--pink-light);
+    font-size: 1.1em;   
+}
+
+.menu{
+     /* flex */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;    
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 7px;
+}
+
+.menu__logo{
+    margin: 10px;
+}
+
+/****************************************/
+
+
+/****************************************
+    3. Header > Menu >  Nav 
+/****************************************/
+
+.nav__list{
+    color: #FFF;
+     /* flex */
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+.nav__link,
+.nav__link--bold{
+    padding: 15px 15px;
+}
+
+/****************************************/
+
+
+/****************************************
+    4. Section > Article
+/****************************************/
+
+.article-busca{
+    /* flex */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.article__busca--contorno{
+    background-color: var(--clr-second-background);
+    border: 1px solid  var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow-content);    
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.menu-busca{ 
+     /* flex */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; 
+    justify-content: space-around; 
+    max-width: 1000px;  
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.input__busca{
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);    
+    border-radius: 10px;        
+    font-size: 0.9em;
+    font-style: italic;
+    /* flex */
+    flex: 2 8 960px; /* grow shrink basis*/
+    height: 45px;     
+    margin: 10px;
+    padding: 10px;    
+}
+
+.input__selected{
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);    
+    border-radius: 5px;
+    flex: 1 5 120px;    /* grow shrink basis*/
+    font-size: 0.9em;
+    margin: 5px 15px;
+    padding: 2px;    
+    width: 120px;   
+}
+
+/* Botão de buscar produtos */
+.input__busca--botao{
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow); 
+    border-radius: 50px;
+    color: #FFFFFF;
+    font-size: 0.9em;
+    font-weight: bold;
+    height: 32px;  
+    letter-spacing: 1px;     
+    margin: 5px 15px;
+    min-width: 120px;     
+    text-shadow: var(--clr--text-shadow);  
+}
+
+.input__busca:hover,
+.input__selected:hover{
+    box-shadow: var(--clr--box-shadow-hover);
+    border: 1.5px solid var(--clr-purple-dark);
+}
+
+.input__busca--botao:hover{
+    box-shadow: var(--clr--box-shadow-btn-hover);
+    background-color: var(--clr-purple-light);
+    cursor: pointer;
+}
+
+.input__busca--botao:active{
+    background-color: var(--clr-purple-dark);
+}
+
+/****************************************/
+
+
+/****************************************
+    5. Main
+/****************************************/
+
+.conteudo-principal{
+    color: #DA8BD2;        
+    font-size: 1.3em;
+    text-shadow: 1px 1px #5f465dce;
+    padding: 20px;    
+    margin: auto;
+    /* flex */
+    display: flex;
+    flex-flow: column;    
+}
+
+.conteudo__h1{
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.conteudo__h1--padding{
+    padding: 10px 10px;
+}
+
+.conteudo__botao__cadastro{
+    display: flex;      
+    justify-content: center;
+}
+
+/* Botão Cadastre-se*/
+.input__botao--cadastro{
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow); 
+    border-radius: 50px;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 50px;  
+    letter-spacing: 2px;     
+    margin: 20px 15px;
+    min-width: 240px;     
+    text-shadow: var(--clr--text-shadow); 
+}
+
+.input__botao--cadastro:hover{
+    box-shadow: var(--clr--box-shadow-btn-hover);
+    background-color: var(--clr-purple-light);
+    cursor: pointer;
+}
+
+.input__botao--cadastro:active{
+    background-color: var(--clr-purple-dark);
+}
+
+/****************************************/
+
+
+/****************************************
+    6. Aside
+/****************************************/
+
+
+/****************************************/
+
+
+/****************************************
+    7. Footer
+/****************************************/
+.footer-principal{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--clr-yellow-light);
+    padding: 18px;
+}
+
+.conteudo__footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.conteudo__footer__frase{
+    color: var(--clr--pink-dark);
+    margin: 0 20px;    
+}
+
+
+/****************************************/
