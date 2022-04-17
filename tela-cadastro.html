@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="tela-cadastro.css">
+    <script src="cadastro.js"></script>
     <title>Cadastro</title>
     
 </head>
@@ -16,6 +18,7 @@
             </h2>
         </header>
         <aside>
+            <svg width="30" height="20" viewBox="0 0 30 20" fill="none" xmlns="https://www.w3.org/2000/svg"><path d="M0.75 0.5H29.25V3.66667H0.75V0.5ZM0.75 8.41667H29.25V11.5833H0.75V8.41667ZM0.75 16.3333H29.25V19.5H0.75V16.3333Z" fill="black"></path></svg>
 
         </aside>
         <main>
@@ -23,12 +26,15 @@
             <div id="criar-conta"><h2>
                 Criar Conta
             </h2></div>
-            <div><input type="text" placeholder="E-mail" class="campo-entrada"></div>
-            <div><input type="text" placeholder="Nome do usuário" class="campo-entrada"></div>
-            <div><input type="text" placeholder="Senha" class="campo-entrada"></div>
-            <div><input type="text" placeholder="Confirmar senha" class="campo-entrada"></div>
-            <div id = "checkbox"><input type="checkbox">    Li e concordo com os <a href="#">termos de serviço</a></div>
-            <div><input type="button"value="Criar conta" id="bot-cadastrar" ></div>
+            <div id="msgError"></div>
+            <div id="msgSucess"></div>
+
+            <div><input type="email" placeholder="E-mail" class="campo-entrada" id = "email" ></div>
+            <div><input type="text" placeholder="Nome do usuário" class="campo-entrada" id = "nome-usuario"></div>
+            <div><input type="password" placeholder="Senha" class="campo-entrada " id = "senha" ></div>
+            <div><input type="password" placeholder="Confirmar senha" class="campo-entrada" id="conf-senha"></div>
+            <div id = "checkbox"><input type="checkbox">    Li e concordo com os  <a href="#">  termos de serviço</a></div>
+            <div><input type="button"value="Criar conta" id="bot-cadastrar"onclick="Cadastro()" ></div>
             <div id="entrar">Ja tem uma conta?<a href="#"> Entrar</a></div>
         </div>
         </main>

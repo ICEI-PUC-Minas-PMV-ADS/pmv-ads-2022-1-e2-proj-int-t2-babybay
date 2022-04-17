@@ -37,14 +37,19 @@ header>h2{
     text-shadow: 2.2px 2.2px black;
 }
 aside{
-    grid-area: h;
+    grid-area: a;
     background-image:linear-gradient(to bottom,#ACABF2,#BEB4ED,#E3C6E3);
     /*height: 97vh;/*Aqui ele coloca a altura 97% da viewport,ocupando assim 97% da altura disponivel */
 
     box-shadow: 1.5px -2px 0px black;
 /* display: flex;
     flex-direction: column;*/
-    grid-area: a;
+    
+}
+svg{
+    width: 30;
+    height: 20;
+    fill: none;
 }
 main{
     grid-area: m;
@@ -52,9 +57,24 @@ main{
 .container-main{
     display: flex;
     flex-direction: column;
-    width: 500px;
-    margin-left:200px;
-    margin-top: 40px;
+   align-items: center;
+   justify-items: center;
+}
+#msgError{
+text-align: center;
+color: #ff0000;
+background-color: #ffbbbb;
+padding: 15px;
+border-radius: 4px;
+display: none;
+}
+#msgSucess{
+    text-align: center;
+    color: #00bb00;
+    background-color: #ffbbbb;
+    padding: 15px;
+    border-radius: 4px;
+    display: none;
 }
 #criar-conta{
    margin-left: 210px;
@@ -80,8 +100,10 @@ main{
     box-shadow: 2px 2px 2px black;
 }
 #checkbox{
-  margin-left: 210px;
-  margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+padding: 20px;
   width: 80%;
   font-family: var(--fonte2);
   font-size: 1.1em;
@@ -121,6 +143,8 @@ main{
     margin-left:378px;
     margin-top: 13px;
     width: 181px;
+    display:flex;
+  
 }
 #entrar a{
     text-decoration: none;
@@ -128,7 +152,7 @@ main{
     font-weight: bold;
 }
 #entrar a:hover{
-    text-decoration: underline;
+    text-decoration: underline black;
     transition-duration: 0.8s;
 }
 
@@ -144,5 +168,5 @@ footer>p{
     font-weight:bold;
      color: #DA8BD2;
     text-align: right;
-    margin-right: 25px;
+    padding: 25px;
 }

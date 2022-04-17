@@ -1,0 +1,106 @@
+@charset "UTF_8";
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Baloo+Bhai+2:wght@800&display=swap');
+:root{/*Aqui basicamnete são as variáveis do css,aqui guarda em variaveis as propriedades que mais serão usadas*/
+    --fonte1: 'Baloo Bhai 2', cursive;
+    --fonte2: 'Alata', sans-serif;
+    overflow: hidden;/*Aqui ele esconde a barra de rolagem seja vertical ou horizontal*/
+}
+*{
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+.container-principal{
+    display: grid;
+    grid-template-columns:0.1fr 3fr;
+    grid-template-rows:  10vh 87vh 3vh;
+    grid-template-areas: "a h"
+                         "a m"
+                         "f f"
+
+}
+header{
+    grid-area: h;
+    }
+    
+    header>h2{
+        display: flex;
+        flex-wrap: wrap;
+        font-family: var(--fonte1);
+        font-size: 2.6em;
+        color: #F2D133;
+        padding: 15px;
+        margin-right: 100px;
+        justify-content: flex-end;
+     
+    
+        text-shadow: 2.2px 2.2px black;
+    }
+    aside{
+        grid-area: a;
+        background-image:linear-gradient(to bottom,#ACABF2,#BEB4ED,#E3C6E3);
+        /*height: 97vh;/*Aqui ele coloca a altura 97% da viewport,ocupando assim 97% da altura disponivel */
+    
+        box-shadow: 1.5px -2px 0px black;
+    /* display: flex;
+        flex-direction: column;*/
+        
+    }
+   main  div{
+        font: var(--fonte2);
+        display: flex;
+        justify-content:center ;
+        align-items: center;
+        font-size: 0.92em;
+        padding:18px;
+    }
+    svg{
+        width: 30;
+        height: 20;
+        fill: none;
+    }
+    main{
+        grid-area: m;
+    }
+    .container-main{
+        display: flex;
+        flex-direction: column;
+       align-items: center;
+       justify-items: center;
+    }
+    #Confirmar-email{
+        display: flex;
+       text-align: center;
+        text-shadow: 1.5px 1.5px black;
+        font-family: var(--fonte2);
+        color: #DA8BD2;
+        text-shadow:1Px 1px black ;
+        padding: 10px;
+    }
+    .logos{
+        text-align: center;
+        padding: 16px;
+    }
+    main >div a{
+        text-decoration:none;
+        color: #6B71FF;
+
+    }
+    main>div a:hover{
+        text-decoration: underline;
+        transition-duration: 1.3s;
+    }
+    footer{
+        background-color: #F2D133;
+        grid-area: f;
+        font-family: var(--fonte2);
+        font-size: 1.3em;
+        font-weight:bold;
+         color: #DA8BD2;
+        text-align: right;
+       padding-right: 5px;
+        
+    }
+   
