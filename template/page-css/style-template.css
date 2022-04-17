@@ -127,88 +127,6 @@ a:visited{
     4. Section > Article
 /****************************************/
 
-.article-busca{
-    /* flex */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.article__busca--contorno{
-    background-color: var(--clr-second-background);
-    border: 1px solid  var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content);    
-    border-radius: 10px;
-    margin: 20px;
-    margin-top: 30px;
-}
-
-.menu-busca{ 
-     /* flex */
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center; 
-    justify-content: space-around; 
-    max-width: 1000px;      
-    margin: 0 auto;
-    padding: 30px;
-}
-
-.input__busca{
-    border-color: var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow);    
-    border-radius: 10px;        
-    font-size: 0.9em;
-    font-style: italic;
-    /* flex */
-    flex: 2 8 960px; /* grow shrink basis*/
-    height: 45px;     
-    margin: 10px;
-    padding: 10px;    
-}
-
-.input__selected{
-    border-color: var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow);    
-    border-radius: 5px;
-    flex: 1 5 120px;    /* grow shrink basis*/
-    font-size: 0.9em;
-    margin: 5px 15px;
-    padding: 2px;    
-    width: 120px;   
-}
-
-/* Botão de buscar produtos */
-.input__busca--botao{
-    background-color: var(--clr-purple-dark);
-    border-color: var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow); 
-    border-radius: 50px;
-    color: #FFFFFF;
-    font-size: 0.9em;
-    font-weight: bold;
-    height: 32px;  
-    letter-spacing: 1px;     
-    margin: 5px 15px;
-    min-width: 120px;     
-    text-shadow: var(--clr--text-shadow);  
-}
-
-.input__busca:hover,
-.input__selected:hover{
-    box-shadow: var(--clr--box-shadow-hover);
-    border: 1.5px solid var(--clr-purple-dark);
-}
-
-.input__busca--botao:hover{
-    box-shadow: var(--clr--box-shadow-btn-hover);
-    background-color: var(--clr-purple-light);
-    cursor: pointer;
-}
-
-.input__busca--botao:active{
-    background-color: var(--clr-purple-dark);
-}
 
 /****************************************/
 
@@ -217,56 +135,6 @@ a:visited{
     5. Main
 /****************************************/
 
-.conteudo-principal{
-    color: #DA8BD2;        
-    font-size: 1.3em;
-    text-shadow: 1px 1px #5f465dce;
-    padding: 20px;    
-    margin: auto;
-    /* flex */
-    display: flex;
-    flex-flow: column;    
-}
-
-.conteudo__h1{
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.conteudo__h1--padding{
-    padding: 10px 10px;
-}
-
-.conteudo__botao__cadastro{
-    display: flex;      
-    justify-content: center;
-}
-
-/* Botão Cadastre-se*/
-.input__botao--cadastro{
-    background-color: var(--clr-purple-dark);
-    border-color: var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow); 
-    border-radius: 50px;
-    color: #FFFFFF;
-    font-size: 1.2em;
-    font-weight: bold;
-    height: 50px;  
-    letter-spacing: 2px;  
-    min-width: 240px;   
-    margin: 40px 15px;       
-    text-shadow: var(--clr--text-shadow);     
-}
-
-.input__botao--cadastro:hover{
-    box-shadow: var(--clr--box-shadow-btn-hover);
-    background-color: var(--clr-purple-light);
-    cursor: pointer;
-}
-
-.input__botao--cadastro:active{
-    background-color: var(--clr-purple-dark);
-}
 
 /****************************************/
 
@@ -305,7 +173,7 @@ a:visited{
 /****************************************/
 
 /* 8. MEDIA QUERIES*/
-
+/* 
 @media screen and (max-width: 700px){
     main{
         font-size: 0.8em;        
@@ -368,4 +236,4 @@ a:visited{
         font-size: 0.4em;
     }
 }
-
+ */
