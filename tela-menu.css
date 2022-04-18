@@ -22,7 +22,7 @@
     /* Fontes */
     --fonte-baloo: 'Baloo Bhai 2', cursive;
     --fonte-alata: 'Alata', sans-serif;
-    overflow: hidden;  
+    
 
     /* Cores gerais */
     --clr-yellow-light: #FFDC83;
@@ -36,7 +36,7 @@
     
     /* Bordas e sombras Elementos*/
     --clr--border-box: #CECECE;
-    --clr--box-shadow: 1px 1px 2px #b6b6b694;  
+    --clr--box-shadow: 3px 3px 3px #00000007;  
     --clr--box-shadow-hover: 2px 2px 4px #97969681; 
     --clr--box-shadow-btn-hover: 2px 2px 4px #a7a7a781;  
     --clr--box-shadow-content: 2px 2px 6px #b6b6b646;   /* Para todas as caixas */  
@@ -63,7 +63,7 @@ body{
 a,
 a:link,
 a:visited{
-    color: #FFF;
+    color: rgb(255, 255, 255);
     text-decoration: none
 }
 
@@ -91,7 +91,7 @@ a:visited{
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;    
-    max-width: 960px;
+    max-width: 98%;
     margin: 0 auto;
     padding: 7px;
 }
@@ -134,9 +134,59 @@ a:visited{
 /****************************************
     5. Main
 /****************************************/
-#container-principal{
-    max-width: 600px;
-    background-color: #a7a7a781;
+.container-principal{
+    max-width: 800px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+
+
+}
+.container-principal>h1{
+    padding: 20px;
+    color: var(--clr-purple-dark);
+
+}
+
+.principais-funcionalidades{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;    
+}
+
+.quadrados{
+    background-color: #DA8BD2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    Width: 337px;
+    Height :197px;
+    Opacity :90%;
+    border-radius:9px;
+    padding: 20px;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.4em;
+    margin-top: 35px;
+    box-shadow: 1.7px 1.7px 1.7px black;/*A variável de box shadow não funcionou aqui*/
+    
+}
+.quadrados a:hover {
+    transition-duration: 0.5s;
+    text-decoration: underline;
+    color: var(--clr-yellow-dark);
+    
+}
+.quadrados>img{/*Aqui é configuração do tamanho das imagens que vão dentro das caixas*/
+    width: 88px;
+    height: 80px;
+    padding: 10px;
+
+    
 }
 
     
@@ -156,7 +206,7 @@ a:visited{
 /****************************************/
 .footer-principal{
     width: 100%;
-    position: absolute;
+ position: absolute;
     bottom: 0;
     background-color: var(--clr-yellow-light);
     padding: 18px;
