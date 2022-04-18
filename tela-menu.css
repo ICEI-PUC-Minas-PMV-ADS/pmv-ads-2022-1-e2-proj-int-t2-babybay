@@ -136,7 +136,7 @@ a:visited{
 /****************************************/
 .container-principal{
     max-width: 800px;
-    height: 200px;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
@@ -147,6 +147,7 @@ a:visited{
 .container-principal>h1{
     padding: 20px;
     color: var(--clr-purple-dark);
+    height: 150px;
 
 }
 
@@ -225,3 +226,19 @@ a:visited{
 
 
 /****************************************/
+@media(max-width:615px){
+    .principais-funcionalidades{
+        display: flex;
+        flex-direction: column;
+        
+       
+    }
+}
+@media(max-width:615px){
+    html{
+        font-size: 70%;
+    }
+        
+       
+    
+}
