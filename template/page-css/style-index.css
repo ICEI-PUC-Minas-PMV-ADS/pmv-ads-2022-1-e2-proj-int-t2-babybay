@@ -33,14 +33,20 @@
     --clr-purple-light: #a3a1f3;  
     --clr-purple-dark:  #9594f8;    
     --clr-primary-background: #F5F5F5;
-    --clr-second-background: #e6e3e318;     /* Para todas as caixas */
+      
+    /* Caixas */
+    --clr-primary-background: #F5F5F5; /* Fundo primeiro nível */
+    --clr-second-background: #d5d5d52c;   /* Fundo segundo nível */   
+    --clr--third-background: #cecece1d; /* Fundo terceiro nível */
+  
     
-    /* Bordas e sombras Elementos*/
+        /* Bordas e sombras Elementos*/
     --clr--border-box: #CECECE;
     --clr--box-shadow: 1px 1px 2px #b6b6b694;  
     --clr--box-shadow-hover: 2px 2px 4px #97969681; 
     --clr--box-shadow-btn-hover: 2px 2px 4px #a7a7a781; 
-    --clr--box-shadow-content: 2px 2px 6px #b6b6b646;   /* Para todas as caixas */
+    --clr--box-shadow-content: 2px 2px 6px #b6b6b649;   /* Para todas as caixas */
+    --clr--box-shadow-content-nivel-3: 2px 2px 4px #b6b6b645; /* Sombra para caixa terceiro nível */
        
     /* Texto */
     --clr--text-shadow: 1px 2px #7c7c7cd7;

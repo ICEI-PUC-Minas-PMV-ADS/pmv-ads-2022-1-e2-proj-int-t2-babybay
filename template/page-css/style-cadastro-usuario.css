@@ -1,3 +1,5 @@
+/* TELA CADASTRO USUÁRIO */
+
 /****************************************
     Section > Article
 /****************************************/
@@ -5,59 +7,79 @@
     list-style: none;    
 }
 
-.container-principal{    
+.div-titulo-cadastro{
+    background-color: var(--clr--third-background);
+    border: 1px solid  var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow-content-nivel-3);
+    border-radius: 10px;
+    font-size: .9em;
+    margin: 20px auto; 
+    max-width: 400px;   
+    padding: 20px;
+    /* flex */    
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-c{    
+    /* flex */
     display: flex;
     flex-flow: row wrap;
     justify-content: center; 
-
+    margin: 15px 20px;
 }
 
-.container-principal__h1{
-    align-self: flex-start;
-}
-
-.container-principal__div{
+.section-c__div{
     background-color: var(--clr-second-background);
     border: 1px solid  var(--clr--border-box);
     box-shadow: var(--clr--box-shadow-content); 
     border-radius: 10px;
-    margin: 20px;
-    margin-top: 30px;
-    padding: 10px;
+    margin: 20px;   
+    padding: 20px;
     /* flex */
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap; /* wrap */
     justify-content: center;
-    flex-grow: 0.8; 
-    flex-shrink: 2;    
+    flex-grow: 1; 
+    flex-shrink: 1;    
+ 
 }
 
-.container-principal__article--um,
-.container-principal__article--dois
-{
-    background-color: var(--clr-second-background);
+.article-c{
+    background-color: var(--clr--third-background);
     border: 1px solid  var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content);
-    margin: 20px;
-    padding: 30px;
-    flex-flow: row nowrap;
+    box-shadow: var(--clr--box-shadow-content-nivel-3);
+    margin: 40px;
+    padding: 30px; 
+    /* flex*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;    
+    align-items: center;
     justify-content: center;
-    flex-grow: 0.5; 
-    flex-shrink: 2
-      
+    flex-grow: 1; 
+    flex-shrink: 1;   
 }
 
-.container-principal__ul{    
-    display: flex;
-    flex-flow: column wrap;
-    align-items: flex-end; 
-    flex-grow: 0.5; 
-    flex-shrink: 0;
-    background-color: aquamarine;
+.article-c__ul{    
+    text-align: left;
+    /* align-self: flex-end; */
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 200px;
     
 } 
 
-.container-principal__ul--input{
+.article-c__ul > li{
+    display: flex;
+    flex-direction: row; /* antes estava column*/
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.article-c__ul > li > input{
     background: #ffffff;   
     border-radius: 10px;    
     border-color: var(--clr--border-box);
@@ -65,63 +87,40 @@
     height: 40px;
     margin: 10px;
     padding: 10px;        
-    font-size: 1em;     
-    
-   
+    font-size: 1em;      
+    flex-grow: 1; /* antes sem grow */
+    flex-shrink: 1;
 }
 
-.container-principal__ul--input:hover{
+.article-c__ul > li > input:hover{
     box-shadow: var(--clr--box-shadow-hover);
     border: 1.5px solid var(--clr-purple-dark);
 }
 
-
-
-/* section{
-    margin: 0 auto;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-}
-
-.container-cadastro__contorno{
-    background-color: var(--clr-second-background);
-    border: 1px solid  var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content);    
-    border-radius: 10px;
-    padding: 70px;
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;    
-}
-
-.container-cadastro__dados{ 
-    list-style: none;
+#btn-confirmar{
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow); 
+    border-radius: 50px;
+    color: #FFFFFF;
+    font-size: 1.1em;
+    font-weight: bold;
+    height: 48px;  
+    letter-spacing: 1px;    
+    max-width: 140px;
+    text-shadow: var(--clr--text-shadow);   
   
 }
 
-.container-cadastro__dados > li{    
-    width: 100px;
-    display: inline;
+#btn-confirmar:hover{
+    box-shadow: var(--clr--box-shadow-btn-hover);
+    background-color: var(--clr-purple-light);
+    cursor: pointer;
 }
 
-.container-cadastro__input{
-    background: #ffffff;
-    border-color: var(--clr--text-shadow);
-    border-radius: 10px;        
-    box-shadow: var(--clr--box-shadow);
-    height: 40px;
-    margin: 10px;
-    padding: 10px;        
-    font-size: 1em;  
+#btn-confirmar:active{ 
+    background-color: var(--clr-purple-dark);
+ 
 }
-
-.container-cadastro__input:hover{
-    box-shadow: var(--clr--box-shadow-hover);
-    border: 1px solid var(--clr-purple-dark);
-} */
-
 
 
