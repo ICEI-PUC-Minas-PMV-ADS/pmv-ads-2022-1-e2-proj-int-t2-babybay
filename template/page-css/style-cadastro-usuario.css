@@ -1,7 +1,10 @@
-/* TELA CADASTRO USUÁRIO */
+/* TELA CADASTRO USUÁRIO 
 
+C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
+    C1. Section > Article
+    
 /****************************************
-    Section > Article
+    C1. Section > Article
 /****************************************/
 *{
     list-style: none;    
@@ -68,8 +71,7 @@
     /* align-self: flex-end; */
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: 200px;
-    
+    flex-basis: 200px;    
 } 
 
 .article-c__ul > li{

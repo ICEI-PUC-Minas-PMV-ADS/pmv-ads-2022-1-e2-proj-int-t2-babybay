@@ -1,18 +1,7 @@
-/****************LEGENDA****************
- 
-    0. Variáveis
-    1. Estilos Gerais
-    2. Header > Menu 
-    3. Header > Menu >  Nav 
-    4. Section > Article
-    5. Main
-    6. Aside
-    7. Footer
+/* MENU USUÁRIO
 
-****************************************/
-
-
-/****************************************/
+    D - Arquivo Style Menu (page-css/style-menu.css)
+    D1. Main
 
 /****************************************
     5. Main
@@ -73,42 +62,7 @@
     
 }
 
-    
-/****************************************/
 
-
-/****************************************
-    6. Aside
-/****************************************/
-
-
-/****************************************/
-
-
-/****************************************
-    7. Footer
-/****************************************/
-.footer-principal{
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    background-color: var(--clr-yellow-light);
-    padding: 18px;
-}
-
-.conteudo__footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.conteudo__footer__frase{
-    color: var(--clr--pink-dark);
-    margin: 0 20px;    
-}
-
-
-/****************************************/
 @media(max-width:615px){
     .principais-funcionalidades{
         display: flex;

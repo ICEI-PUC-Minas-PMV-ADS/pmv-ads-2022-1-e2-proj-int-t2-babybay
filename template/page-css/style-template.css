@@ -1,14 +1,21 @@
 /****************LEGENDA****************
  
-    0. Variáveis
-    1. Estilos Gerais
-    2. Header > Menu 
-    3. Header > Menu >  Nav 
-    4. Section > Article
-    5. Main
-    6. Aside
-    7. Footer
-    8. MEDIA QUERIES
+    A - Arquivo Style Template (page-css/style-template.css)
+        0. Variáveis
+        1. Estilos Gerais
+        2. Header > Menu 
+        3. Header > Menu >  Nav 
+        4. Footer
+        5. Media Queries
+    
+    B - Arquivo Style Index (page-css/style-index.css)
+        B1. Section > Article
+        B2. Main
+    
+    C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
+
+    D - Arquivo Style Menu (page-css/style-menu.css)
+        D1. Main
 
 ****************************************/
 
@@ -107,7 +114,6 @@ a:visited{
 
 /****************************************/
 
-
 /****************************************
     3. Header > Menu >  Nav 
 /****************************************/
@@ -126,33 +132,8 @@ a:visited{
 
 /****************************************/
 
-
 /****************************************
-    4. Section > Article
-/****************************************/
-
-
-/****************************************/
-
-
-/****************************************
-    5. Main
-/****************************************/
-
-
-/****************************************/
-
-
-/****************************************
-    6. Aside
-/****************************************/
-
-
-/****************************************/
-
-
-/****************************************
-    7. Footer
+    4. Footer
 /****************************************/
 .footer-principal{
     width: 100%;
@@ -177,67 +158,14 @@ a:visited{
 /****************************************/
 
 /* 8. MEDIA QUERIES*/
-/* 
-@media screen and (max-width: 700px){
-    main{
-        font-size: 0.8em;        
-    }
-    .input__busca--botao{
-        margin-top: 15px;
-    }
-    .input__botao--cadastro{
-        min-width: 200px;
-        font-size: 1.3em;
-    }
+@media screen and (min-width: 320px) and (max-width: 480px){
     .footer-principal{
         font-size: 0.8em;
     }
 }
 
-@media screen and (max-width: 520px){
-    main{
-        font-size: 0.7em;
-        margin-top: -5px;        
-    }
-    .input__botao--cadastro{
-        font-size: 1.3em;
-        min-width: 180px;        
-        margin-top: 10px;
-    }
-    .footer-principal{
-        font-size: 0.7em;
-    }
-}
-
-@media screen and (max-width: 480px){
-    main{
-        font-size: 0.6em;
-        margin-top: -7px;        
-    }
-    .input__botao--cadastro{
-        font-size: 1.5em;
-        min-width: 160px;        
-        margin-top: -4px;
-        height: 30px;
-    }
-    .footer-principal{
-        font-size: 0.5em;
-    }
-}
-
-@media screen and (max-width: 380px){
-    main{
-        font-size: 0.6em;
-        margin-top: -20px;        
-    }
-    .input__botao--cadastro{
-        font-size: 1.4em;
-        min-width: 150px;        
-        margin-top: -10px;
-        height: 30px;
-    }
-    .footer-principal{
-        font-size: 0.4em;
-    }
-}
- */
+/* 320px — 480px: dispositivos móveis
+481px — 768px: iPads, tablets
+769px — 1024px: telas pequenas, laptops
+1025px — 1200px: desktops, telas grandes
+1201px e acima —  telas muito grandes, TVs */
