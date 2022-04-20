@@ -98,7 +98,7 @@
 
 .conteudo-principal{
     color: #DA8BD2;        
-    font-size: 1.3em;
+    font-size: 1.1em;
     text-shadow: 1px 1px #5f465dce;
     padding: 20px;    
     margin: auto;
@@ -128,12 +128,12 @@
     box-shadow: var(--clr--box-shadow); 
     border-radius: 50px;
     color: #FFFFFF;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bold;
     height: 50px;  
     letter-spacing: 2px;  
-    min-width: 240px;   
-    margin: 40px 15px;       
+    width: 220px;   
+    margin: 20px;       
     text-shadow: var(--clr--text-shadow);     
 }
 
@@ -149,6 +149,33 @@
 
 /****************************************/
 
+
+@media screen and (min-width: 320px) and (max-width: 481px){
+    .input__botao--cadastro{
+        height: 40px; 
+        width: 150px;
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px){
+    .input__botao--cadastro{
+        height: 40px; 
+        width: 170px;
+        font-size: 1.1em;
+    }
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px){  
+}
+
+@media screen and (min-width: 1201px){
+
+}
 
 
 /* 8. MEDIA QUERIES*/

@@ -157,15 +157,49 @@ a:visited{
 
 /****************************************/
 
-/* 8. MEDIA QUERIES*/
-@media screen and (min-width: 320px) and (max-width: 480px){
+
+@media screen and (min-width: 320px) and (max-width: 481px){
+    main{
+        font-size: 0.6em;
+    }
+    .footer-principal{
+        font-size: 0.6em;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px){
+    main{
+        font-size: 0.8em;
+    }
     .footer-principal{
         font-size: 0.8em;
     }
 }
 
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+    main{
+        font-size: 1em;
+    }
+    .footer-principal{
+        font-size: 1em;
+    }
+}
+
+
+@media screen and (min-width: 1025px) and (max-width: 1200px){
+
+}
+
+@media screen and (min-width: 1201px){
+
+}
+
+
+
 /* 320px — 480px: dispositivos móveis
 481px — 768px: iPads, tablets
 769px — 1024px: telas pequenas, laptops
+
 1025px — 1200px: desktops, telas grandes
 1201px e acima —  telas muito grandes, TVs */
