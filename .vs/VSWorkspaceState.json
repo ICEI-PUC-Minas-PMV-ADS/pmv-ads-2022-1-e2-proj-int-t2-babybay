@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\app-babybay-estudo-master",
+    "\\app-babybay-estudo-master\\app-babybay-estudo-master",
+    "\\app-babybay-estudo-master\\app-babybay-estudo-master\\Controllers",
+    "\\app-babybay-estudo-master\\app-babybay-estudo-master\\Migrations",
+    "\\app-babybay-estudo-master\\app-babybay-estudo-master\\Models"
   ],
-  "SelectedNode": "\\C:\\Users\\user\\Source\\Repos\\pmv-ads-2022-1-e2-proj-int-t2-babybay",
+  "SelectedNode": "\\app-babybay-estudo-master\\app-babybay-estudo-master\\app-babybay.sln",
   "PreviewInSolutionExplorer": false
 }
