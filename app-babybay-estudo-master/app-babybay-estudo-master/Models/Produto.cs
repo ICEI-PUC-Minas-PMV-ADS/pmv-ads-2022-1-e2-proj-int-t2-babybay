@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace app_babybay.Models
+{
+    [Table("Produtos")]
+    public class Produto
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "O nome é obrigatório.")]
+        public string Nome { get; set; }
+
+        [Required(ErrorMessage = "A cor é obrigatória.")]
+        public string Cor { get; set; }
+
+        [Display(Name = "Faixa Etária")]
+        [Required(ErrorMessage = "A faixa etéria é obrigatória.")]
+        public int Idade { get; set; }
+
+        [Display(Name = "Tempo de Uso")]
+        [Required(ErrorMessage = "O tempo de uso é obrigatório.")]
+        public int TempoUso { get; set; }
+
+        [Display(Name = "Descrição do Produto")]
+        [Required(ErrorMessage = "Favor inserir uma descrição do produto."), MaxLength(120)]
+        public string Descricao { get; set; }
+
+        [Required(ErrorMessage = "O tamanho é obrigatório")]
+        public int Tamanho { get; set; }
+
+        [Required(ErrorMessage = "A categoria é obrigatória.")]
+        public Categoria Categoria { get; set; }
+
+
+
+
+        
+        
+
+
+        // private DateTime DtCadastro { get; set; }
+    }
+
+    public enum Categoria
+    {
+        Camiseta,
+        Short,
+        Calça,
+        Macacão,
+        Calçado,
+        Outros
+    }
+}
+
