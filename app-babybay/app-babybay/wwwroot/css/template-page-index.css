@@ -163,3 +163,49 @@
     .input__botao--cadastro:active {
         background-color: var(--clr-purple-dark);
     }
+
+
+/*@media screen and (min-width: 320px) and (max-width: 505px) {
+    .conteudo__h1 {
+        font-size: 0.7em;
+    }
+
+    .input__botao--cadastro {
+        height: 38px;
+        width: 145px;
+        font-size: 1em;
+    }
+
+    .conteudo__footer__frase {
+        font-size: 0.8em;
+    }
+}*/
+
+
+@media screen and (min-width: 320px) and (max-width: 505px) {
+    .conteudo__h1{
+        font-size: 0.7em;
+    }
+    .input__botao--cadastro {
+        height: 38px;
+        width: 145px;
+        font-size: 1em;
+    }
+    .conteudo__footer__frase {
+        font-size: 0.6em;
+    }
+}
+
+@media screen and (min-width: 506px) and (max-width: 768px) {
+    .conteudo__h1 {
+        font-size: 0.9em;
+    }
+    .input__botao--cadastro {
+        height: 40px;
+        width: 170px;
+        font-size: 1.1em;
+    }
+    .conteudo__footer__frase {
+        font-size: 0.8em;
+    }
+}
