@@ -3,10 +3,9 @@
     "",
     "\\app-babybay-estudo-master",
     "\\app-babybay-estudo-master\\app-babybay-estudo-master",
-    "\\app-babybay-estudo-master\\app-babybay-estudo-master\\Controllers",
-    "\\app-babybay-estudo-master\\app-babybay-estudo-master\\Migrations",
-    "\\app-babybay-estudo-master\\app-babybay-estudo-master\\Models"
+    "\\app-babybay-estudo-master\\app-babybay-estudo-master\\Models",
+    "\\presentation"
   ],
-  "SelectedNode": "\\app-babybay-estudo-master\\app-babybay-estudo-master\\app-babybay.sln",
+  "SelectedNode": "\\app-babybay-estudo-master\\app-babybay-estudo-master\\Models\\GuardaRoupa.cs",
   "PreviewInSolutionExplorer": false
 }
