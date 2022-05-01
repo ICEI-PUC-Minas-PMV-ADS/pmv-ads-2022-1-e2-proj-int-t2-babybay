@@ -48,6 +48,8 @@ namespace app_babybay.Models
     
     }
 
+    // Coloca rum ENUM com o intervalo de idade, remover a propriedade Faixa Etária
+
     public enum Categoria
     {
         Camiseta,
