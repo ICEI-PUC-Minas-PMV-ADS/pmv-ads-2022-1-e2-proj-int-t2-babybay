@@ -8,13 +8,6 @@ namespace app_babybay.Models
     [Table("Produtos")]
     public class Produto
     {
-        //public static int Contador { get; set; }
-
-        //public Produto()
-        //{
-        //    Contador++;
-        //}
-
         [Key]
         public int Id { get; set; }
 
@@ -41,6 +34,7 @@ namespace app_babybay.Models
 
         [Required(ErrorMessage = "A categoria é obrigatória.")]
         public Categoria Categoria { get; set; }
+               
 
         public ICollection<GuardaRoupa> GuardaRoupas{ get; set; }
 
