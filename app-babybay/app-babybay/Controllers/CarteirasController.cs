@@ -9,23 +9,23 @@ using app_babybay.Models;
 
 namespace app_babybay.Controllers
 {
-    public class GuardaRoupasController : Controller
+    public class CarteirasController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public GuardaRoupasController(ApplicationDbContext context)
+        public CarteirasController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: GuardaRoupas
+        // GET: Carteiras
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.GuardaRoupa.Include(g => g.Produto);
+            var applicationDbContext = _context.Carteiras.Include(c => c.Usuario);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: GuardaRoupas/Details/5
+        // GET: Carteiras/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,42 +33,42 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-            var guardaRoupa = await _context.GuardaRoupa
-                .Include(g => g.Produto)
+            var carteira = await _context.Carteiras
+                .Include(c => c.Usuario)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (guardaRoupa == null)
+            if (carteira == null)
             {
                 return NotFound();
             }
 
-            return View(guardaRoupa);
+            return View(carteira);
         }
 
-        // GET: GuardaRoupas/Create
+        // GET: Carteiras/Create
         public IActionResult Create()
         {
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Cor");
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairo");
             return View();
         }
 
-        // POST: GuardaRoupas/Create
+        // POST: Carteiras/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,QtdProduto,ProdutoId")] GuardaRoupa guardaRoupa)
+        public async Task<IActionResult> Create([Bind("Id,UsuarioId,Saldo")] Carteira carteira)
         {
             if (ModelState.IsValid)
-            {
-                _context.Add(guardaRoupa);
+            { 
+                _context.Add(carteira);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Cor", guardaRoupa.ProdutoId);
-            return View(guardaRoupa);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairo", carteira.UsuarioId);
+            return View(carteira);
         }
 
-        // GET: GuardaRoupas/Edit/5
+        // GET: Carteiras/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,23 +76,23 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-            var guardaRoupa = await _context.GuardaRoupa.FindAsync(id);
-            if (guardaRoupa == null)
+            var carteira = await _context.Carteiras.FindAsync(id);
+            if (carteira == null)
             {
                 return NotFound();
             }
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Cor", guardaRoupa.ProdutoId);
-            return View(guardaRoupa);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairo", carteira.UsuarioId);
+            return View(carteira);
         }
 
-        // POST: GuardaRoupas/Edit/5
+        // POST: Carteiras/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,QtdProduto,ProdutoId")] GuardaRoupa guardaRoupa)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UsuarioId,Saldo")] Carteira carteira)
         {
-            if (id != guardaRoupa.Id)
+            if (id != carteira.Id)
             {
                 return NotFound();
             }
@@ -101,12 +101,12 @@ namespace app_babybay.Controllers
             {
                 try
                 {
-                    _context.Update(guardaRoupa);
+                    _context.Update(carteira);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!GuardaRoupaExists(guardaRoupa.Id))
+                    if (!CarteiraExists(carteira.Id))
                     {
                         return NotFound();
                     }
@@ -117,11 +117,11 @@ namespace app_babybay.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Cor", guardaRoupa.ProdutoId);
-            return View(guardaRoupa);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairo", carteira.UsuarioId);
+            return View(carteira);
         }
 
-        // GET: GuardaRoupas/Delete/5
+        // GET: Carteiras/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -129,31 +129,31 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-            var guardaRoupa = await _context.GuardaRoupa
-                .Include(g => g.Produto)
+            var carteira = await _context.Carteiras
+                .Include(c => c.Usuario)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (guardaRoupa == null)
+            if (carteira == null)
             {
                 return NotFound();
             }
 
-            return View(guardaRoupa);
+            return View(carteira);
         }
 
-        // POST: GuardaRoupas/Delete/5
+        // POST: Carteiras/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var guardaRoupa = await _context.GuardaRoupa.FindAsync(id);
-            _context.GuardaRoupa.Remove(guardaRoupa);
+            var carteira = await _context.Carteiras.FindAsync(id);
+            _context.Carteiras.Remove(carteira);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool GuardaRoupaExists(int id)
+        private bool CarteiraExists(int id)
         {
-            return _context.GuardaRoupa.Any(e => e.Id == id);
+            return _context.Carteiras.Any(e => e.Id == id);
         }
     }
 }

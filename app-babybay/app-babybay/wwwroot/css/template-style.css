@@ -59,12 +59,12 @@ body {
     font-family: var(--fonte-alata);
 }
 
-a,
+/*a,
 a:link,
 a:visited {
     color: #FFF;
     text-decoration: none
-}
+}*/
 
 .nav__list {
     list-style: none;

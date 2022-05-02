@@ -10,10 +10,7 @@ namespace app_babybay.Models
 
         }
         public DbSet<Produto> Produtos { get; set; }
-        public DbSet<GuardaRoupa> GuardaRoupa { get; set; }
-
         public DbSet<Carteira> Carteiras { get; set; }
-       
-
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }

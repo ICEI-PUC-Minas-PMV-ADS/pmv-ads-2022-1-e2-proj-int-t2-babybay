@@ -1,4 +1,4 @@
-﻿@model app_babybay.Models.GuardaRoupa
+﻿@model app_babybay.Models.Carteira
 
 @{
     ViewData["Title"] = "Details";
@@ -7,20 +7,20 @@
 <h1>Details</h1>
 
 <div>
-    <h4>GuardaRoupa</h4>
+    <h4>Carteira</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.QtdProduto)
+            @Html.DisplayNameFor(model => model.Usuario)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.QtdProduto)
+            @Html.DisplayFor(model => model.Usuario.Bairo)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Produto)
+            @Html.DisplayNameFor(model => model.Saldo)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Produto.Cor)
+            @Html.DisplayFor(model => model.Saldo)
         </dd>
     </dl>
 </div>

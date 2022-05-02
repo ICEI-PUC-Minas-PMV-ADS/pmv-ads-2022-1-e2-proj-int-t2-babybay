@@ -50,6 +50,17 @@ namespace app_babybay.Models
         [MinLength(8)]
         public string ConfirmarSenha { get; set; }
 
+           
+        public void CriarCarteira() // Adicionei esse método
+        {
+            Carteira carteira = new Carteira(Id);
+            carteira.Entrar(10);
+            
+        }
+        
+        
+
+
     }
     public enum Estado
     {

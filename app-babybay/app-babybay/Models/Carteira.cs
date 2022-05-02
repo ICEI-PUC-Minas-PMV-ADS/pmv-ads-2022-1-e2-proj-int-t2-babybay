@@ -10,15 +10,16 @@ namespace app_babybay.Models
         public int Id { get; set; }
 
         public int UsuarioId { get; set; }
-        [ForeignKey("usuarioId")]
+        [ForeignKey("UsuarioId")]
         public Usuario Usuario { get; set; }
 
-        public int Saldo { get; private set; }       
-        
-        public Carteira()
+        public int Saldo { get; private set; }
+
+        public Carteira(int id) // Adicionei construtor passando usuarioId (deve estar errado)
         {
-            Saldo = 10;
+            UsuarioId = id;
         }
+ 
 
         public void Entrar(int quantidade)
         {

@@ -8,6 +8,7 @@ namespace app_babybay.Models
     [Table("Produtos")]
     public class Produto
     {
+        // GUARDA ROUPAS VAI ENTRAR COMO METODO
         [Key]
         public int Id { get; set; }
 
@@ -36,7 +37,7 @@ namespace app_babybay.Models
         public Categoria Categoria { get; set; }
                
 
-        public ICollection<GuardaRoupa> GuardaRoupas{ get; set; }
+        //public ICollection<GuardaRoupa> GuardaRoupas{ get; set; }
 
         //private DateTime DtCadastro { get; set; }
     
