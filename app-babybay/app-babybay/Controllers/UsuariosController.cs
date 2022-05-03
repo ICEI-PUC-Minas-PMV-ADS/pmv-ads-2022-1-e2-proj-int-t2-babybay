@@ -25,7 +25,7 @@ namespace app_babybay.Controllers
         }
 
         // GET: Usuarios/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
@@ -33,7 +33,7 @@ namespace app_babybay.Controllers
             }
 
             var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Nome == id);
             if (usuario == null)
             {
                 return NotFound();
@@ -55,10 +55,11 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Cpf,Telefone,Rua,Bairo,Cidade,Estado,Email,Senha,ConfirmarSenha")] Usuario usuario)
         {
+
             if (ModelState.IsValid)
             {
-                usuario.CriarCarteira();// Inserido
-
+                //    usuario.CriarCarteira();Inserido
+                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -67,7 +68,7 @@ namespace app_babybay.Controllers
         }
 
         // GET: Usuarios/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
@@ -96,6 +97,7 @@ namespace app_babybay.Controllers
 
             if (ModelState.IsValid)
             {
+                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 try
                 {
                     _context.Update(usuario);

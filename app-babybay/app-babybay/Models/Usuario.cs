@@ -9,7 +9,7 @@ namespace app_babybay.Models
     public class Usuario
     {
         [Key]
-        public int Id { get; set; }
+        public  int Id { get; set; }
 
         /* Dados pessoais */
         [Display(Name = "Nome Completo")]
@@ -52,12 +52,13 @@ namespace app_babybay.Models
         public string ConfirmarSenha { get; set; }
 
 
-        public void CriarCarteira() // Adicionei esse método
-        {
-            Carteira carteira = new Carteira(Id);
-            
-            //carteira.Receber(10);
-        }
+        /* Carteira CarteiraDe = new Carteira(Id); Aqui qunado for criado o usuário,sera criado tambem uma carteira com o id do usuário
+
+    Usuario user2 = new Usuario();
+    Console.WriteLine(user2.carteira.Id);         Aqui um exemplo quando for criar um usuário,eu podendo acessar a carteira criada dentro do usuário
+*/
+
+
 
 
 
