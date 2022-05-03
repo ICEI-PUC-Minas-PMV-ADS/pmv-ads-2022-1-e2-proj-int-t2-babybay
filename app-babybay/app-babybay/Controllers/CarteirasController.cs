@@ -59,7 +59,7 @@ namespace app_babybay.Controllers
         public async Task<IActionResult> Create([Bind("Id,UsuarioId,Saldo")] Carteira carteira)
         {
             if (ModelState.IsValid)
-            { 
+            {               
                 _context.Add(carteira);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

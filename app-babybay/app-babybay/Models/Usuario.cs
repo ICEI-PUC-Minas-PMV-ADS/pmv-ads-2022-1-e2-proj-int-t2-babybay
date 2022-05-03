@@ -1,4 +1,5 @@
-﻿using System;
+﻿using app_babybay.Controllers;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -44,21 +45,23 @@ namespace app_babybay.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Favor informar a senha.")]
-        [MinLength(8)]        
+        [MinLength(8)]
         public string Senha { get; set; }
         [Required(ErrorMessage = "Favor confirmar a senha.")]
         [MinLength(8)]
         public string ConfirmarSenha { get; set; }
 
-           
+
         public void CriarCarteira() // Adicionei esse método
         {
             Carteira carteira = new Carteira(Id);
-            carteira.Entrar(10);
             
+            //carteira.Receber(10);
         }
-        
-        
+
+
+
+
 
 
     }

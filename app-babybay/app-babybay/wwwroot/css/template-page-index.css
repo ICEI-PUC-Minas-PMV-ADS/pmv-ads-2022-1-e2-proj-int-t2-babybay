@@ -136,6 +136,7 @@
 .conteudo__botao__cadastro {
     display: flex;
     justify-content: center;
+    
 }
 
 /* Botão Cadastre-se*/
@@ -144,7 +145,7 @@
     border-color: var(--clr--border-box);
     box-shadow: var(--clr--box-shadow);
     border-radius: 50px;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     font-size: 1.2em;
     font-weight: bold;
     height: 50px;
@@ -152,7 +153,10 @@
     margin: 20px 15px;
     min-width: 240px;
     text-shadow: var(--clr--text-shadow);
+    text-align: center;
+    line-height: 45px;
 }
+
 
     .input__botao--cadastro:hover {
         box-shadow: var(--clr--box-shadow-btn-hover);
@@ -204,6 +208,7 @@
         height: 40px;
         width: 170px;
         font-size: 1.1em;
+        line-height:40px
     }
     .conteudo__footer__frase {
         font-size: 0.8em;

@@ -57,8 +57,8 @@ namespace app_babybay.Controllers
         {
             if (ModelState.IsValid)
             {
-                usuario.CriarCarteira(); // INCLUÍDO
-               
+                usuario.CriarCarteira();// Inserido
+
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

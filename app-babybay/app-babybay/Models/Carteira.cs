@@ -13,20 +13,19 @@ namespace app_babybay.Models
         [ForeignKey("UsuarioId")]
         public Usuario Usuario { get; set; }
 
-        public int Saldo { get; private set; }
+        public int Saldo { get; private set ; }
 
         public Carteira(int id) // Adicionei construtor passando usuarioId (deve estar errado)
-        {
+        {   Saldo = 10;
             UsuarioId = id;
         }
  
-
-        public void Entrar(int quantidade)
+        public void Receber(int quantidade)
         {
             Saldo += quantidade;
         }
 
-        public bool Sair(int quantidade)
+        public bool Retirar(int quantidade)
         {
             if (quantidade < 0)
             {
@@ -42,8 +41,8 @@ namespace app_babybay.Models
             {
                 return;
             }
-            this.Sair(quantidade);
-            carteiraDestino.Entrar(quantidade);
+            this.Retirar(quantidade);
+            carteiraDestino.Receber(quantidade);
         }
     }
 }

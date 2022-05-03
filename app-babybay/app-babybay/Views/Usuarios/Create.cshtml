@@ -1,7 +1,7 @@
 ﻿@model app_babybay.Models.Usuario
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Cadastro de Usuário";
 }
 
 <h1>Create</h1>
@@ -81,3 +81,77 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+@*
+   <link rel="stylesheet" href="~/css/style-cadastro-usuario.css"> 
+  <div class="div-titulo-cadastro">
+        <h1>Cadastro de Usuário</h1>
+    </div>
+
+    <form asp-action="Create" class="section-c"> 
+        <div class="section-c__div">            
+            <article class="article-c">
+                <ul class="article-c__ul">
+                    <li>
+                        <label asp-for="Nome">Nome</label>
+                        <input asp-for="Nome" type="text" name="nome" id="nome" placeholder="Nome Completo">
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </li>
+                    <li>
+                        <label asp-for="DataNascimento">Data Nascimento</label>
+                        <input asp-for="DataNascimento" name="data-nasc" id="data-nasc">
+                         <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                    </li>
+                    <li>
+                        <label asp-for="Cpf">CPF</label>
+                        <input asp-for="Cpf" type="text" name="cpf" id="cpf" class="endereco">
+                         <span asp-validation-for="Cpf" class="text-danger"></span>
+                    </li>
+                    <li>
+                        <label asp-for="Telefone">Telefone</label>
+                        <input asp-for="Telefone" type="number" name="telefone" id="telefone">
+                        <span asp-validation-for="Telefone" class="text-danger"></span>
+                    </li>
+                    <li>
+                        <label asp-for="Rua">Rua</label>
+                        <input asp-for="Rua" type="text" name="rua" id="rua" class="endereco">
+                        <span asp-validation-for="Rua" class="text-danger"></span>
+                    </li>
+                    <li>
+                        <label asp-for="Bairo">Bairro</label>
+                        <input asp-for="Bairo" type="text" name="bairro" id="bairro" class="endereco">
+                        <span asp-validation-for="Bairo" class="text-danger"></span>
+                    </li>
+                    <li>
+                        <label asp-for="Cidade">Cidade</label>
+                        <input asp-for="Cidade" type="text" name="cidade" id="cidade" class="endereco">
+                        <span asp-validation-for="Cidade" class="text-danger"></span>
+                    </li>
+                </ul>
+
+            </article> <!-- .container-principal__article--um-->
+            <article class="article-c">
+                <ul class="article-c__ul">
+                    <li>
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email" type="email" name="email" id="email" placeholder="Seu E-mail">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </li>
+                    <li>
+                        <label asp-for="Senha">Senha</label>
+                        <input asp-for="Senha" type="senha" name="senha" id="senha" placeholder="********">
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </li>
+                    <li>
+                        <label asp-for="ConfirmarSenha">Confirmar Senha</label>
+                        <input asp-for="ConfirmarSenha"  type="password" name="conf-senha" id="conf-senha" placeholder="********">
+                         <span asp-validation-for="ConfirmarSenha" class="text-danger"></span>
+                    </li>
+                    <li>
+                        <input type="submit" value="Confirmar" id="btn-confirmar">
+                    </li>
+                </ul>
+            </article> <!-- .container-principal__article--dois-->
+        </div>
+    </form>
+
+*@
