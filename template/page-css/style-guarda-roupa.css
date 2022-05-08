@@ -1,42 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alata&family=Baloo+Bhai+2:wght@800&display=swap');
-
-.gr-container{
-  max-width: 800px;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-  justify-content: center;
-  padding-top: 100px;
-}
-
-.gr-container h1 {
-color: #DA8BD2;
-}
-
 .tabs {
-background-color: #e6e3e318;
-color: white;
-padding: 10px 10px 0 10px;
-display: inline-flex;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:500px;
+height:250;
+background:#e6e3e318;
+padding: 20px 30px;
+overflow:hidden;
+border-radius:10px;
+box-shadow:1px 1px 2px#b6b6b694;
+border-box:#CECECE;
+overflow:hidden;
 }
 
-.tabs h3 {
-font-weight: lighter;
-align-items: center;
-padding: 10px 10px 0 10px;
-}
+.tabs .tab-header {
+  height:60px;
+  display:flex;
+  display: inline-flex;
 
-.tabs-item {
-flex: 1 0 auto;
-background-color: #9594f8;
 }
-
-.tabs-item:first-child {
-border-radius: 10px 0 0 0;
-}
-
-.tabs-item:last-child {
-  border-radius: 0 10px 0 0;
-  }
