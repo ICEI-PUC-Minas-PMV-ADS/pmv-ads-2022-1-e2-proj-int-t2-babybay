@@ -14,9 +14,8 @@ border-box:#CECECE;
 overflow:hidden;
 }
 
-.tabs .tab-header {
+.gr-container .tabs .tab-header {
   height:60px;
   display:flex;
   display: inline-flex;
-
 }
