@@ -8,6 +8,11 @@
   flex-wrap: wrap;
   margin: auto;
   justify-content: center;
+  padding-top: 100px;
+}
+
+.gr-container h1 {
+color: #DA8BD2;
 }
 
 .tabs {
