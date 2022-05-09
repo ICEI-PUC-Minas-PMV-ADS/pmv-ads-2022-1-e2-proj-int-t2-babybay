@@ -3,19 +3,37 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-width:500px;
-height:250;
 background:#e6e3e318;
 padding: 20px 30px;
 overflow:hidden;
 border-radius:10px;
 box-shadow:1px 1px 2px#b6b6b694;
-border-box:#CECECE;
 overflow:hidden;
 }
 
-.gr-container .tabs .tab-header {
+.tabs .tab-header {
   height:60px;
   display:flex;
-  display: inline-flex;
+  align-items:center;
+}
+
+.tabs .tab-header > div {
+  width:calc(100% / 3);
+  text-align:center;
+  font-weight:lighter;
+}
+
+.tabs .tab-header > div > i {
+display:block;
+}
+
+.tabs .tab-header > div.active {
+  color: #DA8BD2;
+}
+
+.tabs .tab-indicator {
+  position:relative;
+  width:calc(100% / 3);
+  height:5px;
+  background: #DA8BD2;
 }
