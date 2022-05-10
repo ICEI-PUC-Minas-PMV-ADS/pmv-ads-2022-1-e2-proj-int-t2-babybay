@@ -15,9 +15,9 @@ namespace app_babybay.Models
 
         public int Saldo { get; private set ; }
 
-        public Carteira(int id) // Adicionei construtor passando usuarioId (deve estar errado)
-        {   Saldo = 10;
-            UsuarioId = id;
+        public Carteira() 
+        {  
+            Saldo = 10;    
         }
  
         public void Receber(int quantidade)

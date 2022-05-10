@@ -51,24 +51,16 @@ namespace app_babybay.Models
         [MinLength(8)]
         public string ConfirmarSenha { get; set; }
 
-
-        /* Carteira CarteiraDe = new Carteira(Id); Aqui qunado for criado o usuário,sera criado tambem uma carteira com o id do usuário
-
-    Usuario user2 = new Usuario();
-    Console.WriteLine(user2.carteira.Id);         Aqui um exemplo quando for criar um usuário,eu podendo acessar a carteira criada dentro do usuário
-*/
-
-
-
-
-
-
-
-
+        public Carteira CriarCarteira()
+        {
+            Carteira carteira = new Carteira();           
+            return carteira;
+        }
     }
+
     public enum Estado
     {
-        AC, 
+        AC,
         AL,
         AP,
         AM,

@@ -52,8 +52,6 @@ namespace app_babybay.Controllers
         }
 
         // POST: Carteiras/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,UsuarioId,Saldo")] Carteira carteira)
@@ -86,8 +84,6 @@ namespace app_babybay.Controllers
         }
 
         // POST: Carteiras/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,UsuarioId,Saldo")] Carteira carteira)
@@ -143,7 +139,7 @@ namespace app_babybay.Controllers
         // POST: Carteiras/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var carteira = await _context.Carteiras.FindAsync(id);
             _context.Carteiras.Remove(carteira);

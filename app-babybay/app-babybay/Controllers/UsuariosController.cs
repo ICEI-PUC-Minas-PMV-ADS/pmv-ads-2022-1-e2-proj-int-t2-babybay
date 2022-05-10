@@ -49,8 +49,6 @@ namespace app_babybay.Controllers
         }
 
         // POST: Usuarios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Cpf,Telefone,Rua,Bairo,Cidade,Estado,Email,Senha,ConfirmarSenha")] Usuario usuario)
@@ -58,10 +56,21 @@ namespace app_babybay.Controllers
 
             if (ModelState.IsValid)
             {
-                //    usuario.CriarCarteira();Inserido
+                // Criptografia
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
-                _context.Add(usuario);
+                usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);
+
+                // Usuário context
+                _context.Add(usuario);               
+                await _context.SaveChangesAsync();                
+
+                // Carteira context
+                // Passando o ID do usuário para o UsuarioID (chave estrangeira)
+                var carteira = usuario.CriarCarteira(); 
+                carteira.UsuarioId = usuario.Id; 
+                _context.Add(carteira);
                 await _context.SaveChangesAsync();
+                
                 return RedirectToAction(nameof(Index));
             }
             return View(usuario);
@@ -84,8 +93,6 @@ namespace app_babybay.Controllers
         }
 
         // POST: Usuarios/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,DataNascimento,Cpf,Telefone,Rua,Bairo,Cidade,Estado,Email,Senha,ConfirmarSenha")] Usuario usuario)
@@ -140,7 +147,7 @@ namespace app_babybay.Controllers
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var usuario = await _context.Usuarios.FindAsync(id);
             _context.Usuarios.Remove(usuario);
