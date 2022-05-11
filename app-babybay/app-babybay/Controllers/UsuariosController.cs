@@ -75,7 +75,7 @@ namespace app_babybay.Controllers
                 
                 return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
+            return View(usuario);//Caso ou estado do model esteja inválido ou as senhas estejam diferentes,ele retornara a a view do usuário,a atual no caso
         }
 
         // GET: Usuarios/Edit/5
