@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\app-babybay",
+    "\\app-babybay\\app-babybay",
+    "\\app-babybay\\app-babybay\\Models"
   ],
-  "SelectedNode": "\\C:\\Users\\user\\Source\\Repos\\pmv-ads-2022-1-e2-proj-int-t2-babybay",
+  "SelectedNode": "\\app-babybay\\app-babybay\\Models\\Usuario.cs",
   "PreviewInSolutionExplorer": false
 }

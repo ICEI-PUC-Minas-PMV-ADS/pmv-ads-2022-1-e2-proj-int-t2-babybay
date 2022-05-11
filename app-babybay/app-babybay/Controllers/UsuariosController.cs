@@ -54,11 +54,12 @@ namespace app_babybay.Controllers
         public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Cpf,Telefone,Rua,Bairro,Cidade,Estado,Email,Senha,ConfirmarSenha")] Usuario usuario)
         {
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && usuario.Senha==usuario.ConfirmarSenha)
             {
                 // Criptografia
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);
+                
 
                 // Usuário context
                 _context.Add(usuario);               
