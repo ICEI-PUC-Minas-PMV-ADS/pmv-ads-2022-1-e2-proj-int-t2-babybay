@@ -86,7 +86,7 @@ namespace app_babybay.Controllers
         // POST: Carteiras/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UsuarioId,Saldo")] Carteira carteira)
+       /*  public async Task<IActionResult> Edit(int id, [Bind("Id,UsuarioId,Saldo")] Carteira carteira)
         {
             if (id != carteira.Id)
             {
@@ -116,7 +116,7 @@ namespace app_babybay.Controllers
             ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", carteira.UsuarioId);
             return View(carteira);
         }
-
+       */
         // GET: Carteiras/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
