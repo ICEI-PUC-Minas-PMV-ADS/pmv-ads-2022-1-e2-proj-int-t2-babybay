@@ -54,8 +54,9 @@ namespace app_babybay.Controllers
         public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Cpf,Telefone,Rua,Bairro,Cidade,Estado,Email,Senha,ConfirmarSenha")] Usuario usuario)
         {
 
-            if (ModelState.IsValid && usuario.Senha==usuario.ConfirmarSenha)
-            {
+            if (ModelState.IsValid && usuario.Senha == usuario.ConfirmarSenha) /*Aqui ele ira comparar se a senha e o confirmar senha são iguais,caos sejam ele da proseguimento a criação do usuários
+                 caso não sejam iguais,ele retorna a mesma pagina,ver depois como colocar mensagem de senha diferentes embaixo do display                                        */
+                {
                 // Criptografia
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);

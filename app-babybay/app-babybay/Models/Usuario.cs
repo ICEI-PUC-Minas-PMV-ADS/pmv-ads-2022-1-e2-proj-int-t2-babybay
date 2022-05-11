@@ -46,6 +46,7 @@ namespace app_babybay.Models
 
         [Required(ErrorMessage = "Favor informar a senha.")]
         [MinLength(8)]
+        
         public string Senha { get; set; }
         [Display(Name = "Confirmar Senha")]
         [Required(ErrorMessage = "Favor confirmar a senha.")]
