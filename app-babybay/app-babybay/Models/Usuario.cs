@@ -33,7 +33,7 @@ namespace app_babybay.Models
         [Required(ErrorMessage = "Favor informar a rua.")]
         public string Rua { get; set; }
         [Required(ErrorMessage = "Favor informar o bairro.")]
-        public string Bairo { get; set; }
+        public string Bairro { get; set; }
         [Required(ErrorMessage = "Favor informar a cidade.")]
         public string Cidade { get; set; }
         [Required(ErrorMessage = "Favor informar o estado.")]
@@ -47,10 +47,12 @@ namespace app_babybay.Models
         [Required(ErrorMessage = "Favor informar a senha.")]
         [MinLength(8)]
         public string Senha { get; set; }
+        [Display(Name = "Confirmar Senha")]
         [Required(ErrorMessage = "Favor confirmar a senha.")]
         [MinLength(8)]
         public string ConfirmarSenha { get; set; }
 
+        // Instância de Carteira para passar ao UsuariosController 
         public Carteira CriarCarteira()
         {
             Carteira carteira = new Carteira();           

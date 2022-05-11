@@ -47,7 +47,7 @@ namespace app_babybay.Controllers
         // GET: Carteiras/Create
         public IActionResult Create()
         {
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairo");
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro");
             return View();
         }
 
@@ -62,7 +62,7 @@ namespace app_babybay.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairo", carteira.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", carteira.UsuarioId);
             return View(carteira);
         }
 
@@ -79,7 +79,7 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairo", carteira.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", carteira.UsuarioId);
             return View(carteira);
         }
 
@@ -113,7 +113,7 @@ namespace app_babybay.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairo", carteira.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", carteira.UsuarioId);
             return View(carteira);
         }
 
@@ -139,7 +139,7 @@ namespace app_babybay.Controllers
         // POST: Carteiras/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var carteira = await _context.Carteiras.FindAsync(id);
             _context.Carteiras.Remove(carteira);

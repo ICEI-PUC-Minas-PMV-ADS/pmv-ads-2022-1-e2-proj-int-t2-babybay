@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace app_babybay.Models
 {
-    [Table("Carteira")]
+    [Table("Carteiras")]
     public class Carteira
     {
         [Key]

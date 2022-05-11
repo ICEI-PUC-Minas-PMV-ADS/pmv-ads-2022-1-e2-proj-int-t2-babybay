@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carlos\\Desktop\\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\\app-babybay\\app-babybay\\app-babybay.csproj": {}
+    "C:\\Users\\carlos\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\app-babybay.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carlos\\Desktop\\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\\app-babybay\\app-babybay\\app-babybay.csproj": {
+    "C:\\Users\\carlos\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\app-babybay.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carlos\\Desktop\\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\\app-babybay\\app-babybay\\app-babybay.csproj",
+        "projectUniqueName": "C:\\Users\\carlos\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\app-babybay.csproj",
         "projectName": "app-babybay",
-        "projectPath": "C:\\Users\\carlos\\Desktop\\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\\app-babybay\\app-babybay\\app-babybay.csproj",
+        "projectPath": "C:\\Users\\carlos\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\app-babybay.csproj",
         "packagesPath": "C:\\Users\\carlos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlos\\Desktop\\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\\app-babybay\\app-babybay\\obj\\",
+        "outputPath": "C:\\Users\\carlos\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
