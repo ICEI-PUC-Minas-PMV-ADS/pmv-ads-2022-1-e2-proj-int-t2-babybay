@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,17 +13,21 @@ namespace app_babybay.Models
         [Key]
         public int Id { get; set; }
 
+        public int UsuarioId { get; set; }
+        [ForeignKey("UsuarioId")]
+        public Usuario Usuario { get; set; }
+
         [Required(ErrorMessage = "O nome é obrigatório.")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "A cor é obrigatória.")]
         public string Cor { get; set; }
 
-        [Display(Name = "Faixa Etária")]
-        [Required(ErrorMessage = "A faixa etéria é obrigatória.")]
+        [Display(Name = "Idade da Criança")]
+        [Required(ErrorMessage = "A faixa etária é obrigatória.")]
         public int Idade { get; set; }
 
-        [Display(Name = "Tempo de Uso")]
+        [Display(Name = "Tempo de Uso em Meses")]
         [Required(ErrorMessage = "O tempo de uso é obrigatório.")]
         public int TempoUso { get; set; }
 
@@ -35,15 +40,41 @@ namespace app_babybay.Models
 
         [Required(ErrorMessage = "A categoria é obrigatória.")]
         public Categoria Categoria { get; set; }
-               
+
+        //private DateTime _dataCadastro;
+        //public DateTime DataCadastro
+        //{
+        //    get
+        //    {
+        //        return _dataCadastro;
+        //    }
+        //    set
+        //    {
+        //        value = GerarDataCadastro();
+        //        _dataCadastro = value;
+        //    }
+        //}       
+            
+        //public DateTime GerarDataCadastro()
+        //{
+        //    return DateTime.Today;
+        //}
 
         //public ICollection<GuardaRoupa> GuardaRoupas{ get; set; }
 
-        //private DateTime DtCadastro { get; set; }
-    
+
+
     }
 
-    // Coloca rum ENUM com o intervalo de idade, remover a propriedade Faixa Etária
+    //public enum FaixaEtaria
+    //{
+    //    "0 a 2",
+    //    "3 a 5",
+    //    "6 a 8",
+    //    9 a 11,
+    //    12 a 16,
+    //    Maior de 16
+    //}
 
     public enum Categoria
     {

@@ -53,13 +53,19 @@ namespace app_babybay.Models
         [MinLength(8)]
         public string ConfirmarSenha { get; set; }
 
+        [NotMapped]
+        public ICollections<Produtos> Produto { get; set; }
+
+
         // Instância de Carteira para passar ao UsuariosController 
         public Carteira CriarCarteira()
         {
             Carteira carteira = new Carteira();           
             return carteira;
         }
+
     }
+
 
     public enum Estado
     {

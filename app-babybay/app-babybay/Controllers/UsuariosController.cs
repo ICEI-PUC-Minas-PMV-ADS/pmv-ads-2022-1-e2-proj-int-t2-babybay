@@ -53,23 +53,20 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Cpf,Telefone,Rua,Bairro,Cidade,Estado,Email,Senha,ConfirmarSenha")] Usuario usuario)
         {
-
-            if (ModelState.IsValid && usuario.Senha == usuario.ConfirmarSenha) /*Aqui ele ira comparar se a senha e o confirmar senha são iguais,caos sejam ele da proseguimento a criação do usuários
-                 caso não sejam iguais,ele retorna a mesma pagina,ver depois como colocar mensagem de senha diferentes embaixo do display                                        */
+            /*Aqui ele ira comparar se a senha e o confirmar senha são iguais,caos sejam ele da proseguimento a criação do usuários
+                caso não sejam iguais,ele retorna a mesma pagina,ver depois como colocar mensagem de senha diferentes embaixo do display                                        */
+            if (ModelState.IsValid && usuario.Senha == usuario.ConfirmarSenha) 
                 {
                 // Criptografia
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
-                usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);
-                
-
+                usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);                
                 // Usuário context
                 _context.Add(usuario);               
-                await _context.SaveChangesAsync();                
+                await _context.SaveChangesAsync();
 
-                // Carteira context
-                // Passando o ID do usuário para o UsuarioID (chave estrangeira)
+                // Carteira context: Passando o usuario para pegar a chave estrangeira 
                 var carteira = usuario.CriarCarteira(); 
-                carteira.UsuarioId = usuario.Id; 
+                carteira.Usuario = usuario;
                 _context.Add(carteira);
                 await _context.SaveChangesAsync();
                 
