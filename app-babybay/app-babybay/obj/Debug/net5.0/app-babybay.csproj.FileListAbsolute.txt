@@ -1336,3 +1336,4 @@ C:\Users\carlos\Desktop\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\pmv-ad
 C:\Users\carlos\Desktop\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\app-babybay\app-babybay\obj\Debug\net5.0\app-babybay.genruntimeconfig.cache
 C:\Users\carlos\Desktop\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\app-babybay\app-babybay\obj\Debug\net5.0\ref\app-babybay.dll
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\bin\Debug\net5.0\BCrypt.Net-Next.dll
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\Relatorio.cshtml.g.cs

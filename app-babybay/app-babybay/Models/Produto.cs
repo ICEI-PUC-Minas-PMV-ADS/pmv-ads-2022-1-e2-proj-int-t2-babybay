@@ -60,21 +60,8 @@ namespace app_babybay.Models
         //    return DateTime.Today;
         //}
 
-        //public ICollection<GuardaRoupa> GuardaRoupas{ get; set; }
-
-
-
+        
     }
-
-    //public enum FaixaEtaria
-    //{
-    //    "0 a 2",
-    //    "3 a 5",
-    //    "6 a 8",
-    //    9 a 11,
-    //    12 a 16,
-    //    Maior de 16
-    //}
 
     public enum Categoria
     {

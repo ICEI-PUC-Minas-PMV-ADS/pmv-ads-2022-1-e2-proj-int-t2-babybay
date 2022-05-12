@@ -42,6 +42,25 @@ namespace app_babybay.Controllers
             return View(usuario);
         }
 
+        // GET: Usuarios/Details/5
+        public async Task<IActionResult> Relatorio(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var usuario = await _context.Usuarios
+                .Include(p => p.Produtos)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            return View(usuario);
+        }
+
         // GET: Usuarios/Create
         public IActionResult Create()
         {

@@ -53,8 +53,8 @@ namespace app_babybay.Models
         [MinLength(8)]
         public string ConfirmarSenha { get; set; }
 
-        [NotMapped]
-        public ICollections<Produtos> Produto { get; set; }
+        [NotMapped]// View relatorio não está funcionando
+        public ICollections<Produto> Produtos { get; set; }
 
 
         // Instância de Carteira para passar ao UsuariosController 
