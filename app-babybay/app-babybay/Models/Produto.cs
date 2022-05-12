@@ -47,8 +47,8 @@ namespace app_babybay.Models
         public ICollection<Usuario> Usuarios { get; set; }
 
 
-
-
+        
+        
          // public bool Trocar()
 
 
