@@ -1,5 +1,6 @@
 ﻿using app_babybay.Controllers;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -54,7 +55,7 @@ namespace app_babybay.Models
         public string ConfirmarSenha { get; set; }
 
         [NotMapped]// View relatorio não está funcionando
-        public ICollections<Produto> Produtos { get; set; }
+        public ICollection<Produto> Produtos { get; set; }
 
 
         // Instância de Carteira para passar ao UsuariosController 

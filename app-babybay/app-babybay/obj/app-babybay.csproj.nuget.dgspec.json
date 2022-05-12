@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carlos\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\app-babybay.csproj": {}
+    "C:\\Users\\user\\Source\\Repos\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\app-babybay.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carlos\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\app-babybay.csproj": {
+    "C:\\Users\\user\\Source\\Repos\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\app-babybay.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carlos\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\app-babybay.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Source\\Repos\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\app-babybay.csproj",
         "projectName": "app-babybay",
-        "projectPath": "C:\\Users\\carlos\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\app-babybay.csproj",
-        "packagesPath": "C:\\Users\\carlos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlos\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\obj\\",
+        "projectPath": "C:\\Users\\user\\Source\\Repos\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\app-babybay.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Source\\Repos\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,6 +62,10 @@
               "target": "Package",
               "version": "[5.0.16, )"
             },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.16, )"
@@ -91,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
