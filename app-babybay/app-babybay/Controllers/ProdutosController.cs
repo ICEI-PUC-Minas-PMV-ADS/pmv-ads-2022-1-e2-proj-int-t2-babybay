@@ -57,6 +57,7 @@ namespace app_babybay.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 //var quantidadeProduto = produto.QuantidadeProduto();
                 _context.Add(produto);
                 await _context.SaveChangesAsync();

@@ -58,6 +58,8 @@ namespace app_babybay.Models
         public ICollection<Produto> Produtos { get; set; }
 
 
+
+
         // Instância de Carteira para passar ao UsuariosController 
         public Carteira CriarCarteira()
         {
