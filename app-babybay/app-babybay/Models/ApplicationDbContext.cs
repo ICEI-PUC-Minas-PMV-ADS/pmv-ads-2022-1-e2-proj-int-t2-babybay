@@ -12,5 +12,6 @@ namespace app_babybay.Models
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Carteira> Carteiras { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Troca> Trocas { get; set; }
     }
 }

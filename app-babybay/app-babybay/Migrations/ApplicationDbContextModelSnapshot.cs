@@ -136,6 +136,21 @@ namespace app_babybay.Migrations
                     b.ToTable("Usuarios");
                 });
 
+            modelBuilder.Entity("app_babybay.Models.Troca", b =>
+                {
+                    b.HasBaseType("app_babybay.Models.Carteira");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("Trocas");
+                });
+
             modelBuilder.Entity("app_babybay.Models.Carteira", b =>
                 {
                     b.HasOne("app_babybay.Models.Usuario", "Usuario")
@@ -156,6 +171,23 @@ namespace app_babybay.Migrations
                         .IsRequired();
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("app_babybay.Models.Troca", b =>
+                {
+                    b.HasOne("app_babybay.Models.Carteira", null)
+                        .WithOne()
+                        .HasForeignKey("app_babybay.Models.Troca", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.HasOne("app_babybay.Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Produto");
                 });
 #pragma warning restore 612, 618
         }

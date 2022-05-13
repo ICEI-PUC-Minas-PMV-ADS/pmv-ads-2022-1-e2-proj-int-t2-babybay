@@ -21,6 +21,7 @@ namespace app_babybay.Controllers
         // GET: Produtos
         public async Task<IActionResult> Index()
         {
+            var applicationDbContext = _context.Produtos.Include(c => c.Usuario);
             return View(await _context.Produtos.ToListAsync());
         }
 
@@ -33,6 +34,7 @@ namespace app_babybay.Controllers
             }
 
             var produto = await _context.Produtos
+                .Include(p => p.Usuario)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (produto == null)
             {
@@ -45,24 +47,29 @@ namespace app_babybay.Controllers
         // GET: Produtos/Create
         public IActionResult Create()
         {
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome");
+
             return View();
         }
 
         // POST: Produtos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Cor,Idade,TempoUso,Descricao,Tamanho,Categoria")] Produto produto)
         {
             if (ModelState.IsValid)
-            {
-                
-                //var quantidadeProduto = produto.QuantidadeProduto();
+            {                
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
+
+                //var usuario = new Usuario();
+                //_context.Add(usuario);
+                //await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome", produto.UsuarioId);
             return View(produto);
         }
 
@@ -79,6 +86,8 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome", produto.UsuarioId);
             return View(produto);
         }
 
@@ -114,6 +123,8 @@ namespace app_babybay.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome", produto.UsuarioId);
             return View(produto);
         }
 
@@ -126,6 +137,7 @@ namespace app_babybay.Controllers
             }
 
             var produto = await _context.Produtos
+                .Include(c => c.Usuario)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (produto == null)
             {

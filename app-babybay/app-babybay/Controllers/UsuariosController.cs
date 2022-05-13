@@ -42,7 +42,7 @@ namespace app_babybay.Controllers
             return View(usuario);
         }
 
-        // GET: Usuarios/Details/5
+        // GET: Usuarios/Relatorio/5
         public async Task<IActionResult> Relatorio(int? id)
         {
             if (id == null)
@@ -51,7 +51,7 @@ namespace app_babybay.Controllers
             }
 
             var usuario = await _context.Usuarios
-                .Include(p => p.Produtos)
+                .Include(t => t.Produtos)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (usuario == null)
             {

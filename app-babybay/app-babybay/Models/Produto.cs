@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace app_babybay.Models
 {
     [Table("Produtos")]
-    public class Produto:Carteira
+    public class Produto
     {
         // GUARDA ROUPAS VAI ENTRAR COMO METODO
         [Key]
@@ -41,37 +41,15 @@ namespace app_babybay.Models
         [Required(ErrorMessage = "A categoria é obrigatória.")]
         public Categoria Categoria { get; set; }
 
+        public void Anunciar()
+        {
+            
+        }
 
+        //[NotMapped]
+        //public ICollection<Usuario> Usuarios { get; set; }      
+ 
 
-        [NotMapped]
-        public ICollection<Usuario> Usuarios { get; set; }
-
-
-        
-        
-         // public bool Trocar()
-
-
-
-
-        //private DateTime _dataCadastro;
-        //public DateTime DataCadastro
-        //{
-        //    get
-        //    {
-        //        return _dataCadastro;
-        //    }
-        //    set
-        //    {
-        //        value = GerarDataCadastro();
-        //        _dataCadastro = value;
-        //    }
-        //}       
-
-        //public DateTime GerarDataCadastro()
-        //{
-        //    return DateTime.Today;
-        //}
 
 
     }

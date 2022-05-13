@@ -1338,3 +1338,8 @@ C:\Users\carlos\Desktop\pmv-ads-2022-1-e2-proj-int-t2-babybay-mvc-babybay\pmv-ad
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\bin\Debug\net5.0\BCrypt.Net-Next.dll
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\Relatorio.cshtml.g.cs
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\Relatorio.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Trocas\Create.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Trocas\Delete.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Trocas\Details.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Trocas\Edit.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Trocas\Index.cshtml.g.cs

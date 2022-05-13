@@ -54,8 +54,14 @@ namespace app_babybay.Models
         [MinLength(8)]
         public string ConfirmarSenha { get; set; }
 
+        //[NotMapped]
+        //public Produto Produto { get; set; }
+
         [NotMapped]// View relatorio não está funcionando
         public ICollection<Produto> Produtos { get; set; }
+
+        [NotMapped]// View relatorio não está funcionando
+        public ICollection<Troca> Trocas { get; set; }
 
 
 
