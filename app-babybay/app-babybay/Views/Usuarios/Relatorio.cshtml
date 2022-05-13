@@ -1,4 +1,4 @@
-﻿@model app_babybay.Models.Usuario
+﻿@model app_babybay.Models.ViewBag
 
 @{
 	ViewData["Title"] = "Meu Guarda-Roupas";
@@ -35,7 +35,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach (var item in Model.Produtos)
+			@foreach (var item in Model.Usuario.Produtos)
 			{
 			<tr>
 				<td>
@@ -65,6 +65,6 @@
 	</table>
 </div>
 <div>
-	<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+	<a asp-action="Edit" asp-route-id="@Model.Produto.Id">Edit</a> |
 	<a asp-action="Index">Back to List</a>
 </div>

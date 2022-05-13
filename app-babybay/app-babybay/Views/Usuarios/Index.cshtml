@@ -1,4 +1,4 @@
-﻿@model IEnumerable<app_babybay.Models.Usuario>
+﻿@model IEnumerable<app_babybay.Models.ViewBag>
 
 @{
 	ViewData["Title"] = "Index";
@@ -13,24 +13,24 @@
 	<thead>
 		<tr>
 			<th>
-				@Html.DisplayNameFor(model => model.Nome)
+				@Html.DisplayNameFor(model => model.Usuario)
 			</th>
 
 			<th>
-				@Html.DisplayNameFor(model => model.Cpf)
+				@Html.DisplayNameFor(model => model.Usuario.Cpf)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.Telefone)
+				@Html.DisplayNameFor(model => model.Usuario.Telefone)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.Rua)
+				@Html.DisplayNameFor(model => model.Usuario.Rua)
 			</th>
 
 			<th>
-				@Html.DisplayNameFor(model => model.Cidade)
+				@Html.DisplayNameFor(model => model.Usuario.Cidade)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.Email)
+				@Html.DisplayNameFor(model => model.Usuario.Email)
 			</th>
 
 			<th></th>
@@ -41,30 +41,30 @@
 		{
 			<tr>
 				<td>
-					@Html.DisplayFor(modelItem => item.Nome)
+					@Html.DisplayFor(modelItem => item.Usuario.Nome)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.Cpf)
+					@Html.DisplayFor(modelItem => item.Usuario.Cpf)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.Telefone)
+					@Html.DisplayFor(modelItem => item.Usuario.Telefone)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.Rua)
+					@Html.DisplayFor(modelItem => item.Usuario.Rua)
 				</td>
 
 				<td>
-					@Html.DisplayFor(modelItem => item.Cidade)
+					@Html.DisplayFor(modelItem => item.Usuario.Cidade)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.Email)
+					@Html.DisplayFor(modelItem => item.Usuario.Email)
 				</td>
 
 				<td style="display:flex;flex-direction:row">
-					<a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id">Editar</a> |
-					<a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Detalhes</a> |
-					<a asp-action="Delete" class="btn btn-primary" asp-route-id="@item.Id">Deletar</a> |
-					<a asp-action="Relatorio" class="btn btn-primary" asp-route-id="@item.Id">Relatório</a>
+					<a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Usuario.Id">Editar</a> |
+					<a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Usuario.Id">Detalhes</a> |
+					<a asp-action="Delete" class="btn btn-primary" asp-route-id="@item.Usuario.Id">Deletar</a> |
+					<a asp-action="Relatorio" class="btn btn-primary" asp-route-id="@item.Usuario.Id">Relatório</a>
 				</td>
 			</tr>
 		}
