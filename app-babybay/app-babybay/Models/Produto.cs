@@ -24,7 +24,7 @@ namespace app_babybay.Models
         public string Cor { get; set; }
 
         [Display(Name = "Idade da Criança")]
-        [Required(ErrorMessage = "A faixa etária é obrigatória.")]
+        [Required(ErrorMessage = "A idade é obrigatória.")]
         public int Idade { get; set; }
 
         [Display(Name = "Tempo de Uso em Meses")]
@@ -44,14 +44,9 @@ namespace app_babybay.Models
         public void Anunciar()
         {
             
-        }
+        } 
 
-        //[NotMapped]
-        //public ICollection<Usuario> Usuarios { get; set; }      
- 
-
-
-
+            
     }
 
     public enum Categoria
