@@ -41,11 +41,6 @@ namespace app_babybay.Models
         [Required(ErrorMessage = "A categoria é obrigatória.")]
         public Categoria Categoria { get; set; }
 
-        public void Anunciar()
-        {
-            
-        } 
-
             
     }
 

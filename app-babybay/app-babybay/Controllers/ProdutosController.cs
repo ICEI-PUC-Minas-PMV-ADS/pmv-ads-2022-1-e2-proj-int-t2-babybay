@@ -58,14 +58,16 @@ namespace app_babybay.Controllers
         public async Task<IActionResult> Create([Bind("Id,Nome,Cor,Idade,TempoUso,Descricao,Tamanho,Categoria")] Produto produto)
         {
             if (ModelState.IsValid)
-            {                
-                _context.Add(produto);
-                await _context.SaveChangesAsync();
+            {
 
-                //var usuario = new Usuario();
+               // var usuario = new Usuario();
+                produto.UsuarioId = 2;      // Setando manual vai
                 //_context.Add(usuario);
                 //await _context.SaveChangesAsync();
 
+                _context.Add(produto);
+                await _context.SaveChangesAsync();                
+             
                 return RedirectToAction(nameof(Index));
             }
 
