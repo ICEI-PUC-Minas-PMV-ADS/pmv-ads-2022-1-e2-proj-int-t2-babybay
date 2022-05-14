@@ -18,13 +18,13 @@
                 <div class="menu__logo">                   
                     <a asp-controller="Home" asp-action="Index" ><img src="~/img/logo-200px.png" alt="logo-babybay"></a>
 
-                    <a asp-controller="Produtos" asp-action="Index" >Produto </a> <!--Aqi inserido-->
-                    <a asp-controller="Usuarios" asp-action="Index" >Usuario </a> <!--Aqi inserido-->
+                    <a asp-controller="Produtos" asp-action="Index" >Produto </a> <!--Aqui inserido-->
+                    <a asp-controller="Usuarios" asp-action="Index" >Usuario </a> <!--Aqui inserido-->
                 </div> <!-- .menu__logo-->
                 <nav class="nav">
                     <ul class="nav__list">
                         <li class="nav__link">Já tem uma conta?</li>
-                        <li class="nav__link--bold"><a href="#" target=_self>Entrar</a></li>
+                        <li class="nav__link--bold"><a asp-controller="Usuarios" asp-action="Login">Entrar</a></li>
                     </ul> <!-- .nav__list-->
                 </nav>
                 <!--.nav-->

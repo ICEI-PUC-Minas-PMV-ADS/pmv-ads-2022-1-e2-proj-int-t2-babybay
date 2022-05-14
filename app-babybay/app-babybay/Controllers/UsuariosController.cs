@@ -18,6 +18,42 @@ namespace app_babybay.Controllers
             _context = context;
         }
 
+        // Login View
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        // Login Validação
+        [HttpPost]
+        public async Task<IActionResult> Login([Bind("Email,Senha")] Usuario usuario)
+        {
+            // Percorre o BD de forma assíncrona e compara o Id passado no método com o Id presente no BD
+            var user = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.Email == usuario.Email);
+
+            // Se null, exibe msg e volta pro login
+            if (user == null)
+            {
+                ViewBag.Message = "Usuário ou senha inválidos";
+                return View();
+            }
+
+            // Verifica se a senha inserida no login é igual a senha que existe no BD
+            bool senhaOk = BCrypt.Net.BCrypt.Verify(usuario.Senha, user.Senha);
+
+            if (senhaOk)
+            {
+                ViewBag.Message = "Usuário Ok";
+                return View();
+            }
+
+            // A senha estiver incorreta, exibe na tela
+            ViewBag.Message = "Usuário ou senha inválidos";
+
+            return View();
+        }
+
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
@@ -74,21 +110,23 @@ namespace app_babybay.Controllers
         {
             /*Aqui ele ira comparar se a senha e o confirmar senha são iguais,caos sejam ele da proseguimento a criação do usuários
                 caso não sejam iguais,ele retorna a mesma pagina,ver depois como colocar mensagem de senha diferentes embaixo do display                                        */
-            if (ModelState.IsValid && usuario.Senha == usuario.ConfirmarSenha) 
-                {
+            if (ModelState.IsValid && usuario.Senha == usuario.ConfirmarSenha)
+            {
                 // Criptografia
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
-                usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);                
+                usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);
+
+
                 // Usuário context
-                _context.Add(usuario);               
+                _context.Add(usuario);
                 await _context.SaveChangesAsync();
 
                 // Carteira context: Passando o usuario para pegar a chave estrangeira 
-                var carteira = usuario.CriarCarteira(); 
+                var carteira = usuario.CriarCarteira();
                 carteira.Usuario = usuario;
                 _context.Add(carteira);
                 await _context.SaveChangesAsync();
-                
+
                 return RedirectToAction(nameof(Index));
             }
             return View(usuario);//Caso ou estado do model esteja inválido ou as senhas estejam diferentes,ele retornara a a view do usuário,a atual no caso
@@ -122,9 +160,9 @@ namespace app_babybay.Controllers
 
             if (ModelState.IsValid)
             {
-                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 try
                 {
+                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
                 }

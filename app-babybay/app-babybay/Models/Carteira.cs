@@ -13,7 +13,7 @@ namespace app_babybay.Models
         [ForeignKey("UsuarioId")]
         public Usuario Usuario { get; set; }
 
-        public int Saldo { get; private set ; }
+        public int Saldo { get; private set; }
 
         public Carteira() 
         {  
@@ -41,7 +41,7 @@ namespace app_babybay.Models
             {
                 return;
             }
-            this.Retirar(quantidade);
+            Retirar(quantidade);
             carteiraDestino.Receber(quantidade);
         }
     }

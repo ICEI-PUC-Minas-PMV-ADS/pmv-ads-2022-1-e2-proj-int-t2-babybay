@@ -46,19 +46,18 @@ namespace app_babybay.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Favor informar a senha.")]
-        [MinLength(8)]
-        
+        [MinLength(8)]     
+        [DataType(DataType.Password)]
         public string Senha { get; set; }
-        [Display(Name = "Confirmar Senha")]
+
         [Required(ErrorMessage = "Favor confirmar a senha.")]
         [MinLength(8)]
+        [DataType(DataType.Password)]
         public string ConfirmarSenha { get; set; }
    
+        /* Navegação */
         public ICollection<Produto> Produtos { get; set; }     
         public ICollection<Troca> Trocas { get; set; }
-
-
-
 
         // Instância de Carteira para passar ao UsuariosController 
         public Carteira CriarCarteira()
@@ -66,12 +65,11 @@ namespace app_babybay.Models
             Carteira carteira = new Carteira();           
             return carteira;
         }
-
     }
-
 
     public enum Estado
     {
+        Selecionar, 
         AC,
         AL,
         AP,
