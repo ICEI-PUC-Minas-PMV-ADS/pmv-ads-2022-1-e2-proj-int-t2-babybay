@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using app_babybay.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace app_babybay.Controllers
 {
+    [Authorize]
     public class ProdutosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -47,8 +49,7 @@ namespace app_babybay.Controllers
         // GET: Produtos/Create
         public IActionResult Create()
         {
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome");
-
+          //  ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome");
             return View();
         }
 
@@ -71,7 +72,7 @@ namespace app_babybay.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome", produto.UsuarioId);
+           //ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome", produto.UsuarioId);
             return View(produto);
         }
 
@@ -126,7 +127,7 @@ namespace app_babybay.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome", produto.UsuarioId);
+           // ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome", produto.UsuarioId);
             return View(produto);
         }
 

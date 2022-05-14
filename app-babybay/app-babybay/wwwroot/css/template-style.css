@@ -69,12 +69,32 @@ a:visited {
     list-style: none;
 }
 
-.nav__link--bold:hover {
+/*.nav__link--bold {
+    
+}*/
+
+.config__logout {
+    margin-left: 30px;
+}
+
+.config__logout:hover{      
     font-weight: bold;
 }
 
-/****************************************/
+.config__login:hover {
+    font-weight: bold;
+}
 
+.config__logado:hover {
+    font-weight: bold;
+}
+
+.config__tem_conta {
+    display: inline;
+    margin-right: 20px;
+}
+
+/****************************************/
 /****************************************
     2. Header > Menu 
 ****************************************/

@@ -6,9 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using app_babybay.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace app_babybay.Controllers
 {
+    [Authorize] // Rota somente usuários logados terão acesso
     public class UsuariosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -19,19 +23,20 @@ namespace app_babybay.Controllers
         }
 
         // Login View
+        [AllowAnonymous]    // Rota pública
         public IActionResult Login()
         {
             return View();
         }
 
-        // Login Validação
+        // Login Validação     
         [HttpPost]
+        [AllowAnonymous]    // Rota pública
         public async Task<IActionResult> Login([Bind("Email,Senha")] Usuario usuario)
         {
             // Percorre o BD de forma assíncrona e compara o Id passado no método com o Id presente no BD
             var user = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.Email == usuario.Email);
-            
+                .FirstOrDefaultAsync(m => m.Email == usuario.Email);            
 
             // Se null, exibe msg e volta pro login
             if (user == null)
@@ -44,17 +49,59 @@ namespace app_babybay.Controllers
             bool senhaOk = BCrypt.Net.BCrypt.Verify(usuario.Senha, user.Senha);
 
             if (senhaOk)
-            {
-                ViewBag.Message = "Usuário Ok";
-                return View();
+            {   
+                /* Credenciais so usuário para redirecionar ele a página desejada,é que vai ficar no cache da aplicação,para ficar trafegando as
+                    informações e validaer as informações do usuário*/
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, user.Nome),
+                    new Claim(ClaimTypes.NameIdentifier, user.Nome),
+                 
+                };
+
+                var userIdentify = new ClaimsIdentity(claims, "login");
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentify);
+
+                // Configurações do identity
+                // ExpireUtc serve para o login expirar, no caso foi definido para 7 dias
+                // AllowRefresh - refresh da aplicação
+                // IsPersistent para os dados permanecerem na seção
+                var props = new AuthenticationProperties
+                {
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTime.Now.ToLocalTime().AddDays(7),
+                    IsPersistent = true
+                };
+
+                // Insere o usuário na seção da aplicação
+                await HttpContext.SignInAsync(principal, props);
+                return RedirectToAction("Index", "Home");   /*    Caso de tudo ok, direcionara para home,assim ela estara autenticado para acessar
+                    outras partes do sistema*/
             }
 
             // A senha estiver incorreta, exibe na tela
             ViewBag.Message = "Usuário ou senha inválidos";
-
             return View();
         }
 
+        // Logout - sair do sistema
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        // Acesso negado (ver startup, configuração de cookies)
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+
+        //public IActionResult Menu()   // Configurar menu
+        //{
+        //    return View();
+        //}
+           
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
@@ -109,7 +156,7 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Cpf,Telefone,Rua,Bairro,Cidade,Estado,Email,Senha,ConfirmarSenha")] Usuario usuario)
         {
-            usuario.Id = 200;
+           
             /*Aqui ele ira comparar se a senha e o confirmar senha são iguais,caos sejam ele da proseguimento a criação do usuários
                 caso não sejam iguais,ele retorna a mesma pagina,ver depois como colocar mensagem de senha diferentes embaixo do display                                        */
             if (ModelState.IsValid && usuario.Senha == usuario.ConfirmarSenha)
@@ -129,7 +176,9 @@ namespace app_babybay.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            return View(usuario);//Caso ou estado do model esteja inválido ou as senhas estejam diferentes,ele retornara a a view do usuário,a atual no caso
+
+            ViewBag.Message = "As senhas estão diferentes";
+            return View();//Caso ou estado do model esteja inválido ou as senhas estejam diferentes,ele retornara a a view do usuário,a atual no caso
         }
 
         // GET: Usuarios/Edit/5

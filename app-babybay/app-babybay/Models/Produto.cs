@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,8 +13,10 @@ namespace app_babybay.Models
         // GUARDA ROUPAS VAI ENTRAR COMO METODO
         [Key]
         public int Id { get; set; }
-
+    
         public int UsuarioId { get; set; }
+
+       
         [ForeignKey("UsuarioId")]
         public Usuario Usuario { get; set; }
 
@@ -41,7 +44,10 @@ namespace app_babybay.Models
         [Required(ErrorMessage = "A categoria é obrigatória.")]
         public Categoria Categoria { get; set; }
 
-            
+        
+        /*public ICollection<Usuario> Usuarios { get; set; }*/
+
+
     }
 
     public enum Categoria
