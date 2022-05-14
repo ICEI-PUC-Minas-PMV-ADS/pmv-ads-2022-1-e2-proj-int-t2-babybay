@@ -31,6 +31,7 @@ namespace app_babybay.Controllers
             // Percorre o BD de forma assíncrona e compara o Id passado no método com o Id presente no BD
             var user = await _context.Usuarios
                 .FirstOrDefaultAsync(m => m.Email == usuario.Email);
+            
 
             // Se null, exibe msg e volta pro login
             if (user == null)
@@ -108,6 +109,7 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Cpf,Telefone,Rua,Bairro,Cidade,Estado,Email,Senha,ConfirmarSenha")] Usuario usuario)
         {
+            usuario.Id = 200;
             /*Aqui ele ira comparar se a senha e o confirmar senha são iguais,caos sejam ele da proseguimento a criação do usuários
                 caso não sejam iguais,ele retorna a mesma pagina,ver depois como colocar mensagem de senha diferentes embaixo do display                                        */
             if (ModelState.IsValid && usuario.Senha == usuario.ConfirmarSenha)
@@ -115,8 +117,6 @@ namespace app_babybay.Controllers
                 // Criptografia
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);
-
-
                 // Usuário context
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();

@@ -61,7 +61,7 @@ namespace app_babybay.Controllers
             {
 
                // var usuario = new Usuario();
-                produto.UsuarioId = 1;      // Setando manual vai
+                produto.UsuarioId = 2;      // Setando manual vai
                 //_context.Add(usuario);
                 //await _context.SaveChangesAsync();
 

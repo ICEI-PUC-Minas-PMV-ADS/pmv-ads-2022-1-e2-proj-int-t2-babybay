@@ -45,11 +45,11 @@ namespace app_babybay.Controllers
             return View(troca);
         }
 
-        // GET: Trocas/Create
-        public IActionResult Create()
+       // GET: Trocas/Create
+       public IActionResult Create()
         {
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro");
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Cor");
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "UsuarioId");
+            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Id");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace app_babybay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ProdutoId,UsuarioId,Date,Saldo")] Troca troca)
+        public async Task<IActionResult> Create([Bind("Id,ProdutoId,UsuarioId")] Troca troca)
         {
             if (ModelState.IsValid)
             {
@@ -66,8 +66,11 @@ namespace app_babybay.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", troca.UsuarioId);
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Cor", troca.ProdutoId);
+         
+            
+            
+            
+       
             return View(troca);
         }
 
@@ -84,8 +87,7 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", troca.UsuarioId);
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Cor", troca.ProdutoId);
+      
             return View(troca);
         }
 

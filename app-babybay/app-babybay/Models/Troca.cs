@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,6 +20,8 @@ namespace app_babybay.Models
         public new Usuario Usuario { get; set; }
 
         public DateTime Date { get; set; }
-              
+        /*  public ICollection<Produto> Produtos { get; set; }*/
+      
+
     }
 }
