@@ -1,3 +1,7 @@
+.container {
+  width: 900px;
+}
+
 h1 {
   color:#DA8BD2;
   text-align: center;
@@ -10,18 +14,32 @@ h1 {
 
 .container-gr{
 background-color: white;
-border-radius: 10px 10px 0px 0px;
 box-shadow: 1px 1px 2px #b6b6b694;
+width: 900px;
+border: 1px;
+border-radius: 10px 10px 0px 0px;
 }
 
 #first-tab {
   color: white;
+  width: 300px;
+  border-radius: 10px 0px 0px 0px;
+
 }
 
 #second-tab {
   color: white;
+  width: 300px;
+  border-radius: 0px;
 }
 
 #third-tab {
   color: white;
+  width: 300px;
+  border-radius: 0px 10px 0px 0px;
+}
+
+.tab-content {
+  box-shadow: 1px 1px 2px #b6b6b694;
+  margin: 2px solid #dee2e62e6;
 }
