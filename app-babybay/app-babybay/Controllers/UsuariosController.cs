@@ -6,9 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using app_babybay.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace app_babybay.Controllers
 {
+    [Authorize] // Rota somente usuários logados terão acesso
     public class UsuariosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -19,19 +23,20 @@ namespace app_babybay.Controllers
         }
 
         // Login View
+        [AllowAnonymous]    // Rota pública
         public IActionResult Login()
         {
             return View();
         }
 
-        // Login Validação
+        // Login Validação     
         [HttpPost]
+        [AllowAnonymous]    // Rota pública
         public async Task<IActionResult> Login([Bind("Email,Senha")] Usuario usuario)
         {
             // Percorre o BD de forma assíncrona e compara o Id passado no método com o Id presente no BD
             var user = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.Email == usuario.Email);
-            
+                .FirstOrDefaultAsync(m => m.Email == usuario.Email);            
 
             // Se null, exibe msg e volta pro login
             if (user == null)
@@ -44,17 +49,56 @@ namespace app_babybay.Controllers
             bool senhaOk = BCrypt.Net.BCrypt.Verify(usuario.Senha, user.Senha);
 
             if (senhaOk)
-            {
-                ViewBag.Message = "Usuário Ok";
-                return View();
+            {   
+                // Credenciais so usuário para redirecionar ele a página desejada
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, user.Nome),
+                    new Claim(ClaimTypes.NameIdentifier, user.Nome)
+                };
+
+                var userIdentify = new ClaimsIdentity(claims, "login");
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentify);
+
+                // Configurações 
+                // ExpireUtc serve para o login expirar, no caso foi definido para 7 dias
+                // AllowRefresh - refresh da aplicação
+                // IsPersistent para permanecer na seção
+                var props = new AuthenticationProperties
+                {
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTime.Now.ToLocalTime().AddDays(7),
+                    IsPersistent = true
+                };
+
+                // Insere o usuário na seção da aplicação
+                await HttpContext.SignInAsync(principal, props);
+                return RedirectToAction("Index", "Home");       // Configurar para direcionar a tela de menu
             }
 
             // A senha estiver incorreta, exibe na tela
             ViewBag.Message = "Usuário ou senha inválidos";
-
             return View();
         }
 
+        // Logout - sair do sistema
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        // Acesso negado (ver startup, configuração de cookies)
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+
+        //public IActionResult Menu()   // Configurar menu
+        //{
+        //    return View();
+        //}
+           
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {

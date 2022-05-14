@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using app_babybay.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace app_babybay.Controllers
 {
+    [Authorize]
     public class CarteirasController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -1350,3 +1350,5 @@ C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\Relatorio.cshtml.g.cs
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\Login.cshtml.g.cs
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\Login.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\AccessDenied.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\Menu.cshtml.g.cs

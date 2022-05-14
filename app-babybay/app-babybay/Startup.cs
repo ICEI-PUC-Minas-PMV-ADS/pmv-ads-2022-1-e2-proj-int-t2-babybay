@@ -1,6 +1,8 @@
 using app_babybay.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +30,24 @@ namespace app_babybay
             services.AddDbContext<ApplicationDbContext>(options =>
                  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
+
+            // Configurando serviço de cookie (Padrão)
+            // Cookie é o arquivo salvo no browser do cliente para configurar e salvar a informação do logout
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+                
+            });
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.AccessDeniedPath = "/Usuarios/AccessDenied";   // Muda aqui /Account/AcessDenied
+                    options.LoginPath = "/Usuarios/Login";              // Muda aqui /Account/Login
+                });
+            // Em AccessDenied, tem que criar um método IActionResult - não assíncrono - no controller usuário, e criar uma view para exibir a mensagem
+
             services.AddControllersWithViews();
         }
 
@@ -45,12 +65,18 @@ namespace app_babybay
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // Midwares
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseCookiePolicy(); // Inserido para cookie
+
+            app.UseAuthentication(); // Inserido para autenticar usuário
+
+            app.UseAuthorization();           
 
             app.UseEndpoints(endpoints =>
             {

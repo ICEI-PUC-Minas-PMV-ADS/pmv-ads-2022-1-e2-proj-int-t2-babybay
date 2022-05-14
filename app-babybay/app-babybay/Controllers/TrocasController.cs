@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using app_babybay.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace app_babybay.Controllers
 {
+    [Authorize]
     public class TrocasController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -21,8 +23,8 @@ namespace app_babybay.Controllers
         // GET: Trocas
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Trocas.Include(t => t.Usuario).Include(t => t.Produto);
-            return View(await applicationDbContext.ToListAsync());
+            //var applicationDbContext = _context.Trocas.Include(t => t.Usuario).Include(t => t.Produto);
+            return View(/*await applicationDbContext.ToListAsync()*/);
         }
 
         // GET: Trocas/Details/5
@@ -48,14 +50,10 @@ namespace app_babybay.Controllers
        // GET: Trocas/Create
        public IActionResult Create()
         {
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "UsuarioId");
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Id");
             return View();
         }
 
-        // POST: Trocas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Trocas/Create 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ProdutoId,UsuarioId")] Troca troca)
@@ -65,11 +63,7 @@ namespace app_babybay.Controllers
                 _context.Add(troca);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-         
-            
-            
-            
+            }                                     
        
             return View(troca);
         }
@@ -92,8 +86,6 @@ namespace app_babybay.Controllers
         }
 
         // POST: Trocas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ProdutoId,UsuarioId,Date,Saldo")] Troca troca)
@@ -122,9 +114,7 @@ namespace app_babybay.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", troca.UsuarioId);
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Cor", troca.ProdutoId);
+            }           
             return View(troca);
         }
 
