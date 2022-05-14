@@ -1,17 +1,17 @@
 /****************LEGENDA****************
- 
+
     A - Arquivo Style Template (page-css/style-template.css)
         0. Variáveis
         1. Estilos Gerais
-        2. Header > Menu 
-        3. Header > Menu >  Nav 
+        2. Header > Menu
+        3. Header > Menu >  Nav
         4. Footer
         5. Media Queries
-    
+
     B - Arquivo Style Index (page-css/style-index.css)
         B1. Section > Article
         B2. Main
-    
+
     C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
 
     D - Arquivo Style Menu (page-css/style-menu.css)
@@ -20,39 +20,39 @@
 ****************************************/
 
 /****************************************
-    0. Variáveis    
+    0. Variáveis
 ****************************************/
 @charset "UTF_8";
 
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Baloo+Bhai+2:wght@800&display=swap');
-:root{  
+:root{
     /* Fontes */
     --fonte-baloo: 'Baloo Bhai 2', cursive;
     --fonte-alata: 'Alata', sans-serif;
-    
+
 
     /* Cores gerais */
     --clr-yellow-light: #FFDC83;
     --clr-yellow-dark: #F2D133;
     --clr--pink-light: #DA8BD2;
     --clr--pink-dark: #dd5ed0;
-    --clr-purple-light: #a3a1f3;  
-    --clr-purple-dark:  #9594f8;    
-    
+    --clr-purple-light: #a3a1f3;
+    --clr-purple-dark:  #9594f8;
+
     /* Caixas */
     --clr-primary-background: #F5F5F5; /* Fundo primeiro nível */
-    --clr-second-background: #d5d5d52c;   /* Fundo segundo nível */   
+    --clr-second-background: #d5d5d52c;   /* Fundo segundo nível */
     --clr--third-background: #cecece24; /* Fundo terceiro nível */
-    
+
         /* Bordas e sombras Elementos*/
     --clr--border-box: #CECECE;
-    --clr--box-shadow: 1px 1px 2px #b6b6b694;  
-    --clr--box-shadow-hover: 2px 2px 4px #97969681; 
-    --clr--box-shadow-btn-hover: 2px 2px 4px #a7a7a781; 
+    --clr--box-shadow: 1px 1px 2px #b6b6b694;
+    --clr--box-shadow-hover: 2px 2px 4px #97969681;
+    --clr--box-shadow-btn-hover: 2px 2px 4px #a7a7a781;
     --clr--box-shadow-content: 2px 2px 6px #b6b6b649;   /* Para todas as caixas */
     --clr--box-shadow-content-nivel-3: 2px 2px 4px #b6b6b645; /* Sombra para caixa terceiro nível */
-       
+
     /* Texto */
     --clr--text-shadow: 1px 2px #7c7c7cd7;
 }
@@ -64,12 +64,12 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;    
+    box-sizing: border-box;
 }
 
 body{
     background-color: var(--clr-primary-background);
-    font-family: var(--fonte-alata);       
+    font-family: var(--fonte-alata);
 }
 
 a,
@@ -90,11 +90,11 @@ a:visited{
 /****************************************/
 
 /****************************************
-    2. Header > Menu 
+    2. Header > Menu
 /****************************************/
 .menu-bg{
     background-color: var(--clr--pink-light);
-    font-size: 1.1em;   
+    font-size: 1.1em;
 }
 
 .menu{
@@ -102,7 +102,7 @@ a:visited{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;    
+    justify-content: space-between;
     max-width: 960px;
     margin: 0 auto;
     padding: 7px;
@@ -115,14 +115,14 @@ a:visited{
 /****************************************/
 
 /****************************************
-    3. Header > Menu >  Nav 
+    3. Header > Menu >  Nav
 /****************************************/
 
 .nav__list{
     color: #FFF;
      /* flex */
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
 .nav__link,
@@ -139,6 +139,7 @@ a:visited{
     width: 100%;
     position: fixed;
     bottom: 0;
+    left: 0;
     background-color: var(--clr-yellow-light);
     padding: 18px;
 }
@@ -151,7 +152,7 @@ a:visited{
 
 .conteudo__footer__frase{
     color: var(--clr--pink-dark);
-    margin: 0 20px;    
+    margin: 0 20px;
 }
 
 
