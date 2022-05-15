@@ -53,8 +53,7 @@ namespace app_babybay.Controllers
         {
             //  ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome");
             return View();
-        }           
-        
+        }                   
 
         // POST: Produtos/Create
         [HttpPost]
@@ -66,7 +65,7 @@ namespace app_babybay.Controllers
                 var TUser = User.Identity.Name; // Pega o nome do user logado
 
                 var usuario = new Usuario();                
-                usuario = await _context.Usuarios  // Percorre no BD buscando pelo nome comprara com  TUser
+                usuario = await _context.Usuarios  // Percorre no BD buscando pelo nome compara com  TUser
                      .FirstOrDefaultAsync(m => m.Nome == TUser);                
                 produto.Usuario = usuario; // Seta no Objeto Usuario dentro do protudo
             }
@@ -78,28 +77,8 @@ namespace app_babybay.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-
-            //ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome", produto.UsuarioId);
             return View(produto);
         }
-
-        //public async Task<IActionResult> GetId(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var usuario = await _context.Usuarios
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (usuario == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(usuario);
-        //}
-
 
         // GET: Produtos/Edit/5
         public async Task<IActionResult> Edit(int? id)
