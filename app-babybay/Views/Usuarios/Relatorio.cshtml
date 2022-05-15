@@ -59,6 +59,9 @@
 				<td>
 					@Html.DisplayFor(modelItem => item.Categoria)
 				</td>
+				<td>					
+					<a role="button" class="btn btn-primary" asp-controller="Trocas" asp-action="Create" asp-route-id="@item.Id">Anunciar</a>
+				</td>
 			</tr>
 			}
 		</tbody>

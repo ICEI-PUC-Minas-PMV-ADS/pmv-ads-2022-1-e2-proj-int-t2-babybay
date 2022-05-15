@@ -22,7 +22,8 @@ namespace app_babybay.Controllers
 
         // GET: Trocas
         public IActionResult Index()
-        {            
+        {
+           // var applicationDbContext = _context.Trocas.Include(c => c.Produto); // Inserido
             return View();
         }
 
@@ -35,8 +36,8 @@ namespace app_babybay.Controllers
             }
 
             var troca = await _context.Trocas
-                .Include(t => t.Usuario)
-                .Include(t => t.Produto)
+                //.Include(t => t.Usuario)
+               // .Include(t => t.Produto)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (troca == null)
             {
@@ -46,43 +47,67 @@ namespace app_babybay.Controllers
             return View(troca);
         }
 
-       // GET: Trocas/Create
-       public IActionResult Create()
+
+        // GET: Trocas/Create
+        public IActionResult Create()
         {
+            //if (User.Identity.IsAuthenticated)
+            //{
+            //    var TUser = User.Identity.Name;
+
+               
+            //    var usuario = new Usuario();
+            //    usuario = await _context.Usuarios
+            //         .FirstOrDefaultAsync(m => m.Nome == TUser);
+
+            //    var produto = new Produto();
+            //    produto = await _context.Produtos
+            //         .FirstOrDefaultAsync(m => m.Nome == TUser);
+
+            //    produto.Usuario = usuario;
+
+            //    ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome");    // Para Criar o Select no create
+            //    return View();
+            //}
+            //else
+            //{
+            //    return NotFound();
+            //}
+            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome");   // Para Criar o Select no create
             return View();
         }
 
-        //// POST: Trocas/Create 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("Id,ProdutoId,UsuarioId")] Troca troca)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(troca);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }                                     
-
-        //    return View(troca);
-        //}
-
-        // POST: Create Modificado
+        // POST: Trocas/Create 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ProdutoId,UsuarioId")] Troca troca/*, [Bind("Id")] Usuario usuario, [Bind("Id")] Produto produto*/)
+        public async Task<IActionResult> Create([Bind("Id,ProdutoId,UsuarioId")] Troca troca)
         {
-        //    Usuario usuario 
-         //   var usuario = await _context.Usuarios
-         //      .FirstOrDefaultAsync(m => m.Id == usuario.Id);
-
-            if (ModelState.IsValid)
+            if (User.Identity.IsAuthenticated)
             {
+                var TUser = User.Identity.Name; // Pega o nome do user logado
+
+                var usuario = new Usuario();
+                usuario = await _context.Usuarios  // Percorre no BD buscando pelo nome compara com  TUser
+                     .FirstOrDefaultAsync(m => m.Nome == TUser);
+                troca.UsuarioId = usuario.Id; // Seta no Objeto Usuario  encontrado para Usuario no produto
+
+                //var produto = new Produto();
+                //produto = await _context.Produtos  // Percorre no BD buscando pelo nome compara com  TUser
+                //     .FirstOrDefaultAsync(m => m.Id == ?);
+                //troca.Produto = produto; // Seta no Objeto Usuario  encontrado para Usuario no produto
+            }
+            else
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)                
+            {         
                 _context.Add(troca);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
+            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", troca.ProdutoId); // Para Criar o Select no create
             return View(troca);
         }
 
@@ -100,7 +125,7 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
-      
+
             return View(troca);
         }
 
@@ -133,7 +158,7 @@ namespace app_babybay.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }           
+            }
             return View(troca);
         }
 

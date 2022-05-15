@@ -51,7 +51,6 @@ namespace app_babybay.Controllers
         // GET: Produtos/Create
         public IActionResult Create()
         {
-            //  ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome");
             return View();
         }                   
 
@@ -60,14 +59,18 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Cor,Idade,TempoUso,Descricao,Tamanho,Categoria")] Produto produto)
         {
-            if (User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated)  
             {
                 var TUser = User.Identity.Name; // Pega o nome do user logado
 
                 var usuario = new Usuario();                
                 usuario = await _context.Usuarios  // Percorre no BD buscando pelo nome compara com  TUser
                      .FirstOrDefaultAsync(m => m.Nome == TUser);                
-                produto.Usuario = usuario; // Seta no Objeto Usuario dentro do protudo
+                produto.Usuario = usuario; // Seta no Objeto Usuario  encontrado para Usuario no produto
+            }
+            else
+            {
+                return NotFound();
             }
 
             if (ModelState.IsValid)

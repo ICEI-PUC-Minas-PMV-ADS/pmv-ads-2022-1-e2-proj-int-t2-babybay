@@ -9,8 +9,8 @@
 <div>
 	<h4>Olá, @Model.Nome</h4>
 	<hr />
-	<a role="button" class="btn btn-primary" asp-controller="Produtos" asp-action="Create">Cadastrar Produto </a>
-	<a role="button" class="btn btn-primary" asp-controller="Produtos" asp-action="Index">Lista de Produtos</a> <!--Listar produtos tem que chamar o relatorio - implementar depois que acertar o Login-->
+	<a role="button" class="btn btn-primary" asp-controller="Produtos" asp-action="Create">Cadastrar Roupa </a>
+	<a role="button" class="btn btn-primary" asp-controller="Usuarios" asp-action="Relatorio"  asp-route-id="@Model.Id" >Minhas Roupas</a> 
 	<hr />
 	<dl class="row">
 		<dt class="col-sm-2">
