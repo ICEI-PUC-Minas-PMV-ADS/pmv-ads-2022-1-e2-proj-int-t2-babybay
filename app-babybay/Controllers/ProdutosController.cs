@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using app_babybay.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 
 namespace app_babybay.Controllers
 {
@@ -60,23 +61,18 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Cor,Idade,TempoUso,Descricao,Tamanho,Categoria")] Produto produto)
         {
-            //if (User.Identity.IsAuthenticated)
-            //{
-            //    var usuario = new Usuario();
-            //    usuario = await _context.Usuarios
-            //         .FirstOrDefaultAsync(m => m.Id == usuario.Id);
-            //    produto.Usuario = usuario;
-            //}
+            if (User.Identity.IsAuthenticated)
+            {
+                var TUser = User.Identity.Name; // Pega o nome do user logado
+
+                var usuario = new Usuario();                
+                usuario = await _context.Usuarios  // Percorre no BD buscando pelo nome comprara com  TUser
+                     .FirstOrDefaultAsync(m => m.Nome == TUser);                
+                produto.Usuario = usuario; // Seta no Objeto Usuario dentro do protudo
+            }
 
             if (ModelState.IsValid)
             {
-                //if (usuario == null)
-                //{
-                //    return NotFound();
-                //}
-
-                //produto.UsuarioId = usuario.Id;      // Setando manual vai
-
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
 
@@ -87,17 +83,23 @@ namespace app_babybay.Controllers
             return View(produto);
         }
 
-        //public async Task<IActionResult> GetUsuarioId([Bind("Id")] Usuario usuario)
+        //public async Task<IActionResult> GetId(int? id)
         //{
-        //    if (User.Identity.IsAuthenticated)  // Log ok
+        //    if (id == null)
         //    {
-        //        // user = new Usuario();       
-        //        usuario = await _context.Usuarios           // Fica nulo         
-        //          .FirstOrDefaultAsync(m => m.Id == usuario.Id);
+        //        return NotFound();
         //    }
 
-        //    return;
+        //    var usuario = await _context.Usuarios
+        //        .FirstOrDefaultAsync(m => m.Id == id);
+        //    if (usuario == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return View(usuario);
         //}
+
 
         // GET: Produtos/Edit/5
         public async Task<IActionResult> Edit(int? id)

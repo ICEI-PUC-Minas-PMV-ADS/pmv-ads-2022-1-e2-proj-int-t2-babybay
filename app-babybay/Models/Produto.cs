@@ -41,7 +41,8 @@ namespace app_babybay.Models
         [Required(ErrorMessage = "A categoria é obrigatória.")]
         public Categoria Categoria { get; set; }
 
-            
+       // public ICollection<Usuario> Usuarios{ get; set; }
+
     }
 
     public enum Categoria
