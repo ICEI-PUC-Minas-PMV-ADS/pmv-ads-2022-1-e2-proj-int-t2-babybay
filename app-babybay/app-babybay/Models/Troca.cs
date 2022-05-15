@@ -22,6 +22,6 @@ namespace app_babybay.Models
         public DateTime Date { get; set; }
         /*  public ICollection<Produto> Produtos { get; set; }*/
       
-
+      
     }
 }

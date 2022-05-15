@@ -50,7 +50,7 @@ namespace app_babybay.Controllers
 
             if (senhaOk)
             {   
-<<<<<<< HEAD
+
                 /* Credenciais so usuário para redirecionar ele a página desejada,é que vai ficar no cache da aplicação,para ficar trafegando as
                     informações e validaer as informações do usuário*/
                 var claims = new List<Claim>
@@ -58,29 +58,15 @@ namespace app_babybay.Controllers
                     new Claim(ClaimTypes.Name, user.Nome),
                     new Claim(ClaimTypes.NameIdentifier, user.Nome),
                  
-=======
-                // Credenciais so usuário para redirecionar ele a página desejada
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, user.Nome),
-                    new Claim(ClaimTypes.NameIdentifier, user.Nome)
->>>>>>> 46a5791c14c41827ce02cbe6446891a4ff49a2e8
-                };
+               };
 
                 var userIdentify = new ClaimsIdentity(claims, "login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentify);
 
-<<<<<<< HEAD
                 // Configurações do identity
                 // ExpireUtc serve para o login expirar, no caso foi definido para 7 dias
                 // AllowRefresh - refresh da aplicação
                 // IsPersistent para os dados permanecerem na seção
-=======
-                // Configurações 
-                // ExpireUtc serve para o login expirar, no caso foi definido para 7 dias
-                // AllowRefresh - refresh da aplicação
-                // IsPersistent para permanecer na seção
->>>>>>> 46a5791c14c41827ce02cbe6446891a4ff49a2e8
                 var props = new AuthenticationProperties
                 {
                     AllowRefresh = true,
@@ -90,12 +76,10 @@ namespace app_babybay.Controllers
 
                 // Insere o usuário na seção da aplicação
                 await HttpContext.SignInAsync(principal, props);
-<<<<<<< HEAD
+
                 return RedirectToAction("Index", "Home");   /*    Caso de tudo ok, direcionara para home,assim ela estara autenticado para acessar
                     outras partes do sistema*/
-=======
-                return RedirectToAction("Index", "Home");       // Configurar para direcionar a tela de menu
->>>>>>> 46a5791c14c41827ce02cbe6446891a4ff49a2e8
+
             }
 
             // A senha estiver incorreta, exibe na tela
