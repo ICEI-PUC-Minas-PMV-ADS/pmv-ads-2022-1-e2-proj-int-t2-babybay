@@ -97,11 +97,11 @@ namespace app_babybay.Controllers
             return View();
         }
 
-        //public IActionResult Menu()   // Configurar menu
-        //{
-        //    return View();
-        //}
-           
+        public IActionResult Menu()   // Configurar menu
+        {
+            return View();
+        }
+
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {

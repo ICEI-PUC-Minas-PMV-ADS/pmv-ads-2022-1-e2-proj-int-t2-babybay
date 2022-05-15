@@ -50,29 +50,7 @@ namespace app_babybay.Controllers
 
         // GET: Trocas/Create
         public IActionResult Create()
-        {
-            //if (User.Identity.IsAuthenticated)
-            //{
-            //    var TUser = User.Identity.Name;
-
-               
-            //    var usuario = new Usuario();
-            //    usuario = await _context.Usuarios
-            //         .FirstOrDefaultAsync(m => m.Nome == TUser);
-
-            //    var produto = new Produto();
-            //    produto = await _context.Produtos
-            //         .FirstOrDefaultAsync(m => m.Nome == TUser);
-
-            //    produto.Usuario = usuario;
-
-            //    ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome");    // Para Criar o Select no create
-            //    return View();
-            //}
-            //else
-            //{
-            //    return NotFound();
-            //}
+        {           
             ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome");   // Para Criar o Select no create
             return View();
         }
@@ -86,7 +64,7 @@ namespace app_babybay.Controllers
             {
                 var TUser = User.Identity.Name; // Pega o nome do user logado
 
-                var usuario = new Usuario();
+                var usuario = new Usuario();              
                 usuario = await _context.Usuarios  // Percorre no BD buscando pelo nome compara com  TUser
                      .FirstOrDefaultAsync(m => m.Nome == TUser);
                 troca.UsuarioId = usuario.Id; // Seta no Objeto Usuario  encontrado para Usuario no produto
@@ -108,7 +86,7 @@ namespace app_babybay.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", troca.ProdutoId); // Para Criar o Select no create
-            return View(troca);
+            return View();
         }
 
 

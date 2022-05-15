@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="pt-br">
+﻿<html lang="pt-br">
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,12 +28,11 @@
 				</div> <!-- .menu__logo-->
 				<nav class="nav">
 					<ul class="nav__list">
-						@*<li class="nav__link">Já tem uma conta?</li>*@
 						<li class="nav__link--bold">
 							@if(User.Identity.IsAuthenticated)  // Se autenticado
 							{
 								<a class="config__logado" asp-controller="Usuarios" asp-action="Index">Olá, @User.Identity.Name</a>	// Exibe nome	// Linkar para Menu do Usuário
-								<a class="config__logout" asp-controller="Usuarios" asp-action="Logout">Sair	</a>
+								<a class="config__logout" asp-controller="Usuarios" asp-action="Logout">Sair</a>
 							}
 							else
 							{

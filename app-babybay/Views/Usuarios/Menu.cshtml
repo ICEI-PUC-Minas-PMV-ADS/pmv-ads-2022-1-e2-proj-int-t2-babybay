@@ -1,14 +1,18 @@
-﻿
+﻿@model app_babybay.Models.Usuario
 @{
     ViewData["Title"] = "Menu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Menu</h1>
+<h1>Menu</h1> <!--Com problema de rota-->
 
-<div>
-	<a class="btn btn-primary" asp-controller="Produtos" asp-action="Create">Cadastrar Produto</a>
-	<a class="btn btn-primary" asp-controller="Usuarios" asp-action="Relatorios">Meus Dados</a>
-	<a asp-action="Index" class="btn btn-primary">Retornar</a>
+<div>	
+		
+	<a class="btn btn-primary" asp-controller="Usuarios" asp-action="Relatorios">Criar Anúncio</a>
+	<a class="btn btn-primary" asp-controller="Home" asp-action="Index">Buscar Roupas</a>
+	<a class="btn btn-primary" asp-controller="Usuarios" asp-action="Details">Meu Guarda Roupas</a>
+	<a class="btn btn-primary" asp-controller="Usuarios" asp-action="Details">Minha Conta</a>
+	
+	
 </div>
 
