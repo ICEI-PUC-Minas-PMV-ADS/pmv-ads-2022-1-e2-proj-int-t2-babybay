@@ -21,10 +21,10 @@ namespace app_babybay.Controllers
         }
 
         // GET: Trocas
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             //var applicationDbContext = _context.Trocas.Include(t => t.Usuario).Include(t => t.Produto);
-            return View(/*await applicationDbContext.ToListAsync()*/);
+            return View();
         }
 
         // GET: Trocas/Details/5
@@ -56,22 +56,8 @@ namespace app_babybay.Controllers
         // POST: Trocas/Create 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id")] Troca trocaid)
+        public async Task<IActionResult> Create([Bind("Id,ProdutoId,UsuarioId")] Troca troca)
         {
-
-            var produtoTroca = await _context.Produtos;//Aqui quando for apertar o botão trocar irar percorrer para a tabela produtos procurando o id digitado ou escolhido atraves de um select
-                .FirstOrDefaultAsync(m => m.Id == trocaid.Id);
-
-
-            if (produtoTroca==null )//Se for nulo,ou seja não possuir aquele produto no bd,retornara um mensagem de erro
-            {
-                ViewBag.Message="Id do produto não encontrado no banco de dados"
-
-            }
-            /*Daqui para baixo é tentar arranhar uma solução "mover"o id do produto do usuario que esta logado,para  outro usuario e passar o id do produto para ESTE usuario*/
-            trocaid.UsuarioId = produtoTroca.UsuarioId;
-
-         
             if (ModelState.IsValid)
             {
                 _context.Add(troca);
@@ -81,6 +67,35 @@ namespace app_babybay.Controllers
 
             return View(troca);
         }
+
+        //// POST: Trocas/Create 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("Id")] Troca trocaid)
+        //{
+
+        //    var produtoTroca = await _context.Produtos;//Aqui quando for apertar o botão trocar irar percorrer para a tabela produtos procurando o id digitado ou escolhido atraves de um select
+        //        .FirstOrDefaultAsync(m => m.Id == trocaid.Id);
+
+
+        //    if (produtoTroca==null )//Se for nulo,ou seja não possuir aquele produto no bd,retornara um mensagem de erro
+        //    {
+        //        ViewBag.Message = "Id do produto não encontrado no banco de dados";
+
+        //    }
+        //    /*Daqui para baixo é tentar arranhar uma solução "mover"o id do produto do usuario que esta logado,para  outro usuario e passar o id do produto para ESTE usuario*/
+        //    trocaid.UsuarioId = produtoTroca.UsuarioId;
+
+         
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(troca);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+
+        //    return View(troca);
+        //}
 
 
 

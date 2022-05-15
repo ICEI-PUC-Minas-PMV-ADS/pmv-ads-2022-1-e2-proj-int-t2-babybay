@@ -15,7 +15,7 @@
 		<div class="menu-bg">
 			<div class="menu">
 				<div class="menu__logo">
-					@if (User.Identity.IsAuthenticated)
+					@if (User.Identity.IsAuthenticated)			// Se autenticado
 					{
 						<a asp-controller="Usuarios" asp-action="Busca"><img src="~/img/logo-200px.png" alt="logo-babybay"></a>
 					}
