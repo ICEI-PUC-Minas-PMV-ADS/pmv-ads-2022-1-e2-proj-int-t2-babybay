@@ -7,22 +7,7 @@ namespace app_babybay.Models
 {
     [Table("Trocas")]
     public class Troca 
-    {
-        //[Key]
-        //public new int Id { get; set; } // New oculta a implementação da classe base
-
-        //public int ProdutoId { get; set; }
-        //[ForeignKey("ProdutoId")]
-        //[Display(Name = "Título do Anúncio")]   // Vai aparecer na View
-        //public Produto Produto { get; set; }
-
-        //public new int UsuarioId { get; set; }
-        //[ForeignKey("UsuarioId")]
-        //public new Usuario Usuario { get; set; }
-
-        //public DateTime Date { get; set; }
-        /*  public ICollection<Produto> Produtos { get; set; }*/
-
+    {       
         [Key]
         public int Id { get; set; }
 
