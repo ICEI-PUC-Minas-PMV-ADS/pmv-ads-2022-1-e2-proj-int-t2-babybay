@@ -36,8 +36,8 @@ namespace app_babybay.Controllers
             }
 
             var troca = await _context.Trocas
-                //.Include(t => t.Usuario)
-               // .Include(t => t.Produto)
+                .Include(t => t.Usuario)
+                .Include(t => t.Produto)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (troca == null)
             {
@@ -80,13 +80,13 @@ namespace app_babybay.Controllers
             }
 
             if (ModelState.IsValid)                
-            {         
+            {                             
                 _context.Add(troca);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", troca.ProdutoId); // Para Criar o Select no create
-            return View();
+            return View(troca);
         }
 
 

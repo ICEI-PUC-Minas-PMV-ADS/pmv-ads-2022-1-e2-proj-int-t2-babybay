@@ -30,9 +30,9 @@ namespace app_babybay.Models
         [ForeignKey("UsuarioId")]
         public Usuario Usuario { get; set; }
 
-        public int ProdutoId { get; set; }
-        [ForeignKey("ProdutoId")]
         [Display(Name = "Título do Anúncio")]   // Vai aparecer na View
+        public int ProdutoId { get; set; }
+        [ForeignKey("ProdutoId")]        
         public Produto Produto { get; set; }
 
         [Display(Name = "Data")]
