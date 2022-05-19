@@ -1,70 +1,75 @@
 ﻿@model IEnumerable<app_babybay.Models.Usuario>
 
-@{
-	ViewData["Title"] = "Index";
+
+   @{
+       ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
 
 <p>
-	<a role="button" class="btn btn-primary" asp-action="Create">Create New</a>
+    <a role="button" class="btn btn-primary" asp-action="Create">Create New</a>
 </p>
 <table class="table">
-	<thead>
-		<tr>
-			<th>
-				@Html.DisplayNameFor(model => model.Nome)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Cpf)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Telefone)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Rua)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Cidade)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Email)
-			</th>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rua)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
 
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var item in Model)
-		{
-			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => item.Nome)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Cpf)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Telefone)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Rua)
-				</td>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rua)
+                </td>
 
-				<td>
-					@Html.DisplayFor(modelItem => item.Cidade)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Email)
-				</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
 
-				<td style="display:flex;flex-direction:row">
-					<a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id">Editar</a> |
-					<a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Detalhes</a> |
-					<a asp-action="Delete" class="btn btn-primary" asp-route-id="@item.Id">Deletar</a> |
-					<a asp-action="Relatorio" class="btn btn-primary" asp-route-id="@item.Id">Relatório</a>
-				</td>
-			</tr>
-		}
-	</tbody>
+                <td style="display:flex;flex-direction:row">
+                    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-action="Delete" class="btn btn-primary" asp-route-id="@item.Id">Deletar</a> |
+                    <a asp-action="Relatorio" class="btn btn-primary" asp-route-id="@item.Id">Relatório</a>
+                    <a asp-action="Index" class="btn btn-primary" asp-route-id="@item.Id">Relatório</a>
+                    <div class="form-group">
+               <a role="button" class="btn btn-primary" asp-controller="Produtos" asp-action="CurtirProduto">Curtir Produto </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

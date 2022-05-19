@@ -52,8 +52,13 @@ namespace app_babybay.Controllers
         public IActionResult Create()
         {
             return View();
-        }                   
+        }
 
+        public bool CurtirProduto()
+        {
+            Produto.CurtirProduto();
+            return Produto.ProdutoCurtido;
+        }
         // POST: Produtos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]

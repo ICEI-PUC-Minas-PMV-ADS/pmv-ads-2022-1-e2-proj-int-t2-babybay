@@ -52,6 +52,11 @@ namespace app_babybay.Controllers
            // ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro");
             return View();
         }
+        public void Curtir()
+        {
+            
+             
+        }
 
         // POST: Carteiras/Create
         [HttpPost]
