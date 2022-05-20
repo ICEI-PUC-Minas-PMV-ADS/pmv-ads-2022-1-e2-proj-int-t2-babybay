@@ -54,15 +54,15 @@ namespace app_babybay.Controllers
             return View();
         }
          
-    public async Task<IActionResult> CurtirProdutoAsync(int id,Produto produto)
+    public async Task<IActionResult> CurtirProduto(int id,Produto produto)
         {
             var roupa = await _context.Produtos.FindAsync(id);//Aqui em teoria pega o valor do produto (id dele)e passa ele para a variavel roupa
           
             int idProduto = id;
             roupa.CurtirProduto();
             bool isOk = roupa.ProdutoCurtido;
-           /* _context.Add(produto.ProdutoCurtido);//Aqui chama o método para na classe Produto para curtir produto
-            await _context.SaveChangesAsync();*/
+            _context.Update(produto);//Aqui chama o método para na classe Produto para curtir produto.MAS TE ALGUM PROBLEMA NESSA PORRA DE LINHA
+      /*      await _context.SaveChangesAsync();*/
             return RedirectToAction("Index");
          
         }
