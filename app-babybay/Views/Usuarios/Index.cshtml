@@ -64,10 +64,10 @@
                     <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Detalhes</a> |
                     <a asp-action="Delete" class="btn btn-primary" asp-route-id="@item.Id">Deletar</a> |
                     <a asp-action="Relatorio" class="btn btn-primary" asp-route-id="@item.Id">Relatório</a>
-                    <a asp-action="Index" class="btn btn-primary" asp-route-id="@item.Id">Relatório</a>
-                    <div class="form-group">
-               <a role="button" class="btn btn-primary" asp-controller="Produtos" asp-action="CurtirProduto">Curtir Produto </a>
-                    </div>
+                 <a class="btn btn-primary" asp-controller="Produtos" asp-action="Index">Produto</a>
+                  
+              
+                    
                 </td>
             </tr>
         }

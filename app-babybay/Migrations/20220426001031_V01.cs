@@ -18,7 +18,8 @@ namespace app_babybay.Migrations
                     TempoUso = table.Column<int>(type: "int", nullable: false),
                     Descricao = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
                     Tamanho = table.Column<int>(type: "int", nullable: false),
-                    Categoria = table.Column<int>(type: "int", nullable: false)
+                    Categoria = table.Column<int>(type: "int", nullable: false),
+                 
                 },
                 constraints: table =>
                 {

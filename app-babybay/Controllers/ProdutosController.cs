@@ -53,12 +53,19 @@ namespace app_babybay.Controllers
         {
             return View();
         }
-
-        public bool CurtirProduto()
+         
+    public async Task<IActionResult> CurtirProdutoAsync(int id,Produto produto)
         {
-            Produto.CurtirProduto();
-            return Produto.ProdutoCurtido;
+            var roupa = await _context.Produtos.FindAsync(id);
+           
+            int idProduto = id;
+            roupa.CurtirProduto(); //Aqui chama o método para na classe Produto para curtir produto
+          /*  await _context.SaveChangesAsync();*/
+            return RedirectToAction("Index");
+         
         }
+
+        
         // POST: Produtos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]

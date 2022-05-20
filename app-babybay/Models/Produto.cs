@@ -41,7 +41,7 @@ namespace app_babybay.Models
         [Required(ErrorMessage = "A categoria é obrigatória.")]
         public Categoria Categoria { get; set; }
 
-        public static bool ProdutoCurtido { get; set; }
+        public  bool ProdutoCurtido { get; set; }
 
         internal void Receber(int quantidade)
         {
@@ -54,7 +54,7 @@ namespace app_babybay.Models
 
         // public ICollection<Usuario> Usuarios{ get; set; }
 
-        public static void CurtirProduto()/*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe
+        public void CurtirProduto()/*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe
        para que assim ele estem método possa ser chamado por outro método no controle*/
         {
             ProdutoCurtido = true;
