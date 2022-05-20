@@ -2,13 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\app-babybay",
-    "\\app-babybay\\app-babybay",
-    "\\app-babybay\\app-babybay\\Controllers",
-    "\\app-babybay\\app-babybay\\Models",
-    "\\app-babybay\\app-babybay\\Views",
-    "\\app-babybay\\app-babybay\\Views\\Usuarios",
+    "\\app-babybay\\Controllers",
+    "\\app-babybay\\Migrations",
     "\\docs"
   ],
-  "SelectedNode": "\\app-babybay\\app-babybay\\app-babybay.sln",
+  "SelectedNode": "\\app-babybay\\Migrations\\20220426001031_V01.cs",
   "PreviewInSolutionExplorer": false
 }
