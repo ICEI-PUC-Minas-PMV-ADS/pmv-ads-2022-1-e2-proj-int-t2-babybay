@@ -56,7 +56,7 @@ namespace app_babybay.Controllers
          
     public async Task<IActionResult> CurtirProduto(int id, [Bind("ProdutoCurtido")]Produto produto)
         {
-            var roupa = await _context.Produtos.FindAsync(id);//Aqui em teoria pega o valor do produto (id dele)e passa ele para a variavel roupa
+            var roupa = await _context.Produtos.FindAsync(id);//Aqui em teoria pega o valor do produto (id dele)e encontra o produto com aquele id
          
             roupa.CurtirProduto();//Aqui chama o método que faz com que a váriavel ProdutoCurtido passe para true,indicando que o produto foi curtido
             _context.Add(roupa);//Aqui deveria adicionar a objeto roupa,incluindo o ProdutoCurtido,mas da erro.
