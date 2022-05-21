@@ -54,10 +54,11 @@ namespace app_babybay.Models
 
         // public ICollection<Usuario> Usuarios{ get; set; }
 
-        public void CurtirProduto()/*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe
+        public bool CurtirProduto()/*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe
        para que assim ele estem método possa ser chamado por outro método no controle*/
         {
             ProdutoCurtido = true;
+            return true;
         }
         public void DescurtirProduto()//Aqui um método para descurtir o produto,sera chamado quando apertar o botão curtir denovo,ou quando apertar o botão descurtir(ver depois)
         {
