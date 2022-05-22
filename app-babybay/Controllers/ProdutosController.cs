@@ -53,19 +53,27 @@ namespace app_babybay.Controllers
         {
             return View();
         }
-         
-    public async Task<IActionResult> CurtirProduto(int id, [Bind("ProdutoCurtido")]Produto produto)
+
+        public async Task<IActionResult> CurtirProduto(int id, [Bind("ProdutoCurtido")] Produto produto)//Aqui chama o o método da classe para curtir o produto
         {
             var roupa = await _context.Produtos.FindAsync(id);//Aqui em teoria pega o valor do produto (id dele)e encontra o produto com aquele id
          
-            roupa.CurtirProduto();//Aqui chama o método que faz com que a váriavel ProdutoCurtido passe para true,indicando que o produto foi curtido
-            _context.Add(roupa);//Aqui deveria adicionar a objeto roupa,incluindo o ProdutoCurtido,mas da erro.
+            roupa.CurtirProduto();//Aqui chama o método que faz com que a váriavel ProdutoCurtido passe para true,indicando que o produto foi favoritado
+            _context.Update(roupa);//Aqui deveria adicionar a objeto roupa,incluindo o ProdutoCurtido,mas da erro.
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
          
         }
+        public async Task<IActionResult> DescurtirProduto(int id, [Bind("ProdutoCurtido")] Produto produto)
+        {
+            var roupa = await _context.Produtos.FindAsync(id);//Aqui em teoria pega o valor do produto (id dele)e encontra o produto com aquele id
 
-        
+            roupa.DescurtirProduto();//Aqui chama o método que faz com que a váriavel ProdutoCurtido passe para false,indicando que o produto foi removido dos favoritos
+            _context.Update(roupa);//Aqui deveria adicionar a objeto roupa,incluindo o ProdutoCurtido,mas da erro.
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
         // POST: Produtos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
