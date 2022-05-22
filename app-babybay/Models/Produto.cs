@@ -43,7 +43,7 @@ namespace app_babybay.Models
 
         public bool ProdutoCurtido { get;private set; }
 
-        public static int ContadorCurtidas { get;private set; }
+        public int ContadorCurtidas { get;private set; }
 
         internal void Receber(int quantidade)
         {

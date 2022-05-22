@@ -31,7 +31,7 @@
 						<li class="nav__link--bold">
 							@if(User.Identity.IsAuthenticated)  // Se autenticado
 							{
-								<a class="config__logado" asp-controller="Usuarios" asp-action="Index">Olá, @User.Identity.Name</a>	// Exibe nome	// Linkar para Menu do Usuário
+								<a class="config__logado" asp-controller="Usuarios" asp-action="Index" style="color:#97FC6F;font-weight:680">Olá, @User.Identity.Name</a>	// Exibe nome	// Linkar para Menu do Usuário
 								<a class="config__logout" asp-controller="Usuarios" asp-action="Logout">Sair</a>
 							}
 							else
