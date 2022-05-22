@@ -4,8 +4,9 @@
     "\\app-babybay",
     "\\app-babybay\\Controllers",
     "\\app-babybay\\Migrations",
+    "\\app-babybay\\Models",
     "\\docs"
   ],
-  "SelectedNode": "\\app-babybay\\Controllers\\ProdutosController.cs",
+  "SelectedNode": "\\app-babybay\\Models\\Produto.cs",
   "PreviewInSolutionExplorer": false
 }
