@@ -67,16 +67,13 @@
                     <a role="button" class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalhes</a>
                     <a role="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
                     <a role="button"  class="btn btn-primary" asp-controller="Produtos" asp-action="CurtirProduto" asp-route-id="@item.Id">Favoritar </a>
-                    <a role="button"  class="btn btn-primary" asp-controller="Produtos" asp-action="DescurtirProduto" asp-route-id="@item.Id">Tirar dos favoritos </a>  
+                    <a role="button"  class="btn btn-primary" asp-controller="Produtos" asp-action="DescurtirProduto" asp-route-id="@item.Id">Tirar dos favoritos</a>  
                   @*  Aqui no caso,o botão alem de chamar o método para curtir,tambem passara o Id do item como argumento pelo @item.Id,fazendo que possa
                     ser identfica o produto que será curtido(No caso o produto que esta "selecionado")*@
                     </div>
-                      <h3>@item.Id</h3> 
-                    
-                 
+                      <h3>Item: @item.Id</h3>                                  
                 </td>
-            </tr>
-        }
+            </tr>        
         }
     </tbody>
 </table>

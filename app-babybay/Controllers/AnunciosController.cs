@@ -21,7 +21,7 @@ namespace app_babybay.Controllers
         // GET: Anuncios
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Anuncio.Include(a => a.Produto).Include(a => a.Usuario);
+            var applicationDbContext = _context.Anuncios.Include(a => a.Produto).Include(a => a.Usuario);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -33,7 +33,7 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-            var anuncio = await _context.Anuncio
+            var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)
                 .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
@@ -79,7 +79,7 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-            var anuncio = await _context.Anuncio.FindAsync(id);
+            var anuncio = await _context.Anuncios.FindAsync(id);
             if (anuncio == null)
             {
                 return NotFound();
@@ -134,7 +134,7 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-            var anuncio = await _context.Anuncio
+            var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)
                 .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
@@ -151,15 +151,15 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var anuncio = await _context.Anuncio.FindAsync(id);
-            _context.Anuncio.Remove(anuncio);
+            var anuncio = await _context.Anuncios.FindAsync(id);
+            _context.Anuncios.Remove(anuncio);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AnuncioExists(int id)
         {
-            return _context.Anuncio.Any(e => e.AnuncioId == id);
+            return _context.Anuncios.Any(e => e.AnuncioId == id);
         }
     }
 }

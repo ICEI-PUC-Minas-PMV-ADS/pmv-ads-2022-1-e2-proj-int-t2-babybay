@@ -13,8 +13,15 @@ namespace app_babybay.Models
         public DbSet<Carteira> Carteiras { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Troca> Trocas { get; set; }
-        public DbSet<app_babybay.Models.Anuncio> Anuncio { get; set; }
+        public DbSet<Anuncio> Anuncios { get; set; }
 
-      
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Usuario>()      //  A entidade usuário
+        //        .HasMany(c => c.Anuncios)       // Tem muitos anúncios
+        //        .WithOne(e => e.Usuario)        // Muitos Anúncios pertence a um usuário
+        //        .OnDelete(DeleteBehavior.SetNull); 
+        //}
+
     }
 }

@@ -41,12 +41,13 @@ namespace app_babybay.Models
         [Required(ErrorMessage = "A categoria é obrigatória.")]
         public Categoria Categoria { get; set; }
 
-        public  bool ProdutoCurtido { get; set; }
+        public bool ProdutoCurtido { get; set; }
 
         internal void Receber(int quantidade)
         {
             throw new NotImplementedException();
         }
+
         public Produto()//Cria um construtor vazio,que é que sempre é instaciado quando o produto é criado,para sempre iniciar o produto como não curtido
         {
             ProdutoCurtido = false;
