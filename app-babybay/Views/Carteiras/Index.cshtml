@@ -25,15 +25,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Usuario.Bairro)
+                @Html.DisplayFor(modelItem => item.Usuario.Nome)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Saldo)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @*<a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" class="btn btn-primary" asp-route-id="@item.Id">Delete</a>*@@* Em teoria,o usuario não pode deletar a carteira,basicamente a unica
+                interação com a carteira sera o saque, depósito e tranferir;*@
             </td>
         </tr>
 }
