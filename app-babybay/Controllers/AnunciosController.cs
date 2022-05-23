@@ -54,11 +54,9 @@ namespace app_babybay.Controllers
         }
 
         // POST: Anuncios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AnuncioId,UsuarioId,ProdutoId,Titulo,Date")] Anuncio anuncio)
+        public async Task<IActionResult> Create([Bind("AnuncioId,UsuarioId,ProdutoId,Titulo")] Anuncio anuncio)
         {
             if (ModelState.IsValid)
             {
@@ -90,11 +88,9 @@ namespace app_babybay.Controllers
         }
 
         // POST: Anuncios/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AnuncioId,UsuarioId,ProdutoId,Titulo,Date")] Anuncio anuncio)
+        public async Task<IActionResult> Edit(int id, [Bind("AnuncioId,UsuarioId,ProdutoId,Titulo")] Anuncio anuncio)
         {
             if (id != anuncio.AnuncioId)
             {

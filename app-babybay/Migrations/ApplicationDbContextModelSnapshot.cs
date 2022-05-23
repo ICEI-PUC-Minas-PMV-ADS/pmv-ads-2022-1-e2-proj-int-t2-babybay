@@ -26,9 +26,6 @@ namespace app_babybay.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
 
@@ -201,9 +198,9 @@ namespace app_babybay.Migrations
                         .IsRequired();
 
                     b.HasOne("app_babybay.Models.Usuario", "Usuario")
-                        .WithMany("Anuncios")
+                        .WithMany()
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Produto");
@@ -254,8 +251,6 @@ namespace app_babybay.Migrations
 
             modelBuilder.Entity("app_babybay.Models.Usuario", b =>
                 {
-                    b.Navigation("Anuncios");
-
                     b.Navigation("Produtos");
 
                     b.Navigation("Trocas");

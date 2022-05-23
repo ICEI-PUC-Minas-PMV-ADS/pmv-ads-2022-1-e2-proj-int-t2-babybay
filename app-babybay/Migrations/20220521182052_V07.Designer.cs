@@ -10,8 +10,8 @@ using app_babybay.Models;
 namespace app_babybay.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220522193729_v07")]
-    partial class v07
+    [Migration("20220521182052_V07")]
+    partial class V07
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,9 +27,6 @@ namespace app_babybay.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
@@ -203,9 +200,9 @@ namespace app_babybay.Migrations
                         .IsRequired();
 
                     b.HasOne("app_babybay.Models.Usuario", "Usuario")
-                        .WithMany("Anuncios")
+                        .WithMany()
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Produto");
@@ -256,8 +253,6 @@ namespace app_babybay.Migrations
 
             modelBuilder.Entity("app_babybay.Models.Usuario", b =>
                 {
-                    b.Navigation("Anuncios");
-
                     b.Navigation("Produtos");
 
                     b.Navigation("Trocas");

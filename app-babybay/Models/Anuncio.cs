@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace app_babybay.Models
 {
+    [Table("Anuncios")]
     public class Anuncio
     {
         [Key]
@@ -21,15 +22,10 @@ namespace app_babybay.Models
         [Display(Name = "Título do Anúncio")]
         public string Titulo { get; set; }
 
-        private DateTime _dateTime;
-
-        public DateTime Date
+        public DateTime Data()
         {
-            get { return _dateTime; }
-            set
-            {
-                _dateTime = value;
-            }
+            DateTime data = DateTime.Now;
+            return data;
         }
     }
 }

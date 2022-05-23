@@ -41,11 +41,9 @@ namespace app_babybay.Models
         [Required(ErrorMessage = "A categoria é obrigatória.")]
         public Categoria Categoria { get; set; }
 
-        public bool ProdutoCurtido { get;private set; }
+        public bool ProdutoCurtido { get; set; }
 
-        public int ContadorCurtidas { get;private set; }
-
-        internal void Receber(int quantidade)
+         internal void Receber(int quantidade)
         {
             throw new NotImplementedException();
         }
@@ -61,16 +59,12 @@ namespace app_babybay.Models
        para que assim ele estem método possa ser chamado por outro método no controle*/
         {
             ProdutoCurtido = true;
-            ContadorCurtidas++;
-            
-          
+           /* return true;*/
         }
         public void DescurtirProduto()//Aqui um método para descurtir o produto,sera chamado quando apertar o botão curtir denovo,ou quando apertar o botão descurtir(ver depois)
         {
             ProdutoCurtido = false;
         }
-
-
 
     }
 

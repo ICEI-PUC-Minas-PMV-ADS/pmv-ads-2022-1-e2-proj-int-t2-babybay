@@ -1,12 +1,12 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace app_babybay.Migrations
 {
-    public partial class v07 : Migration
+    public partial class V07 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
+        {                      
+
             migrationBuilder.CreateTable(
                 name: "Anuncios",
                 columns: table => new
@@ -15,8 +15,7 @@ namespace app_babybay.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UsuarioId = table.Column<int>(type: "int", nullable: false),
                     ProdutoId = table.Column<int>(type: "int", nullable: false),
-                    Titulo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Titulo = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,17 +38,19 @@ namespace app_babybay.Migrations
                 name: "IX_Anuncios_ProdutoId",
                 table: "Anuncios",
                 column: "ProdutoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Anuncios_UsuarioId",
-                table: "Anuncios",
-                column: "UsuarioId");
+ 
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+
             migrationBuilder.DropTable(
                 name: "Anuncios");
+
+            migrationBuilder.DropColumn(
+                name: "ProdutoCurtido",
+                table: "Produtos");
+
         }
     }
 }
