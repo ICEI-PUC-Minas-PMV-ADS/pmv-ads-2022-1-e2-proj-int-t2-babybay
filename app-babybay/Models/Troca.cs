@@ -11,11 +11,11 @@ namespace app_babybay.Models
         [Key]
         public int Id { get; set; }
 
+        public int UsuarioClienteId { get; set; }
+        [ForeignKey("UsuarioClienteId")]
         public int UsuarioId { get; set; }
-        [ForeignKey("UsuarioId")]
-        public Usuario Usuario { get; set; }
-
-        //public int MyProperty { get; set; }
+        [ForeignKey("UsuarioId")]       
+        public Usuario Usuario { get; set; }      
 
         [Display(Name = "Título do Anúncio")]   // Vai aparecer na View
         public int ProdutoId { get; set; }
