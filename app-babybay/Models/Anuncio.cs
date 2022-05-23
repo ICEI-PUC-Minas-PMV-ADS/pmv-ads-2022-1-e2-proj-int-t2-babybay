@@ -22,10 +22,13 @@ namespace app_babybay.Models
         [Display(Name = "Título do Anúncio")]
         public string Titulo { get; set; }
 
-        public DateTime Data()
+        private DateTime _date = DateTime.Now;
+
+        public DateTime Date
         {
-            DateTime data = DateTime.Now;
-            return data;
+            get { return _date; }
+            set { _date = value; }
         }
+
     }
 }

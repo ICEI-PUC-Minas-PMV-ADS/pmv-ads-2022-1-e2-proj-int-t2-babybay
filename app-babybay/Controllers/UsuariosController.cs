@@ -45,9 +45,6 @@ namespace app_babybay.Controllers
                 return View();
             }
 
-            //var produto = new Produto();
-            //produto.UsuarioId = usuario.Id;
-
             // Verifica se a senha inserida no login é igual a senha que existe no BD
             bool senhaOk = BCrypt.Net.BCrypt.Verify(usuario.Senha, user.Senha);
 
@@ -205,6 +202,7 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
+            
 
             if (ModelState.IsValid)
             {

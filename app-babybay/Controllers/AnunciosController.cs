@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using app_babybay.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace app_babybay.Controllers
 {
+    [Authorize]
     public class AnunciosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -48,24 +50,36 @@ namespace app_babybay.Controllers
         // GET: Anuncios/Create
         public IActionResult Create()
         {
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Cor");
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro");
+            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome");
+          //  ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro");
             return View();
         }
 
         // POST: Anuncios/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AnuncioId,UsuarioId,ProdutoId,Titulo")] Anuncio anuncio)
+        public async Task<IActionResult> Create([Bind("AnuncioId,ProdutoId,Titulo")] Anuncio anuncio)
         {
+            var TUser = User.Identity.Name; // Pega o nome do user logado
+            var usuario = new Usuario();
+            usuario = await _context.Usuarios  // Percorre no BD buscando pelo nome compara com  TUser
+                 .FirstOrDefaultAsync(m => m.Nome == TUser);
+            anuncio.Usuario = usuario; // Seta no Objeto Usuario  encontrado para Usuario no anuncio
+
+          //  var produto = new Produto();
+         //   produto.Id = anuncio.ProdutoId;
+                       
+
+            //if(usuario.Produtos)
+
             if (ModelState.IsValid)
             {
                 _context.Add(anuncio);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Cor", anuncio.ProdutoId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", anuncio.UsuarioId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);
+           // ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", anuncio.UsuarioId);
             return View(anuncio);
         }
 
@@ -82,15 +96,15 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Cor", anuncio.ProdutoId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", anuncio.UsuarioId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);
+          //  ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", anuncio.UsuarioId);
             return View(anuncio);
         }
 
         // POST: Anuncios/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AnuncioId,UsuarioId,ProdutoId,Titulo")] Anuncio anuncio)
+        public async Task<IActionResult> Edit(int id, [Bind("AnuncioId,ProdutoId,Titulo")] Anuncio anuncio)
         {
             if (id != anuncio.AnuncioId)
             {
@@ -117,8 +131,8 @@ namespace app_babybay.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Cor", anuncio.ProdutoId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", anuncio.UsuarioId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);
+           // ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", anuncio.UsuarioId);
             return View(anuncio);
         }
 
