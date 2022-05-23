@@ -58,19 +58,18 @@ namespace app_babybay.Controllers
         // POST: Anuncios/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AnuncioId,ProdutoId,Titulo")] Anuncio anuncio)
-        {
-            var TUser = User.Identity.Name; // Pega o nome do user logado
+        public async Task<IActionResult> Create([Bind("AnuncioId,ProdutoId,Titulo")] Anuncio anuncio, int? id)
+        {   // int? id pega o id passado no botão 'anunciar' na view Relatorios (controller usuarios)
+            var TUser = User.Identity.Name;     // Pega o nome do user logado
             var usuario = new Usuario();
-            usuario = await _context.Usuarios  // Percorre no BD buscando pelo nome compara com  TUser
+            usuario = await _context.Usuarios   // Percorre no BD buscando pelo nome compara com  TUser
                  .FirstOrDefaultAsync(m => m.Nome == TUser);
-            anuncio.Usuario = usuario; // Seta no Objeto Usuario  encontrado para Usuario no anuncio
-
-          //  var produto = new Produto();
-         //   produto.Id = anuncio.ProdutoId;
+            anuncio.Usuario = usuario;          // Seta no Objeto Usuario  encontrado para Usuario no anuncio
                        
-
-            //if(usuario.Produtos)
+            var produto = new Produto();
+            produto = await _context.Produtos
+                .FirstOrDefaultAsync(m => m.Id == id); // esse id é o que foi passado no parâmetro
+            anuncio.Produto = produto;
 
             if (ModelState.IsValid)
             {
@@ -78,7 +77,7 @@ namespace app_babybay.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);
+            //ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);
            // ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", anuncio.UsuarioId);
             return View(anuncio);
         }
