@@ -135,6 +135,12 @@ namespace app_babybay.Controllers
             {
                 try
                 {
+                    var TUser = User.Identity.Name;      // Pega o usuário Logado para comparar
+                    var usuario = new Usuario();
+                    usuario = await _context.Usuarios  
+                         .FirstOrDefaultAsync(m => m.Nome == TUser);  // Acha o usuário
+                    produto.Usuario = usuario;      // Setando o Usuário no UsuarioId do produto
+
                     _context.Update(produto);
                     await _context.SaveChangesAsync();
                 }
