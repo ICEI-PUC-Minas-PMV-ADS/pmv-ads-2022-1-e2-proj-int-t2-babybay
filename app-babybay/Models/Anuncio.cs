@@ -29,9 +29,9 @@ namespace app_babybay.Models
             get { return _date; }
             set { _date = value; }
         }
-        public bool AnuncioCurtido { get; set; }
+        public bool AnuncioCurtido { get; private set; }
 
-        public int ContadorCurtidas { get; set; }
+        public int ContadorCurtidas { get; private set; }
         public Anuncio()//Cria um construtor vazio,que é que sempre é instaciado quando o produto é criado,para sempre iniciar o produto como não curtido
         {
             AnuncioCurtido = false;
