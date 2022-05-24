@@ -47,5 +47,9 @@ namespace app_babybay.Models
         {
             AnuncioCurtido = false;
         }
+        public void ZeraContador()//Aqui caso precise,esta um método para zerar contador
+        {
+            ContadorCurtidas = 0;
+        }
     }
 }
