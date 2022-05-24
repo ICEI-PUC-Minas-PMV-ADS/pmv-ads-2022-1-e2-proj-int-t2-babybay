@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\app-babybay",
-    "\\app-babybay\\Controllers",
-    "\\app-babybay\\Migrations",
-    "\\app-babybay\\Models",
-    "\\docs"
+    ""
   ],
-  "SelectedNode": "\\app-babybay\\Models\\Produto.cs",
+  "SelectedNode": "\\app-babybay.sln",
   "PreviewInSolutionExplorer": false
 }

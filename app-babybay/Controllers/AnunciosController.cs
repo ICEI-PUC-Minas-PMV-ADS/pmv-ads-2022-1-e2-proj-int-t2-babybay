@@ -53,7 +53,25 @@ namespace app_babybay.Controllers
             ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome"); 
             return View();
         }
+        public async Task<IActionResult> CurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)//Aqui chama o o método da classe para curtir o produto
+        {
+            var roupa = await _context.Anuncios.FindAsync(id);//Aqui em teoria pega o valor do produto (id dele)e encontra o produto com aquele id
 
+            roupa.CurtirAnuncio();//Aqui chama o método que faz com que a váriavel ProdutoCurtido passe para true,indicando que o produto foi favoritado
+            _context.Update(roupa);//Aqui deveria adicionar a objeto roupa,incluindo o ProdutoCurtido,mas da erro.
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+
+        }
+        public async Task<IActionResult> DescurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)
+        {
+            var roupa = await _context.Anuncios.FindAsync(id);//Aqui em teoria pega o valor do produto (id dele)e encontra o produto com aquele id
+
+            roupa.DescurtirAnuncio();//Aqui chama o método que faz com que a váriavel ProdutoCurtido passe para false,indicando que o produto foi removido dos favoritos
+            _context.Update(roupa);//Aqui deveria adicionar a objeto roupa,incluindo o ProdutoCurtido,mas da erro.
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
         // POST: Anuncios/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -79,6 +97,7 @@ namespace app_babybay.Controllers
                 }
                 else            // Se o produto não está anunciado, então atribui no anuncio e manda pro BD
                 {
+                    ViewBag.Erro = "O Produto não esta anunciado"; 
                     var produto = await _context.Produtos.FindAsync(id);
                     anuncio.Produto = produto;
 

@@ -21,7 +21,7 @@ namespace app_babybay.Models
         [Display(Name = "Resposta do Suporte")]
         public string TextoSuporte { get; set; }
 
-        private DateTime _date = DateTime.Now;
+        public DateTime _date = DateTime.Now;
 
         public DateTime Date
         {

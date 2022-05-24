@@ -37,10 +37,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Titulo)
             </td>
-            <td>
+            <td style="width:700px;">
                 <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.AnuncioId">Edit</a> |
                 <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.AnuncioId">Details</a> |
                 <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.AnuncioId">Delete</a>
+                <a role="button" class="btn btn-primary" asp-controller="Anuncios" asp-action="CurtirAnuncio" asp-route-id="@item.AnuncioId">Favoritar Anuncio</a>
+				<a role="button" class="btn btn-primary" asp-controller="Anuncios" asp-action="DescurtirAnuncio" asp-route-id="@item.AnuncioId">Tirar dos favoritos</a>
             </td>
         </tr>
 }
