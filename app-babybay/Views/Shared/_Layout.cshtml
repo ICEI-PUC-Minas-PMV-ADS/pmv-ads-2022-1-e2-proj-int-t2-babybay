@@ -14,14 +14,7 @@
 		<div class="menu-bg">
 			<div class="menu">
 				<div class="menu__logo">
-					@if (User.Identity.IsAuthenticated)
-					{
-						<a asp-controller="Home" asp-action="Index"><img src="~/img/logo-200px.png" alt="logo-babybay"></a>
-					}
-					else
-					{
-						<a asp-controller="Home" asp-action="Index"><img src="~/img/logo-200px.png" alt="logo-babybay"></a>
-					}					
+					<a asp-controller="Home" asp-action="Index"><img src="~/img/logo-200px.png" alt="logo-babybay"></a>
 					<!-- Alterar futuramente para os menus só aparecerem depois de logar-->
 					@*<a asp-controller="Produtos" asp-action="Index">Produto </a> <!--Aqui inserido-->
 					<a asp-controller="Usuarios" asp-action="Index">Usuario </a> <!--Aqui inserido-->*@
@@ -29,15 +22,16 @@
 				<nav class="nav">
 					<ul class="nav__list">
 						<li class="nav__link--bold">
-							@if(User.Identity.IsAuthenticated)  // Se autenticado
+							@if (User.Identity.IsAuthenticated)  // Se autenticado
 							{
-								<a class="config__logado" asp-controller="Usuarios" asp-action="Index">Olá, @User.Identity.Name</a>	// Exibe nome	// Linkar para Menu do Usuário
+								<a class="config__logado" asp-controller="Usuarios" asp-action="Index">Olá, @User.Identity.Name</a>
+								// Exibe nome	// Linkar para Menu do Usuário
 								<a class="config__logout" asp-controller="Usuarios" asp-action="Logout">Sair</a>
 							}
 							else
 							{
 								<p class="config__tem_conta">Já tem uma conta?</p>
-								<a class="config__login" asp-controller="Usuarios" asp-action="Login">Entrar</a>				
+								<a class="config__login" asp-controller="Usuarios" asp-action="Login">Entrar</a>
 							}
 						</li>
 					</ul> <!-- .nav__list-->

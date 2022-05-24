@@ -100,6 +100,28 @@ namespace app_babybay.Controllers
         }
 
         // GET: Usuarios
+        //public async Task<IActionResult> Index()
+        //{
+        //    var TUser = User.Identity.Name;      // Pega o usuário Logado para comparar
+        //    var usuario = new Usuario();
+        //    usuario = await _context.Usuarios
+        //         .FirstOrDefaultAsync(m => m.Nome == TUser);  // Acha o usuário
+
+        //    var listaUsuario = await _context.Usuarios.ToListAsync();
+
+        //    foreach (object item in listaUsuario) 
+        //    { 
+        //        if(usuario == item)
+        //        {
+        //            return View(usuario);
+        //        }
+        //    }
+
+        //    return NotFound();         
+        //}
+
+        // GET: Usuarios // Testando outro index
+
         public async Task<IActionResult> Index()
         {
             return View(await _context.Usuarios.ToListAsync());

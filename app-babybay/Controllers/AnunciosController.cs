@@ -58,18 +58,24 @@ namespace app_babybay.Controllers
         // POST: Anuncios/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AnuncioId,ProdutoId,Titulo")] Anuncio anuncio, int? id)
+        public async Task<IActionResult> Create([Bind("AnuncioId,ProdutoId,Titulo")] Anuncio anuncio, int id)
         {   // int? id pega o id passado no botão 'anunciar' na view Relatorios (controller usuarios)
+
             var TUser = User.Identity.Name;     // Pega o nome do user logado
             var usuario = new Usuario();
             usuario = await _context.Usuarios   // Percorre no BD buscando pelo nome compara com  TUser
                  .FirstOrDefaultAsync(m => m.Nome == TUser);
             anuncio.Usuario = usuario;          // Seta no Objeto Usuario  encontrado para Usuario no anuncio
-                       
-            var produto = new Produto();
-            produto = await _context.Produtos
-                .FirstOrDefaultAsync(m => m.Id == id); // esse id é o que foi passado no parâmetro
+
+            // Verifica se o produto está anunciado
+            var buscaAnuncio = await _context.Anuncios
+                .FirstOrDefaultAsync(m => m.ProdutoId == id);
+
+            // Busca o produto passado pelo id
+            var produto = await _context.Produtos.FindAsync(id);
             anuncio.Produto = produto;
+                        
+           
 
             if (ModelState.IsValid)
             {
