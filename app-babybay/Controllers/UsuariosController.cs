@@ -202,13 +202,13 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
-            
-
+ 
             if (ModelState.IsValid)
             {
                 try
-                {
+                {   // Acertar para comparação de senha do BD com o que o usuário digitou, para alterar                    
                     usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                    usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
                 }

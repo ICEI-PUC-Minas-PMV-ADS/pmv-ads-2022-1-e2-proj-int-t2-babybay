@@ -139,7 +139,7 @@ namespace app_babybay.Controllers
                     var usuario = new Usuario();
                     usuario = await _context.Usuarios  
                          .FirstOrDefaultAsync(m => m.Nome == TUser);  // Acha o usuário
-                    produto.Usuario = usuario;      // Setando o Usuário no UsuarioId do produto
+                    produto.Usuario = usuario;      // Setando o usuario encontrado no Usuario do produto 
 
                     _context.Update(produto);
                     await _context.SaveChangesAsync();
