@@ -50,8 +50,7 @@ namespace app_babybay.Controllers
         // GET: Anuncios/Create
         public IActionResult Create()
         {
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome");
-          //  ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro");
+            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome"); 
             return View();
         }
 
@@ -59,32 +58,36 @@ namespace app_babybay.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AnuncioId,ProdutoId,Titulo")] Anuncio anuncio, int id)
-        {   // int? id pega o id passado no botão 'anunciar' na view Relatorios (controller usuarios)
-
-            var TUser = User.Identity.Name;     // Pega o nome do user logado
-            var usuario = new Usuario();
-            usuario = await _context.Usuarios   // Percorre no BD buscando pelo nome compara com  TUser
-                 .FirstOrDefaultAsync(m => m.Nome == TUser);
-            anuncio.Usuario = usuario;          // Seta no Objeto Usuario  encontrado para Usuario no anuncio
-
-            // Verifica se o produto está anunciado
-            var buscaAnuncio = await _context.Anuncios
-                .FirstOrDefaultAsync(m => m.ProdutoId == id);
-
-            // Busca o produto passado pelo id
-            var produto = await _context.Produtos.FindAsync(id);
-            anuncio.Produto = produto;
-                        
-           
-
+        {   // int id pega o id passado no botão 'anunciar' na view Relatorios (controller usuarios)
+                   
             if (ModelState.IsValid)
             {
-                _context.Add(anuncio);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var TUser = User.Identity.Name;     // Pega o nome do user logado
+                var usuario = new Usuario();
+
+                usuario = await _context.Usuarios   // Percorre no BD buscando pelo nome compara com  TUser
+                     .FirstOrDefaultAsync(m => m.Nome == TUser);
+                anuncio.Usuario = usuario;          // Seta no Objeto Usuario  encontrado para Usuario no anuncio
+
+                // Verifica se existe o produto na tabela anúncio
+                var buscaAnuncio = await _context.Anuncios
+                    .FirstOrDefaultAsync(m => m.ProdutoId == id);              
+
+                if (buscaAnuncio != null)     // Se produto já está anunciado, mostra msg na tela
+                {
+                    ViewBag.Message = "O produto já está anunciado";
+                }
+                else            // Se o produto não está anunciado, então atribui no anuncio e manda pro BD
+                {
+                    var produto = await _context.Produtos.FindAsync(id);
+                    anuncio.Produto = produto;
+
+                    _context.Add(anuncio);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }                
             }
-            //ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);
-           // ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", anuncio.UsuarioId);
+            // Se entrou no if, vai redirecionar para index
             return View(anuncio);
         }
 
@@ -101,8 +104,7 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);
-          //  ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", anuncio.UsuarioId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);       
             return View(anuncio);
         }
 
@@ -137,7 +139,6 @@ namespace app_babybay.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);
-           // ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", anuncio.UsuarioId);
             return View(anuncio);
         }
 
