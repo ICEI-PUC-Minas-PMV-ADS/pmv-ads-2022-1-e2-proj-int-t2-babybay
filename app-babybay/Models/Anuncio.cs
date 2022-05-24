@@ -32,6 +32,7 @@ namespace app_babybay.Models
         public bool AnuncioCurtido { get; private set; }
 
         public int ContadorCurtidas { get; private set; }
+        
         public Anuncio()//Cria um construtor vazio,que é que sempre é instaciado quando o produto é criado,para sempre iniciar o produto como não curtido
         {
             AnuncioCurtido = false;
@@ -46,6 +47,12 @@ namespace app_babybay.Models
         public void DescurtirAnuncio()//Aqui um método para descurtir o produto,sera chamado quando apertar o botão curtir denovo,ou quando apertar o botão descurtir(ver depois)
         {
             AnuncioCurtido = false;
+            ContadorCurtidas--;    
+
+            if (ContadorCurtidas < 0) // Aqui faz que o contador nunca fique negativo
+            {
+                ContadorCurtidas = 0;
+            }
         }
         public void ZeraContador()//Aqui caso precise,esta um método para zerar contador
         {

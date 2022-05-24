@@ -53,6 +53,7 @@ namespace app_babybay.Controllers
             ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome"); 
             return View();
         }
+
         public async Task<IActionResult> CurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)//Aqui chama o o método da classe para curtir o produto
         {
             var roupa = await _context.Anuncios.FindAsync(id);//Aqui em teoria pega o valor do produto (id dele)e encontra o produto com aquele id
@@ -60,9 +61,10 @@ namespace app_babybay.Controllers
             roupa.CurtirAnuncio();//Aqui chama o método que faz com que a váriavel ProdutoCurtido passe para true,indicando que o produto foi favoritado
             _context.Update(roupa);//Aqui deveria adicionar a objeto roupa,incluindo o ProdutoCurtido,mas da erro.
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
 
+            return RedirectToAction("Index");
         }
+
         public async Task<IActionResult> DescurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)
         {
             var roupa = await _context.Anuncios.FindAsync(id);//Aqui em teoria pega o valor do produto (id dele)e encontra o produto com aquele id
@@ -70,8 +72,11 @@ namespace app_babybay.Controllers
             roupa.DescurtirAnuncio();//Aqui chama o método que faz com que a váriavel ProdutoCurtido passe para false,indicando que o produto foi removido dos favoritos
             _context.Update(roupa);//Aqui deveria adicionar a objeto roupa,incluindo o ProdutoCurtido,mas da erro.
             await _context.SaveChangesAsync();
+
             return RedirectToAction("Index");
         }
+
+
         // POST: Anuncios/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -80,29 +85,33 @@ namespace app_babybay.Controllers
                    
             if (ModelState.IsValid)
             {
-                var TUser = User.Identity.Name;     // Pega o nome do user logado
+                // Pega o nome do user logado
+                var TUser = User.Identity.Name;    
                 var usuario = new Usuario();
 
-                usuario = await _context.Usuarios   // Percorre no BD buscando pelo nome compara com  TUser
+                // Percorre no BD buscando pelo nome compara com  TUser
+                usuario = await _context.Usuarios   
                      .FirstOrDefaultAsync(m => m.Nome == TUser);
-                anuncio.Usuario = usuario;          // Seta no Objeto Usuario  encontrado para Usuario no anuncio
+                anuncio.Usuario = usuario;          // Objeto Usuario encontrado para Usuario no anuncio
 
                 // Verifica se existe o produto na tabela anúncio
                 var buscaAnuncio = await _context.Anuncios
-                    .FirstOrDefaultAsync(m => m.ProdutoId == id);              
+                    .FirstOrDefaultAsync(m => m.ProdutoId == id);
 
-                if (buscaAnuncio != null)     // Se produto já está anunciado, mostra msg na tela
+                // Se produto já está anunciado, mostra msg na tela
+                if (buscaAnuncio != null)     
                 {
                     ViewBag.Message = "O produto já está anunciado";
                 }
-                else            // Se o produto não está anunciado, então atribui no anuncio e manda pro BD
+                else  // Se o produto não está anunciado, então atribui no anuncio e manda pro BD
                 {
-                    ViewBag.Erro = "O Produto não esta anunciado"; 
+                   // ViewBag.Erro = "O Produto não esta anunciado"; 
                     var produto = await _context.Produtos.FindAsync(id);
                     anuncio.Produto = produto;
 
                     _context.Add(anuncio);
                     await _context.SaveChangesAsync();
+
                     return RedirectToAction(nameof(Index));
                 }                
             }
@@ -141,6 +150,26 @@ namespace app_babybay.Controllers
             {
                 try
                 {
+                    // Pega o nome do user logado
+                    var TUser = User.Identity.Name;
+                    var usuario = new Usuario();
+
+                    // Percorre no BD buscando pelo nome compara com  TUser
+                    usuario = await _context.Usuarios
+                         .FirstOrDefaultAsync(m => m.Nome == TUser);
+                    anuncio.Usuario = usuario;          // Objeto Usuario encontrado para Usuario no anuncio
+                    
+                    // TERMINAR DE ACERTAR O EDIT
+                    
+                    //// Verifica se existe o produto na tabela anúncio
+                    //var produto = new Produto();
+                    //produto = await _context.Anuncios
+                    //     .FirstOrDefaultAsync(m => m.Id == anuncio.ProdutoId);
+                    //anuncio.Usuario = usuario;       
+
+                    //var teste = anuncio.ProdutoId;
+                    
+                    
                     _context.Update(anuncio);
                     await _context.SaveChangesAsync();
                 }
