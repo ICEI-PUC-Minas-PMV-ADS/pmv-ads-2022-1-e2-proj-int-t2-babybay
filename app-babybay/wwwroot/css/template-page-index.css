@@ -80,7 +80,7 @@
     border-color: var(--clr--border-box);
     box-shadow: var(--clr--box-shadow);
     border-radius: 50px;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     font-size: 0.9em;
     font-weight: bold;
     height: 32px;
@@ -88,7 +88,10 @@
     margin: 5px 15px;
     min-width: 120px;
     text-shadow: var(--clr--text-shadow);
+    text-align: center;
+    line-height: 30px;
 }
+
 
 .input__busca:hover,
 .input__selected:hover {

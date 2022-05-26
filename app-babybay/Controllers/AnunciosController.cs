@@ -47,6 +47,15 @@ namespace app_babybay.Controllers
             return View(anuncio);
         }
 
+		// Buscar Anúncios
+		[AllowAnonymous]
+        public async Task<IActionResult> Busca()    // Adicionado também uma view Busca para exibir resultado na tela
+        {
+            var applicationDbContext = _context.Anuncios.Include(a => a.Produto);
+            return View(await applicationDbContext.ToListAsync());
+        } 
+   
+
         // GET: Anuncios/Create
         public IActionResult Create()
         {
@@ -75,7 +84,6 @@ namespace app_babybay.Controllers
 
             return RedirectToAction("Index");
         }
-
 
         // POST: Anuncios/Create
         [HttpPost]
@@ -119,78 +127,79 @@ namespace app_babybay.Controllers
             return View(anuncio);
         }
 
-        // GET: Anuncios/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //// GET: Anuncios/Edit/5
+        //public async Task<IActionResult> Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var anuncio = await _context.Anuncios.FindAsync(id);
-            if (anuncio == null)
-            {
-                return NotFound();
-            }
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);       
-            return View(anuncio);
-        }
+        //    var anuncio = await _context.Anuncios.FindAsync(id);
+        //    if (anuncio == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);       
+        //    return View(anuncio);
+        //}
 
-        // POST: Anuncios/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AnuncioId,ProdutoId,Titulo")] Anuncio anuncio)
-        {
-            if (id != anuncio.AnuncioId)
-            {
-                return NotFound();
-            }
+        //// POST: Anuncios/Edit/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]            // SER DER TEMPO, ACERTAR
+        //public async Task<IActionResult> Edit(int id, [Bind("AnuncioId,ProdutoId,Titulo")] Anuncio anuncio)
+        //{
+        //    if (id != anuncio.AnuncioId)
+        //    {
+        //        return NotFound();
+        //    }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    // Pega o nome do user logado
-                    var TUser = User.Identity.Name;
-                    var usuario = new Usuario();
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            // Pega o nome do user logado
+        //            var TUser = User.Identity.Name;
+        //            var usuario = new Usuario();
 
-                    // Percorre no BD buscando pelo nome compara com  TUser
-                    usuario = await _context.Usuarios
-                         .FirstOrDefaultAsync(m => m.Nome == TUser);
-                    anuncio.Usuario = usuario;          // Objeto Usuario encontrado para Usuario no anuncio
+        //            // Percorre no BD buscando pelo nome compara com  TUser
+        //            usuario = await _context.Usuarios
+        //                 .FirstOrDefaultAsync(m => m.Nome == TUser);
+        //            anuncio.Usuario = usuario;          // Objeto Usuario encontrado para Usuario no anuncio
                     
-                    // TERMINAR DE ACERTAR O EDIT
+        //            // TERMINAR DE ACERTAR O EDIT
                     
-                    //// Verifica se existe o produto na tabela anúncio
-                    //var produto = new Produto();
-                    //produto = await _context.Anuncios
-                    //     .FirstOrDefaultAsync(m => m.Id == anuncio.ProdutoId);
-                    //anuncio.Usuario = usuario;       
+        //            //// Verifica se existe o produto na tabela anúncio
+        //            //var produto = new Produto();
+        //            //produto = await _context.Anuncios
+        //            //     .FirstOrDefaultAsync(m => m.Id == anuncio.ProdutoId);
+        //            //anuncio.Usuario = usuario;       
 
-                    //var teste = anuncio.ProdutoId;
+        //            //var teste = anuncio.ProdutoId;
                     
                     
-                    _context.Update(anuncio);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AnuncioExists(anuncio.AnuncioId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);
-            return View(anuncio);
-        }
+        //            _context.Update(anuncio);
+        //            await _context.SaveChangesAsync();
+        //        }
+        //        catch (DbUpdateConcurrencyException)
+        //        {
+        //            if (!AnuncioExists(anuncio.AnuncioId))
+        //            {
+        //                return NotFound();
+        //            }
+        //            else
+        //            {
+        //                throw;
+        //            }
+        //        }
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", anuncio.ProdutoId);
+        //    return View(anuncio);
+        //}
 
         // GET: Anuncios/Delete/5
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

@@ -1,9 +1,11 @@
-﻿@{
-	ViewData["Title"] = "Início";
+﻿@model IEnumerable<app_babybay.Models.Anuncio>
+
+@{
+	ViewData["Title"] = "Busca";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<link rel="stylesheet" href="~/css/template-page-index.css">
+	<!--Ver uma forma de renderizar-->
+<link rel="stylesheet" href="~/css/template-page-index.css">	<!--Cod copiado de home/index -->
 <div class="container">
 	<section>
 		<article class="article-busca">
@@ -29,27 +31,27 @@
 						<option value="calcados">Calçados</option>
 						<option value="outros">Outros</option>
 					</select> <!-- .input__selected -->
-					<a  class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios" asp-action="Busca">Buscar</a>	
+					<a class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios" asp-action="Busca">Buscar</a>
 				</div> <!-- .menu__busca -->
 			</div> <!-- .article__busca--contorno-->
 		</article> <!-- .article-busca -->
 	</section>
+</div><!--Cod copiado de home/index -->
 
-	<main>
-		@if (!User.Identity.IsAuthenticated) // Se user autenticado, então não mostrar
-		{
-			<div class="conteudo-principal">
-				<div class="conteudo__h1">
-					<h1 class="conteudo__h1--padding">1. Poste suas roupas</h1>
-					<h1 class="conteudo__h1--padding">2. Ganhe BabyCoins</h1>
-					<h1 class="conteudo__h1--padding">3. Troque por outras roupas</h1>
-				</div> <!-- .conteudo__h1 -->
-			</div> <!-- .conteudo-principal -->
-			<div class="conteudo__botao__cadastro">
-				<a asp-controller="Usuarios" asp-action="Create" class="input__botao--cadastro">CADASTRE-SE</a>
-				@*            <input class="input__botao--cadastro" type="button" value="CADASTRE-SE" id="btn-cadastre">*@
-			</div> <!-- .conteudo__cadastre__botao-->
-		}
-
-	</main>
-</div>
+<section>
+	<table class="table">
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Produto.Nome)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Titulo)
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</section>
