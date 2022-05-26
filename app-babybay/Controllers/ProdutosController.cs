@@ -53,10 +53,7 @@ namespace app_babybay.Controllers
         {
             return View();
         }
-        public  async Task<IActionResult> Buscar()
-        {
-            return RedirectToAction("Buscar");
-        }
+
        
 
         // POST: Produtos/Create
