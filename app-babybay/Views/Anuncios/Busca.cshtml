@@ -13,7 +13,7 @@
 				<div class="menu-busca">
 					<input class="input__busca" type="search" name="input-buscar" id="input-buscar"
 						   placeholder="Busque uma roupa"> <!-- .input__busca-->
-					<select class="input__selected" name="idade" id="idade">
+					<select class="input__selected" name="Idade" id="idade">
 						<option selected>Idade</option>
 						<option value="zero-dois">0 a 2 anos</option>
 						<option value="tres-cinco">3 a 5 anos</option>
@@ -22,16 +22,9 @@
 						<option value="doze-quinze">12 a 15 anos</option>
 						<option value="maior-dezesseis">Maior de 16 anos</option>
 					</select> <!-- .input__selected -->
-					<select class="input__selected" name="categoria" id="categoria">
-						<option selected>Categoria</option>
-						<option value="camiseta">Camiseta</option>
-						<option value="short">Short</option>
-						<option value="calca">Calça</option>
-						<option value="macacao">Macacão</option>
-						<option value="calcados">Calçados</option>
-						<option value="outros">Outros</option>
-					</select> <!-- .input__selected -->
-					<a class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios" asp-action="Busca">Buscar</a>
+				
+					<a class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios"asp-action="Busca">Buscar</a>
+
 				</div> <!-- .menu__busca -->
 			</div> <!-- .article__busca--contorno-->
 		</article> <!-- .article-busca -->
@@ -45,11 +38,17 @@
 			{
 				<tr>
 					<td>
-						@Html.DisplayFor(modelItem => item.Produto.Nome)
-					</td>
-					<td>
 						@Html.DisplayFor(modelItem => item.Titulo)
 					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Produto.Cor)
+					</td>
+					<td>
+
+						@if(item.Produto.)
+						@Html.DisplayFor(modelItem => item.Produto.)
+					</td>
+
 				</tr>
 			}
 		</tbody>

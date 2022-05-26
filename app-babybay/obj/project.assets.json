@@ -7292,19 +7292,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\carlos\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\carlos\\Desktop\\app-babybay\\app-babybay.csproj",
+      "projectUniqueName": "C:\\Users\\user\\source\\repos\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay.csproj",
       "projectName": "app-babybay",
-      "projectPath": "C:\\Users\\carlos\\Desktop\\app-babybay\\app-babybay.csproj",
-      "packagesPath": "C:\\Users\\carlos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\carlos\\Desktop\\app-babybay\\obj\\",
+      "projectPath": "C:\\Users\\user\\source\\repos\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\app-babybay.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\source\\repos\\pmv-ads-2022-1-e2-proj-int-t2-babybay\\app-babybay\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -51,10 +51,17 @@ namespace app_babybay.Controllers
 		[AllowAnonymous]
         public async Task<IActionResult> Busca()    // Adicionado também uma view Busca para exibir resultado na tela
         {
+        
             var applicationDbContext = _context.Anuncios.Include(a => a.Produto);
             return View(await applicationDbContext.ToListAsync());
-        } 
-   
+        }
+        public async Task<IActionResult> BuscarCor(int id)    // Adicionado também uma view Busca para exibir resultado na tela
+        {
+            var prod = await _context.Produtos.FindAsync(id);
+
+            var applicationDbContext = _context.Anuncios.Include(a => a.Produto);
+            return View(await applicationDbContext.ToListAsync());
+        }
 
         // GET: Anuncios/Create
         public IActionResult Create()

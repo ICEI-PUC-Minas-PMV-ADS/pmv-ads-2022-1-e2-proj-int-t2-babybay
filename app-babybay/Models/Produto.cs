@@ -43,7 +43,9 @@ namespace app_babybay.Models
 
         public bool ProdutoCurtido { get; set; }
 
-         internal void Receber(int quantidade)
+        Hashtable listaHash = new Hashtable();
+
+        internal void Receber(int quantidade)
         {
             throw new NotImplementedException();
         }
@@ -51,6 +53,17 @@ namespace app_babybay.Models
         public Produto()//Cria um construtor vazio,que é que sempre é instaciado quando o produto é criado,para sempre iniciar o produto como não curtido
         {
             ProdutoCurtido = false;
+           
+           
+            for(int i = 1; i ==6; i++)
+            {
+                foreach (string CategoriaRoupa in Enum.GetNames(typeof(Categoria)))
+                {
+                    listaHash.Add(i, CategoriaRoupa);
+                }
+
+            }
+           
         }
 
         // public ICollection<Usuario> Usuarios{ get; set; }
@@ -65,11 +78,17 @@ namespace app_babybay.Models
         {
             ProdutoCurtido = false;
         }
+         
+      
 
+        
+        
     }
 
     public enum Categoria
     {
+       
+       
         Camiseta,
         Short,
         Calça,
