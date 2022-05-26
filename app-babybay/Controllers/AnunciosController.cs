@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using app_babybay.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections;
 
 namespace app_babybay.Controllers
 {
@@ -49,19 +50,28 @@ namespace app_babybay.Controllers
 
 		// Buscar Anúncios
 		[AllowAnonymous]
-        public async Task<IActionResult> Busca()    // Adicionado também uma view Busca para exibir resultado na tela
-        {
-        
-            var applicationDbContext = _context.Anuncios.Include(a => a.Produto);
-            return View(await applicationDbContext.ToListAsync());
-        }
-        public async Task<IActionResult> BuscarCor(int id)    // Adicionado também uma view Busca para exibir resultado na tela
-        {
-            var prod = await _context.Produtos.FindAsync(id);
+        public async Task<IActionResult> Busca()    // Adicionado uma view Busca para exibir resultado na tela
+        {        
+            var applicationDbContext = _context.Anuncios
+                .Include(a => a.Produto);
+                
 
-            var applicationDbContext = _context.Anuncios.Include(a => a.Produto);
+
+            ArrayList listaAnuncio = new ArrayList();
+            listaAnuncio.Add(await applicationDbContext.ToListAsync());
+
+                     
+
             return View(await applicationDbContext.ToListAsync());
         }
+
+        //public async Task<IActionResult> BuscarCor(int id)    // Adicionado também uma view Busca para exibir resultado na tela
+        //{
+        //    var prod = await _context.Produtos.FindAsync(id);
+
+        //    var applicationDbContext = _context.Anuncios.Include(a => a.Produto);
+        //    return View(await applicationDbContext.ToListAsync());
+        //}
 
         // GET: Anuncios/Create
         public IActionResult Create()

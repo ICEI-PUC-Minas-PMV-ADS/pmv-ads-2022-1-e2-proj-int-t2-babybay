@@ -3642,7 +3642,6 @@ C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\Details.cshtml.g.cs
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\Edit.cshtml.g.cs
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\Index.cshtml.g.cs
-C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\Busca.cshtml.g.cs
 C:\Users\carlos\Desktop\app-babybay\obj\Debug\net5.0\app-babybay.csproj.AssemblyReference.cache
 C:\Users\carlos\Desktop\app-babybay\obj\Debug\net5.0\app-babybay.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\carlos\Desktop\app-babybay\obj\Debug\net5.0\app-babybay.AssemblyInfoInputs.cache
@@ -4566,3 +4565,4 @@ C:\Users\user\RiderProjects\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\ob
 C:\Users\user\RiderProjects\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\app-babybay.genruntimeconfig.cache
 C:\Users\user\RiderProjects\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\ref\app-babybay.dll
 C:\Users\user\source\repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\Busca.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\Busca.cshtml.g.cs

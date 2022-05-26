@@ -4,7 +4,7 @@
 	ViewData["Title"] = "Busca";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-	<!--Ver uma forma de renderizar-->
+<!--Ver uma forma de renderizar-->
 <link rel="stylesheet" href="~/css/template-page-index.css">	<!--Cod copiado de home/index -->
 <div class="container">
 	<section>
@@ -22,14 +22,24 @@
 						<option value="doze-quinze">12 a 15 anos</option>
 						<option value="maior-dezesseis">Maior de 16 anos</option>
 					</select> <!-- .input__selected -->
-				
-					<a class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios"asp-action="Busca">Buscar</a>
+					@*<select class="input__selected" name="categoria" id="categoria">*@
+					<select class="input__selected" asp-items="Html.GetEnumSelectList<Categoria>()"></select>
+					@*<option selected>Categoria</option>
+					<option value="camiseta">Camiseta</option>
+					<option value="short">Short</option>
+					<option value="calca">Calça</option>
+					<option value="macacao">Macacão</option>
+					<option value="calcados">Calçados</option>
+					<option value="outros">Outros</option>
+					</select> <!-- .input__selected -->*@
+					<a class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios" asp-action="Busca">Buscar</a>
 
 				</div> <!-- .menu__busca -->
 			</div> <!-- .article__busca--contorno-->
 		</article> <!-- .article-busca -->
 	</section>
 </div><!--Cod copiado de home/index -->
+
 
 <section>
 	<table class="table">
@@ -38,17 +48,11 @@
 			{
 				<tr>
 					<td>
+						@Html.DisplayFor(modelItem => item.AnuncioId)
+					</td>
+					<td>
 						@Html.DisplayFor(modelItem => item.Titulo)
 					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Produto.Cor)
-					</td>
-					<td>
-
-						@if(item.Produto.)
-						@Html.DisplayFor(modelItem => item.Produto.)
-					</td>
-
 				</tr>
 			}
 		</tbody>
