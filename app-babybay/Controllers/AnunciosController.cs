@@ -50,11 +50,18 @@ namespace app_babybay.Controllers
 
 		// Buscar Anúncios
 		[AllowAnonymous]
-        public async Task<IActionResult> Busca([Bind("Categoria")] Produto produto)    // Adicionado uma view Busca para exibir resultado na tela
-        {
-            var applicationDbContext = _context.Anuncios
-                .Include(a => a.Produto);           
 
+        public async Task<IActionResult> Busca(int Idade,Produto produto)    // Adicionado uma view Busca para exibir resultado na tela
+        {
+            
+            var user = _context.Produtos
+                .Any(m => m.Idade == produto.Idade);
+
+			if (user == false)
+			{
+                ViewBag.Message = "Produto não encontrado";
+               
+            }
             // TESTE ARRAY LIST
             //ArrayList listaAnuncio = new ArrayList();
             //listaAnuncio.Add(await applicationDbContext.ToListAsync());
@@ -72,7 +79,7 @@ namespace app_babybay.Controllers
             //    vet[i] = filaAnuncio;
             //}
 
-            return View(await applicationDbContext.ToListAsync());
+            return View();
         }
 
         //public async Task<IActionResult> BuscarCor(int id)    // Adicionado também uma view Busca para exibir resultado na tela
