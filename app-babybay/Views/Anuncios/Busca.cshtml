@@ -30,9 +30,9 @@
 					<option value="calca">Calça</option>
 					<option value="macacao">Macacão</option>
 					<option value="calcados">Calçados</option>
-					<option value="outros">Outros</option>
-					</select> <!-- .input__selected -->*@
-					<a class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios" asp-action="Busca">Buscar</a>
+					<option value="outros">Outros</option>*@
+					@*</select> <!-- .input__selected -->*@
+					<a type="submit" class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios" asp-action="Busca">Buscar</a>
 
 				</div> <!-- .menu__busca -->
 			</div> <!-- .article__busca--contorno-->
@@ -58,3 +58,4 @@
 		</tbody>
 	</table>
 </section>
+ <h3>@ViewBag.Message</h3>

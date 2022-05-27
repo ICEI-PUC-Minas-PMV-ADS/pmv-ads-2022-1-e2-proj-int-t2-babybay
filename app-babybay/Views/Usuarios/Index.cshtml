@@ -5,55 +5,16 @@
 	ViewData["Title"] = "Index";
 }
 
-<h2>Index do Usuário</h2>
+<h2>Menu do Usuário</h2>
+<hr>
 
 <table class="table">
-	<thead>
-		@*    <tr>
-		<th>
-		@Html.DisplayNameFor(model => model.Nome)
-		</th>
-		<th>
-		@Html.DisplayNameFor(model => model.Cpf)
-		</th>
-		<th>
-		@Html.DisplayNameFor(model => model.Telefone)
-		</th>
-		<th>
-		@Html.DisplayNameFor(model => model.Rua)
-		</th>
-		<th>
-		@Html.DisplayNameFor(model => model.Cidade)
-		</th>
-		<th>
-		@Html.DisplayNameFor(model => model.Email)
-		</th>
-		*@
-	</thead>
 	<tbody>
 		@foreach (var item in Model)
 		{
 			if (User.Identity.Name == item.Nome)
 			{
 				<tr>
-					@*  <td>
-			@Html.DisplayFor(modelItem => item.Nome)
-			</td>
-			<td>
-			@Html.DisplayFor(modelItem => item.Cpf)
-			</td>
-			<td>
-			@Html.DisplayFor(modelItem => item.Telefone)
-			</td>
-			<td>
-			@Html.DisplayFor(modelItem => item.Rua)
-			</td>
-			<td>
-			@Html.DisplayFor(modelItem => item.Cidade)
-			</td>
-			<td>
-			@Html.DisplayFor(modelItem => item.Email)
-			</td>*@
 					<td style="display:flex;flex-direction:row">
 						<a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Minha Conta</a> |
 						<a asp-action="Relatorio" class="btn btn-primary" asp-route-id="@item.Id">Minhas Roupas</a> |

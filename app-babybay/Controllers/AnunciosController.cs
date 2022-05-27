@@ -50,17 +50,27 @@ namespace app_babybay.Controllers
 
 		// Buscar Anúncios
 		[AllowAnonymous]
-        public async Task<IActionResult> Busca()    // Adicionado uma view Busca para exibir resultado na tela
-        {        
+        public async Task<IActionResult> Busca([Bind("Categoria")] Produto produto)    // Adicionado uma view Busca para exibir resultado na tela
+        {
             var applicationDbContext = _context.Anuncios
-                .Include(a => a.Produto);
-                
+                .Include(a => a.Produto);           
 
+            // TESTE ARRAY LIST
+            //ArrayList listaAnuncio = new ArrayList();
+            //listaAnuncio.Add(await applicationDbContext.ToListAsync());
+            //listaAnuncio.TrimToSize();
 
-            ArrayList listaAnuncio = new ArrayList();
-            listaAnuncio.Add(await applicationDbContext.ToListAsync());
+            // TESTE FILA
+            //Queue filaAnuncio = new Queue();
+            //filaAnuncio.Enqueue(await applicationDbContext.ToListAsync());
+            //filaAnuncio.TrimToSize();
 
-                     
+            //int[] vet;
+
+            //for (int i = 0; i < filaAnuncio.Count; i++)
+            //{
+            //    vet[i] = filaAnuncio;
+            //}
 
             return View(await applicationDbContext.ToListAsync());
         }
@@ -74,11 +84,7 @@ namespace app_babybay.Controllers
         //}
 
         // GET: Anuncios/Create
-        public IActionResult Create()
-        {
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome"); 
-            return View();
-        }
+     
 
         public async Task<IActionResult> CurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)//Aqui chama o o método da classe para curtir o produto
         {
@@ -100,6 +106,12 @@ namespace app_babybay.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Create()
+        {
+            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome");
+            return View();
         }
 
         // POST: Anuncios/Create

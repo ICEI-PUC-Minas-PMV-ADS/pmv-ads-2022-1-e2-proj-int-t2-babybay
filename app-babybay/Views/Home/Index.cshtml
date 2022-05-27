@@ -20,7 +20,8 @@
 						<option value="doze-quinze">12 a 15 anos</option>
 						<option value="maior-dezesseis">Maior de 16 anos</option>
 					</select> <!-- .input__selected -->
-					<select class="input__selected" name="categoria" id="categoria">
+					<select class="input__selected" asp-items="Html.GetEnumSelectList<Categoria>()"></select>
+					@*<select class="input__selected" name="categoria" id="categoria">
 						<option selected>Categoria</option>
 						<option value="camiseta">Camiseta</option>
 						<option value="short">Short</option>
@@ -28,7 +29,7 @@
 						<option value="macacao">Macacão</option>
 						<option value="calcados">Calçados</option>
 						<option value="outros">Outros</option>
-					</select> <!-- .input__selected -->
+					</select> <!-- .input__selected -->*@
 					<a  class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios" asp-action="Busca">Buscar</a>	
 				</div> <!-- .menu__busca -->
 			</div> <!-- .article__busca--contorno-->

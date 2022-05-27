@@ -86,9 +86,7 @@ namespace app_babybay.Models
     }
 
     public enum Categoria
-    {
-       
-       
+    {         
         Camiseta,
         Short,
         Calça,
