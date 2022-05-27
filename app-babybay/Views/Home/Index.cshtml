@@ -17,8 +17,11 @@
 
 
 					@using (Html.BeginForm("Busca","Anuncios", FormMethod.Post)){//Aqui é o formulário da idade para busca no banco quando apertar o submit
+						<h2>Idade</h2>
 						@Html.TextBox("Idade")
-						<input   class="input__busca"type="submit" style="background-color:red" value="Submit"/>
+						<h2>Categoria</h2>
+						@Html.TextBox("Categoria")
+						<input   class="input__busca"type="submit" style="background-color:lightgreen" value="Buscar"/>
 
 
 
@@ -29,7 +32,7 @@
 					} <!-- .input__selected -->
 					<select class="input__selected" asp-items="Html.GetEnumSelectList<Categoria>()"></select>
 					
-					<a  class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios" asp-action="Busca">Buscar</a>	
+					@*<a  class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios" asp-action="Busca">Buscar</a>	*@
 				</div> <!-- .menu__busca -->
 			</div> <!-- .article__busca--contorno-->
 		</article> <!-- .article-busca -->
