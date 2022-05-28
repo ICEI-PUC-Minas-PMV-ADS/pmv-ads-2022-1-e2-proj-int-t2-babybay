@@ -44,16 +44,6 @@ ul li a img{
 	width: 30px;
 	color: #bdb8d7!important;
 }
-i.fas.fa-home:hover,
-i.fas.fa-file-invoice:hover,
-i.fas.fa-video:hover,
-i.fas.fa-id-badge:hover,
-i.fas.fa-external-link-alt:hover,
-i.fas.fa-code:hover,
-i.far.fa-calendar-alt:hover,
-i.far.fa-credit-card:hover{
-	color: #304FFE!important;
-}
 .sidebar ul li a .far{
 	width: 30px;
 	color: #bdb8d7!important;
