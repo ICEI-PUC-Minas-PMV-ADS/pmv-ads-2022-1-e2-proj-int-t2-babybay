@@ -13,37 +13,26 @@
 				<div class="menu-busca">
 					<input class="input__busca" type="search" name="input-buscar" id="input-buscar"
 						   placeholder="Busque uma roupa"> <!-- .input__busca-->
-					@*	<select class="input__selected" name="Idade" id="idade">*@
 					@using (Html.BeginForm("Busca", "Anuncios", FormMethod.Post))
 					{
-						@Html.TextBox("Idade")
-						<input type="submit" value="Submit" />
-					}
-					<div class="form-group">
-						@Html.DropDownList("Categoria",
-						new SelectList(Enum.GetValues(typeof(Categoria))),
-						"Selecione",
-						new {@class = "form-control"})
-					</div>
-					@*</select>*@ <!-- .input__selected -->
-					@*<select class="input__selected" name="categoria" id="categoria">*@
-					@*<select class="input__selected" asp-items="Html.GetEnumSelectList<Categoria>()"></select>*@
-					@*<option selected>Categoria</option>
-					<option value="camiseta">Camiseta</option>
-					<option value="short">Short</option>
-					<option value="calca">Calça</option>
-					<option value="macacao">Macacão</option>
-					<option value="calcados">Calçados</option>
-					<option value="outros">Outros</option>*@
-					@*</select> <!-- .input__selected -->*@
-					<a type="submit" class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios" asp-action="Busca">Buscar</a>
+						<h2>Nome do produto</h2>
+						@Html.TextBox("nomeProduto")
 
+						<h2>Idade</h2>
+						@Html.TextBox("idadeProduto")
+
+						<h2>Categoria</h2>
+						@Html.DropDownList("Categoria",
+					new SelectList(Enum.GetValues(typeof(Categoria))),
+					"Selecione",
+					new {@class = "form-control"})						
+						<input class="input__busca--botao" type="submit" value="Buscar"/>						
+					}		
 				</div> <!-- .menu__busca -->
 			</div> <!-- .article__busca--contorno-->
 		</article> <!-- .article-busca -->
 	</section>
 </div><!--Cod copiado de home/index -->
-
 
 <section>
 	<table class="table">

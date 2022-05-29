@@ -5,7 +5,6 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <link rel="stylesheet" href="~/css/template-page-index.css">
 <div class="container">
 	<section>
@@ -13,42 +12,31 @@
 			<div class="article__busca--contorno">
 				<div class="menu-busca">
 					<input class="input__busca" type="search" name="input-buscar" id="input-buscar"
-						   placeholder="Busque uma roupa"> <!-- .input__busca-->
+						   placeholder="Busque uma roupa">
+
 					@using (Html.BeginForm("Busca", "Anuncios", FormMethod.Post))
-					{//Aqui é o formulário da idade para busca no banco quando apertar o submit
+					{
 						<h2>Nome do produto</h2>
-						@Html.TextBox("Titulo")						
+						@Html.TextBox("nomeProduto")
 
 						<h2>Idade</h2>
-						@Html.TextBox("Idade")
+						@Html.TextBox("idadeProduto")
 
 						<h2>Categoria</h2>
 						@Html.DropDownList("Categoria",
-						new SelectList(Enum.GetValues(typeof(Categoria))),
-						"Selecione",
-						new {@class = "form-control"})
+							new SelectList(Enum.GetValues(typeof(Categoria))),
+							"Selecione",
+							new {@class = "form-control"})
 						@*@Html.TextBox("Categoria")*@
-						<input class="input__busca" type="submit" style="background-color:lightgreen" value="Buscar" />
-
-					} <!-- .input__selected -->
-					@*<div class="form-group">
-						@Html.DropDownList("Categoria",
-						new SelectList(Enum.GetValues(typeof(Categoria))),
-						"Selecione",
-						new {@class = "form-control"})
-					</div>*@
-
-					@*<select class="input__selected" asp-items="Html.GetEnumSelectList<Categoria>()"></select>*@
-
-					@*<a  class="input__busca--botao" id="btn-buscar" asp-controller="Anuncios" asp-action="Busca">Buscar</a>	*@
+						<input class="input__busca--botao" type="submit" value="Buscar" />
+					}
 				</div> <!-- .menu__busca -->
 			</div> <!-- .article__busca--contorno-->
 		</article> <!-- .article-busca -->
 	</section>
-
 	<h3>@ViewBag.Message</h3>
-	<main>
 
+	<main>
 		@if (!User.Identity.IsAuthenticated) // Se user autenticado, então não mostrar
 		{
 			<div class="conteudo-principal">

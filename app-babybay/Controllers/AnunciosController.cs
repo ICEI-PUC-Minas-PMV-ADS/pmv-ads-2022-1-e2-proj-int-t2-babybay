@@ -50,79 +50,91 @@ namespace app_babybay.Controllers
 
         // Buscar Anúncios
         [AllowAnonymous]
-
-        public async Task<IActionResult> Busca(int idade, string titulo, string categoria, Produto produto, Anuncio anuncio)    // Adicionado uma view Busca para exibir resultado na tela
+        public async Task<IActionResult> Busca(int idadeProduto, string nomeProduto, string categoria)
         {
-            //------------Parte de busca pelo  nome do titulo do Anuncio
-            //Pega a string digitada no input e converte tudo para maiusuculo
-            string tituloMaiusculo = titulo.ToUpper();
-            anuncio.Titulo = tituloMaiusculo;
-            var categ = categoria; // TESTE CATEGORIA, ESTÁ OK
-           // anuncio.Produto.Idade = idade;
+            // Aqui é para exibir todos os produtos, ou seja, quando o usuário so clica em buscar
+            //var applicationDbContext = _context.Produtos.Include(a => a.Produto);
 
-            // Compara o título digitado com o título maiúsculo ???
-            var buscaAnuncio = _context.Anuncios    
-                .FirstOrDefaultAsync(m => m.Titulo == tituloMaiusculo);
+            // Compara a o produto digitado e o produto que tem no banco, ambos em maiúsculo (ToUpper)
+            var produto = new Produto();
+            produto = await _context.Produtos
+               .FirstOrDefaultAsync(m => m.Nome.ToUpper() == nomeProduto.ToUpper());
 
-            // ta dando erro no meu
-            var a1 = await _context.Anuncios.FirstOrDefaultAsync(m => m.Titulo == anuncio.Titulo);
-            //_context.Anuncios.Single(m => m.Titulo == anuncio.Titulo);//Aqui faz uma busca UNICA (SINGLE)ao invés de buscar por todos os dados do banco,e guarda na variável
-            string Titulobanco = a1.Titulo.ToUpper();//Aqui passa o valor da string retornada pela busca anterior para MAIUSCULO para compara com o campo digitado no banco
-
-
-            //------------Parte de busca pelo idade digitada na input no banco
-            var a2 = _context.Produtos.Single(m => m.Idade == produto.Idade);//Aqui faz um busca(query)no banco,tabela PRODUTOS na idade passada pelo parâmetro,e guarda na variável a2 para manipulação
-            int idadeBanco = a2.Idade;
-
-
-            ////------------Parte de busca pelo Categoria digitada na input no banco
-            //string CategoriaMaiusculo = Categoria.ToUpper();//Aqui pegá toda o valor do parâmetro digitado na categoria 
-            //var a3 = _context.Produtos.Single(m => m.Categoria == produto.Categoria);//Aqui faz um busca(query)no banco,tabela PRODUTOS na idade passada pelo parâmetro,e guarda na variável a2 para manipulação
-            //List<Categoria> categorias = Enum.GetValues(typeof(Categoria)).Cast<Categoria>().ToList();//A qui guarda a Categoria encontrada no BANCO ja transformada em maiusculo para posterior comparações
-
-
-            if (tituloMaiusculo == Titulobanco && idade == idadeBanco  /*categorias.Contains(Categoria)*/)/*Aqui faz a comparação de caso do que foi digitado nos input e que esta no banco,OBS:A categoria ainda
-                precisa encontrar um forma de trabalhar com ela*/
-            {
-                //Aqui em teoria caso desse true na condição acima,retornaria para a view os itens encontrados
-
-            }
-
-
-
-
-
-            // TESTE ARRAY LIST
-            //ArrayList listaAnuncio = new ArrayList();
-            //listaAnuncio.Add(await applicationDbContext.ToListAsync());
-            //listaAnuncio.TrimToSize();
-
-            // TESTE FILA
-            //Queue filaAnuncio = new Queue();
-            //filaAnuncio.Enqueue(await applicationDbContext.ToListAsync());
-            //filaAnuncio.TrimToSize();
-
-            //int[] vet;
-
-            //for (int i = 0; i < filaAnuncio.Count; i++)
+            //if (produto != null) // Acertar exceção
             //{
-            //    vet[i] = filaAnuncio;
+            //    ViewBag.Message = "Produto não encontrado";
             //}
 
-            return View();
+            // Percorre a categoria (enum). Se o elemento for igual a categoria digitada pelo usuário
+            // entra no if da idade, se for diferente para a execução
+            var anuncio = new Anuncio();
+            foreach (var elemento in Enum.GetNames(typeof(Categoria)))
+            {
+                if (elemento == categoria) // Se categoria digitada igual a alguam (AQUI SEMPRE SERÁ TRUE)
+                {
+                    if (produto.Idade == idadeProduto)  // Se a categoria acima for igual, eñtão compara a idade
+                    {
+                        // Pega o Id do produto que foi comparado na busca e verifica se ele está anunciado
+                        // Se estiver anunciado, então atribui no objeto
+                        anuncio = await _context.Anuncios
+                             .FirstOrDefaultAsync(m => m.ProdutoId == produto.Id);
+                        break;
+                    }
+                }                
+            }
+
+            // Salvando uma lista -   VIEW ESTÁ COM PROBLEMA
+            List<Anuncio> resultado = new List<Anuncio>();
+            resultado.Add(anuncio);
+            
+
+
+            //var categ = categoria; // TESTE CATEGORIA, ESTÁ OK, pegando a string
+            // Acertar essa hashtable ou pensar outra forma de fazer
+            //Hashtable hashCategoria = new Hashtable();
+            //hashCategoria.Add(0, "Camiseta");
+            //hashCategoria.Add(1, "Short");
+            //hashCategoria.Add(2, "Calça");
+            //hashCategoria.Add(3, "Macacão");
+            //hashCategoria.Add(4, "Calçado");
+            //hashCategoria.Add(5, "Outros");
+
+            ////var anuncio = new Anuncio();
+            //for (int i = 0; i < hashCategoria.Count; i++)
+            //{
+            //    // Sempre da true, pq sempre vai existir uma categoria - tem que corrigir
+            //    if (hashCategoria.ContainsValue(categoria))
+            //    {
+            //        anuncio.ProdutoId = produto.Id;
+            //        break;
+            //    }
+            //}
+
+            // Compara o título digitado com o título maiúsculo ???
+            //// ta dando erro no meu
+            //var a1 = await _context.Anuncios.FirstOrDefaultAsync(m => m.Titulo == anuncio.Titulo);
+            ////_context.Anuncios.Single(m => m.Titulo == anuncio.Titulo);//Aqui faz uma busca UNICA (SINGLE)ao invés de buscar por todos os dados do banco,e guarda na variável
+            //string Titulobanco = a1.Titulo.ToUpper();//Aqui passa o valor da string retornada pela busca anterior para MAIUSCULO para compara com o campo digitado no banco
+
+
+            ////------------Parte de busca pelo idade digitada na input no banco
+            //var a2 = _context.Produtos.Single(m => m.Idade == produto.Idade);//Aqui faz um busca(query)no banco,tabela PRODUTOS na idade passada pelo parâmetro,e guarda na variável a2 para manipulação
+            //int idadeBanco = a2.Idade;
+
+
+
+            //if (tituloMaiusculo == Titulobanco && idade == idadeBanco  /*categorias.Contains(Categoria)*/)/*Aqui faz a comparação de caso do que foi digitado nos input e que esta no banco,OBS:A categoria ainda
+            //    precisa encontrar um forma de trabalhar com ela*/
+            //{
+            //    //Aqui em teoria caso desse true na condição acima,retornaria para a view os itens encontrados
+
+            //}
+            //return View(await applicationDbContext.ToListAsync());
+            return View(anuncio);
         }
 
-        //public async Task<IActionResult> BuscarCor(int id)    // Adicionado também uma view Busca para exibir resultado na tela
-        //{
-        //    var prod = await _context.Produtos.FindAsync(id);
 
-        //    var applicationDbContext = _context.Anuncios.Include(a => a.Produto);
-        //    return View(await applicationDbContext.ToListAsync());
-        //}
-
-        // GET: Anuncios/Create
-     
-
+        // GET: Anuncios/Create   
         public async Task<IActionResult> CurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)//Aqui chama o o método da classe para curtir o produto
         {
             var roupa = await _context.Anuncios.FindAsync(id);//Aqui em teoria pega o valor do produto (id dele)e encontra o produto com aquele id
@@ -156,15 +168,15 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AnuncioId,ProdutoId,Titulo")] Anuncio anuncio, int id)
         {   // int id pega o id passado no botão 'anunciar' na view Relatorios (controller usuarios)
-                   
+
             if (ModelState.IsValid)
             {
                 // Pega o nome do user logado
-                var TUser = User.Identity.Name;    
+                var TUser = User.Identity.Name;
                 var usuario = new Usuario();
 
                 // Percorre no BD buscando pelo nome compara com  TUser
-                usuario = await _context.Usuarios   
+                usuario = await _context.Usuarios
                      .FirstOrDefaultAsync(m => m.Nome == TUser);
                 anuncio.Usuario = usuario;          // Objeto Usuario encontrado para Usuario no anuncio
 
@@ -173,13 +185,13 @@ namespace app_babybay.Controllers
                     .FirstOrDefaultAsync(m => m.ProdutoId == id);
 
                 // Se produto já está anunciado, mostra msg na tela
-                if (buscaAnuncio != null)     
+                if (buscaAnuncio != null)
                 {
                     ViewBag.Message = "O produto já está anunciado";
                 }
                 else  // Se o produto não está anunciado, então atribui no anuncio e manda pro BD
                 {
-                   // ViewBag.Erro = "O Produto não esta anunciado"; 
+                    // ViewBag.Erro = "O Produto não esta anunciado"; 
                     var produto = await _context.Produtos.FindAsync(id);
                     anuncio.Produto = produto;
 
@@ -187,7 +199,7 @@ namespace app_babybay.Controllers
                     await _context.SaveChangesAsync();
 
                     return RedirectToAction(nameof(Index));
-                }                
+                }
             }
             // Se entrou no if, vai redirecionar para index
             return View(anuncio);
@@ -232,9 +244,9 @@ namespace app_babybay.Controllers
         //            usuario = await _context.Usuarios
         //                 .FirstOrDefaultAsync(m => m.Nome == TUser);
         //            anuncio.Usuario = usuario;          // Objeto Usuario encontrado para Usuario no anuncio
-                    
+
         //            // TERMINAR DE ACERTAR O EDIT
-                    
+
         //            //// Verifica se existe o produto na tabela anúncio
         //            //var produto = new Produto();
         //            //produto = await _context.Anuncios
@@ -242,8 +254,8 @@ namespace app_babybay.Controllers
         //            //anuncio.Usuario = usuario;       
 
         //            //var teste = anuncio.ProdutoId;
-                    
-                    
+
+
         //            _context.Update(anuncio);
         //            await _context.SaveChangesAsync();
         //        }
@@ -302,3 +314,5 @@ namespace app_babybay.Controllers
         }
     }
 }
+
+
