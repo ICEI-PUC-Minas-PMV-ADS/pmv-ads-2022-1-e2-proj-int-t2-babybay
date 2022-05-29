@@ -1,6 +1,4 @@
-.container {
-  background-color: aqua;
-}
+
 
 .article-busca{
   /* flex */
@@ -81,4 +79,9 @@
 
 .input__busca--botao:active{
   background-color: var(--clr-purple-dark);
+}
+
+.card-body {
+  padding: 5px;
+  margin: 0px;
 }
