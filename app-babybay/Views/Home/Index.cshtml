@@ -17,6 +17,8 @@
 
 
 					@using (Html.BeginForm("Busca","Anuncios", FormMethod.Post)){//Aqui é o formulário da idade para busca no banco quando apertar o submit
+						<h2>Nome do produto</h2>
+						@Html.TextBox("Titulo")
 						<h2>Idade</h2>
 						@Html.TextBox("Idade")
 						<h2>Categoria</h2>

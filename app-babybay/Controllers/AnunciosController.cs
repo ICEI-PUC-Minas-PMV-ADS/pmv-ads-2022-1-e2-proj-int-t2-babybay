@@ -48,20 +48,39 @@ namespace app_babybay.Controllers
             return View(anuncio);
         }
 
-		// Buscar Anúncios
-		[AllowAnonymous]
+        // Buscar Anúncios
+        [AllowAnonymous]
 
-        public async Task<IActionResult> Busca(int Idade,Produto produto)    // Adicionado uma view Busca para exibir resultado na tela
+        public async Task<IActionResult> Busca(int Idade, string Titulo, string Categoria, Produto produto, Anuncio anuncio)    // Adicionado uma view Busca para exibir resultado na tela
         {
-            
-            var user = _context.Produtos
-                .Any(m => m.Idade == produto.Idade);//Provável que commo ira encontrar várias roupas com a idade,talvez armazenar em uma lista ?
+            //------------Parte de busca pelo  nome do titulo do Anuncio
+            string TituloMaiusculo = Titulo.ToUpper();//Aqui pegá toda a string digitada no input e converte tudo para maiusuculo
+            var a1 = _context.Anuncios.Single(m => m.Titulo == anuncio.Titulo);//Aqui faz uma busca UNICA (SINGLE)ao invés de buscar por todos os dados do banco,e guarda na variável
+            string Titulobanco = a1.Titulo.ToUpper();//Aqui passa o valor da string retornada pela busca anterior para MAIUSCULO para compara com o campo digitado no banco
 
-			if (user == false)
-			{
-                ViewBag.Message = "Produto não encontrado";
-               
+
+            //------------Parte de busca pelo idade digitada na input no banco
+            var a2 = _context.Produtos.Single(m => m.Idade == produto.Idade);//Aqui faz um busca(query)no banco,tabela PRODUTOS na idade passada pelo parâmetro,e guarda na variável a2 para manipulação
+            int IdadeBanco = a2.Idade;
+
+
+            //------------Parte de busca pelo Categoria digitada na input no banco
+            string CategoriaMaiusculo = Categoria.ToUpper();//Aqui pegá toda o valor do parâmetro digitado na categoria 
+            var a3 = _context.Produtos.Single(m => m.Categoria == produto.Categoria);//Aqui faz um busca(query)no banco,tabela PRODUTOS na idade passada pelo parâmetro,e guarda na variável a2 para manipulação
+            List<Categoria> categorias = Enum.GetValues(typeof(Categoria)).Cast<Categoria>().ToList();//A qui guarda a Categoria encontrada no BANCO ja transformada em maiusculo para posterior comparações
+          
+
+            if (TituloMaiusculo == Titulobanco && Idade == IdadeBanco  /*categorias.Contains(Categoria)*/)/*Aqui faz a comparação de caso do que foi digitado nos input e que esta no banco,OBS:A categoria ainda
+                precisa encontrar um forma de trabalhar com ela*/
+            {
+              //Aqui em teoria caso desse true na condição acima,retornaria para a view os itens encontrados
+            
             }
+
+
+
+
+
             // TESTE ARRAY LIST
             //ArrayList listaAnuncio = new ArrayList();
             //listaAnuncio.Add(await applicationDbContext.ToListAsync());
