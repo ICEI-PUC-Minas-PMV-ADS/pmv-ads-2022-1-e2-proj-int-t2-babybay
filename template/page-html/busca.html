@@ -34,28 +34,36 @@
 <!--header-->
 
 
-    <!---sidebar-->
-<div class="wrapper d-flex">
-  <div class="sidebar">
-    <h2 class="p-5 ml-4 title-sidebar">Babybay</h2>
-    <small class="text-muted pl-3">Minha conta </small>
-    <ul class="ul-sidebar">
-      <li><a href="#">Inbox</a></li>
-      <li><a href="#">Meu Guarda-Roupa </a></li>
-      <li><a href="#">Minha Carteira</a></li>
-    </ul>
-    <small class="text-muted px-3">Babybay</small>
-    <ul>
-      <li><a href="#">Perguntas Frequentes</a></li>
-      <li><a href="#">Sobre o time</a></li>
-      <li><a href="#">Fale Conosco</a></li>
-  </div>
-</div>
+<div class="row">
 
-<section>
-  <article class="article-busca">
-      <div class="article__busca--contorno">
-          <div class="menu-busca">
+  <div class="col"><!---sidebar-->
+    <div class="wrapper d-flex">
+      <div class="sidebar">
+        <h2 class="p-2 ml-8 title-sidebar">Babybay</h2>
+       <small class="text-muted pl-3">Categoria</small>
+        <ul class="ul-sidebar">
+          <li><small class="text-muted pl-3">Camisa</small></li>
+          <li><small class="text-muted pl-3">Short</small></li>
+          <li><small class="text-muted pl-3">Calça</small></li>
+          <li><small class="text-muted pl-3">Macacão</small></li>
+         </ul>
+        <small class="text-muted px-3">Idade</small>
+         <ul>
+           <li><small class="text-muted pl-3 mb-0">0-1 ano</small></li>
+           <li><small class="text-muted pl-3">0-2 anos</small></li>
+          <li><small class="text-muted pl-3">0-3 anos</small></li>
+           <li><small class="text-muted pl-3">0-4 anos</small></li>
+      </div>
+    </div>
+  </div><!--col-->
+
+  <div class="col-6">
+    <div class="container"><!--content-->
+
+      <div class="container-item"><!--searchbar-->
+        <article class="article-busca">
+          <div class="article__busca--contorno">
+            <div class="menu-busca">
               <input class="input__busca" type="search" name="input-buscar" id="input-buscar"
                   placeholder="Busque uma roupa"> <!-- .input__busca-->
               <select class="input__selected" name="idade" id="idade">
@@ -77,10 +85,19 @@
                   <option value="outros">Outros</option>
               </select> <!-- .input__selected -->
               <button class="input__busca--botao" id="btn-buscar">Buscar</button>
-          </div> <!-- .menu__busca -->
-      </div> <!-- .article__busca--contorno-->
-  </article> <!-- .article-busca -->
-</section>
+            </div> <!-- .menu__busca -->
+          </div> <!-- .article__busca--contorno-->
+        </article> <!-- .article-busca -->
+      </div><!--container item-->
+
+
+      <div class="container-item">
+        <h1>kd isso maior-dezesseis</h1>
+      </div><!--.container-item-->
+   </div><!--.conatainer-->
+  </div><!--.col-->
+</div><!--.row-->
+
 
 <footer class="footer-principal">
   <div class="conteudo__footer">
