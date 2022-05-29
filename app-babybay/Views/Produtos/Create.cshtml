@@ -48,6 +48,12 @@
 				<span asp-validation-for="Categoria" class="text-danger"></span>
 			</div>
 			@*<div class="form-group">
+				@Html.DropDownList("Categoria", 
+					new SelectList(Enum.GetValues(typeof(Categoria))), 
+					"Selecione",
+					new {@class = "form-control"})
+			</div>*@
+			@*<div class="form-group">
 				<label asp-for="UsuarioId" class="control-label"></label> <!--Aqui o erro-->
 				<select asp-for="UsuarioId" class="form-control" asp-items="ViewBag.UsuarioId"></select>
 			</div>*@

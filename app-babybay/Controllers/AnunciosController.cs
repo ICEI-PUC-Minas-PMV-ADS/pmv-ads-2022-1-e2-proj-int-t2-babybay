@@ -51,30 +51,41 @@ namespace app_babybay.Controllers
         // Buscar Anúncios
         [AllowAnonymous]
 
-        public async Task<IActionResult> Busca(int Idade, string Titulo, string Categoria, Produto produto, Anuncio anuncio)    // Adicionado uma view Busca para exibir resultado na tela
+        public async Task<IActionResult> Busca(int idade, string titulo, string categoria, Produto produto, Anuncio anuncio)    // Adicionado uma view Busca para exibir resultado na tela
         {
             //------------Parte de busca pelo  nome do titulo do Anuncio
-            string TituloMaiusculo = Titulo.ToUpper();//Aqui pegá toda a string digitada no input e converte tudo para maiusuculo
-            var a1 = _context.Anuncios.Single(m => m.Titulo == anuncio.Titulo);//Aqui faz uma busca UNICA (SINGLE)ao invés de buscar por todos os dados do banco,e guarda na variável
+            //Pega a string digitada no input e converte tudo para maiusuculo
+            string tituloMaiusculo = titulo.ToUpper();
+            anuncio.Titulo = tituloMaiusculo;
+            var categ = categoria; // TESTE CATEGORIA, ESTÁ OK
+           // anuncio.Produto.Idade = idade;
+
+            // Compara o título digitado com o título maiúsculo ???
+            var buscaAnuncio = _context.Anuncios    
+                .FirstOrDefaultAsync(m => m.Titulo == tituloMaiusculo);
+
+            // ta dando erro no meu
+            var a1 = await _context.Anuncios.FirstOrDefaultAsync(m => m.Titulo == anuncio.Titulo);
+            //_context.Anuncios.Single(m => m.Titulo == anuncio.Titulo);//Aqui faz uma busca UNICA (SINGLE)ao invés de buscar por todos os dados do banco,e guarda na variável
             string Titulobanco = a1.Titulo.ToUpper();//Aqui passa o valor da string retornada pela busca anterior para MAIUSCULO para compara com o campo digitado no banco
 
 
             //------------Parte de busca pelo idade digitada na input no banco
             var a2 = _context.Produtos.Single(m => m.Idade == produto.Idade);//Aqui faz um busca(query)no banco,tabela PRODUTOS na idade passada pelo parâmetro,e guarda na variável a2 para manipulação
-            int IdadeBanco = a2.Idade;
+            int idadeBanco = a2.Idade;
 
 
-            //------------Parte de busca pelo Categoria digitada na input no banco
-            string CategoriaMaiusculo = Categoria.ToUpper();//Aqui pegá toda o valor do parâmetro digitado na categoria 
-            var a3 = _context.Produtos.Single(m => m.Categoria == produto.Categoria);//Aqui faz um busca(query)no banco,tabela PRODUTOS na idade passada pelo parâmetro,e guarda na variável a2 para manipulação
-            List<Categoria> categorias = Enum.GetValues(typeof(Categoria)).Cast<Categoria>().ToList();//A qui guarda a Categoria encontrada no BANCO ja transformada em maiusculo para posterior comparações
-          
+            ////------------Parte de busca pelo Categoria digitada na input no banco
+            //string CategoriaMaiusculo = Categoria.ToUpper();//Aqui pegá toda o valor do parâmetro digitado na categoria 
+            //var a3 = _context.Produtos.Single(m => m.Categoria == produto.Categoria);//Aqui faz um busca(query)no banco,tabela PRODUTOS na idade passada pelo parâmetro,e guarda na variável a2 para manipulação
+            //List<Categoria> categorias = Enum.GetValues(typeof(Categoria)).Cast<Categoria>().ToList();//A qui guarda a Categoria encontrada no BANCO ja transformada em maiusculo para posterior comparações
 
-            if (TituloMaiusculo == Titulobanco && Idade == IdadeBanco  /*categorias.Contains(Categoria)*/)/*Aqui faz a comparação de caso do que foi digitado nos input e que esta no banco,OBS:A categoria ainda
+
+            if (tituloMaiusculo == Titulobanco && idade == idadeBanco  /*categorias.Contains(Categoria)*/)/*Aqui faz a comparação de caso do que foi digitado nos input e que esta no banco,OBS:A categoria ainda
                 precisa encontrar um forma de trabalhar com ela*/
             {
-              //Aqui em teoria caso desse true na condição acima,retornaria para a view os itens encontrados
-            
+                //Aqui em teoria caso desse true na condição acima,retornaria para a view os itens encontrados
+
             }
 
 

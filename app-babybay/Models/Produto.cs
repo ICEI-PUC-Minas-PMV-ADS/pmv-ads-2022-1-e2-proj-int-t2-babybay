@@ -37,7 +37,7 @@ namespace app_babybay.Models
 
         [Required(ErrorMessage = "O tamanho é obrigatório")]
         public int Tamanho { get; set; }
-
+                
         [Required(ErrorMessage = "A categoria é obrigatória.")]
         public Categoria Categoria { get; set; }
 

@@ -13,16 +13,21 @@
 				<div class="menu-busca">
 					<input class="input__busca" type="search" name="input-buscar" id="input-buscar"
 						   placeholder="Busque uma roupa"> <!-- .input__busca-->
-				@*	<select class="input__selected" name="Idade" id="idade">*@
-					@using (Html.BeginForm("Busca","Anuncios", FormMethod.Post)){
+					@*	<select class="input__selected" name="Idade" id="idade">*@
+					@using (Html.BeginForm("Busca", "Anuncios", FormMethod.Post))
+					{
 						@Html.TextBox("Idade")
-						<input type="submit" value="Submit"/>
-
+						<input type="submit" value="Submit" />
 					}
-
+					<div class="form-group">
+						@Html.DropDownList("Categoria",
+						new SelectList(Enum.GetValues(typeof(Categoria))),
+						"Selecione",
+						new {@class = "form-control"})
+					</div>
 					@*</select>*@ <!-- .input__selected -->
 					@*<select class="input__selected" name="categoria" id="categoria">*@
-					<select class="input__selected" asp-items="Html.GetEnumSelectList<Categoria>()"></select>
+					@*<select class="input__selected" asp-items="Html.GetEnumSelectList<Categoria>()"></select>*@
 					@*<option selected>Categoria</option>
 					<option value="camiseta">Camiseta</option>
 					<option value="short">Short</option>
