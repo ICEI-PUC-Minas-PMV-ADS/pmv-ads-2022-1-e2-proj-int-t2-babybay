@@ -83,6 +83,8 @@ namespace app_babybay.Controllers
                 }                
             }
 
+
+
             // Salvando uma lista -   VIEW ESTÁ COM PROBLEMA
             List<Anuncio> resultado = new List<Anuncio>();
             resultado.Add(anuncio);
@@ -90,14 +92,7 @@ namespace app_babybay.Controllers
 
 
             //var categ = categoria; // TESTE CATEGORIA, ESTÁ OK, pegando a string
-            // Acertar essa hashtable ou pensar outra forma de fazer
-            //Hashtable hashCategoria = new Hashtable();
-            //hashCategoria.Add(0, "Camiseta");
-            //hashCategoria.Add(1, "Short");
-            //hashCategoria.Add(2, "Calça");
-            //hashCategoria.Add(3, "Macacão");
-            //hashCategoria.Add(4, "Calçado");
-            //hashCategoria.Add(5, "Outros");
+          
 
             ////var anuncio = new Anuncio();
             //for (int i = 0; i < hashCategoria.Count; i++)

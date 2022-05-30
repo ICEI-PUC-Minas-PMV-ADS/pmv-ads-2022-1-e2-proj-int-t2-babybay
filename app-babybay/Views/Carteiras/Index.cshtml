@@ -34,9 +34,16 @@
 						@Html.DisplayFor(modelItem => item.Saldo)
 					</td>
 					<td>
-						@*     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-				<a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-				<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+						<h2>Baby coins a serem adicionados</h2>
+							@using (Html.BeginForm("Depositar", "Carteiras", FormMethod.Post)){
+								@Html.TextBox("Deposito")
+								<input class="input__busca--botao" type="submit" value="Depositar baby coin" asp-action="Depositar" asp-controller="Carteiras"asp-route-id="@item.Id"/>
+							}
+							
+							   <h3>@ViewBag.Message</h3>
+					
+						
+
 						<div>
 							<a role="button" class="btn btn-primary" asp-controller="Usuarios" asp-action="Details" asp-route-id="@item.Id">Voltar</a>
 						</div>
