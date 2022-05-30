@@ -4,7 +4,7 @@
 	ViewData["Title"] = "Minha Carteira";
 }
 
-<h3>Minha Carteira</h3>
+<h3>Carteira de @User.Identity.Name</h3>
 
 @*<p>
     <a asp-action="Create">Create New</a>
@@ -34,10 +34,10 @@
 						@Html.DisplayFor(modelItem => item.Saldo)
 					</td>
 					<td>
-						<h2>Baby coins a serem adicionados</h2>
+					<h4>Digite a quantidade de BabyCoins a serem adiciondos</h4>
 							@using (Html.BeginForm("Depositar", "Carteiras", FormMethod.Post)){
-								@Html.TextBox("Deposito")
-								<input class="input__busca--botao" type="submit" value="Depositar baby coin" asp-action="Depositar" asp-controller="Carteiras"asp-route-id="@item.Id"/>
+								<div style="display:block;padding:15px">@Html.TextBox("Deposito")</div>
+								<input class="btn btn-primary" type="submit" value="Depositar baby coin" asp-action="Depositar" asp-controller="Carteiras"asp-route-id="@item.Id" />
 							}
 							
 							   <h3>@ViewBag.Message</h3>

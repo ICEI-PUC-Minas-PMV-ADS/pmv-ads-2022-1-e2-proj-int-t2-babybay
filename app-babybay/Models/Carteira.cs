@@ -24,7 +24,11 @@ namespace app_babybay.Models
  
         public void Receber(int quantidade)
         {
-            Saldo += quantidade;
+            if (quantidade > 0)
+            {
+                Saldo += quantidade;
+            }
+            
         }
 
         public bool Retirar(int quantidade)

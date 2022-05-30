@@ -57,10 +57,13 @@ namespace app_babybay.Controllers
 
             var anc = from m in _context.Anuncios
                          select m;
+            
 
             if (!String.IsNullOrEmpty(nomeProduto))
             {
                 anc = anc.Where(s => s.Titulo.Contains(nomeProduto));
+
+                
             }
 
 

@@ -26,15 +26,17 @@ namespace app_babybay.Controllers
             var applicationDbContext = _context.Carteiras.Include(c => c.Usuario);
             return View(await applicationDbContext.ToListAsync());
         }
-        public async Task<IActionResult> Depositar(int Id,int Deposito, Carteira carteira,Usuario usuario)
+        public async Task<IActionResult> Depositar(int Id, int Deposito, Carteira carteira, Usuario usuario)
         {
 
-            var user = await _context.Usuarios.FirstOrDefaultAsync(m => m.Id == Id);
-            if (Deposito > 0)
-            {
-                carteira.Receber(Deposito);
+            var carteiraUser = await _context.Carteiras.FirstOrDefaultAsync(m => m.Id == carteira.Id);
+          
+                carteiraUser.Receber(Deposito);
+
                 ViewBag.Message = "Depósito realizado com sucesso";
-            }
+                _context.Update(carteiraUser);
+                await _context.SaveChangesAsync();
+            
             return View("Index");
         }
         // GET: Carteiras/Details/5
