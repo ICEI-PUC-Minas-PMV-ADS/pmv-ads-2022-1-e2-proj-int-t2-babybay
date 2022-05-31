@@ -50,26 +50,34 @@ namespace app_babybay.Controllers
 
         // Buscar Anúncios
         [AllowAnonymous]
-        public async Task<IActionResult> Busca(int idadeProduto, string nomeProduto, string categoria)
+        public async Task<IActionResult> Busca(int idadeProduto, string nomeProduto, string categoriaProduto)
         {
             // Aqui é para exibir todos os produtos, ou seja, quando o usuário so clica em buscar
             var applicationDbContext = _context.Anuncios.Include(a => a.Produto);
 
             var buscaAnuncio = from a in _context.Anuncios.Include(p => p.Produto)
-                                select a;
+                               select a;
 
-            var idade = from i in _context.Produtos 
-                        select i;
+            var buscaIdade = from i in _context.Produtos
+                             select i;
 
-            var categoriaRoupa = from c in _context.Produtos 
+            var buscaCategoria = from c in _context.Produtos
                                  select c;
 
 
             // Busca por nome do produto ou nome do anúncio ok
-            if (!String.IsNullOrEmpty(nomeProduto))            {             
-
-                buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto) || s.Produto.Nome.Contains(nomeProduto));
+            if (!String.IsNullOrEmpty(nomeProduto))
+            {
+                buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto)
+                                 || s.Produto.Nome.Contains(nomeProduto));
             }
+
+            //if (!String.IsNullOrEmpty(categoriaProduto)
+            //{
+            //    var enumCategoria = Enum.GetNames(typeof(Categoria));
+
+            //    buscaAnuncio = buscaCategoria.Where(s => s.Categoria.Contains(categoriaProduto));
+            //}
 
 
             return View(await buscaAnuncio.ToListAsync());

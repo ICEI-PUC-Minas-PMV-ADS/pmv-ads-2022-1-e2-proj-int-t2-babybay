@@ -25,9 +25,9 @@
 						@Html.DropDownList("Categoria",
 					new SelectList(Enum.GetValues(typeof(Categoria))),
 					"Selecione",
-					new {@class = "form-control"})
-						<input class="input__busca--botao" type="submit" value="Buscar" />
-					}
+					new {@class = "form-control"})						
+						<input class="input__busca--botao" type="submit" value="Buscar"/>						
+					}		
 				</div> <!-- .menu__busca -->
 			</div> <!-- .article__busca--contorno-->
 		</article> <!-- .article-busca -->
@@ -46,7 +46,7 @@
 					<td>
 						@Html.DisplayFor(modelItem => item.Titulo)
 					</td>
-					<td>
+						<td>
 						@Html.DisplayFor(modelItem => item.Produto.Id)
 					</td>
 					<td>
