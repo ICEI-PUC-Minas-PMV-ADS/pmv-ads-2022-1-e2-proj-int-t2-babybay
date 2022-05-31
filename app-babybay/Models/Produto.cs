@@ -43,7 +43,7 @@ namespace app_babybay.Models
 
         public bool ProdutoCurtido { get; set; }
 
-        Hashtable listaHash = new Hashtable();
+        //Hashtable listaHash = new Hashtable();
 
         internal void Receber(int quantidade)
         {
@@ -55,14 +55,14 @@ namespace app_babybay.Models
             ProdutoCurtido = false;
            
            
-            for(int i = 1; i ==6; i++)
-            {
-                foreach (string CategoriaRoupa in Enum.GetNames(typeof(Categoria)))
-                {
-                    listaHash.Add(i, CategoriaRoupa);
-                }
+            //for(int i = 1; i ==6; i++)
+            //{
+            //    foreach (string CategoriaRoupa in Enum.GetNames(typeof(Categoria)))
+            //    {
+            //        listaHash.Add(i, CategoriaRoupa);
+            //    }
 
-            }
+            //}
            
         }
 

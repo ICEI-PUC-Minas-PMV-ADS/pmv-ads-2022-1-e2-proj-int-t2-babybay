@@ -26,9 +26,9 @@ namespace app_babybay.Controllers
             var applicationDbContext = _context.Carteiras.Include(c => c.Usuario);
             return View(await applicationDbContext.ToListAsync());
         }
+
         public async Task<IActionResult> Depositar(int Id, int Deposito, Carteira carteira, Usuario usuario)
         {
-
             var carteiraUser = await _context.Carteiras.FirstOrDefaultAsync(m => m.Id == carteira.Id);
           
                 carteiraUser.Receber(Deposito);
@@ -37,8 +37,9 @@ namespace app_babybay.Controllers
                 _context.Update(carteiraUser);
                 await _context.SaveChangesAsync();
             
-            return View("Index");
+            return View("Details");
         }
+
         // GET: Carteiras/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -60,14 +61,8 @@ namespace app_babybay.Controllers
 
         // GET: Carteiras/Create
         public IActionResult Create()
-        {
-           // ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro");
+        { 
             return View();
-        }
-        public void Curtir()
-        {
-            
-             
         }
 
         // POST: Carteiras/Create
@@ -81,7 +76,6 @@ namespace app_babybay.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            //ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", carteira.UsuarioId);
             return View(carteira);
         }
 
@@ -100,42 +94,8 @@ namespace app_babybay.Controllers
             }
             ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", carteira.UsuarioId);
             return View(carteira);
-        }
-
-        // POST: Carteiras/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-       /*  public async Task<IActionResult> Edit(int id, [Bind("Id,UsuarioId,Saldo")] Carteira carteira)
-        {
-            if (id != carteira.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(carteira);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CarteiraExists(carteira.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", carteira.UsuarioId);
-            return View(carteira);
-        }
-       */
+        }      
+       
         // GET: Carteiras/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
