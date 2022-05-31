@@ -65,7 +65,7 @@ namespace app_babybay.Controllers
                                  select c;
 
 
-            // Busca por nome do produto ok
+            // Busca por nome do produto ou nome do anúncio ok
             if (!String.IsNullOrEmpty(nomeProduto))            {             
 
                 buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto) || s.Produto.Nome.Contains(nomeProduto));
