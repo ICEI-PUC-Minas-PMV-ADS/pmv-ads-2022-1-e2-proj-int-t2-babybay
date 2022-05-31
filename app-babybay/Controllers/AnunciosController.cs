@@ -57,14 +57,31 @@ namespace app_babybay.Controllers
 
             var anc = from m in _context.Anuncios
                          select m;
-            
+
+            var idade = from a in _context.Produtos select a;
+
+            var categoriaRoupa = from p in _context.Produtos select p;
 
             if (!String.IsNullOrEmpty(nomeProduto))
             {
                 anc = anc.Where(s => s.Titulo.Contains(nomeProduto));
 
-                
+
             }
+
+            if (idadeProduto > 0)
+            {
+
+                idade = idade.Where(s => s.Idade==idadeProduto);
+
+            }
+         /*   if (!String.IsNullOrEmpty(categoria))
+            {
+                categoriaRoupa = categoriaRoupa.Where(s=> s.Categoria.)
+            }*/
+            
+
+         
 
 
             //// Compara a o produto digitado e o produto que tem no banco, ambos em maiúsculo (ToUpper)
