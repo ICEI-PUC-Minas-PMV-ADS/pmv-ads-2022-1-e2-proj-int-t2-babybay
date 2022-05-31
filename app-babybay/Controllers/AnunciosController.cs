@@ -55,33 +55,38 @@ namespace app_babybay.Controllers
             // Aqui é para exibir todos os produtos, ou seja, quando o usuário so clica em buscar
             var applicationDbContext = _context.Anuncios.Include(a => a.Produto);
 
-            var anc = from m in _context.Anuncios
-                         select m;
+            var buscaAnuncio = from a in _context.Anuncios.Include(p => p.Produto)
+                                select a;
 
-            var idade = from a in _context.Produtos select a;
+            var idade = from i in _context.Produtos 
+                        select i;
 
-            var categoriaRoupa = from p in _context.Produtos select p;
-
-            if (!String.IsNullOrEmpty(nomeProduto))
-            {
-                anc = anc.Where(s => s.Titulo.Contains(nomeProduto));
+            var categoriaRoupa = from c in _context.Produtos 
+                                 select c;
 
 
+            // Busca por nome do produto ok
+            if (!String.IsNullOrEmpty(nomeProduto))            {             
+
+                buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto) || s.Produto.Nome.Contains(nomeProduto));
             }
 
-            if (idadeProduto > 0)
-            {
 
-                idade = idade.Where(s => s.Idade==idadeProduto);
+            return View(await buscaAnuncio.ToListAsync());
 
-            }
-         /*   if (!String.IsNullOrEmpty(categoria))
-            {
-                categoriaRoupa = categoriaRoupa.Where(s=> s.Categoria.)
-            }*/
-            
 
-         
+            //if (idadeProduto > 0)
+            //{
+
+            //    idade = idade.Where(s => s.Idade==idadeProduto);
+
+            //}
+            /*   if (!String.IsNullOrEmpty(categoria))
+               {
+                   categoriaRoupa = categoriaRoupa.Where(s=> s.Categoria.)
+               }*/
+
+
 
 
             //// Compara a o produto digitado e o produto que tem no banco, ambos em maiúsculo (ToUpper)
@@ -136,7 +141,7 @@ namespace app_babybay.Controllers
             //    }
             //}
 
-            return View(await anc.ToListAsync());
+
             //return View(resultado);
             // return View(anuncio);
         }
