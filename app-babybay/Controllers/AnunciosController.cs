@@ -40,7 +40,7 @@ namespace app_babybay.Controllers
                 .Include(a => a.Produto)
                 .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
-            
+
             if (anuncio == null)
             {
                 return NotFound();
@@ -56,24 +56,33 @@ namespace app_babybay.Controllers
             // A busca pelo nome está funcionando, porém, tem que dar um jeito de dar um "refresh" na página, pois quando vai buscar pela segunda vez na mesma página, a string nomeProduto vem com valor null e a busca pega todos os produtos, já que a variável não tem valor
             var buscaAnuncio = from m in _context.Anuncios.Include(p => p.Produto)
                                select m;
-            
-            // Busca por nome do produto ou nome do anúncio OK
+
+            var buscaProduto = from i in _context.Produtos
+                               select i;
+
+            // Busca por nome do produto / nome do anúncio e idade OK
+            // Essa busca é para quando o usuário não escolhe a categoria, sendo que pode:
+                    // - Digitar o nome do produto/anuncio, com ou sem idade
+                    // - Digitar somente a idade
+                    // - Não digitar nada e só buscar
             if (!String.IsNullOrEmpty(nomeProduto))
             {
-                buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto)
-                                 || s.Produto.Nome.Contains(nomeProduto));
-                
+                buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto) 
+                    || s.Produto.Nome.Contains(nomeProduto)
+                    || s.Produto.Idade == idadeProduto);         
+            } 
+            else if(idadeProduto != null)
+            {
+                buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Idade == idadeProduto);
             }
 
-            //var buscaProduto = from c in _context.Produtos
-            //                   select c;
+            return View(await buscaAnuncio.ToListAsync());
 
-            // Testando idade
-            // Está filtrando
-            //if (idadeProduto != null)
-            //{
-            //    buscaProduto = buscaProduto.Where(s => s.Idade == idadeProduto);
-            //}
+            
+
+            // A idade retorna corretamente, ver uma forma de concatenar ccom anuncio
+            //return View(await buscaProduto.ToListAsync());
+
 
             // Concatenar, está com erro: Estudar o funcionamento desses métodos
             //IQueryable<object> query =
@@ -95,7 +104,7 @@ namespace app_babybay.Controllers
             //       // buscaProduto = buscaProduto.Where(s => s.Categoria.CompareTo() == categoria);                
             //}
 
-            return View(await buscaAnuncio.ToListAsync());
+            //  return View(await buscaAnuncio.ToListAsync());
         }
 
 
