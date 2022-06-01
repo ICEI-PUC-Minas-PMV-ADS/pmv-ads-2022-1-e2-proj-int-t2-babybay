@@ -36,8 +36,8 @@ namespace app_babybay.Controllers
                 ViewBag.Message = "Depósito realizado com sucesso";
                 _context.Update(carteiraUser);
                 await _context.SaveChangesAsync();
-            
-            return View("Details");
+                return RedirectToAction("Index");
+       
         }
 
         // GET: Carteiras/Details/5

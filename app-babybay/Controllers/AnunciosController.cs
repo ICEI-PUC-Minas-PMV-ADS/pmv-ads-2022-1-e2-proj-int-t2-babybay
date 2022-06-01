@@ -40,6 +40,7 @@ namespace app_babybay.Controllers
                 .Include(a => a.Produto)
                 .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
+            
             if (anuncio == null)
             {
                 return NotFound();
@@ -61,6 +62,7 @@ namespace app_babybay.Controllers
             {
                 buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto)
                                  || s.Produto.Nome.Contains(nomeProduto));
+                
             }
 
             //var buscaProduto = from c in _context.Produtos
