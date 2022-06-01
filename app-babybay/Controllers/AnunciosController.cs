@@ -50,108 +50,50 @@ namespace app_babybay.Controllers
 
         // Buscar Anúncios
         [AllowAnonymous]
-        public async Task<IActionResult> Busca(int idadeProduto, string nomeProduto, string categoriaProduto)
+        public async Task<IActionResult> Busca(int? idadeProduto, string nomeProduto, string categoria)
         {
-            // Aqui é para exibir todos os produtos, ou seja, quando o usuário so clica em buscar
-            var applicationDbContext = _context.Anuncios.Include(a => a.Produto);
-
-            var buscaAnuncio = from a in _context.Anuncios.Include(p => p.Produto)
-                               select a;
-
-            var buscaIdade = from i in _context.Produtos
-                             select i;
-
-            var buscaCategoria = from c in _context.Produtos
-                                 select c;
-
-
-            // Busca por nome do produto ou nome do anúncio ok
+            // A busca pelo nome está funcionando, porém, tem que dar um jeito de dar um "refresh" na página, pois quando vai buscar pela segunda vez na mesma página, a string nomeProduto vem com valor null e a busca pega todos os produtos, já que a variável não tem valor
+            var buscaAnuncio = from m in _context.Anuncios.Include(p => p.Produto)
+                               select m;
+            
+            // Busca por nome do produto ou nome do anúncio OK
             if (!String.IsNullOrEmpty(nomeProduto))
             {
                 buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto)
                                  || s.Produto.Nome.Contains(nomeProduto));
             }
 
-            //if (!String.IsNullOrEmpty(categoriaProduto)
-            //{
-            //    var enumCategoria = Enum.GetNames(typeof(Categoria));
+            //var buscaProduto = from c in _context.Produtos
+            //                   select c;
 
-            //    buscaAnuncio = buscaCategoria.Where(s => s.Categoria.Contains(categoriaProduto));
+            // Testando idade
+            // Está filtrando
+            //if (idadeProduto != null)
+            //{
+            //    buscaProduto = buscaProduto.Where(s => s.Idade == idadeProduto);
             //}
 
+            // Concatenar, está com erro: Estudar o funcionamento desses métodos
+            //IQueryable<object> query =
+            //   buscaAnuncio.AsQueryable()
+            //   .Select(c => c.Titulo)
+            //   .Concat(buscaProduto.Select(d => d.Nome));
+
+
+            // TESTANDO CATEGORIA, AINDA NÃO FUNCIONANDO
+            //if (!String.IsNullOrEmpty(categoria))
+            //{
+            //    foreach (var elemento in Enum.GetNames(typeof(Categoria)))
+            //    {
+            //        if (elemento == categoria)  // Achar a categoria que o usuário selecionou
+            //        {
+
+            //        } 
+            //    }
+            //       // buscaProduto = buscaProduto.Where(s => s.Categoria.CompareTo() == categoria);                
+            //}
 
             return View(await buscaAnuncio.ToListAsync());
-
-
-            //if (idadeProduto > 0)
-            //{
-
-            //    idade = idade.Where(s => s.Idade==idadeProduto);
-
-            //}
-            /*   if (!String.IsNullOrEmpty(categoria))
-               {
-                   categoriaRoupa = categoriaRoupa.Where(s=> s.Categoria.)
-               }*/
-
-
-
-
-            //// Compara a o produto digitado e o produto que tem no banco, ambos em maiúsculo (ToUpper)
-            //var produto = new Produto();
-            //produto = await _context.Produtos
-            //   .FirstOrDefaultAsync(m => m.Nome.ToUpper() == nomeProduto.ToUpper());
-
-            ////var produto2 = new Produto();
-            ////produto = await _context.Produtos
-            ////   .FirstOrDefaultAsync(m => m.Categoria == Enum.GetNames(typeof(Categoria)));
-            //if (produto.Idade == idadeProduto)
-            //{
-
-            //}
-
-
-            ////if (produto != null) // Acertar exceção
-            ////{
-            ////    ViewBag.Message = "Produto não encontrado";
-            ////}
-
-            //// Percorre a categoria (enum). Se o elemento for igual a categoria digitada pelo usuário
-            //// entra no if da idade, se for diferente para a execução
-            //var anuncio = new Anuncio();
-            ////var enumCategoria = Enum.GetNames(typeof(Categoria));
-
-            //foreach (var elemento in Enum.GetNames(typeof(Categoria)))
-            //{
-            //    if (elemento == categoria) // Se categoria digitada igual a alguam (AQUI SEMPRE SERÁ TRUE)
-            //    {
-            //        if (produto.Idade == idadeProduto)  // Se a categoria acima for igual, eñtão compara a idade
-            //        {
-            //            // Pega o Id do produto que foi comparado na busca e verifica se ele está anunciado
-            //            // Se estiver anunciado, então atribui no objeto
-            //            anuncio = await _context.Anuncios
-            //                 .FirstOrDefaultAsync(m => m.ProdutoId == produto.Id);
-            //            break;
-            //        }
-            //    }                
-            //}
-
-            //// Salvando uma lista -   VIEW ESTÁ COM PROBLEMA
-            //List<Anuncio> resultado = new List<Anuncio>();
-            ////resultado.Add(anuncio);
-
-            //foreach(var item in applicationDbContext)
-            //{
-            //    resultado.Add(item);
-            //    if (resultado.Contains(anuncio))
-            //    {
-            //        resultado.Add(anuncio);
-            //    }
-            //}
-
-
-            //return View(resultado);
-            // return View(anuncio);
         }
 
 
