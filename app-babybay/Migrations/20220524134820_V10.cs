@@ -21,11 +21,11 @@ namespace app_babybay.Migrations
                 nullable: false,
                 defaultValue: 0);
 
-            //migrationBuilder.AddColumn<DateTime>(
-            //  name: "Date",
-            //  table: "Anuncios",
-            //  type: "datetime2",   
-            //  nullable: false);
+            migrationBuilder.AddColumn<DateTime>(
+              name: "Date",
+              table: "Anuncios",
+              type: "datetime2",   
+             nullable: false);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

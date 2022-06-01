@@ -35,6 +35,9 @@ namespace app_babybay.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("InteresseTroca")
+                        .HasColumnType("bit");
+
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
 

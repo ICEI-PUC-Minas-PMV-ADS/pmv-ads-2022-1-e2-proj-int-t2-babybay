@@ -10,7 +10,7 @@ using app_babybay.Models;
 namespace app_babybay.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220524135348_V11")]
+    [Migration("20220601133422_V11")]
     partial class V11
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,9 @@ namespace app_babybay.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("InteresseTroca")
+                        .HasColumnType("bit");
 
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
