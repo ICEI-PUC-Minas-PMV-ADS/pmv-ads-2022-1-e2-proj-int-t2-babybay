@@ -51,60 +51,35 @@ namespace app_babybay.Controllers
 
         // Buscar Anúncios
         [AllowAnonymous]
-        public async Task<IActionResult> Busca(int? idadeProduto, string nomeProduto, string categoria)
+        public async Task<IActionResult> Busca(int? idadeProduto, string nomeProduto, Categoria? categoria)
         {
-            // A busca pelo nome está funcionando, porém, tem que dar um jeito de dar um "refresh" na página, pois quando vai buscar pela segunda vez na mesma página, a string nomeProduto vem com valor null e a busca pega todos os produtos, já que a variável não tem valor
+            // FALTA AJUSTE: A busca pelo nome está funcionando, porém, tem que dar um jeito de dar um "refresh" na página, pois quando vai buscar pela segunda vez na mesma página, a string nomeProduto vem com valor null e a busca pega todos os produtos, já que a variável não tem valor
             var buscaAnuncio = from m in _context.Anuncios.Include(p => p.Produto)
-                               select m;
+                               select m;                     
+            
 
-            var buscaProduto = from i in _context.Produtos
-                               select i;
-
-            // Busca por nome do produto / nome do anúncio e idade OK
-            // Essa busca é para quando o usuário não escolhe a categoria, sendo que pode:
-                    // - Digitar o nome do produto/anuncio, com ou sem idade
-                    // - Digitar somente a idade
-                    // - Não digitar nada e só buscar
+            // TERMINAR LOGICA DE BUSCA - VALORES ESTÃO SENDO LIDOS
+            // VER RASCUNHO PAPEL            
             if (!String.IsNullOrEmpty(nomeProduto))
             {
                 buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto) 
                     || s.Produto.Nome.Contains(nomeProduto)
-                    || s.Produto.Idade == idadeProduto);         
-            } 
-            else if(idadeProduto != null)
+                    || s.Produto.Idade == idadeProduto 
+                    || s.Produto.Categoria == categoria);         
+            }
+            else if (idadeProduto != null)  // FUNCIONANDO
             {
                 buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Idade == idadeProduto);
             }
 
+            //  TESTANDO CATEGORIA, está funcionando
+            else if (categoria != null)
+            {
+                buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+            }
+            // criar else: não encontrado produtos        
+
             return View(await buscaAnuncio.ToListAsync());
-
-            
-
-            // A idade retorna corretamente, ver uma forma de concatenar ccom anuncio
-            //return View(await buscaProduto.ToListAsync());
-
-
-            // Concatenar, está com erro: Estudar o funcionamento desses métodos
-            //IQueryable<object> query =
-            //   buscaAnuncio.AsQueryable()
-            //   .Select(c => c.Titulo)
-            //   .Concat(buscaProduto.Select(d => d.Nome));
-
-
-            // TESTANDO CATEGORIA, AINDA NÃO FUNCIONANDO
-            //if (!String.IsNullOrEmpty(categoria))
-            //{
-            //    foreach (var elemento in Enum.GetNames(typeof(Categoria)))
-            //    {
-            //        if (elemento == categoria)  // Achar a categoria que o usuário selecionou
-            //        {
-
-            //        } 
-            //    }
-            //       // buscaProduto = buscaProduto.Where(s => s.Categoria.CompareTo() == categoria);                
-            //}
-
-            //  return View(await buscaAnuncio.ToListAsync());
         }
 
 
