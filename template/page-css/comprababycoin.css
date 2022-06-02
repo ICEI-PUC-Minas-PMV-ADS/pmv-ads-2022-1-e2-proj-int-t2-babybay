@@ -1,0 +1,87 @@
+/* MENU USUÁRIO
+
+    D - Arquivo NovoPost (page-css/NovoPost.css)
+    D1. Main
+
+/****************************************
+    5. Main
+/****************************************/
+*{
+    list-style: none;    
+}
+
+.div-comprababycoin{
+    padding: 20px;
+    color: var(--clr-purple-dark);
+    height: 150px;
+    /* flex */    
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h3{
+    padding: 20px;
+    text-align: center;
+    color: black;
+    /* flex */    
+    
+}
+
+.section-c{    
+    /* flex */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 40px 60px;
+    border-radius: 4px;
+}
+
+
+
+.card-white{
+    background-color: #dd5ed0;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    padding: 18px;
+    border-radius: 4px;
+    margin: 20px;
+    width: 200px;
+    text-align: center;
+}
+
+.card-white h3{
+    color: white;
+}
+
+.card-white img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+ .card-white li input{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow); 
+    border-radius: 50px;
+    color: #FFFFFF;
+    font-size: 1.1em;
+    font-weight: bold;
+    height: 48px;  
+    letter-spacing: 1px;    
+    max-width: 140px;
+    text-shadow: var(--clr--text-shadow);   
+  
+}
+
+.segunda-compra{
+    display: flex;
+}
+
