@@ -54,7 +54,7 @@ namespace app_babybay.Controllers
         public async Task<IActionResult> Busca(int? idadeProduto, string nomeProduto, Categoria? categoria)
         {
             // FALTA AJUSTE: A busca pelo nome está funcionando, porém, tem que dar um jeito de dar um "refresh" na página, pois quando vai buscar pela segunda vez na mesma página, a string nomeProduto vem com valor null e a busca pega todos os produtos, já que a variável não tem valor
-            var buscaAnuncio = from m in _context.Anuncios.Include(p => p.Produto)
+            var buscaAnuncio = from m in _context.Anuncios/*.Include(p => p.Produto)*/
                                select m;                     
             
 
