@@ -94,13 +94,8 @@ namespace app_babybay.Controllers
             return View();
         }
 
-        public IActionResult Menu()   // Configurar menu
-        {
-            return View();
-        }
-
         // GET: Usuarios 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index()        // Menu será a Index
         {
             return View(await _context.Usuarios.ToListAsync());
         }

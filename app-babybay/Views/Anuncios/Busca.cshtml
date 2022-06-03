@@ -16,7 +16,7 @@
 					@using (Html.BeginForm("Busca", "Anuncios", FormMethod.Post))
 					{
 						<h2>Nome do produto</h2>
-						@Html.TextBox("Produto	")
+						@Html.TextBox("Produto")
 
 						<h2>Idade</h2>
 						@Html.TextBox("Idade")
@@ -46,7 +46,7 @@
 					<td>
 						@Html.DisplayFor(modelItem => item.Titulo)
 					</td>
-					<td>
+				@*	<td>
 						@Html.DisplayFor(modelItem => item.Produto.Id)
 					</td>
 					<td>
@@ -54,7 +54,7 @@
 					</td>
 					<td>
 						@Html.DisplayFor(modelItem => item.Produto.Idade)
-					</td>
+					</td>*@
 				</tr>
 			}
 		</tbody>

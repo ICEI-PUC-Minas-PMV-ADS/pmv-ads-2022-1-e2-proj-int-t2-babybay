@@ -53,34 +53,82 @@ namespace app_babybay.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Busca(int? idadeProduto, string nomeProduto, Categoria? categoria)
         {
-            // FALTA AJUSTE: A busca pelo nome está funcionando, porém, tem que dar um jeito de dar um "refresh" na página, pois quando vai buscar pela segunda vez na mesma página, a string nomeProduto vem com valor null e a busca pega todos os produtos, já que a variável não tem valor
-            var buscaAnuncio = from m in _context.Anuncios/*.Include(p => p.Produto)*/
-                               select m;                     
-            
 
-            // TERMINAR LOGICA DE BUSCA - VALORES ESTÃO SENDO LIDOS
-            // VER RASCUNHO PAPEL            
+            var buscaAnuncio = from m in _context.Anuncios
+                               select m;
+
+            // FUNCIONA, precisa de ajustes quando busca por nome do produto, porque ele não dá um refresh e o resultado fica comprometido
+            // A busca por idade e categoria acontece o refresh
+            // A lógica funciona corretamente - Realizar mais testes
+            // Revisar a lógica para deixar mais sucinta
+
+            // Se tiver produto digitado
             if (!String.IsNullOrEmpty(nomeProduto))
             {
-                buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto) 
-                    || s.Produto.Nome.Contains(nomeProduto)
-                    || s.Produto.Idade == idadeProduto 
-                    || s.Produto.Categoria == categoria);         
+                buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto)
+                    || s.Produto.Nome.Contains(nomeProduto));
+
+                if (idadeProduto == null && categoria == null)   // Sem categoria e sem idade
+                {
+                    return View(await buscaAnuncio.ToListAsync());      // Retorna só a busca pelo nome
+                }
+
+                if (idadeProduto != null)           // Se tem idade
+                {
+                    buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Idade == idadeProduto);
+
+                    if (categoria == null)          // Se tem idade e não tem categoria
+                    {
+                        return View(await buscaAnuncio.ToListAsync());      // Retorna pelo nome e idade
+                    }
+                    else                            // Se tem idade e categoria
+                    {
+                        buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+                        return View(await buscaAnuncio.ToListAsync());   // Retorna pelo nome idade e categoria
+                    }
+                }
+                else                                // Se não tem idade
+                {
+                    if (categoria == null)          // Se não tem idade nem categoria
+                    {
+                        return View(await buscaAnuncio.ToListAsync());      // Retorna tudo
+                    }
+                    else                             // Se não tem idade e tem categoria
+                    {
+                        buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+                        return View(await buscaAnuncio.ToListAsync());
+                    }
+                }
             }
-            else if (idadeProduto != null)  // FUNCIONANDO
+            else if (idadeProduto != null)           // Se tem idade e não tem produto
             {
                 buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Idade == idadeProduto);
-            }
 
-            //  TESTANDO CATEGORIA, está funcionando
-            else if (categoria != null)
+                if (categoria == null)          // Se tem idade e não tem categoria nem produto
+                {
+                    return View(await buscaAnuncio.ToListAsync());
+                }
+                else                            // Se tem idade e categoria e não tem produto
+                {
+                    buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+                    return View(await buscaAnuncio.ToListAsync());
+                }
+            }
+            else                                // Se não tem idade nem produto
             {
-                buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+                if (categoria == null)          // Se não tem idade nem categoria nem produto
+                {
+                    return View(await buscaAnuncio.ToListAsync());      // Retorna tudo
+                }
+                else                             // Se não tem idade nem produto e tem categoria
+                {
+                    buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+                    return View(await buscaAnuncio.ToListAsync());
+                }
             }
-            // criar else: não encontrado produtos        
-
-            return View(await buscaAnuncio.ToListAsync());
+            //return View(await buscaAnuncio.ToListAsync());
         }
+
 
 
         // GET: Anuncios/Create   
