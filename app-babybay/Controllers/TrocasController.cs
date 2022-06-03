@@ -70,22 +70,22 @@ namespace app_babybay.Controllers
             id do produto selecionado,e guarda em uma instância do tipo anuncio anunciante,para posteriormente chamar o método que ira adicionar
             na lista do USUARIO QUE TEM O PRODUTO o id do usuário interessado e o nome do produto(talvez possa ao inves de guardar o titulo do anuncio
             Guarda o Id do produto*/
-            if (anunciante.Usuario.Id == user.Id) /*Aqui compara caso o usuario do anunciate do produto for o mesmo do usuario logado,para não deixar
+            if (anunciante.UsuarioId == user.Id) /*Aqui compara caso o usuario do anunciate do produto for o mesmo do usuario logado,para não deixar
                 ele solicitar troca para ele mesmo*/
             {
                 ViewBag.Message = "Você não pode escolher um produto que voce mesmo anunciou";
+               
                 return View("Create");
             }
-            else
-            {
-
+           
+                ViewBag.Message="Solicitação de troca realizada com sucesso" ;
                 anunciante.AdicionarInteressado(user.Id, anunciante.Titulo);/*Aqui chama o método do anunciante para guardar em sua lista
              o Id do usuário interessado e o produto interessado(NOME OU ID,VER DEPOIS)*/
 
                 Produto produto = new Produto();
                 _context.Update(anunciante);
                 await _context.SaveChangesAsync();
-            }
+            
             
 
 
