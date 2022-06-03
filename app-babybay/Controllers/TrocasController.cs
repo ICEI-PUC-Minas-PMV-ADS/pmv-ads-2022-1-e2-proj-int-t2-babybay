@@ -60,8 +60,8 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ProdutoId,UsuarioId")] Troca troca)
         {
-            if (User.Identity.IsAuthenticated)
-            {
+            Produto produto = new Produto();
+            int teste = troca.ProdutoId;
                 var TUser = User.Identity.Name; // Pega o nome do user logado
 
                 var usuario = new Usuario();              
@@ -73,11 +73,8 @@ namespace app_babybay.Controllers
                 //produto = await _context.Produtos  // Percorre no BD buscando pelo nome compara com  TUser
                 //     .FirstOrDefaultAsync(m => m.Id == ?);
                 //troca.Produto = produto; // Seta no Objeto Usuario  encontrado para Usuario no produto
-            }
-            else
-            {
-                return NotFound();
-            }
+            
+            
 
             if (ModelState.IsValid)                
             {                             

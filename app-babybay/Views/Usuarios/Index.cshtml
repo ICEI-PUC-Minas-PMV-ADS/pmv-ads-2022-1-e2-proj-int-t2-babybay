@@ -19,6 +19,8 @@
 						<a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Minha Conta</a> |
 						<a asp-action="Relatorio" class="btn btn-primary" asp-route-id="@item.Id">Minhas Roupas</a>|
 						<a asp-action="Index"  asp-controller="Carteiras"  class="btn btn-primary" asp-route-id="@item.Id">Minha carteira</a>|
+						<a asp-action="Create" asp-controller="Trocas" class="btn btn-primary" asp-route-id="@item.Id">Trocar</a> |
+
 						<a asp-controller="Produtos" class="btn btn-primary" asp-action="Create">Cadastrar Roupa</a> |     <a asp-action="Index" asp-controller="Produtos" class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar Produtos</a> |
 						<a asp-action="Index" asp-controller="Anuncios"  class="btn btn-primary" asp-route-id="@item.Id">Meus Anúncios</a>
 					</td>
