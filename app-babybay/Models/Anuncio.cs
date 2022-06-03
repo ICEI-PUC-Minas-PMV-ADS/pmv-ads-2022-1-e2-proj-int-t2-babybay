@@ -25,7 +25,7 @@ namespace app_babybay.Models
 
         public bool InteresseTroca { get; set; }
 
-        Dictionary<int, string> listaInteressados = new Dictionary<int, string>();
+        public Dictionary<int, string> listaInteressados { get;  private set; } = new Dictionary<int, string>();
         
 
         private DateTime _date = DateTime.Now;

@@ -71,7 +71,7 @@ namespace app_babybay.Controllers
 
             anunciante.AdicionarInteressado(user.Id, anunciante.Titulo);/*Aqui chama o método do anunciante para guardar em sua lista
              o Id do usuário interessado e o produto interessado(NOME OU ID,VER DEPOIS)*/
-         
+            
             Produto produto = new Produto();
             _context.Update(anunciante);
             await _context.SaveChangesAsync();
