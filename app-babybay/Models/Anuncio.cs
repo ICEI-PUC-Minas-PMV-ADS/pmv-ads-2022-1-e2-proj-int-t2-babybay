@@ -51,6 +51,12 @@ namespace app_babybay.Models
                 listaInteressados.Add(IdDoInteressado, ProdutoInteressado);
                 InteresseTroca = true;
             }
+
+      
+        }
+        public void RemoverInteressados()
+        {
+            listaInteressados.Clear();//Remove todos as chaves e valores da lista
         }
         public void CurtirAnuncio()/*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe
        para que assim ele estem método possa ser chamado por outro método no controle*/
