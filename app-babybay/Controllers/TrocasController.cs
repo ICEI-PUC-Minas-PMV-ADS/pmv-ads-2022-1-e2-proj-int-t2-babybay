@@ -61,7 +61,7 @@ namespace app_babybay.Controllers
         public async Task<IActionResult> Create([Bind("Id,AnunciooId,UsuarioId")] Troca troca)
         {
 
-            //Implementar depois uma forma de não deixar o próprio usuário escolher seu próprio produto e apertar o botão de trocar
+         
             Anuncio anunciante = new Anuncio();
             var user = _context.Usuarios.FirstOrDefault(s => s.Nome == User.Identity.Name);/*Aqui ele busca o usuário LOGADO pelo seu nome
             e pega seu id para posteriormente adicionar a lista do usuário QUE POSSUI O PRODUTO*/
@@ -70,13 +70,23 @@ namespace app_babybay.Controllers
             id do produto selecionado,e guarda em uma instância do tipo anuncio anunciante,para posteriormente chamar o método que ira adicionar
             na lista do USUARIO QUE TEM O PRODUTO o id do usuário interessado e o nome do produto(talvez possa ao inves de guardar o titulo do anuncio
             Guarda o Id do produto*/
+            if (anunciante.Usuario.Id == user.Id) /*Aqui compara caso o usuario do anunciate do produto for o mesmo do usuario logado,para não deixar
+                ele solicitar troca para ele mesmo*/
+            {
+                ViewBag.Message = "Você não pode escolher um produto que voce mesmo anunciou";
+                return View("Create");
+            }
+            else
+            {
 
-            anunciante.AdicionarInteressado(user.Id, anunciante.Titulo);/*Aqui chama o método do anunciante para guardar em sua lista
+                anunciante.AdicionarInteressado(user.Id, anunciante.Titulo);/*Aqui chama o método do anunciante para guardar em sua lista
              o Id do usuário interessado e o produto interessado(NOME OU ID,VER DEPOIS)*/
+
+                Produto produto = new Produto();
+                _context.Update(anunciante);
+                await _context.SaveChangesAsync();
+            }
             
-            Produto produto = new Produto();
-            _context.Update(anunciante);
-            await _context.SaveChangesAsync();
 
 
 /*
