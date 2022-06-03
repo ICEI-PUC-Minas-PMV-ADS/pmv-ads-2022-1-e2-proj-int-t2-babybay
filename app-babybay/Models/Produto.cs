@@ -41,9 +41,9 @@ namespace app_babybay.Models
         [Required(ErrorMessage = "A categoria é obrigatória.")]
         public Categoria Categoria { get; set; }
 
-        public bool ProdutoCurtido { get; set; }
+       /* public bool ProdutoCurtido { get; set; }
         public bool InteresseTroca { get; set; }
-
+*/
         Dictionary<int, string> listaInteressados = new Dictionary<int, string>();
 
         internal void Receber(int quantidade)
@@ -66,13 +66,13 @@ namespace app_babybay.Models
             //}
            
         }
-        public void AdicionarInteressado(int IdDoInteressado, string ProdutoInteressado)
+        /*public void AdicionarInteressado(int IdDoInteressado, string ProdutoInteressado)
         {
             if (IdDoInteressado != 0 && !String.IsNullOrEmpty(ProdutoInteressado))
             {
                 listaInteressados.Add(IdDoInteressado, ProdutoInteressado);
             }
-        }
+        }*/
 
         // public ICollection<Usuario> Usuarios{ get; set; }
 
