@@ -98,9 +98,6 @@ namespace app_babybay.Migrations
                     b.Property<int>("Idade")
                         .HasColumnType("int");
 
-                    b.Property<bool>("InteresseTroca")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

@@ -24,7 +24,7 @@ namespace app_babybay.Models
         public string Titulo { get; set; }
 
         public bool InteresseTroca { get; set; }
-
+        [NotMapped]
         public Dictionary<int, string> listaInteressados { get;  private set; } = new Dictionary<int, string>();
         
 

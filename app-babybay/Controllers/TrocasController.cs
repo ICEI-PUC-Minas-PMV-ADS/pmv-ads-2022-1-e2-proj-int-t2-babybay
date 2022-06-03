@@ -60,6 +60,8 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,AnunciooId,UsuarioId")] Troca troca)
         {
+
+            //Implementar depois uma forma de não deixar o próprio usuário escolher seu próprio produto e apertar o botão de trocar
             Anuncio anunciante = new Anuncio();
             var user = _context.Usuarios.FirstOrDefault(s => s.Nome == User.Identity.Name);/*Aqui ele busca o usuário LOGADO pelo seu nome
             e pega seu id para posteriormente adicionar a lista do usuário QUE POSSUI O PRODUTO*/
