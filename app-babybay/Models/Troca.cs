@@ -28,6 +28,11 @@ namespace app_babybay.Models
         [NotMapped]
         public int Quantidade { get; private set; }
 
+        public int AnunciooId { get; set; }
+
+        [ForeignKey("AnunciooId")]
+        public Anuncio Anuncio { get; set; }
+
         public void Receber(int quantidade)
         {
             Quantidade += quantidade;

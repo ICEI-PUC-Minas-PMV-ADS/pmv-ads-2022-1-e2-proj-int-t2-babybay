@@ -49,6 +49,7 @@ namespace app_babybay.Models
             if(IdDoInteressado!= 0 && !String.IsNullOrEmpty(ProdutoInteressado))
             {
                 listaInteressados.Add(IdDoInteressado, ProdutoInteressado);
+                InteresseTroca = true;
             }
         }
         public void CurtirAnuncio()/*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe

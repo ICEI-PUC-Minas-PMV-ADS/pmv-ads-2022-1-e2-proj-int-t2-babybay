@@ -98,6 +98,9 @@ namespace app_babybay.Migrations
                     b.Property<int>("Idade")
                         .HasColumnType("int");
 
+                    b.Property<bool>("InteresseTroca")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -154,6 +157,9 @@ namespace app_babybay.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AnunciooId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -167,6 +173,8 @@ namespace app_babybay.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AnunciooId");
 
                     b.HasIndex("ProdutoId");
 
@@ -289,6 +297,12 @@ namespace app_babybay.Migrations
 
             modelBuilder.Entity("app_babybay.Models.Troca", b =>
                 {
+                    b.HasOne("app_babybay.Models.Anuncio", "Anuncio")
+                        .WithMany()
+                        .HasForeignKey("AnunciooId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("app_babybay.Models.Produto", "Produto")
                         .WithMany()
                         .HasForeignKey("ProdutoId")
@@ -300,6 +314,8 @@ namespace app_babybay.Migrations
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Anuncio");
 
                     b.Navigation("Produto");
 

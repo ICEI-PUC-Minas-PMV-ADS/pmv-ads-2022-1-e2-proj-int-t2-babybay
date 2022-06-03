@@ -51,39 +51,41 @@ namespace app_babybay.Controllers
         // GET: Trocas/Create
         public IActionResult Create()
         {           
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome");   // Para Criar o Select no create
+            ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo");   // Para Criar o Select no create
             return View();
         }
 
         // POST: Trocas/Create 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ProdutoId,UsuarioId")] Troca troca)
+        public async Task<IActionResult> Create([Bind("Id,AnunciooId,UsuarioId")] Troca troca)
         {
+            Anuncio anunciante = new Anuncio();
+            var user = _context.Usuarios.FirstOrDefault(s => s.Nome == User.Identity.Name);/*Aqui ele busca o usuário LOGADO pelo seu nome
+            e pega seu id para posteriormente adicionar a lista do usuário QUE POSSUI O PRODUTO*/
+             
+            anunciante =  _context.Anuncios.FirstOrDefault(s => s.AnuncioId == troca.AnunciooId);/*Aqui faz uma busca e busca pelo 
+            id do produto selecionado,e guarda em uma instância do tipo anuncio anunciante,para posteriormente chamar o método que ira adicionar
+            na lista do USUARIO QUE TEM O PRODUTO o id do usuário interessado e o nome do produto(talvez possa ao inves de guardar o titulo do anuncio
+            Guarda o Id do produto*/
+
+            anunciante.AdicionarInteressado(user.Id, anunciante.Titulo);/*Aqui chama o método do anunciante para guardar em sua lista
+             o Id do usuário interessado e o produto interessado(NOME OU ID,VER DEPOIS)*/
+         
             Produto produto = new Produto();
-            int teste = troca.ProdutoId;
-                var TUser = User.Identity.Name; // Pega o nome do user logado
+            _context.Update(anunciante);
+            await _context.SaveChangesAsync();
 
-                var usuario = new Usuario();              
-                usuario = await _context.Usuarios  // Percorre no BD buscando pelo nome compara com  TUser
-                     .FirstOrDefaultAsync(m => m.Nome == TUser);
-                troca.UsuarioId = usuario.Id; // Seta no Objeto Usuario  encontrado para Usuario no produto
 
-                //var produto = new Produto();
-                //produto = await _context.Produtos  // Percorre no BD buscando pelo nome compara com  TUser
-                //     .FirstOrDefaultAsync(m => m.Id == ?);
-                //troca.Produto = produto; // Seta no Objeto Usuario  encontrado para Usuario no produto
-            
-            
-
+/*
             if (ModelState.IsValid)                
             {                             
                 _context.Add(troca);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", troca.ProdutoId); // Para Criar o Select no create
-            return View(troca);
+            }*/
+            /*ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", troca.ProdutoId); */// Para Criar o Select no create
+            return RedirectToAction("Create");
         }
 
 

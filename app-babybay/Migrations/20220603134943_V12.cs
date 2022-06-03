@@ -7,21 +7,28 @@ namespace app_babybay.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "AnuncioId",
+                name: "AnunciooId",
                 table: "Trocas",
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
 
+            migrationBuilder.AddColumn<bool>(
+                name: "InteresseTroca",
+                table: "Produtos",
+                type: "bit",
+                nullable: false,
+                defaultValue: false);
+
             migrationBuilder.CreateIndex(
-                name: "IX_Trocas_AnuncioId",
+                name: "IX_Trocas_AnunciooId",
                 table: "Trocas",
-                column: "AnuncioId");
+                column: "AnunciooId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Trocas_Anuncios_AnuncioId",
+                name: "FK_Trocas_Anuncios_AnunciooId",
                 table: "Trocas",
-                column: "AnuncioId",
+                column: "AnunciooId",
                 principalTable: "Anuncios",
                 principalColumn: "AnuncioId",
                 onDelete: ReferentialAction.Restrict);
@@ -30,16 +37,20 @@ namespace app_babybay.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Trocas_Anuncios_AnuncioId",
+                name: "FK_Trocas_Anuncios_AnunciooId",
                 table: "Trocas");
 
             migrationBuilder.DropIndex(
-                name: "IX_Trocas_AnuncioId",
+                name: "IX_Trocas_AnunciooId",
                 table: "Trocas");
 
             migrationBuilder.DropColumn(
-                name: "AnuncioId",
+                name: "AnunciooId",
                 table: "Trocas");
+
+            migrationBuilder.DropColumn(
+                name: "InteresseTroca",
+                table: "Produtos");
         }
     }
 }

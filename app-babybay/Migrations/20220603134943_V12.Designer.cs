@@ -10,7 +10,7 @@ using app_babybay.Models;
 namespace app_babybay.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220602233643_V12")]
+    [Migration("20220603134943_V12")]
     partial class V12
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -100,6 +100,9 @@ namespace app_babybay.Migrations
                     b.Property<int>("Idade")
                         .HasColumnType("int");
 
+                    b.Property<bool>("InteresseTroca")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -156,7 +159,7 @@ namespace app_babybay.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AnuncioId")
+                    b.Property<int>("AnunciooId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -173,7 +176,7 @@ namespace app_babybay.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AnuncioId");
+                    b.HasIndex("AnunciooId");
 
                     b.HasIndex("ProdutoId");
 
@@ -298,7 +301,7 @@ namespace app_babybay.Migrations
                 {
                     b.HasOne("app_babybay.Models.Anuncio", "Anuncio")
                         .WithMany()
-                        .HasForeignKey("AnuncioId")
+                        .HasForeignKey("AnunciooId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

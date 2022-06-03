@@ -3158,7 +3158,6 @@ C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\Edit.cshtml.g.cs
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\Index.cshtml.g.cs
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\Login.cshtml.g.cs
-C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\Menu.cshtml.g.cs
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Usuarios\Relatorio.cshtml.g.cs
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
