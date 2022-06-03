@@ -22,7 +22,10 @@
 			<th>
 				@Html.DisplayNameFor(model => model.Titulo)
 			</th>
-			<th></th>
+		
+			<th>
+				Alguem esta querendo trocar?
+			</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -39,6 +42,16 @@
 					</td>
 					<td>
 						@Html.DisplayFor(modelItem => item.Titulo)
+					</td>
+					<td>
+						@if(item.InteresseTroca){
+							<p>Tem sim,Hoje é seu dia de sorte</p>
+						}
+						else
+						{
+							<p>Infelizmente não meu consagrado</p>
+						}
+
 					</td>
 					<td style="width:700px;">						
 						<a class="btn btn-primary" asp-action="Details" asp-route-id="@item.AnuncioId">Details</a> |
