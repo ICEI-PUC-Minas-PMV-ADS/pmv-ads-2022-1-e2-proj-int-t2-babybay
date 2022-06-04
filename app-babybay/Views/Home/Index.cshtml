@@ -1,5 +1,4 @@
-﻿
-@model app_babybay.Models.Anuncio
+﻿@model app_babybay.Models.Anuncio
 @{
 	ViewData["Title"] = "Início";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,10 +12,9 @@
 				<div class="menu-busca">
 					<input class="input__busca" type="search" name="input-buscar" id="input-buscar"
 						   placeholder="Busque uma roupa">
-
 					@using (Html.BeginForm("Busca", "Anuncios", FormMethod.Post))
 					{
-						<h2>Nome do produto</h2>
+						<h2>Nome do produto</h2>						
 						@Html.TextBox("nomeProduto")
 
 						<h2>Idade</h2>
@@ -27,7 +25,7 @@
 							new SelectList(Enum.GetValues(typeof(Categoria))),
 							"Selecione",
 							new {@class = "form-control"})
-						@*@Html.TextBox("Categoria")*@
+						
 						<input class="input__busca--botao" type="submit" value="Buscar"/>
 					}
 				</div> <!-- .menu__busca -->
@@ -47,8 +45,7 @@
 				</div> <!-- .conteudo__h1 -->
 			</div> <!-- .conteudo-principal -->
 			<div class="conteudo__botao__cadastro">
-				<a asp-controller="Usuarios" asp-action="Create" class="input__botao--cadastro">CADASTRE-SE</a>
-				@*            <input class="input__botao--cadastro" type="button" value="CADASTRE-SE" id="btn-cadastre">*@
+				<a asp-controller="Usuarios" asp-action="Create" class="input__botao--cadastro">CADASTRE-SE</a>		
 			</div> <!-- .conteudo__cadastre__botao-->
 		}
 

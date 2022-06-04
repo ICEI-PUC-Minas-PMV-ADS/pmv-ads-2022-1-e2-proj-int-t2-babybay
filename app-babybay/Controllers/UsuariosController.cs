@@ -73,7 +73,7 @@ namespace app_babybay.Controllers
 
                 // Insere o usuário na seção da aplicação
                 await HttpContext.SignInAsync(principal, props);
-                return RedirectToAction("Index", "Home");       // Configurar para direcionar a tela de menu
+                return RedirectToAction("Index", "Usuarios");       // Configurar para direcionar a tela de menu
             }
 
             // A senha estiver incorreta, exibe na tela

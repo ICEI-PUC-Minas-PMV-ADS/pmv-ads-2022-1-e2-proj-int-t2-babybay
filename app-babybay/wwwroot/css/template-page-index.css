@@ -55,7 +55,7 @@
     box-shadow: var(--clr--box-shadow);
     border-radius: 10px;
     font-size: 0.9em;
-    font-style: italic;
+    /*font-style: italic;*/
     /* flex */
     flex: 2 8 960px; /* grow shrink basis*/
     height: 45px;

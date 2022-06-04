@@ -36,8 +36,8 @@ namespace app_babybay.Controllers
                 ViewBag.Message = "Depósito realizado com sucesso";
                 _context.Update(carteiraUser);
                 await _context.SaveChangesAsync();
-                return View("CompraConfirmada_10");
-       
+
+                return View("CompraConfirmada_10");       
         }
         public async Task<IActionResult> Deposita20(int Id, Carteira carteira, Usuario usuario)
         {

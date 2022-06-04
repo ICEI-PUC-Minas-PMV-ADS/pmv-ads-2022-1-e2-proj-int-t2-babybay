@@ -15,18 +15,16 @@
 			  <div class="form-group">
 				<label asp-for="AnunciooId" class="control-label"></label>
 				<select asp-for="AnunciooId" class ="form-control" asp-items="ViewBag.AnuncioId" ></select>
-				</div>    
-		
-			
+				</div> 					
 			<div class="form-group">
-				<input type="submit" value="Solicitar troca"asp- class="btn btn-primary" />
+				<input type="submit" value="Solicitar Troca" class="btn btn-primary" />
 			</div>
 		</form>	
 	</div>
 </div>
 <h3>@ViewBag.Message</h3> 
 <div>
-	<a asp-action="Index">Back to List</a>
+	<a asp-controller="Usuarios" asp-action="Index" class="btn btn-primary">Voltar</a>
 </div>
 
 @section Scripts {

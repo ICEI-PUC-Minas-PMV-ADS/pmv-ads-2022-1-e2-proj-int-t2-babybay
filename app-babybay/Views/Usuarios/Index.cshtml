@@ -2,30 +2,108 @@
 
 
 @{
-	ViewData["Title"] = "Index";
+	ViewData["Title"] = "Menu do Usuário";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	<link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
+	<link rel="stylesheet" href="~/css/style-menu.css">		
+
 }
 
-<h2>Menu do Usuário</h2>
-<hr>
+@foreach (var item in Model)
+{
+	if (User.Identity.Name == item.Nome)
+	{
+		<main>
+			<div class="container-principal">
+				  <h2>Bem vindo, @User.Identity.Name!</h2>
+				<div class="principais-funcionalidades">
+					<div class="quadrados">	
+						<img src="../img/coin.png" alt="">
+						<p>
+							<a asp-controller="Carteiras" asp-action="Index" asp-route-id="@item.Id">Minha Carteira</a>
+						</p>
+					</div>
+					<div class="quadrados">
+						<img src="../img/Group (1).png" alt="">
+						<p>
+							<a asp-controller="Home" asp-action="Index">Buscar roupas</a>
+						</p>
+					</div>
+					<div class="quadrados">
+						<img src="../img/Sweater.png" alt="">
+						<p>
+							<a asp-action="Relatorio" asp-route-id="@item.Id">Minhas Roupas</a>
 
-<table class="table">
-	<tbody>
-		@foreach (var item in Model)
-		{
-			if (User.Identity.Name == item.Nome)
-			{
-				<tr>
-					<td style="display:flex;flex-direction:row">
-						<a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Minha Conta</a> |
-						<a asp-action="Relatorio" class="btn btn-primary" asp-route-id="@item.Id">Minhas Roupas</a>|
-						<a asp-action="Index"  asp-controller="Carteiras"  class="btn btn-primary" asp-route-id="@item.Id">Minha carteira</a>|
-						<a asp-action="Create" asp-controller="Trocas" class="btn btn-primary" asp-route-id="@item.Id">Trocar</a> |
+						</p>
+					</div>
+					<div class="quadrados">
+						<img src="../img/Sol.png" alt="">
+						<p>
+							<a asp-controller="Usuarios" asp-action="Details" asp-route-id="@item.Id">Minha Conta</a>
+						</p>
+					</div>
+				</div> <!--principais-funcionalidades-->
+			</div> <!-- .container-principal-->
+		</main>
+	}
+}
 
-						<a asp-controller="Produtos" class="btn btn-primary" asp-action="Create">Cadastrar Roupa</a> |     <a asp-action="Index" asp-controller="Produtos" class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar Produtos</a> |
-						<a asp-action="Index" asp-controller="Anuncios"  class="btn btn-primary" asp-route-id="@item.Id">Meus Anúncios</a>
-					</td>
-				</tr>
-			}
-		}
-	</tbody>
-</table>
+
+@* Vari ficar dentro do guardaroupa*@
+@*        <a asp-controller="Produtos" asp-action="Create">Cadastrar Roupa</a>|
+                        <a asp-action="Index" asp-controller="Anuncios" asp-route-id="@item.Id">Meus Anúncios</a>
+                        <a asp-action="Index" asp-controller="Produtos" class="btn btn-primary" asp-action="Edit" as@*p-route-id="@item.Id">Editar Produtos</a> |*@
+@*
+<body>
+
+
+	<main>
+		<div class="container-principal">
+			<h1>Bem vindo usuário xxxx</h1>
+			<div class="principais-funcionalidades">
+
+				<div class="quadrados">
+					<img src="../img/Group.png" alt="">
+					<p>
+						<a href="#">Criar novo anúncio</a>
+					</p>
+				</div>
+				<div class="quadrados">
+					<img src="../img/Group (1).png" alt="">
+					<p>
+						<a href="#">Buscar roupas</a>
+					</p>
+				</div>
+				<div class="quadrados">
+					<img src="../img/Sweater.png" alt="">
+					<p>
+						<a href="#">Meu guarda roupa</a>
+					</p>
+				</div>
+				<div class="quadrados">
+					<img src="../img/Sol.png" alt="">
+					<p>
+						<a href="#">Configurações</a>
+					</p>
+				</div>
+			</div> <!--principais-funcionalidades-->
+		</div> <!-- .container-principal-->
+	</main>
+
+	<footer class="footer-principal">
+		<div class="conteudo__footer">
+			<p class="conteudo__footer__frase">App Version - V1.0</p>
+			<p class="conteudo__footer__frase">ALL RIGHTS RESERVED TO BABYBAY © 2022</p>
+		</div> <!-- .conteudo__footer-->
+	</footer> <!-- .footer-principal" -->
+
+</body>
+</html>*@
+
+<!--
+	*** NÃO USAR ID
+	Exemplo nomenclatura de classes:
+.bloco-principal { padding:15px; }
+.bloco-principal__artigo { max-width:600px; }
+.bloco-principal__artigo--fundo-cinza { background: #c9c9c9; }
+-->

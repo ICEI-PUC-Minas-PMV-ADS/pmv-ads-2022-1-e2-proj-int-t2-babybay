@@ -25,7 +25,8 @@ namespace app_babybay.Controllers
         // GET: Produtos
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Produtos.Include(c => c.Usuario);
+            var applicationDbContext = _context.Produtos.Include(c => c.Usuario);          
+
             return View(await _context.Produtos.ToListAsync());
         }
 
