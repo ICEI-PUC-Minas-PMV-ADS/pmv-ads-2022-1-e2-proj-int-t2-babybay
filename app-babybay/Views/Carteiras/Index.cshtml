@@ -17,6 +17,7 @@
     <link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
     <link rel="stylesheet" href="~/css/Carteira.css">
     
+     
     <title>BabyBay</title>
 </head>
 
@@ -35,21 +36,21 @@
                 <h3>3 BabyCoins por R$ 10</h3>
                 <img src="~/img/coin.png" alt="coin">
                 <li>
-                    <input type="submit" asp-action="Deposita10"asp-controller="Carteiras"value="Light"asp-route-id="@item.Id" id="btn-confirmar" >       
+                    <a role="button" asp-action="Deposita10"asp-controller="Carteiras"asp-route-id="@item.Id" class="btn btn-primary">Light</a>       
                 </li>        
             </div>
             <div class="card-white">
                 <h3>6 BabyCoins por R$ 20</h3>
                 <img src="~/img/coin.png" alt="coin">
                 <li>
-                    <input type="submit"asp-action="Deposita20"asp-controller="Carteiras" value="Standard"asp-route-id="@item.Id"  id="btn-confirmar">       
+                      <a role="button"asp-action="Deposita20"asp-controller="Carteiras" value="VIP" asp-route-id="@item.Id" class="btn btn-primary">Standard</a>             
                 </li>        
             </div>
             <div class="card-white">
                 <h3>12 BabyCoins por R$ 30</h3>
                 <img src="~/img/coin.png" alt="coin">
                 <li>
-                    <input type="submit"asp-action="Deposita30"asp-controller="Carteiras" value="VIP" asp-route-id="@item.Id" id="btn-confirmar">       
+                    <a role="button"asp-action="Deposita30"asp-controller="Carteiras" value="VIP" asp-route-id="@item.Id" class="btn btn-primary">VIP</a>       
                 </li>            
             </div>
         </div>
