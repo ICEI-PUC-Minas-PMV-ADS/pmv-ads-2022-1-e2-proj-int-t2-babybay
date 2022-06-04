@@ -33,6 +33,8 @@ namespace app_babybay.Models
         [ForeignKey("AnunciooId")]
         public Anuncio Anuncio { get; set; }
 
+        //public ICollection<Anuncio> Anuncios { get; set; }
+
         public void Receber(int quantidade)
         {
             Quantidade += quantidade;

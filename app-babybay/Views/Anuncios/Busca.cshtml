@@ -46,43 +46,81 @@
 					<td>
 						@Html.DisplayFor(modelItem => item.Titulo)
 					</td>
-				@*	<td>
-						@Html.DisplayFor(modelItem => item.Produto.Id)
-					</td>
+					@*	<td>
+				@Html.DisplayFor(modelItem => item.Produto.Id)
+				</td>
+				<td>
+				@Html.DisplayFor(modelItem => item.Produto.Nome)
+				</td>
+				<td>
+				@Html.DisplayFor(modelItem => item.Produto.Idade)
+				</td>*@
 					<td>
-						@Html.DisplayFor(modelItem => item.Produto.Nome)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Produto.Idade)
-					</td>*@
-					<td>
-						<a asp-controller="Trocas" asp-action="Create" class="btn btn-primary">Eu quero!</a>
+						<a asp-controller="Trocas" asp-action="Create" class="btn btn-primary">Eu Quero!</a>
 					</td>
 				</tr>
 			}
+
 		</tbody>
 	</table>
 </section>
 
 
+@*
 
-			@*foreach (var item in Model)
-			{
-				<tr>
-					<td>
-						@Html.DisplayFor(modelItem => item.AnuncioId)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Titulo)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Id)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Nome)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Idade)
-					</td>
-				</tr>
-			}*@
+<section>
+	<table class="table">
+		<tbody>
+			<!--content-->
+			<div class="container">
+				<h2 class="text-center p-5 titulo">Solicitar item</h2>
+				<div class="d-flex justify-content-evenly">
+					<div class="card">
+						<!--Imagem-->
+						<img class="card-image" src="../img/roupa2.jpeg">
+						<div class="card-infos">
+							<div class="card-description">
+								<h2>Macacão</h2>
+								<p>Branco, pequena mancha</p>
+								<p class="idade">0 - 1 ano</p>
+							</div>
+							<div class="card-price">
+								<h2>1 BC</h2>
+							</div>
+						</div>
+					</div><!--.card--> <!--Imagem-->
+					<div class="item">
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+							<label class="form-check-label" for="flexRadioDefault1">
+								<h5>Utilizar meus babycoins</h5>
+							</label>
+						</div>
+						<div class="form-check">
+							<br>
+							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+							<label class="form-check-label" for="flexRadioDefault2">
+								<h5>Sugerir troca</h5>
+							</label>
+						</div>
+						</label>
+						<div class="input-group">
+							<select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+								<option selected>Quer trocar por qual peça?</option>
+								<option value="1">Roupa 1</option>
+								<option value="2">Roupa 2</option>
+								<option value="3">Roupa 3</option>
+							</select>
+							<button class="btn btn-outline-secondary" type="button">Escolher</button>
+						</div>
+						<br>
+						<button type="button" class="btn btn-primary">Enviar pedido</button>
+					</div>
+
+				</div>
+			</div>
+			<!--.wrapper-->
+		</tbody>
+	</table>
+</section>
+*@
