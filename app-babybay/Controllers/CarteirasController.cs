@@ -36,7 +36,7 @@ namespace app_babybay.Controllers
                 ViewBag.Message = "Depósito realizado com sucesso";
                 _context.Update(carteiraUser);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return View("CompraConfirmada_10");
        
         }
         public async Task<IActionResult> Deposita20(int Id, Carteira carteira, Usuario usuario)
@@ -48,7 +48,7 @@ namespace app_babybay.Controllers
             ViewBag.Message = "Depósito realizado com sucesso";
             _context.Update(carteiraUser);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return View("CompraConfirmada_20");
 
         }
         public async Task<IActionResult> Deposita30(int Id, Carteira carteira, Usuario usuario)
@@ -60,7 +60,7 @@ namespace app_babybay.Controllers
             ViewBag.Message = "Depósito realizado com sucesso";
             _context.Update(carteiraUser);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return View("CompraConfirmada_30");
 
         }
 

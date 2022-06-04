@@ -4564,3 +4564,6 @@ C:\Users\user\RiderProjects\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\ob
 C:\Users\user\RiderProjects\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\ref\app-babybay.dll
 C:\Users\user\source\repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\Busca.cshtml.g.cs
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\Busca.cshtml.g.cs
+C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Carteiras\CompraConfirmada_10.cshtml.g.cs
+C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Carteiras\CompraConfirmada_20.cshtml.g.cs
+C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Carteiras\CompraConfirmada_30.cshtml.g.cs
