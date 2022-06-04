@@ -21,10 +21,13 @@
 </head>
 
 <body>  
-
+@foreach (var item in Model)
+		{
+			if (User.Identity.Name == item.Usuario.Nome)
+			{
 <main>
     <div class="div-comprababycoin">
-        <h1>Compra de BabyCoins</h1>
+        <h3>Olá @User.Identity.Name, você pode realizar a compra de Compra de BabyCoins com os planos abaixo,o saldo da sua carteira é de  @item.Saldo Babycoins</h3>
     </div>
     <h3>Sem peças para postar em troca de BabyCoins? Sem problema! Compre mais e receba o saldo em sua carteira em até 3 dias úteis*.</h3>
         <div class="section-c"> 
@@ -32,21 +35,21 @@
                 <h3>3 BabyCoins por R$ 10</h3>
                 <img src="~/img/coin.png" alt="coin">
                 <li>
-                    <input type="submit" value="Light" id="btn-confirmar" >       
+                    <input type="submit" asp-action="Deposita10"asp-controller="Carteiras"value="Light"asp-route-id="@item.Id" id="btn-confirmar" >       
                 </li>        
             </div>
             <div class="card-white">
                 <h3>6 BabyCoins por R$ 20</h3>
                 <img src="~/img/coin.png" alt="coin">
                 <li>
-                    <input type="submit" value="Standard" id="btn-confirmar">       
+                    <input type="submit"asp-action="Deposita20"asp-controller="Carteiras" value="Standard"asp-route-id="@item.Id"  id="btn-confirmar">       
                 </li>        
             </div>
             <div class="card-white">
                 <h3>12 BabyCoins por R$ 30</h3>
                 <img src="~/img/coin.png" alt="coin">
                 <li>
-                    <input type="submit" value="VIP" id="btn-confirmar">       
+                    <input type="submit"asp-action="Deposita30"asp-controller="Carteiras" value="VIP" asp-route-id="@item.Id" id="btn-confirmar">       
                 </li>            
             </div>
         </div>
@@ -61,8 +64,8 @@
     </li>
 
 </main>
-
-
+}
+}
 
 </body>
 

@@ -27,17 +27,41 @@ namespace app_babybay.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        public async Task<IActionResult> Depositar(int Id, int Deposito, Carteira carteira, Usuario usuario)
+        public async Task<IActionResult> Deposita10(int Id, int Deposito, Carteira carteira, Usuario usuario)
         {
             var carteiraUser = await _context.Carteiras.FirstOrDefaultAsync(m => m.Id == carteira.Id);
           
-                carteiraUser.Receber(Deposito);
+                carteiraUser.Receber(10);
 
                 ViewBag.Message = "Depósito realizado com sucesso";
                 _context.Update(carteiraUser);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
        
+        }
+        public async Task<IActionResult> Deposita20(int Id, Carteira carteira, Usuario usuario)
+        {
+            var carteiraUser = await _context.Carteiras.FirstOrDefaultAsync(m => m.Id == carteira.Id);
+
+            carteiraUser.Receber(20);
+
+            ViewBag.Message = "Depósito realizado com sucesso";
+            _context.Update(carteiraUser);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+
+        }
+        public async Task<IActionResult> Deposita30(int Id, Carteira carteira, Usuario usuario)
+        {
+            var carteiraUser = await _context.Carteiras.FirstOrDefaultAsync(m => m.Id == carteira.Id);
+
+            carteiraUser.Receber(30);
+
+            ViewBag.Message = "Depósito realizado com sucesso";
+            _context.Update(carteiraUser);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+
         }
 
         // GET: Carteiras/Details/5

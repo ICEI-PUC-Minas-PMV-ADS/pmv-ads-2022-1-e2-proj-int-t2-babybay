@@ -26,7 +26,19 @@ namespace app_babybay.Models
         {
             if (quantidade > 0)
             {
-                Saldo += quantidade;
+                if (quantidade == 10)
+                {
+                    Saldo += 3;
+                }
+                else if (quantidade == 20)
+                {
+                    Saldo += 6;
+                }
+                else if (quantidade == 30)
+                {
+                    Saldo += 12;
+                }
+
             }
             
         }
