@@ -6,7 +6,9 @@
 
 <h1>TESTE DE TROCA</h1>
 
-<h4>Falta adaptar view lá embaixo (solicitar item)</h4>
+<h4>Aqui tem que aparecer já os dados do anúncio e não um drop down</h4>
+<h4>Está redirecionando para index da troca, por enquanto.</h4>
+<h4>Tem que redirecionar para um view e trabalhar essa view para pegar as informações de ambos usuários</h4>
 <hr />
 <div class="row">
 	<div class="col-md-4">
@@ -20,10 +22,6 @@
 			<div class="form-group">
 				<input type="submit" asp-controller="Trocas" asp-action="Index" value="Solicitar Troca" class="btn btn-primary" />
 			</div>
-			@*<div>
-				<a asp-controller="Anuncios" asp-action="CurtirAnuncio" asp-route-id="@Model.UsuarioId">Curtir</a>
-			</div>*@		
-			
 		</form>
 	</div>
 </div>
@@ -36,62 +34,4 @@
 	}
 	}
 
-	<!-- View de Troca -->
-	<section>
-		<table class="table">
-			<tbody>
-				<!--content-->
-				<div class="container">
-					<h2 class="text-center p-5 titulo">Solicitar item</h2>
-					<div class="d-flex justify-content-evenly">
-						<div class="card">
-							<!--Imagem-->
-							<img class="card-image" src="../img/roupa2.jpeg">
-							<div class="card-infos">
-								<div class="card-description">
-									<h2>Macacão</h2>
-									<p>Branco, pequena mancha</p>
-									<p class="idade">0 - 1 ano</p>
-								</div>
-								<div class="card-price">
-									<h2>1 BC</h2>
-								</div>
-							</div>
-						</div><!--.card--> <!--Imagem-->
-						<div class="item">
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-								<label class="form-check-label" for="flexRadioDefault1">
-									<h5>Utilizar meus babycoins</h5>
-								</label>
-							</div>
-							<div class="form-check">
-								<br>
-								<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-								<label class="form-check-label" for="flexRadioDefault2">
-									<h5>Sugerir troca</h5>
-								</label>
-							</div>
-							</label>
-							<div class="input-group">
-								<select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-									<option selected>Quer trocar por qual peça?</option>
-									<option value="1">Roupa 1</option>
-									<option value="2">Roupa 2</option>
-									<option value="3">Roupa 3</option>
-								</select>
-								<button class="btn btn-outline-secondary" type="button">Escolher</button>
-							</div>
-							<br>
-							<button type="button" class="btn btn-primary">Enviar pedido</button>
-						</div>
-
-					</div>
-				</div>
-				<!--.wrapper-->
-			</tbody>
-		</table>
-		<div>
-			<a asp-controller="Home" asp-action="Index" asp- class="btn btn-primary">Voltar</a>
-		</div>
-	</section>
+	

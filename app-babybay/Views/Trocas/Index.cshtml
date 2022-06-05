@@ -22,8 +22,8 @@
 				@Html.DisplayNameFor(model => model.Date)
 			</th>
 			@*            <th>
-				@Html.DisplayNameFor(model => model.Quantidade)
-				</th>*@
+			@Html.DisplayNameFor(model => model.Quantidade)
+			</th>*@
 			<th></th>
 		</tr>
 	</thead>
@@ -40,9 +40,12 @@
 				<td>
 					@Html.DisplayFor(modelItem => item.Date)
 				</td>
-				@*            <td>
-					@Html.DisplayFor(modelItem => item.Quantidade)
-					</td>   *@
+				<td>
+					@Html.DisplayFor(modelItem => item.Anuncio.Titulo)
+				</td>
+				@*				            <td>
+			@Html.DisplayFor(modelItem => item.Quantidade)
+			</td>  *@
 				<td>
 					<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
 					<a asp-action="Details" asp-route-id="@item.Id">Details</a> |
@@ -52,3 +55,4 @@
 		}
 	</tbody>
 </table>
+

@@ -56,7 +56,7 @@
 				@Html.DisplayFor(modelItem => item.Produto.Idade)
 				</td>*@
 					<td>
-						<a asp-controller="Trocas" asp-action="Create" class="btn btn-primary">Eu Quero!</a>
+						<a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.AnuncioId" class="btn btn-primary">Eu Quero!</a>
 					</td>
 				</tr>
 			}

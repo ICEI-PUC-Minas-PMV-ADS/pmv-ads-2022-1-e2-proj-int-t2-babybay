@@ -16,15 +16,17 @@ namespace app_babybay.Controllers
         private readonly ApplicationDbContext _context;
 
         public TrocasController(ApplicationDbContext context)
-        {
+        {   
             _context = context;
         }
 
         // GET: Trocas
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-           // var applicationDbContext = _context.Trocas.Include(c => c.Produto); // Inserido
-            return View();
+            var applicationDbContext = _context.Trocas
+                .Include(c => c.Produto)
+                .Include(a => a.Anuncio); 
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Trocas/Details/5
