@@ -44,12 +44,71 @@ namespace app_babybay.Controllers
             if (anuncio == null)
             {
                 return NotFound();
-            }   
-            
+            }
 
             // Aqui precisa pegar somente os anuncios do ususario logado
-            ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo");         
+            ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo");
 
+            return View(anuncio);
+        }
+
+        public async Task<IActionResult> SolicitarTroca(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var anuncio = await _context.Anuncios
+                .Include(a => a.Produto)
+                .Include(a => a.Usuario)
+                .FirstOrDefaultAsync(m => m.AnuncioId == id);
+
+            if (anuncio == null)
+            {
+                return NotFound();
+            }
+
+            // Aqui precisa pegar somente os anuncios do ususario logado
+            //ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo");
+
+            return View(anuncio);
+        }
+
+        public async Task<ActionResult> AceitarTroca(int? id) // id do anuncio (de quem anunciou)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var anuncio = await _context.Anuncios
+                .Include(a => a.Produto)
+                .Include(a => a.Usuario)         // Usuário anunciante
+                .FirstOrDefaultAsync(m => m.AnuncioId == id);
+
+            // Pegando o usuário logado (Cliente)
+            Usuario usuarioCliente = new Usuario();
+            usuarioCliente = await _context.Usuarios
+               .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
+
+            if (anuncio == null)
+            {
+                return NotFound();
+            }
+
+            // CLIENTE: Chama o método em troca - OK
+            var troca = new Troca();
+            var produtoRecebido = troca.Receber(anuncio.Produto);    // Retorna o produto
+            produtoRecebido.Usuario = usuarioCliente;                // Seta o usuário cliente no produto recebido
+                                                                               
+            _context.Update(produtoRecebido);   // Atualiza no banco - Cliente
+            await _context.SaveChangesAsync();
+                      
+            _context.Anuncios.Remove(anuncio);  // Excluindo Anúncio - Anunciante
+            await _context.SaveChangesAsync();           
+
+            // (RedirectToAction("DeleteTroca"));         
             return View(anuncio);
         }
 
@@ -57,7 +116,6 @@ namespace app_babybay.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Busca(int? idadeProduto, string nomeProduto, Categoria? categoria)
         {
-
             var buscaAnuncio = from m in _context.Anuncios
                                select m;
 
@@ -132,8 +190,6 @@ namespace app_babybay.Controllers
             }
             //return View(await buscaAnuncio.ToListAsync());
         }
-
-
 
         // GET: Anuncios/Create   
         public async Task<IActionResult> CurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)//Aqui chama o o método da classe para curtir o produto
@@ -244,6 +300,7 @@ namespace app_babybay.Controllers
             return _context.Anuncios.Any(e => e.AnuncioId == id);
         }
     }
+
 }
 
 

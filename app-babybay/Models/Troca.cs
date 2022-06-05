@@ -35,30 +35,43 @@ namespace app_babybay.Models
 
         //public ICollection<Anuncio> Anuncios { get; set; }
 
-        public void Receber(int quantidade)
-        {
-            Quantidade += quantidade;
-        }
-
-        public bool Retirar(int quantidade)
-        {
-            if (quantidade < 0)
+        // Método para realizar a troca do produto
+        public Produto Receber(Produto produto)
+        {         
+            if(produto == null)
             {
-                return false;
+                return null;
             }
-            Quantidade -= quantidade;
-            return true;
-        }
+            var produtoRecebido = produto;
 
-        public void Transferir(int quantidade, Produto produtoDestino)
-        {
-            if (quantidade < 0)
-            {
-                return;
-            }
-            Retirar(quantidade);
-            produtoDestino.Receber(quantidade);
-        }
+            return produtoRecebido;
+        }   
+
+
+        //public void Receber(int quantidade)
+        //{
+        //    Quantidade += quantidade;
+        //}
+
+        //public bool Retirar(int quantidade)
+        //{
+        //    if (quantidade < 0)
+        //    {
+        //        return false;
+        //    }
+        //    Quantidade -= quantidade;
+        //    return true;
+        //}
+
+        //public void Transferir(int quantidade, Produto produtoDestino)
+        //{
+        //    if (quantidade < 0)
+        //    {
+        //        return;
+        //    }
+        //    Retirar(quantidade);
+        //    produtoDestino.Receber(quantidade);
+        //}
 
     }
 }

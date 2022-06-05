@@ -50,6 +50,7 @@ namespace app_babybay.Controllers
         }
 
 
+
         // GET: Trocas/Create
         public IActionResult Create()
         {           
@@ -62,7 +63,6 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,AnunciooId,UsuarioId")] Troca troca)
         {
-
          
             Anuncio anunciante = new Anuncio();
             var user = _context.Usuarios.FirstOrDefault(s => s.Nome == User.Identity.Name);/*Aqui ele busca o usuário LOGADO pelo seu nome
