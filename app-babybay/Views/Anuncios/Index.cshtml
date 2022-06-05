@@ -5,7 +5,7 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Anuncios de @User.Identity.Name</h1>
 
 <p>
 	<a asp-action="Create">Create New</a>
@@ -13,9 +13,9 @@
 <table class="table">
 	<thead>
 		<tr>
-			<th>
+			@*<th>
 				@Html.DisplayNameFor(model => model.Usuario)
-			</th>
+			</th>*@
 			<th>
 				@Html.DisplayNameFor(model => model.Produto)
 			</th>
@@ -23,7 +23,7 @@
 				@Html.DisplayNameFor(model => model.Titulo)
 			</th>
 		
-			<th>
+			<th width="700px">
 				Alguém está querendo trocar?
 			</th>
 		</tr>
@@ -33,31 +33,31 @@
 		{
 			if (User.Identity.Name == item.Usuario.Nome)
 			{
-				<tr>
-					<td>
+				<tr style="width:100vw">
+					@*<td>
 						@Html.DisplayFor(modelItem => item.Usuario.Nome)
-					</td>
-					<td>
+					</td>*@
+					<td width="300px">
 						@Html.DisplayFor(modelItem => item.Produto.Nome)
 					</td>
-					<td>
+					<td width="300px">
 						@Html.DisplayFor(modelItem => item.Titulo)
 					</td>
-					<td width="300px">
+					<td width="700px">
 						@if(item.InteresseTroca){
 							<p>Tem sim,Hoje é seu dia de sorte</p>
 							<a class="btn btn-primary" asp-action="Create"asp-controller="Trocas" asp-route-id="@item.AnuncioId">Aceitar troca</a>
 						}
 						else
 						{
-							<p>Infelizmente não meu consagrado</p>
+							<p>No momento este anúncio produto não possui interessados em trocas</p>
 						}
 
 					</td>
-					<td style="width:700px;">						
-						<a class="btn btn-primary" asp-action="Details" asp-route-id="@item.AnuncioId">Details</a> |
-						<a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.AnuncioId">Delete</a>
-						<a role="button" class="btn btn-primary" asp-controller="Anuncios" asp-action="CurtirAnuncio" asp-route-id="@item.AnuncioId">Favoritar Anuncio</a>
+					<td style="width:1400px;">						
+@*						<a class="btn btn-primary" asp-action="Details" asp-route-id="@item.AnuncioId">Detalhes</a> |*@
+						<a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.AnuncioId">Deletar Anúncio</a>|
+						<a role="button" class="btn btn-primary" asp-controller="Anuncios" asp-action="CurtirAnuncio" asp-route-id="@item.AnuncioId">Favoritar Anuncio</a>|
 						<a role="button" class="btn btn-primary" asp-controller="Anuncios" asp-action="DescurtirAnuncio" asp-route-id="@item.AnuncioId">Tirar dos favoritos</a>
 					</td>
 				</tr>
