@@ -43,9 +43,10 @@
 					<td>
 						@Html.DisplayFor(modelItem => item.Titulo)
 					</td>
-					<td>
+					<td width="300px">
 						@if(item.InteresseTroca){
 							<p>Tem sim,Hoje é seu dia de sorte</p>
+							<a class="btn btn-primary" asp-action="Create"asp-controller="Trocas" asp-route-id="@item.AnuncioId">Aceitar troca</a>
 						}
 						else
 						{
