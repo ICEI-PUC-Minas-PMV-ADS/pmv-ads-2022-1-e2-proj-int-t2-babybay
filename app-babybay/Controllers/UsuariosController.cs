@@ -36,8 +36,8 @@ namespace app_babybay.Controllers
         {
             // Percorre o BD de forma assíncrona e compara o Id passado no método com o Id presente no BD
             var user = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.Email == usuario.Email);          
-                       
+                .FirstOrDefaultAsync(m => m.Email == usuario.Email);
+
             // Se null, exibe msg e volta pro login
             if (user == null)
             {
@@ -54,7 +54,7 @@ namespace app_babybay.Controllers
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, user.Nome),
-                    new Claim(ClaimTypes.NameIdentifier, user.Nome),                    
+                    new Claim(ClaimTypes.NameIdentifier, user.Nome),
                 };
 
                 var userIdentify = new ClaimsIdentity(claims, "login");
@@ -150,6 +150,28 @@ namespace app_babybay.Controllers
         [AllowAnonymous]    // Rota pública
         public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Cpf,Telefone,Rua,Bairro,Cidade,Estado,Email,Senha,ConfirmarSenha")] Usuario usuario)
         {
+
+            var usuarioBanco = await _context.Usuarios.FirstOrDefaultAsync(m => m.Email == usuario.Email) ;//Procura por qualquer email que seja igual ao email digitado,se sim retorna true se não false
+
+             if (usuarioBanco.Email == usuario.Email && usuarioBanco.Cpf == usuario.Cpf)//Compara se o email e cpf digitados já esta no banco de dados
+            {
+
+                ViewBag.Message = "Não é possivel cadastrar esse Email e CPF, já existe um usuário com este Email e CPF";
+                return View();
+            }
+            else if (usuarioBanco.Email == usuario.Email)//Compara se o email digitado está no banco de dados
+            {
+                ViewBag.Message = "O Email ja esta cadastrado";
+                return View();
+            }
+            else if (usuarioBanco.Cpf == usuario.Cpf)
+            {
+                ViewBag.Message = "Não é possivel cadastrar esse CPF, já existe um usuário com esses dados";
+                return View();
+
+            }
+            
+            
                /*Aqui ele ira comparar se a senha e o confirmar senha são iguais,caos sejam ele da proseguimento a criação do usuários
                 caso não sejam iguais,ele retorna a mesma pagina,ver depois como colocar mensagem de senha diferentes embaixo do display                                        */
             if (ModelState.IsValid && usuario.Senha == usuario.ConfirmarSenha)
@@ -244,13 +266,26 @@ namespace app_babybay.Controllers
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [AllowAnonymous]
+        public async Task<IActionResult> Delete(int id,string SenhaDelete)
         {
+            
             var usuario = await _context.Usuarios.FindAsync(id);
-            _context.Usuarios.Remove(usuario);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            bool senhaOk = BCrypt.Net.BCrypt.Verify(SenhaDelete,usuario.Senha);
+            if (senhaOk)
+            {
+                _context.Usuarios.Remove(usuario);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+
+            }
+            else
+            {
+                ViewBag.Message = "Senha inválida,tente novamente";
+                return RedirectToAction("Delete");
+            }
         }
+
 
         private bool UsuarioExists(int id)
         {
