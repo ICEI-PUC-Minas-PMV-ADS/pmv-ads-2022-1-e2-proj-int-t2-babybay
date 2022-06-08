@@ -57,5 +57,5 @@
 </div>
 <div>
     <a asp-controller="Anuncios" asp-action="AceitarTroca" asp-route-id="@Model.AnuncioId" class="btn btn-primary">Confirmar Troca</a>
-    <a asp-controller="Anuncios" asp-action="Details" class="btn btn-primary">Voltar</a>
+    <a asp-controller="Anuncios" asp-action="Details" class="btn btn-primary" asp-route-id= "@Model.AnuncioId">Voltar</a>
 </div>

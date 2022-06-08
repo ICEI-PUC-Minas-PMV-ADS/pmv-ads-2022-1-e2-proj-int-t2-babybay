@@ -11,21 +11,21 @@
 		<article class="article-busca">
 			<div class="article__busca--contorno">
 				<div class="menu-busca">
-					<input class="input__busca" type="search" name="input-buscar" id="input-buscar"
-						   placeholder="Busque uma roupa"> <!-- .input__busca-->
+					@*<input class="input__busca" type="search" name="input-buscar" id="input-buscar"
+						   placeholder="Busque uma roupa"> <!-- .input__busca-->*@
 					@using (Html.BeginForm("Busca", "Anuncios", FormMethod.Post))
 					{
-						<h2>Nome do produto</h2>
-						@Html.TextBox("Produto")
+						@*<h2>Nome do produto</h2>	*@					
+						@Html.TextBox("nomeProduto")
 
-						<h2>Idade</h2>
-						@Html.TextBox("Idade")
+						<h6>Idade</h6>
+						@Html.TextBox("idadeProduto")
 
-						<h2>Categoria</h2>
+						<h6>Categoria</h6>
 						@Html.DropDownList("Categoria",
 					new SelectList(Enum.GetValues(typeof(Categoria))),
 					"Selecione",
-					new {@class = "form-control"})
+					new {@class = "input__selected"})
 						<input class="input__busca--botao" type="submit" value="Buscar" />
 					}
 				</div> <!-- .menu__busca -->

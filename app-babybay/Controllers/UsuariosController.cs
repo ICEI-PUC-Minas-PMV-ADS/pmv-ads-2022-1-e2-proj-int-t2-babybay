@@ -149,49 +149,39 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         [AllowAnonymous]    // Rota pública
         public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Cpf,Telefone,Rua,Bairro,Cidade,Estado,Email,Senha,ConfirmarSenha")] Usuario usuario)
-        {
-
-            var usuarioBanco = await _context.Usuarios.FirstOrDefaultAsync(m => m.Email == usuario.Email) ;//Procura por qualquer email que seja igual ao email digitado,se sim retorna true se não false
-
-             if (usuarioBanco.Email == usuario.Email && usuarioBanco.Cpf == usuario.Cpf)//Compara se o email e cpf digitados já esta no banco de dados
-            {
-
-                ViewBag.Message = "Não é possivel cadastrar esse Email e CPF, já existe um usuário com este Email e CPF";
-                return View();
-            }
-            else if (usuarioBanco.Email == usuario.Email)//Compara se o email digitado está no banco de dados
-            {
-                ViewBag.Message = "O Email ja esta cadastrado";
-                return View();
-            }
-            else if (usuarioBanco.Cpf == usuario.Cpf)
-            {
-                ViewBag.Message = "Não é possivel cadastrar esse CPF, já existe um usuário com esses dados";
-                return View();
-
-            }
-            
-            
-               /*Aqui ele ira comparar se a senha e o confirmar senha são iguais,caos sejam ele da proseguimento a criação do usuários
-                caso não sejam iguais,ele retorna a mesma pagina,ver depois como colocar mensagem de senha diferentes embaixo do display                                        */
+        {         
+           /*Aqui ele ira comparar se a senha e o confirmar senha são iguais,caos sejam ele da proseguimento a criação do usuários. Saso não sejam iguais, ele retorna a mesma página*/
             if (ModelState.IsValid && usuario.Senha == usuario.ConfirmarSenha)
             {
-                // Criptografia
-                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
-                usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);
-                // Usuário context
-                _context.Add(usuario);
-                await _context.SaveChangesAsync();
+               // Procura email/cpf que seja igual ao email/cpf digitado
+                var usuarioBanco = await _context.Usuarios.FirstOrDefaultAsync(m => m.Email == usuario.Email || m.Cpf == usuario.Cpf);
 
-                // Carteira context: Passando o usuario para pegar a chave estrangeira 
-                var carteira = usuario.CriarCarteira();
-                carteira.Usuario = usuario;
-                _context.Add(carteira);
-                await _context.SaveChangesAsync();
+                if (usuarioBanco == null)   // Significa que não está cadastrado
+                {
+                    // Criptografia
+                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                    usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);
+                    
+                    // Usuário context
+                    _context.Add(usuario);
+                    await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                    // Carteira context: Passando o usuario para pegar a chave estrangeira 
+                    var carteira = usuario.CriarCarteira();
+                    carteira.Usuario = usuario;
+                    _context.Add(carteira);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction(nameof(Index));
+                }
+                // Se não entrou acima, ou seja, se não tem cadastro, exibe a msg:
+                ViewBag.Message = "O Email ou CPF já estão cadastrados.";
+                return View();           
             }
-            return View(usuario);//Caso ou estado do model esteja inválido ou as senhas estejam diferentes,ele retornara a a view do usuário,a atual no caso
+            // Se a senha e confirma senha estão incorretas
+            ViewBag.Message = "A senha não confere, verifique.";
+
+            return View(usuario); //Caso ou estado do model esteja inválido ou as senhas estejam diferentes, ele retornara a a view do usuário(atual)
         }
 
         // GET: Usuarios/Edit/5
@@ -219,7 +209,7 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
- 
+
             if (ModelState.IsValid)
             {
                 try
@@ -267,11 +257,11 @@ namespace app_babybay.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public async Task<IActionResult> Delete(int id,string SenhaDelete)
+        public async Task<IActionResult> Delete(int id, string SenhaDelete)
         {
-            
+
             var usuario = await _context.Usuarios.FindAsync(id);
-            bool senhaOk = BCrypt.Net.BCrypt.Verify(SenhaDelete,usuario.Senha);
+            bool senhaOk = BCrypt.Net.BCrypt.Verify(SenhaDelete, usuario.Senha);
             if (senhaOk)
             {
                 _context.Usuarios.Remove(usuario);
@@ -293,3 +283,5 @@ namespace app_babybay.Controllers
         }
     }
 }
+
+
