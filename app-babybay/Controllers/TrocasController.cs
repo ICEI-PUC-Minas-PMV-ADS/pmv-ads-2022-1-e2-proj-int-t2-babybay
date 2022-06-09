@@ -15,8 +15,10 @@ namespace app_babybay.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+       // public object Trocas { get; internal set; } // inserido
+
         public TrocasController(ApplicationDbContext context)
-        {   
+        {
             _context = context;
         }
 
@@ -25,7 +27,7 @@ namespace app_babybay.Controllers
         {
             var applicationDbContext = _context.Trocas
                 .Include(c => c.Produto)
-                .Include(a => a.Anuncio); 
+                .Include(a => a.Anuncio);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -50,10 +52,9 @@ namespace app_babybay.Controllers
         }
 
 
-
         // GET: Trocas/Create
         public IActionResult Create()
-        {           
+        {
             ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo");   // Para Criar o Select no create
             return View();
         }
@@ -61,45 +62,22 @@ namespace app_babybay.Controllers
         // POST: Trocas/Create 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,AnunciooId,UsuarioId")] Troca troca)
+        public async Task<IActionResult> Create([Bind("Id,ProdutoId,UsuarioId,Date,UsuarioClienteId,AnunciooId")] Troca troca)
         {
-         
-            Anuncio anunciante = new Anuncio();
-            var user = _context.Usuarios.FirstOrDefault(s => s.Nome == User.Identity.Name);/*Aqui ele busca o usuário LOGADO pelo seu nome
-            e pega seu id para posteriormente adicionar a lista do usuário QUE POSSUI O PRODUTO*/
-             
-            anunciante =  _context.Anuncios.FirstOrDefault(s => s.AnuncioId == troca.AnunciooId);/*Aqui faz uma busca e busca pelo 
-            id do produto selecionado,e guarda em uma instância do tipo anuncio anunciante,para posteriormente chamar o método que ira adicionar
-            na lista do USUARIO QUE TEM O PRODUTO o id do usuário interessado e o nome do produto(talvez possa ao inves de guardar o titulo do anuncio
-            Guarda o Id do produto*/
-            if (anunciante.UsuarioId == user.Id) /*Aqui compara caso o usuario do anunciate do produto for o mesmo do usuario logado,para não deixar
-                ele solicitar troca para ele mesmo*/
+            if (ModelState.IsValid)
             {
-                ViewBag.Message = "Você não pode escolher um produto que voce mesmo anunciou";
-               
-                return View("Create");
-            }
-           
-                ViewBag.Message="Solicitação de troca realizada com sucesso" ;
-                anunciante.AdicionarInteressado(user.Id, anunciante.Titulo);/*Aqui chama o método do anunciante para guardar em sua lista
-             o Id do usuário interessado e o produto interessado(NOME OU ID,VER DEPOIS)*/
-
-                Produto produto = new Produto();
-                _context.Update(anunciante);
-                await _context.SaveChangesAsync();
-            
-            
-
-
-/*
-            if (ModelState.IsValid)                
-            {                             
                 _context.Add(troca);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
-            }*/
-            /*ViewData["ProdutoId"] = new SelectList(_context.Produtos, "Id", "Nome", troca.ProdutoId); */// Para Criar o Select no create
-            return RedirectToAction("Create");
+            }
+            else
+            {
+                return NotFound();  
+            }
+
+            //return View(troca);
+           //return RedirectToAction("Create");
         }
 
 
@@ -190,3 +168,28 @@ namespace app_babybay.Controllers
         }
     }
 }
+
+
+//Anuncio anunciante = new Anuncio();
+//var user = _context.Usuarios.FirstOrDefault(s => s.Nome == User.Identity.Name);/*Aqui ele busca o usuário LOGADO pelo seu nome
+//e pega seu id para posteriormente adicionar a lista do usuário QUE POSSUI O PRODUTO*/
+
+//anunciante =  _context.Anuncios.FirstOrDefault(s => s.AnuncioId == troca.AnunciooId);/*Aqui faz uma busca e busca pelo 
+//id do produto selecionado,e guarda em uma instância do tipo anuncio anunciante,para posteriormente chamar o método que ira adicionar
+//na lista do USUARIO QUE TEM O PRODUTO o id do usuário interessado e o nome do produto(talvez possa ao inves de guardar o titulo do anuncio
+//Guarda o Id do produto*/
+//if (anunciante.UsuarioId == user.Id) /*Aqui compara caso o usuario do anunciate do produto for o mesmo do usuario logado,para não deixar
+//    ele solicitar troca para ele mesmo*/
+//{
+//    ViewBag.Message = "Você não pode escolher um produto que voce mesmo anunciou";
+
+//    return View("Create");
+//}
+
+//    ViewBag.Message="Solicitação de troca realizada com sucesso" ;
+//    anunciante.AdicionarInteressado(user.Id, anunciante.Titulo);/*Aqui chama o método do anunciante para guardar em sua lista
+// o Id do usuário interessado e o produto interessado(NOME OU ID,VER DEPOIS)*/
+
+//    Produto produto = new Produto();
+//    _context.Update(anunciante);
+//    await _context.SaveChangesAsync();

@@ -1,0 +1,32 @@
+﻿@model app_babybay.Models.Anuncio
+
+@{
+    ViewData["Title"] = "EnviarPedido";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h4>Confirmar Solicitação de Troca</h4>
+    <hr/>
+    <h4>@Model.Titulo</h4>
+    <p>Você deseja confirmar a solicitação de troca do produto @Model.Produto.Nome?</p>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            <p>Anunciante: </p>            
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Usuario.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            <p>Produto Desejado: </p> 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Produto.Nome)
+        </dd>           
+    </dl>
+</div>
+<div>
+    <a asp-controller="Anuncios" asp-action="ConfirmarSolicitacao" asp-route-id="@Model.AnuncioId" class="btn btn-primary">Confirmar Solicitação</a>
+    <a asp-controller="Anuncios" asp-action="Details" class="btn btn-primary" asp-route-id= "@Model.AnuncioId">Voltar</a>
+</div>

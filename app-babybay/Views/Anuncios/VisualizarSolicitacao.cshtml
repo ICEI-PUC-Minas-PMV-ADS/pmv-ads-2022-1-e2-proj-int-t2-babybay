@@ -1,0 +1,56 @@
+﻿@model app_babybay.Models.Anuncio
+
+@{
+    ViewData["Title"] = "VisualizarSolicitacao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>VisualizarSolicitacao</h1>
+
+<div>
+    <h4>Anuncio</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Usuario.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Produto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Produto.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClienteId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClienteId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InteresseTroca)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InteresseTroca)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    
+    <a asp-action="Index">Back to List</a>
+</div>

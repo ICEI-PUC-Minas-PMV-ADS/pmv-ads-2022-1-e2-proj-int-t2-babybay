@@ -46,7 +46,7 @@
 					<td width="700px">
 						@if(item.InteresseTroca){
 							<p>Tem sim,Hoje é seu dia de sorte</p>
-							<a class="btn btn-primary" asp-action="Create"asp-controller="Trocas" asp-route-id="@item.AnuncioId">Aceitar troca</a>
+							<a asp-controller="Anuncios" class="btn btn-primary" asp-action="VisualizarSolicitacao" asp-route-id="@item.AnuncioId">Ver Interessados</a>
 						}
 						else
 						{
