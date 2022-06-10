@@ -2,15 +2,26 @@
 
 @{
     ViewData["Title"] = "Cadastro de Usuário";
+    <link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
+    <link rel="stylesheet" href="~/css/style-cadastro-usuario.css">	
+	    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 
 
-<h3>Bem vindo, preencha o formulário abaixo para realizaro seu cadastro</h3>
+<h3 style="padding:10px">Bem vindo, preencha o formulário abaixo para realizaro seu cadastro</h3>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+
+
+        <article class="article-c" style="background-color:#B2D2EB;border-radius:8px;box-shadow:2px 2px 2px black"> 
+@*Aqui o style esta inline pois o do css não esta funcionando não sei porque*@
+       
+          <ul class="article-c__ul">
+
+          
         <form asp-action="Create">
+             <img src="~/favicon/apple-touch-icon.png" alt="Logo" style="width:60px;height:60px;">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
@@ -47,6 +58,8 @@
                 <input asp-for="Cidade" class="form-control" />
                 <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
+           
+
             <div class="form-group">
                 <label asp-for="Estado" class="control-label"></label>
                 <select asp-for="Estado" class="form-control" asp-items="Html.GetEnumSelectList<Estado>()"></select>
@@ -68,12 +81,16 @@
                 <span asp-validation-for="ConfirmarSenha" class="text-danger"></span>                
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
             </div>
         </form>
+          </ul>
+         </article>
+
+         
          <h4 style="width:917px">@ViewBag.Message</h4>   
-    </div>
-</div>
+ 
+</section>
 
 <div>
     <a asp-action="Index">Voltar</a>

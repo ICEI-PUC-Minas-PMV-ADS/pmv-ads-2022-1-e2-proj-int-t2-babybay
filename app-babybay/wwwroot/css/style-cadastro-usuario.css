@@ -50,20 +50,20 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
  
 }
 
-.article-c{
-    background-color: var(--clr--third-background);
-    border: 1px solid  var(--clr--border-box);
+.article-c {
+    background-color: var(--clr--pink-dark);
+    border: 1px solid var(--clr--border-box);
     box-shadow: var(--clr--box-shadow-content-nivel-3);
     margin: 40px;
-    padding: 30px; 
+    padding: 30px;
     /* flex*/
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    flex-grow: 1; 
-    flex-shrink: 1;   
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .article-c__ul{    
@@ -72,6 +72,7 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 200px;    
+  
 } 
 
 .article-c__ul > li{

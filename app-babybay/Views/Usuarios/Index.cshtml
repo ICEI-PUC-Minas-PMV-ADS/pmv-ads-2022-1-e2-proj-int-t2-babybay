@@ -18,19 +18,19 @@
 				  <h2>Bem vindo, @User.Identity.Name!</h2>
 				<div class="principais-funcionalidades">
 					<div class="quadrados">	
-						<img src="../img/coin.png" alt="">
+						<img src="~/img/coin.png" alt="">
 						<p>
 							<a asp-controller="Carteiras" asp-action="Index" asp-route-id="@item.Id">Minha Carteira</a>
 						</p>
 					</div>
 					<div class="quadrados">
-						<img src="../img/Group (1).png" alt="">
+						<img src="~/img/Group (1).png" alt="">
 						<p>
 							<a asp-controller="Home" asp-action="Index">Buscar roupas</a>
 						</p>
 					</div>
 					<div class="quadrados">
-						<img src="../img/Sweater.png" alt="">
+						<img src="~/img/Sweater.png" alt="">
 						<p>
 							<a asp-action="Relatorio" asp-route-id="@item.Id">Minhas Roupas</a>
 							
@@ -38,7 +38,7 @@
 						</p>
 					</div>
 					<div class="quadrados">
-						<img src="../img/Sol.png" alt="">
+						<img src="~/img/Sol.png" alt="">
 						<p>
 							<a asp-controller="Usuarios" asp-action="Details" asp-route-id="@item.Id">Minha Conta</a>
 						</p>
