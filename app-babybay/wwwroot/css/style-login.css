@@ -1,9 +1,19 @@
-﻿.container-main {
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container-main {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+    height:80vh;
+ 
   }
+h1{
+    font-weight:bold
+}
 
 .container-login { /* main */
     background-color: var(--clr--third-background);
@@ -22,7 +32,7 @@
 }
 
 .container-login__h1--titulo {
-    margin: 20px;
+    margin: 10px;
     font-size: 1.1em;
 }
 
@@ -30,10 +40,12 @@
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+    margin:auto
 }
 
 hr {
     width: 350px;
+    color:black;
 }
 
 span{
@@ -44,7 +56,7 @@ span{
     border-color: var(--clr--border-box);
     box-shadow: var(--clr--box-shadow);
     background: #ffffff;
-    border-radius: 10px;
+    border-radius: 6px;
     height: 40px;
     /* margin: 10px; */
     padding: 10px;
@@ -71,13 +83,14 @@ span{
     background-color: var(--clr-purple-dark);
     border-color: var(--clr--border-box);
     box-shadow: var(--clr--box-shadow);
-    border-radius: 50px;
+    border-radius: 30px;
     color: #FFFFFF;
     font-size: 1.2em;
     font-weight: bold;
     height: 40px;
     letter-spacing: 1px;
-    margin: 50px 15px;
+    margin: 40px 25%;
+
     min-width: 200px;
     text-shadow: var(--clr--text-shadow);
 
