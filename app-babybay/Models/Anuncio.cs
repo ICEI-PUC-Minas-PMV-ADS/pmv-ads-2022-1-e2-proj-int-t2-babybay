@@ -28,6 +28,8 @@ namespace app_babybay.Models
         public string Titulo { get; set; }
 
         public bool InteresseTroca { get; set; }
+
+        public string NomeInteressado { get;  private set; }
         [NotMapped]
         public Dictionary<int, string> listaInteressados { get;  private set; } = new Dictionary<int, string>();
         
@@ -48,19 +50,23 @@ namespace app_babybay.Models
         {
             AnuncioCurtido = false;
         }
-        public void AdicionarInteressado(int IdDoInteressado,string ProdutoInteressado)
+        public void AdicionarAnuncioInteressado()
         {
-            if(IdDoInteressado!= 0 && !String.IsNullOrEmpty(ProdutoInteressado))
-            {
-                listaInteressados.Add(IdDoInteressado, ProdutoInteressado);
+           
                 InteresseTroca = true;
-            }
-
       
         }
-        public void RemoverInteressados()
+        public void RemoverAnuncioInteresse()
         {
-            listaInteressados.Clear();//Remove todos as chaves e valores da lista
+            InteresseTroca = false;
+        }
+        public void AdicionarNomeInteressado(string Nome)
+        {
+            NomeInteressado = Nome;
+        }
+        public void RemoverNomeInteressado()
+        {
+            NomeInteressado = "";
         }
         public void CurtirAnuncio()/*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe
        para que assim ele estem método possa ser chamado por outro método no controle*/
@@ -78,6 +84,8 @@ namespace app_babybay.Models
                 ContadorCurtidas = 0;
             }
         }
+
+
         public void ZeraContador()//Aqui caso precise,esta um método para zerar contador
         {
             ContadorCurtidas = 0;

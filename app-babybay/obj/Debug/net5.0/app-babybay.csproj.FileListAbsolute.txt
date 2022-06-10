@@ -4572,7 +4572,9 @@ C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babyb
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Carteiras\CompraConfirmada_30.cshtml.g.cs
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\AceitarTroca.cshtml.g.cs
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\AceitarTroca.cshtml.g.cs
-C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\SolicitarTroca.cshtml.g.cs
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\EnviarPedido.cshtml.g.cs
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\ConfirmarSolicitacao.cshtml.g.cs
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\VisualizarSolicitacao.cshtml.g.cs
+C:\Users\user\source\repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\ConfirmarSolicitacao.cshtml.g.cs
+C:\Users\user\source\repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\EnviarPedido.cshtml.g.cs
+C:\Users\user\source\repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\VisualizarSolicitacao.cshtml.g.cs

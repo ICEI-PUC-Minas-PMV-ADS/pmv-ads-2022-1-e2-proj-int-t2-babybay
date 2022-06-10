@@ -99,10 +99,10 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
-
+            anuncio.AdicionarNomeInteressado(User.Identity.Name);//Adiciona o nome do cliente no Nome do clietne interessado na tabela anuncio]
+            anuncio.AdicionarAnuncioInteressado();   // Indica que há interesse na troca
             anuncio.ClienteId = usuarioCliente.Id; // Pega o usuário cliente (interessado)
-            anuncio.InteresseTroca = true;          // Indica que há interesse na troca
-
+            
             _context.Update(anuncio);               // Atualiza
             await _context.SaveChangesAsync();
 
