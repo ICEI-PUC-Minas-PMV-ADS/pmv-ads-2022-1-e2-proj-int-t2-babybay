@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using app_babybay.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Collections;
+using Microsoft.AspNetCore.Authentication;
 
 namespace app_babybay.Controllers
 {
@@ -250,8 +251,7 @@ namespace app_babybay.Controllers
                     buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
                     return View(await buscaAnuncio.ToListAsync());
                 }
-            }
-            //return View(await buscaAnuncio.ToListAsync());
+            }           
         }
 
         // GET: Anuncios/Create   
