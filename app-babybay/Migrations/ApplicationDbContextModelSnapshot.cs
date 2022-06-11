@@ -29,6 +29,9 @@ namespace app_babybay.Migrations
                     b.Property<bool>("AnuncioCurtido")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("ClienteId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ContadorCurtidas")
                         .HasColumnType("int");
 
@@ -38,7 +41,13 @@ namespace app_babybay.Migrations
                     b.Property<bool>("InteresseTroca")
                         .HasColumnType("bit");
 
+                    b.Property<string>("NomeInteressado")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PropostaAnuncioTroca")
                         .HasColumnType("int");
 
                     b.Property<string>("Titulo")

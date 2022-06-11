@@ -1,32 +1,40 @@
 ﻿@model app_babybay.Models.Anuncio
 
 @{
-    ViewData["Title"] = "EnviarPedido";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "EnviarPedido";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <div>
-    <h4>Confirmar Solicitação de Troca</h4>
-    <hr/>
-    <h4>@Model.Titulo</h4>
-    <p>Você deseja confirmar a solicitação de troca do produto @Model.Produto.Nome?</p>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            <p>Anunciante: </p>            
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Usuario.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            <p>Produto Desejado: </p> 
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Produto.Nome)
-        </dd>           
-    </dl>
+	<h4>Confirmar Solicitação de Troca</h4>
+	<hr />
+	<h4>@Model.Titulo</h4>
+	<p>Você deseja confirmar a solicitação de troca do produto @Model.Produto.Nome?</p>
+	<dl class="row">
+		<dt class="col-sm-2">
+			Anunciante:
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Usuario.Nome)
+		</dd>
+		<dt class="col-sm-2">
+			Produto desejado:
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Produto.Nome)
+		</dd>
+		<dt class="col-sm-2">
+			Produtos Cliente:
+		</dt>
+		@*<dt class="col-sm-10">
+			<label asp-for="AnuncioId" class="control-label"></label>
+			<select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" asp-for="AnuncioId" class="form-control" asp-items="ViewBag.AnuncioId"> </select>
+		</dt>*@
+	</dl>
+
 </div>
 <div>
-    <a asp-controller="Anuncios" asp-action="ConfirmarSolicitacao" asp-route-id="@Model.AnuncioId" class="btn btn-primary">Confirmar Solicitação</a>
-    <a asp-controller="Anuncios" asp-action="Details" class="btn btn-primary" asp-route-id= "@Model.AnuncioId">Voltar</a>
+	<a asp-controller="Anuncios" asp-action="SalvarPedido" asp-route-id="@Model.AnuncioId" class="btn btn-primary">Confirmar Solicitação</a>
+	<a asp-controller="Anuncios" asp-action="Details" class="btn btn-primary" asp-route-id="@Model.AnuncioId">Cancelar</a>
 </div>

@@ -30,9 +30,13 @@ namespace app_babybay.Models
         public bool InteresseTroca { get; set; }
 
         public string NomeInteressado { get;  private set; }
+        public int? PropostaAnuncioTroca { get; set; }
+
         [NotMapped]
         public Dictionary<int, string> listaInteressados { get;  private set; } = new Dictionary<int, string>();
         
+        [NotMapped]
+        public List<Anuncio> listaAnuncio = new List<Anuncio>();
 
         private DateTime _date = DateTime.Now;
 
@@ -56,18 +60,24 @@ namespace app_babybay.Models
                 InteresseTroca = true;
       
         }
+
         public void RemoverAnuncioInteresse()
         {
             InteresseTroca = false;
         }
+
         public void AdicionarNomeInteressado(string Nome)
         {
             NomeInteressado = Nome;
         }
+
         public void RemoverNomeInteressado()
         {
             NomeInteressado = "";
         }
+
+        
+
         public void CurtirAnuncio()/*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe
        para que assim ele estem método possa ser chamado por outro método no controle*/
         {

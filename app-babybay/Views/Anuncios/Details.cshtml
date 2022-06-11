@@ -19,6 +19,7 @@
 	<div class="container">
 		<h2 class="text-center p-5 titulo">@Html.DisplayFor(model => model.Titulo)</h2>
 		<div class="d-flex justify-content-evenly">
+
 			<div class="card">
 				<!--Imagem-->
 				<img class="card-image" src="../img/roupa2.jpeg">
@@ -34,7 +35,9 @@
 					</div>
 				</div>
 			</div><!--.card--> <!--Imagem-->
+
 			<div class="item">
+
 				<div class="form-check">
 					<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
 					<label class="form-check-label" for="flexRadioDefault1">
@@ -48,33 +51,37 @@
 						<h5>Sugerir troca</h5>
 					</label>
 				</div>
-				<div class="input-group">
-						<!-- Aqui tem que mostrar somente os anúncios do usuário logado-->
-						<select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" asp-for="Titulo" class="form-control" asp-items="ViewBag.AnuncioId" >
-					}
-						
-						@*<select asp-for="Produto" class="form-control" asp-items="ViewBag.ProdutoId"></select>*@
-						@*<option selected>Quer trocar por qual peça?</option>
-						<option value="1">Roupa 1</option>
-						<option value="2">Roupa 2</option>
-						<option value="3">Roupa 3</option>*@
-					</select>
-					<button class="btn btn-outline-secondary" type="button">Escolher</button>
-				</div>
-				<br>
-				<a asp-controller="Anuncios" asp-action="EnviarPedido" asp-route-id="@Model.AnuncioId" type="button" class="btn btn-primary">Enviar pedido</a>
+				<form asp-action="EnviarPedido" asp-route-id="@Model.AnuncioId">
+					<div class="input-group">
+						<!-- Aqui mostra somente os anúncios do usuário logado (cliente)-->
+						<select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" asp-for="AnuncioId" class="form-control" asp-items="ViewBag.AnuncioId">
+
+							@*<select asp-for="Produto" class="form-control" asp-items="ViewBag.ProdutoId"></select>*@
+							@*<option selected>Quer trocar por qual peça?</option>
+							<option value="1">Roupa 1</option>
+							<option value="2">Roupa 2</option>
+							<option value="3">Roupa 3</option>*@
+						</select>
+						<button class="btn btn-outline-secondary">Escolher</button>
+					</div>
+					<br>
+					<input class="btn btn-primary" type="submit" value="Enviar Pedido" />
+					@*<a asp-controller="Anuncios" asp-action="EnviarPedido" asp-route-id="@Model.AnuncioId" type="submit" class="btn btn-primary">Enviar pedido</a>*@
+					</form>	
 			</div>
+			
+
 			<div>
 				<a asp-controller="Home" asp-action="Index" asp- class="btn btn-primary">Voltar</a>
 			</div>
 
 		</div>
-	</div>	
+	</div>
 </section>
 
 
 @*
-						<div>	
+						<div>
 	<hr />
 	<dl class="row">
 		<dt class="col-sm-2">

@@ -1,0 +1,46 @@
+﻿@model app_babybay.Models.Anuncio
+
+@{
+	ViewData["Title"] = "SalvarPedido";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+	<h4>Parabéns, sua proposta foi enviada para @Model.Usuario.Nome</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Usuario.Email)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Usuario.Email)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Produto)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Produto.Nome)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Titulo)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Titulo)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Date)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Date)
+		</dd>	
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.PropostaAnuncioTroca)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.PropostaAnuncioTroca)
+		</dd>	
+	</dl>
+</div>
+<div>
+	<a asp-controller="Usuarios" asp-action="Index" class="btn btn-primary">Voltar para Menu</a>
+</div>

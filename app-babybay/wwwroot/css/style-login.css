@@ -22,7 +22,7 @@ h1{
     border-radius: 10px;
     /* height: 400px;      */
     padding: 30px;
-    margin: 130px auto;
+    margin: 80px auto;
     /*flex*/
     display: flex;
     flex-flow: column nowrap;
@@ -39,8 +39,8 @@ h1{
 .container-login__campo {
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
-    margin:auto
+    align-items: center;    
+    margin: auto;
 }
 
 hr {
@@ -110,6 +110,7 @@ span{
     color: #000;
     font-size: 1.1em;
     justify-content: space-between;
+    color: var(--clr-purple-dark);
 }
 
     .container-login__esqueceu-senha > a:hover {

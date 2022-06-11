@@ -29,7 +29,8 @@ namespace app_babybay.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Anuncios/Details/5
+        // GET: Anuncios/Details
+        // É chamado depois de clicar em "Eu Quero" na busca
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,24 +48,39 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-            // Aqui precisa pegar somente os anuncios do ususario logado
-            ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo");
+            // Usuário logado (cliente)
+            var usuarioCliente = await _context.Usuarios
+               .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
+
+            // Todos anúncios
+            var anuncioCliente = from aCliente in _context.Anuncios
+                                 select aCliente;
+
+            // Anúncios do Usuário Logado
+            anuncioCliente = anuncioCliente.Where(s => s.UsuarioId == usuarioCliente.Id);
+
+
+            // Passa pro SelectList somente os anúncios do cliente
+            ViewData["AnuncioId"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");
+            //TempData["AnuncioId"] = (anuncioCliente, "AnuncioId", "Titulo");       
 
             return View(anuncio);
         }
 
         // Mostrar informações do pedido.
-        // O botão que chama esse método está na tela depois do "eu quero" na busca
-        public async Task<IActionResult> EnviarPedido(int? id)
+        // O botão que chama esse método está na tela depois do "Enviar Pedido" 
+        // anuncioSelect é o anúncio selecionado pelo cliente para sugerir a troca com o anunciante
+        public async Task<IActionResult> EnviarPedido(int? id, [Bind("AnuncioId")] Anuncio anuncioSelect)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
+            // Usuário anunciante, anúncio e produto anunciado
             var anuncio = await _context.Anuncios
-                .Include(a => a.Produto)    // Produto Anunciado
-                .Include(a => a.Usuario)    // Usuario Anunciante
+                .Include(a => a.Produto)
+                .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
             if (anuncio == null)
@@ -72,38 +88,52 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
+            // Pegando todos os anuncios
+            var anuncioCliente = from aCliente in _context.Anuncios
+                                 select aCliente;
 
-            return View(anuncio);
-        }         
+            //// Pegando somente os anúncios do usuário logado
+            anuncioCliente = anuncioCliente.Where(s => s.Usuario.Nome.Contains(User.Identity.Name));
+
+            // Select somente dos anúncios do usuário logado
+            ViewData["AnuncioId"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");
+
+            // O new serve para passar o parâmetro id e o parâmetro do anuncioSelect para o método SalvarPedido
+            return RedirectToAction("SalvarPedido", new { id = id, anuncioSelectPropostaId = anuncioSelect.AnuncioId });
+        }
 
         // Vai salvar as informações do usuário interessado no anuncio do anunciante
         // Vai exibir uma pergunta para se o usuário quer realmente confirmar a solicitação de troca
-        public async Task<IActionResult> ConfirmarSolicitacao(int? id)
+        public async Task<IActionResult> SalvarPedido(int? id, int? anuncioSelectPropostaId)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
+            // Usuário anunciante, anúncio e produto anunciado
             var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)    // Produto Anunciado
                 .Include(a => a.Usuario)    // Usuario Anunciante
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
-            // Pegando o usuário logado (Cliente)
-            Usuario usuarioCliente = new Usuario();
-            usuarioCliente = await _context.Usuarios
+            // Pegando o usuário logado (Cliente)           
+            var usuarioCliente = await _context.Usuarios
                .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
 
             if (anuncio == null)
             {
                 return NotFound();
             }
-            anuncio.AdicionarNomeInteressado(User.Identity.Name);//Adiciona o nome do cliente no Nome do clietne interessado na tabela anuncio]
+
+            // Chamando métodos e fazendo as atribuições para salvar no DB
+            anuncio.AdicionarNomeInteressado(User.Identity.Name);  // Nome do cliente
             anuncio.AdicionarAnuncioInteressado();   // Indica que há interesse na troca
-            anuncio.ClienteId = usuarioCliente.Id; // Pega o usuário cliente (interessado)
-            
-            _context.Update(anuncio);               // Atualiza
+            anuncio.ClienteId = usuarioCliente.Id; // Pega o usuário cliente          
+            anuncio.PropostaAnuncioTroca = anuncioSelectPropostaId; // ID do anúncio proposto pelo cliente
+
+            // Atualiza Banco
+            _context.Update(anuncio);
             await _context.SaveChangesAsync();
 
             return View(anuncio);
@@ -165,12 +195,12 @@ namespace app_babybay.Controllers
             var troca = new Troca();
             var produtoRecebido = troca.Receber(anuncio.Produto);    // Retorna o produto
             produtoRecebido.Usuario = usuarioCliente;                // Seta o usuário cliente no produto recebido
-                                                                               
+
             _context.Update(produtoRecebido);   // Atualiza no banco - Cliente
             await _context.SaveChangesAsync();
-                      
+
             _context.Anuncios.Remove(anuncio);  // Excluindo Anúncio - Anunciante
-            await _context.SaveChangesAsync();           
+            await _context.SaveChangesAsync();
 
             // (RedirectToAction("DeleteTroca"));         
             return View(anuncio);
@@ -182,11 +212,6 @@ namespace app_babybay.Controllers
         {
             var buscaAnuncio = from m in _context.Anuncios
                                select m;
-
-            // FUNCIONA, precisa de ajustes quando busca por nome do produto, porque ele não dá um refresh e o resultado fica comprometido
-            // A busca por idade e categoria acontece o refresh
-            // A lógica funciona corretamente - Realizar mais testes
-            // Revisar a lógica para deixar mais sucinta
 
             // Se tiver produto digitado
             if (!String.IsNullOrEmpty(nomeProduto))
@@ -251,7 +276,7 @@ namespace app_babybay.Controllers
                     buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
                     return View(await buscaAnuncio.ToListAsync());
                 }
-            }           
+            }
         }
 
         // GET: Anuncios/Create   
@@ -292,7 +317,7 @@ namespace app_babybay.Controllers
             if (ModelState.IsValid)
             {
                 // Pega o nome do user logado
-               // var TUser = User.Identity.Name;
+                // var TUser = User.Identity.Name;
                 var usuario = new Usuario();
 
                 // Percorre no BD buscando pelo nome compara com  usuário logado
@@ -311,9 +336,9 @@ namespace app_babybay.Controllers
                 }
                 else  // Se o produto não está anunciado, então atribui no anuncio e manda pro BD
                 {
-                   
+
                     // Aqui vai setar o ClienteId para null
-                    // Quando alguém solicitar a troca, então ele será setado com o Id de quem solicitou, no método ConfirmarSolicitacao
+                    // Quando alguém solicitar a troca, então ele será setado com o Id de quem solicitou, no método SalvarPedido
                     var produto = await _context.Produtos.FindAsync(id);
                     anuncio.Produto = produto;
                     anuncio.ClienteId = null;
