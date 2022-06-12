@@ -34,6 +34,7 @@ namespace app_babybay.Models
         public bool InteresseTroca { get; set; }
         public string NomeInteressado { get;  private set; }
         public int? PropostaAnuncioTroca { get; set; }
+        public int? PropostaAnuncioBabycoin { get; set; }
 
         [NotMapped]
         public Dictionary<int, string> listaInteressados { get;  private set; } = new Dictionary<int, string>();

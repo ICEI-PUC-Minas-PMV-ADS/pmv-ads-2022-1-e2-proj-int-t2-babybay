@@ -50,10 +50,14 @@ namespace app_babybay.Migrations
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("PropostaAnuncioBabycoin")
+                        .HasColumnType("int");
+
                     b.Property<int?>("PropostaAnuncioTroca")
                         .HasColumnType("int");
 
                     b.Property<string>("Titulo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UsuarioId")

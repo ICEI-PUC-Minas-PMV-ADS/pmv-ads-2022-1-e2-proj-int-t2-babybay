@@ -13,9 +13,6 @@
 
 <!-- View de Troca -->
 <section>
-	@*	<table class="table">
-	<tbody>*@
-	<!--content-->
 	<div class="container">
 		<h2 class="text-center p-5 titulo">@Html.DisplayFor(model => model.Titulo)</h2>
 		<div class="d-flex justify-content-evenly">
@@ -31,23 +28,24 @@
 						<p class="idade">@Html.DisplayFor(model => model.Produto.Idade) Ano</p>
 					</div>
 					<div class="card-price">
-						<h2>1 BC</h2>
+						<h2>@Html.DisplayFor(model => model.Babycoin) BC</h2>
 					</div>
 				</div>
 			</div><!--.card--> <!--Imagem-->
+
 			<form asp-action="EnviarPedido" asp-route-id="@Model.AnuncioId">
 				<div class="item">
 					<div class="form-check">
-						@*<input class="form-check-input" type="radio" name="opcRadio" id="flexRadioDefault1">*@
 						@Html.RadioButton("opcRadio", 0,
 						new {@class = "form-check-input"})
 						<label class="form-check-label" for="opcRadio">
 							<h5>Utilizar meus babycoins</h5>
 						</label>
 					</div>
+
 					<div class="form-check">
 						<br>
-						@*<input class="form-check-input" type="radio" name="opcRadio" id="flexRadioDefault2" checked>*@				<!--opcProdLabel para configurar a label da opção produtos, tem que ser assim para não dar conflito e ser mutualmente excludente-->
+						<!--opcProdLabel para configurar a label da opção produtos, tem que ser assim para não dar conflito e ser mutualmente excludente-->
 						@Html.RadioButton("opcRadio", 1,
 						new {@class = "form-check-input", @id = "opcProdLabel", @checked="checked" })
 						<label class="form-check-label" for="opcProdLabel">
@@ -57,52 +55,25 @@
 
 					<div class="input-group">
 						<!-- Aqui mostra somente os anúncios do usuário logado (cliente)-->
-						<select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" asp-for="AnuncioId" class="form-control" asp-items="ViewBag.AnuncioId">
-
-							@*<select asp-for="Produto" class="form-control" asp-items="ViewBag.ProdutoId"></select>*@
-						</select>
-						@*<button class="btn btn-outline-secondary">Escolher</button>*@
+						@Html.DropDownList("AnuncioId", 
+						(IEnumerable<SelectListItem>)ViewBag.Anuncios, "Selecione", new { @class ="form-select" })	
 					</div>
 					<br>
+
 					<input class="btn btn-primary" type="submit" value="Enviar Pedido" />
-					@*<a asp-controller="Anuncios" asp-action="EnviarPedido" asp-route-id="@Model.AnuncioId" type="submit" class="btn btn-primary">Enviar pedido</a>*@
 				</div>
-				<br/>	
+				<br />
+
 				<div>
 					<a asp-controller="Home" asp-action="Index" asp- class="btn btn-primary">Voltar</a>
 				</div>
 			</form>
+
 		</div>
 	</div>
 </section>
 
 
-@*
-						<div>
-	<hr />
-	<dl class="row">
-		<dt class="col-sm-2">
 
-	@Html.DisplayNameFor(model => model.Usuario)
-		</dt>
-		<dd class="col-sm-10">
-	@Html.DisplayFor(model => model.Usuario.Nome)
-		</dd>
-       <dt class = "col-sm-2">
-		@Html.DisplayNameFor(model => model.Produto)
-		</dt>
-		<dd class = "col-sm-10">
-		@Html.DisplayFor(model => model.Produto.Cor)
-		</dd>
-		<dt class = "col-sm-2">
-		@Html.DisplayNameFor(model => model.Titulo)
-		</dt>
-		<dd class = "col-sm-10">
-		@Html.DisplayFor(model => model.Titulo)
-		</dd>
-	</dl>
-</div>
-<div>
-
-	<a asp-action="Index">Back to List</a>
-</div>*@
+	@*	<select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" asp-for="AnuncioId" class="form-control" asp-items="ViewBag.AnuncioId">
+						</select>*@

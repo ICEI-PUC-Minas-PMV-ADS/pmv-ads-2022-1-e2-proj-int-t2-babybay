@@ -70,8 +70,8 @@ namespace app_babybay.Controllers
         // Mostrar informações do pedido.
         // O botão que chama esse método está na tela depois do "Enviar Pedido" 
         // anuncioSelect é o anúncio selecionado pelo cliente para sugerir a troca com o anunciante
-        public async Task<IActionResult> EnviarPedido(int? id, [Bind("AnuncioId")] Anuncio anuncioSelect, int opcRadio)
-        {
+        public async Task<IActionResult> EnviarPedido(int? id, [Bind("AnuncioId")] Anuncio anuncioSelect, int opcRadio, int babycoin)
+            {   
             if (id == null)
             {
                 return NotFound();
@@ -92,19 +92,19 @@ namespace app_babybay.Controllers
             var anuncioCliente = from aCliente in _context.Anuncios
                                  select aCliente;
 
-            //// Pegando somente os anúncios do usuário logado
+            // Pegando somente os anúncios do usuário logado
             anuncioCliente = anuncioCliente.Where(s => s.Usuario.Nome.Contains(User.Identity.Name));
 
             // Select somente dos anúncios do usuário logado
-            ViewData["AnuncioId"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");
+            ViewData["Anuncios"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");
 
             // O new serve para passar o parâmetro id e o parâmetro do anuncioSelect para o método SalvarPedido
-            return RedirectToAction("SalvarPedido", new { id = id, anuncioSelectPropostaId = anuncioSelect.AnuncioId, opcRadio = opcRadio });
+            return RedirectToAction("SalvarPedido", new { id, anuncioSelectPropostaId = anuncioSelect.AnuncioId, opcRadio, babycoin });
         }
 
         // Vai salvar as informações do usuário interessado no anuncio do anunciante
         // Vai exibir uma pergunta para se o usuário quer realmente confirmar a solicitação de troca
-        public async Task<IActionResult> SalvarPedido(int? id, int? anuncioSelectPropostaId, int opcRadio)
+        public async Task<IActionResult> SalvarPedido(int? id, int? anuncioSelectPropostaId, int opcRadio, int babycoin)
         {
             if (id == null)
             {
@@ -137,7 +137,7 @@ namespace app_babybay.Controllers
             }
 			else            // É zero (BabyCoin)
 			{
-                // pegar baby coin do valor do produto - insetir na class produto o babycoin
+                anuncio.PropostaAnuncioBabycoin = babycoin;           
 			}
 
             // Atualiza Banco
