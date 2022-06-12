@@ -150,8 +150,8 @@ namespace app_babybay.Controllers
 
             // Anunciante
             var anuncio = await _context.Anuncios
-                .Include(a => a.Produto)    // Produto Anunciado
-                .Include(a => a.Usuario)    // Usuario Anunciante
+                .Include(a => a.Produto)    
+                .Include(a => a.Usuario)   
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
             if (anuncio == null)
@@ -159,50 +159,60 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-            // Buscando o cliente
-            var buscaCliente = from cliente in _context.Usuarios
-                               select cliente;
+            //// Buscando o cliente
+            //var buscaCliente = from cliente in _context.Usuarios
+            //                   select cliente;
 
-            buscaCliente = buscaCliente.Where(s => s.Id == anuncio.ClienteId);
+            //buscaCliente = buscaCliente.Where(s => s.Id == anuncio.ClienteId);
 
             return View(anuncio);
         }
 
-
-        public async Task<ActionResult> AceitarTroca(int? id) // id do anuncio (de quem anunciou)
+        // Método chamado de quem aceita a troca, no caso, o Anunciante
+        public async Task<ActionResult> AceitarTroca(int? id) 
         {
             if (id == null)
             {
                 return NotFound();
             }
 
+            // Produto do anunciannte (logado), que vai aceitar a troca
             var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)
-                .Include(a => a.Usuario)         // Usuário anunciante
+                .Include(a => a.Usuario)        
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
-            // Pegando o usuário logado (Cliente)
-            Usuario usuarioCliente = new Usuario();
-            usuarioCliente = await _context.Usuarios
-               .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
+            // Anuncio de quem propôs a troca (prod por prod), seria o cliente
+            var anuncioProposta = await _context.Anuncios
+                .Include(a => a.Produto)
+                .Include(a => a.Usuario)
+                .FirstOrDefaultAsync(m => m.AnuncioId == anuncio.PropostaAnuncioTroca);
 
             if (anuncio == null)
             {
                 return NotFound();
             }
 
-            // CLIENTE: Chama o método em troca - OK
-            var troca = new Troca();
-            var produtoRecebido = troca.Receber(anuncio.Produto);    // Retorna o produto
-            produtoRecebido.Usuario = usuarioCliente;                // Seta o usuário cliente no produto recebido
+            // PRODUTO POR PRODUTO
+            var idAnunciante = anuncio.UsuarioId;
+            var idCliente = anuncioProposta.UsuarioId;
 
-            _context.Update(produtoRecebido);   // Atualiza no banco - Cliente
+            // Ponto de vista do cliente
+            anuncio.Produto.UsuarioId = idCliente;  // Muda o UsuarioId do produto
+            _context.Update(anuncio);  
             await _context.SaveChangesAsync();
 
-            _context.Anuncios.Remove(anuncio);  // Excluindo Anúncio - Anunciante
+            _context.Anuncios.Remove(anuncio);  // Excluindo Anúncio (de quem aceita a troca)
             await _context.SaveChangesAsync();
 
-            // (RedirectToAction("DeleteTroca"));         
+            // Ponto de vista do anunciante (quem aceita a troca)
+            anuncioProposta.Produto.UsuarioId = idAnunciante;
+            _context.Update(anuncioProposta);
+            await _context.SaveChangesAsync();
+
+            _context.Anuncios.Remove(anuncioProposta);  // Excluindo Anúncio (de quem solicita a troca)
+            await _context.SaveChangesAsync(); 
+        
             return View(anuncio);
         }
 
