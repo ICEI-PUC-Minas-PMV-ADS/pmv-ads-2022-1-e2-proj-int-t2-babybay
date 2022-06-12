@@ -101,8 +101,9 @@ hr {
 
             .article-c__ul > li > input:hover {
                 box-shadow: var(--clr--box-shadow-hover);
-                border: 1.5px solid var(--clr-purple-dark);
-            }
+                /*  border: 1px solid var(--clr-purple-dark);*/
+                border-color: var(--clr-purple-dark);
+            }      
 
 .input__selected {
     border-color: var(--clr--border-box);

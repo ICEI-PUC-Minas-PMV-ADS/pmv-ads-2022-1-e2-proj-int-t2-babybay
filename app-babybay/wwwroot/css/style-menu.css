@@ -50,7 +50,7 @@
 
     .quadrados a:hover {
         transition-duration: 0.5s;
-        text-decoration: underline;
+       /* text-decoration: underline;*/
         color: var(--clr-yellow-dark);
     }
 
