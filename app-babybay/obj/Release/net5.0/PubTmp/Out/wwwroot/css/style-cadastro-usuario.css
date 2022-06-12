@@ -6,56 +6,61 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
 /****************************************
     C1. Section > Article
 /****************************************/
-*{
-    list-style: none;    
+* {
+    list-style: none;
 }
 
-.div-titulo-cadastro{
-    background-color: var(--clr--third-background);
+.div-titulo-cadastro {
+    /* background-color: var(--clr--third-background);
     border: 1px solid  var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content-nivel-3);
+    box-shadow: var(--clr--box-shadow-content-nivel-3); */
     border-radius: 10px;
-    font-size: .9em;
-    margin: 20px auto; 
-    max-width: 400px;   
-    padding: 20px;
-    /* flex */    
-    
+    font-size: 1.7em;
+    margin: auto;
+    max-width: 450px;
+    padding: 10px;
+    /* flex */
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
 }
 
-.section-c{    
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.section-c {
     /* flex */
     display: flex;
     flex-flow: row wrap;
-    justify-content: center; 
+    justify-content: center;
     margin: 15px 20px;
 }
 
-.section-c__div{
-    background-color: var(--clr-second-background);
+.section-c__div {
+    /* background-color: var(--clr-second-background);
     border: 1px solid  var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content); 
+    box-shadow: var(--clr--box-shadow-content);  */
     border-radius: 10px;
-    margin: 20px;   
-    padding: 20px;
+    margin-bottom: 0px;
+    /* padding: 30px; */
     /* flex */
     display: flex;
     flex-flow: row wrap; /* wrap */
     justify-content: center;
-    flex-grow: 1; 
-    flex-shrink: 1;    
- 
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .article-c {
-    background-color: var(--clr--pink-dark);
-    border: 1px solid var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content-nivel-3);
-    margin: 40px;
-    padding: 30px;
+     background-color: var(--clr-second-background);
+    border: 1px solid  var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow-content);  
+    margin-top: 15px;
+    padding: 10px 40px 20px 0px;
+    max-width: 600px;
     /* flex*/
     display: flex;
     flex-direction: row;
@@ -66,64 +71,90 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     flex-shrink: 1;
 }
 
-.article-c__ul{    
+.article-c__ul {
     text-align: left;
     /* align-self: flex-end; */
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: 200px;    
-  
-} 
-
-.article-c__ul > li{
-    display: flex;
-    flex-direction: row; /* antes estava column*/
-    justify-content: flex-end;
-    align-items: center;
+    flex-basis: 200px;
 }
 
-.article-c__ul > li > input{
-    background: #ffffff;   
-    border-radius: 10px;    
+    .article-c__ul > li {
+        display: flex;
+        flex-direction: row; /* antes estava column*/
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+        .article-c__ul > li > input {
+            background: #ffffff;
+            border-radius: 10px;
+            border-color: var(--clr--border-box);
+            box-shadow: var(--clr--box-shadow);
+            height: 40px;
+            margin: 10px;
+            padding: 10px;
+            font-size: 1em;
+            flex-grow: 1; /* antes sem grow */
+            flex-shrink: 1;
+        }
+
+            .article-c__ul > li > input:hover {
+                box-shadow: var(--clr--box-shadow-hover);
+                /*  border: 1px solid var(--clr-purple-dark);*/
+                border-color: var(--clr-purple-dark);
+            }      
+
+.input__selected {
     border-color: var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow);     
-    height: 40px;
-    margin: 10px;
-    padding: 10px;        
-    font-size: 1em;      
-    flex-grow: 1; /* antes sem grow */
-    flex-shrink: 1;
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 10px;
+    flex: 1 5 120px; /* grow shrink basis*/
+    font-size: 1em;
+    margin: 5px 15px;
+    height: 35px;
+    padding: 2px;
+    width: 120px;
 }
+  
+    .input__selected:hover {
+        box-shadow: var(--clr--box-shadow-hover);
+        border: 1.2px solid var(--clr-purple-dark);
+    }
 
-.article-c__ul > li > input:hover{
-    box-shadow: var(--clr--box-shadow-hover);
-    border: 1.5px solid var(--clr-purple-dark);
-}
-
-#btn-confirmar{
+#btn-confirmar {
     background-color: var(--clr-purple-dark);
     border-color: var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow); 
+    box-shadow: var(--clr--box-shadow);
     border-radius: 50px;
     color: #FFFFFF;
     font-size: 1.1em;
     font-weight: bold;
-    height: 48px;  
-    letter-spacing: 1px;    
-    max-width: 140px;
-    text-shadow: var(--clr--text-shadow);   
-  
+    height: 47px;
+    letter-spacing: 1px;
+    max-width: 135px; 
+    text-shadow: var(--clr--text-shadow);
+    padding-bottom: 10px;   
 }
 
-#btn-confirmar:hover{
-    box-shadow: var(--clr--box-shadow-btn-hover);
-    background-color: var(--clr-purple-light);
-    cursor: pointer;
+    #btn-confirmar:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr-purple-light);
+        cursor: pointer;
+    }
+
+    #btn-confirmar:active {
+        background-color: var(--clr-purple-dark);
+    }
+
+.voltar {
+    margin: auto;
+    color: #000;
+    font-size: 1.1em;
+    justify-content: space-between;
+    color: var(--clr-purple-dark) !important;
 }
 
-#btn-confirmar:active{ 
-    background-color: var(--clr-purple-dark);
- 
-}
-
-
+    .voltar:hover {
+        font-weight: bold;
+    }

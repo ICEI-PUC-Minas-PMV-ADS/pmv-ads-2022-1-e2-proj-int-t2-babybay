@@ -16,13 +16,13 @@ h1{
 }
 
 .container-login { /* main */
-    background-color: var(--clr--third-background);
+    background-color: var(--clr-second-background);
     border: 1px solid var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content-nivel-3);
+    box-shadow: var(--clr--box-shadow-content);
     border-radius: 10px;
     /* height: 400px;      */
     padding: 30px;
-    margin: 130px auto;
+    margin: 80px auto;
     /*flex*/
     display: flex;
     flex-flow: column nowrap;
@@ -39,8 +39,9 @@ h1{
 .container-login__campo {
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
-    margin:auto
+    align-items: center;    
+    /*margin: auto;*/
+    margin-top: -15px;
 }
 
 hr {
@@ -74,7 +75,8 @@ span{
 .container-login__label {
     font-size: 1.2em;
     margin-top: 20px;
-    margin-left: 5px;
+    margin-left: 0px;
+    margin-bottom: -1px;
     padding: 10px;
     flex: 1 1 200px;
 }
@@ -89,7 +91,7 @@ span{
     font-weight: bold;
     height: 40px;
     letter-spacing: 1px;
-    margin: 40px 25%;
+    margin: 50px 25%;
 
     min-width: 200px;
     text-shadow: var(--clr--text-shadow);
@@ -110,6 +112,7 @@ span{
     color: #000;
     font-size: 1.1em;
     justify-content: space-between;
+    color: var(--clr-purple-dark);
 }
 
     .container-login__esqueceu-senha > a:hover {
