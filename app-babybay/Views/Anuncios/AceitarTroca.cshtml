@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!--Ponto de vista de quem anunciou, quando aceita a troca-->
 <div>
     <h4>Parabéns @Model.Usuario.Nome, sua troca foi realizada com sucesso!</h4>    
     <hr />
@@ -27,33 +28,8 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Titulo)
         </dd>
-@*        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InteresseTroca)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.InteresseTroca)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AnuncioCurtido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnuncioCurtido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ContadorCurtidas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ContadorCurtidas)
-        </dd>*@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.AnuncioId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-controller="Usuarios" asp-action="Index" class="btn btn-primary">Voltar para menu</a>    
 </div>

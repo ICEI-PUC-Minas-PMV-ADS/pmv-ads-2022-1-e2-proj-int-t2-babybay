@@ -79,5 +79,17 @@ namespace app_babybay.Models
         Calçado,
         Outros
     }
+
+    //public enum Idade
+    //{
+    //    Zero = 0,
+    //    Um = 1,
+    //    Dois = 2, 
+    //    Três = 3,
+    //    Quatro = 4,
+    //    Cinco = 5,
+    //    Seis = 6,
+    //    Outras = 7
+    //}
 }
 

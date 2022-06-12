@@ -1,49 +1,65 @@
 ﻿@model app_babybay.Models.Anuncio
 
 @{
-    ViewData["Title"] = "VisualizarSolicitacao";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Minhas Trocas";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>VisualizarSolicitacao</h1>
-
+<!--Envio da solicitação de troca-->
 <div>
-    <h4>Anuncio</h4>
-    <hr />
-    <dl class="row">       
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Produto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Produto.Nome)
-        </dd>
-      @*  <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ClienteId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ClienteId)
-        </dd>*@        
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Titulo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Titulo)
-        </dd>       
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NomeInteressado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NomeInteressado)
-        </dd>
-    </dl>
+	<h4>Você deseja aceitar a troca do produto?</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			Seu anúncio:
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Titulo)
+		</dd>
+		<dt class="col-sm-2">
+			Roupa para troca:
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Produto.Nome)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.NomeInteressado)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.NomeInteressado)
+		</dd>
+
+		@if (@Model.PropostaAnuncioBabycoin)
+		{
+			<dt class="col-sm-2">
+				Troca por BabyCoin:
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.Babycoin)
+				BabyCoins
+			</dd>
+		}
+
+		@*	@if (@Model.PropostaAnuncioTroca != null)
+		{
+		<dt class="col-sm-2">
+		@Html.DisplayNameFor(model => model.Produto)
+		</dt>
+		<dd class="col-sm-10">
+		@Html.DisplayFor(model => model.Produto.Nome)
+		</dd>
+		}*@
+
+
+		<dt class="col-sm-2">
+			Data da Solicitação:
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Date)
+		</dd>
+	</dl>
 </div>
-<div> 
-     <a asp-controller="Anuncios" asp-action="AceitarTroca" asp-route-id="@Model.AnuncioId" class="btn btn-primary">Aceitar Troca</a>
-    <a asp-controller="Usuarios" asp-action="Index" class="btn btn-primary">Voltar</a>
+<div>
+	<a asp-controller="Anuncios" asp-action="AceitarTroca" asp-route-id="@Model.AnuncioId" class="btn btn-primary">Aceitar Troca</a>
+	<a asp-controller="Anuncios" asp-action="Index" class="btn btn-primary">Voltar</a>
 </div>

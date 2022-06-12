@@ -52,7 +52,6 @@
 					<td>
 						@Html.DisplayFor(modelItem => item.UsuarioId)	
 					</td>
-
 					@*	<td>
 				@Html.DisplayFor(modelItem => item.Produto.Id)
 				</td>
@@ -63,13 +62,14 @@
 				@Html.DisplayFor(modelItem => item.Produto.Idade)
 				</td>*@
 					<td>
+						@*<h3>@ViewBag.Message</h3>*@
 						<a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.AnuncioId" class="btn btn-primary">Eu Quero!</a>
 					</td>
 				</tr>
-			}
-
+			}	
 		</tbody>
 	</table>
+	
 </section>
 
 

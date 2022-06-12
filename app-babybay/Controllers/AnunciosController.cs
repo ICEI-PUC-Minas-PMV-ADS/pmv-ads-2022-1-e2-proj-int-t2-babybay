@@ -43,6 +43,13 @@ namespace app_babybay.Controllers
                 .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
+            // TRATAR - USUÁRIO NÃO PODE QUERER O PRODUTO QUE ELE MESMO ANUNCIOU
+            //if (anuncio.Usuario.Nome == User.Identity.Name)
+            //{
+            //    ViewBag.Message = "Não é possível escolher um produto que você anunciou, faça outra busca.";
+            //    return RedirectToAction("Busca");
+            //}
+
             if (anuncio == null)
             {
                 return NotFound();
@@ -59,10 +66,8 @@ namespace app_babybay.Controllers
             // Anúncios do Usuário Logado
             anuncioCliente = anuncioCliente.Where(s => s.UsuarioId == usuarioCliente.Id);
 
-
             // Passa pro SelectList somente os anúncios do cliente
             ViewData["AnuncioId"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");
-            //TempData["AnuncioId"] = (anuncioCliente, "AnuncioId", "Titulo");       
 
             return View(anuncio);
         }
@@ -70,8 +75,8 @@ namespace app_babybay.Controllers
         // Mostrar informações do pedido.
         // O botão que chama esse método está na tela depois do "Enviar Pedido" 
         // anuncioSelect é o anúncio selecionado pelo cliente para sugerir a troca com o anunciante
-        public async Task<IActionResult> EnviarPedido(int? id, [Bind("AnuncioId")] Anuncio anuncioSelect, int opcRadio, int babycoin)
-            {   
+        public async Task<IActionResult> EnviarPedido(int? id, [Bind("AnuncioId")] Anuncio anuncioSelect, int opcRadio)
+        {
             if (id == null)
             {
                 return NotFound();
@@ -88,63 +93,61 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-            // Pegando todos os anuncios
-            var anuncioCliente = from aCliente in _context.Anuncios
-                                 select aCliente;
-
-            // Pegando somente os anúncios do usuário logado
-            anuncioCliente = anuncioCliente.Where(s => s.Usuario.Nome.Contains(User.Identity.Name));
-
-            // Select somente dos anúncios do usuário logado
-            ViewData["Anuncios"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");
-
-            // O new serve para passar o parâmetro id e o parâmetro do anuncioSelect para o método SalvarPedido
-            return RedirectToAction("SalvarPedido", new { id, anuncioSelectPropostaId = anuncioSelect.AnuncioId, opcRadio, babycoin });
+            // O new serve para passar o parâmetros para o método SalvarPedido
+            // id do anuncio, id do anúncio selecionado pelo cliente (esse é o id dos anúncios do cliente, que ele propôs para troca), opcRadio ( Se é babycoin ou prod por prod), objeto anúncio (do anunciante)
+            return RedirectToAction("SalvarPedido", new { id, anuncioSelectPropostaId = anuncioSelect.AnuncioId, opcRadio });
         }
 
         // Vai salvar as informações do usuário interessado no anuncio do anunciante
         // Vai exibir uma pergunta para se o usuário quer realmente confirmar a solicitação de troca
-        public async Task<IActionResult> SalvarPedido(int? id, int? anuncioSelectPropostaId, int opcRadio, int babycoin)
+        public async Task<IActionResult> SalvarPedido(int? id, int? anuncioSelectPropostaId, int opcRadio)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            // Usuário anunciante, anúncio e produto anunciado
+            // Anunciante
             var anuncio = await _context.Anuncios
-                .Include(a => a.Produto)    // Produto Anunciado
-                .Include(a => a.Usuario)    // Usuario Anunciante
-                .FirstOrDefaultAsync(m => m.AnuncioId == id);
-
-            // Pegando o usuário logado (Cliente)           
-            var usuarioCliente = await _context.Usuarios
-               .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
+              .Include(a => a.Produto)
+              .Include(a => a.Usuario)
+              .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
             if (anuncio == null)
             {
                 return NotFound();
             }
 
+            // Pegando o usuário logado (Cliente)           
+            var usuarioCliente = await _context.Usuarios
+               .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
+
             // Chamando métodos e fazendo as atribuições para salvar no DB
-            anuncio.AdicionarNomeInteressado(User.Identity.Name);  // Nome do cliente
-            anuncio.AdicionarAnuncioInteressado();   // Indica que há interesse na troca
-            anuncio.ClienteId = usuarioCliente.Id; // Pega o usuário cliente          
+            anuncio.AdicionarNomeInteressado(usuarioCliente.Nome); ;       // Nome do cliente
+            anuncio.AdicionarAnuncioInteressado();          // Indica que há interesse na troca
+            anuncio.ClienteId = usuarioCliente.Id;          // Pega o usuário cliente          
 
-            if (opcRadio == 1)      // É um (produto por produto)
-            {               
-                anuncio.PropostaAnuncioTroca = anuncioSelectPropostaId; // ID do anúncio proposto pelo cliente               
+            // Vai verificar se o interesse é prod por prod ou por babycoin
+            if (opcRadio == 1)           // Produto por produto
+            {
+                anuncio.PropostaAnuncioTroca = anuncioSelectPropostaId;  // ID anúncio proposto pelo cliente
+
+                // Atualiza banco
+                _context.Update(anuncio);
+                await _context.SaveChangesAsync();
+
+                return View(anuncio);
             }
-			else            // É zero (BabyCoin)
-			{
-                anuncio.PropostaAnuncioBabycoin = babycoin;           
-			}
+            else    // É "compra" por babycoin
+            {
+                // anuncio.PropostaAnuncioTroca = null;
+                anuncio.PropostaAnuncioBabycoin = true;
 
-            // Atualiza Banco
-            _context.Update(anuncio);
-            await _context.SaveChangesAsync();
-
-            return View(anuncio);
+                _context.Update(anuncio);
+                await _context.SaveChangesAsync();
+                return View(anuncio);
+                // Caso não seja produto por produto, ou seja, caso opcRadio == 0, então significa que é por babycoin e atualiza o banco apenas com as informações do interessado e seta como true a propriedade PropostaAnuncioBabycoin              
+            }
         }
 
         // Ponto de vista do anunciante. Vai estar dentro de Meus Anúncios lá na opção Minhas Roupas do menu
@@ -195,27 +198,57 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-            // PRODUTO POR PRODUTO
-            var idAnunciante = anuncio.UsuarioId;
-            var idCliente = anuncioProposta.UsuarioId;
+            if (anuncio.PropostaAnuncioBabycoin)    // Se true, então é babycoin
+            {                
+                // Usuário anunciante - logado - quem aceita a troca
+                var usuarioAnunciante = await _context.Usuarios
+                    .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
 
-            // Ponto de vista do cliente
-            anuncio.Produto.UsuarioId = idCliente;  // Muda o UsuarioId do produto
-            _context.Update(anuncio);
-            await _context.SaveChangesAsync();
+                // Cateira Anunciante
+                var carteiraAnunciante = await _context.Carteiras
+                    .Include(a => a.Usuario)
+                    .FirstOrDefaultAsync(m => m.UsuarioId == usuarioAnunciante.Id);
 
-            _context.Anuncios.Remove(anuncio);  // Excluindo Anúncio (de quem aceita a troca)
-            await _context.SaveChangesAsync();
+                // Usuario Cliente
+                var usuarioCliente = await _context.Usuarios
+                    .FirstOrDefaultAsync(m => m.Id == anuncio.ClienteId);
 
-            // Ponto de vista do anunciante (quem aceita a troca)
-            anuncioProposta.Produto.UsuarioId = idAnunciante;
-            _context.Update(anuncioProposta);
-            await _context.SaveChangesAsync();
+                // Carteira Cliente
+                var carteiraCliente = await _context.Carteiras
+                    .Include(a => a.Usuario)
+                    .FirstOrDefaultAsync(m => m.UsuarioId == usuarioCliente.Id);
 
-            _context.Anuncios.Remove(anuncioProposta);  // Excluindo Anúncio (de quem solicita a troca)
-            await _context.SaveChangesAsync();
+                // Transferindo babycoin
+                carteiraCliente.Transferir(anuncio.Babycoin, carteiraAnunciante);
+              
+                _context.Anuncios.Remove(anuncio);       // Exclui Anúncio(de quem aceita a troca)
+                _context.Update(carteiraCliente);        // Atualiza o saldo da carteira do cliente        
+                _context.Update(carteiraAnunciante);     // Atualiza o saldo da carteira do anunciante
+           
+                await _context.SaveChangesAsync();       // Atualiza Banco
 
-            return View(anuncio);
+                return View(anuncio);
+            }
+            else
+            {
+                // PRODUTO POR PRODUTO
+                var idAnunciante = anuncio.UsuarioId;
+                var idCliente = anuncioProposta.UsuarioId;
+
+                // Ponto de vista do cliente
+                anuncio.Produto.UsuarioId = idCliente;  // Seta UsuarioId no prod (cliente x anunciante)
+                _context.Update(anuncio);          
+                _context.Anuncios.Remove(anuncio);       // Exclui Anúncio (de quem aceita a troca)
+               
+                // Ponto de vista do anunciante (quem aceita a troca)
+                anuncioProposta.Produto.UsuarioId = idAnunciante;
+                _context.Update(anuncioProposta);          
+                _context.Anuncios.Remove(anuncioProposta);  // Exclui Anúncio (de quem solicita a troca)
+
+                await _context.SaveChangesAsync();          // Atualiza Banco
+
+                return View(anuncio);
+            }          
         }
 
         // Buscar Anúncios
@@ -235,7 +268,7 @@ namespace app_babybay.Controllers
                 {
                     return View(await buscaAnuncio.ToListAsync());      // Retorna só a busca pelo nome
                 }
-
+                // Se idade igual outras(7) , então pesquisa somente maior que 6
                 if (idadeProduto != null)           // Se tem idade
                 {
                     buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Idade == idadeProduto);
@@ -407,3 +440,12 @@ namespace app_babybay.Controllers
 }
 
 
+//// Pegando todos os anuncios
+//var anuncioCliente = from aCliente in _context.Anuncios
+//                     select aCliente;
+
+//// Pegando somente os anúncios do usuário logado
+//anuncioCliente = anuncioCliente.Where(s => s.Usuario.Nome.Contains(User.Identity.Name));
+
+// Select somente dos anúncios do usuário logado
+//ViewData["Anuncios"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");

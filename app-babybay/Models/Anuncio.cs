@@ -32,9 +32,14 @@ namespace app_babybay.Models
         public int Babycoin { get; set; }
 
         public bool InteresseTroca { get; set; }
+        [Display(Name = "Usuário interessado:")]
         public string NomeInteressado { get;  private set; }
+
+        [Display(Name = "Roupa proposta para troca:")]
         public int? PropostaAnuncioTroca { get; set; }
-        public int? PropostaAnuncioBabycoin { get; set; }
+
+        [Display(Name = "A solicitação de troca por BabyCoin:")]
+        public bool PropostaAnuncioBabycoin { get; set; }
 
         [NotMapped]
         public Dictionary<int, string> listaInteressados { get;  private set; } = new Dictionary<int, string>();
@@ -42,6 +47,7 @@ namespace app_babybay.Models
         [NotMapped]
         public List<Anuncio> listaAnuncio = new List<Anuncio>();
 
+        [Display(Name = "Data da Solicitação:")]
         private DateTime _date = DateTime.Now;
 
         public DateTime Date

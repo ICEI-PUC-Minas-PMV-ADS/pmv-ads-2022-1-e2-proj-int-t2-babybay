@@ -56,19 +56,19 @@
 					<div class="input-group">
 						<!-- Aqui mostra somente os anúncios do usuário logado (cliente)-->
 						@Html.DropDownList("AnuncioId", 
-						(IEnumerable<SelectListItem>)ViewBag.Anuncios, "Selecione", new { @class ="form-select" })	
+						(IEnumerable<SelectListItem>)ViewBag.Anuncios, new { @class ="form-select" })	
 					</div>
 					<br>
-
+					
 					<input class="btn btn-primary" type="submit" value="Enviar Pedido" />
 				</div>
-				<br />
-
+				<br />				
 				<div>
 					<a asp-controller="Home" asp-action="Index" asp- class="btn btn-primary">Voltar</a>
 				</div>
+				@*<p>@ViewBag.Message</p>*@
 			</form>
-
+			
 		</div>
 	</div>
 </section>

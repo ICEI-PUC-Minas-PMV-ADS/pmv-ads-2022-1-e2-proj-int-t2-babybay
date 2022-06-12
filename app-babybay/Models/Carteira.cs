@@ -17,11 +17,11 @@ namespace app_babybay.Models
 
         public int Saldo { get; private set; }
 
-        public Carteira() 
-        {  
-            Saldo = 10;    
+        public Carteira()
+        {
+            Saldo = 10;
         }
- 
+
         public void Receber(int quantidade)
         {
             if (quantidade > 0)
@@ -38,10 +38,20 @@ namespace app_babybay.Models
                 {
                     Saldo += 12;
                 }
-
             }
-            
         }
+
+        public bool ReceberBabycoinAnuncio(int quantidade)
+        {
+            if (quantidade < 0)
+            {
+                return false;
+            }
+
+            Saldo += quantidade;
+
+            return true;
+        } 
 
         public bool Retirar(int quantidade)
         {
@@ -49,9 +59,11 @@ namespace app_babybay.Models
             {
                 return false;
             }
+
             Saldo -= quantidade;
+
             return true;
-        }        
+        }
 
         public void Transferir(int quantidade, Carteira carteiraDestino)
         {
@@ -59,8 +71,9 @@ namespace app_babybay.Models
             {
                 return;
             }
+
             Retirar(quantidade);
-            carteiraDestino.Receber(quantidade);
+            carteiraDestino.ReceberBabycoinAnuncio(quantidade);
         }
     }
 }

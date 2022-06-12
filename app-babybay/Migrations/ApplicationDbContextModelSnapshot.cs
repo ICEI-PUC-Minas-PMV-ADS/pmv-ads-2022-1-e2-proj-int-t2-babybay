@@ -50,8 +50,8 @@ namespace app_babybay.Migrations
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PropostaAnuncioBabycoin")
-                        .HasColumnType("int");
+                    b.Property<bool>("PropostaAnuncioBabycoin")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("PropostaAnuncioTroca")
                         .HasColumnType("int");
