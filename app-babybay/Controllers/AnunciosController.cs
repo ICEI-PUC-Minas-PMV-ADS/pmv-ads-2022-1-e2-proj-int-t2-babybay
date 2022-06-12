@@ -70,7 +70,7 @@ namespace app_babybay.Controllers
         // Mostrar informações do pedido.
         // O botão que chama esse método está na tela depois do "Enviar Pedido" 
         // anuncioSelect é o anúncio selecionado pelo cliente para sugerir a troca com o anunciante
-        public async Task<IActionResult> EnviarPedido(int? id, [Bind("AnuncioId")] Anuncio anuncioSelect)
+        public async Task<IActionResult> EnviarPedido(int? id, [Bind("AnuncioId")] Anuncio anuncioSelect, int opcRadio)
         {
             if (id == null)
             {

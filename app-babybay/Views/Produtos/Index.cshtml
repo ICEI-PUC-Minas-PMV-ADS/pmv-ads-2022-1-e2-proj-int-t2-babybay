@@ -39,7 +39,7 @@
 	<tbody>
 		@foreach (var item in Model)
 		{
-			@*if (User.Identity.Name == item.Usuario.Nome)
+			@*if (User.Identity.Name == item.Usuario.Nome) <!--  erro-->
 			{*@
 				<tr>
 					<td>
@@ -74,7 +74,7 @@
 						<h3>Item @item.Id</h3>
 					</td>
 				</tr>
-				
+		//}
 		}
 	</tbody>
 </table>
