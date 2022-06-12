@@ -23,12 +23,15 @@ namespace app_babybay.Models
         public int? ClienteId { get; set; }
         [ForeignKey("ClienteId")]
 
-
         [Display(Name = "Título do Anúncio")]
+        [Required(ErrorMessage = "É necessário informar um título para o anúncio")]
         public string Titulo { get; set; }
 
-        public bool InteresseTroca { get; set; }
+		[Display(Name = "Valor em BabyCoin")]
+        [Required(ErrorMessage = "É necessário um valor em BabyCoin")]
+        public int Babycoin { get; set; }
 
+        public bool InteresseTroca { get; set; }
         public string NomeInteressado { get;  private set; }
         public int? PropostaAnuncioTroca { get; set; }
 

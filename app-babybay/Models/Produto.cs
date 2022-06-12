@@ -51,45 +51,22 @@ namespace app_babybay.Models
             throw new NotImplementedException();
         }
 
-        public Produto()//Cria um construtor vazio,que é que sempre é instaciado quando o produto é criado,para sempre iniciar o produto como não curtido
+        // Construtor que inicia o ProdutoCurtido com false
+        public Produto()
         {
-            ProdutoCurtido = false;
-           
-           
-            //for(int i = 1; i ==6; i++)
-            //{
-            //    foreach (string CategoriaRoupa in Enum.GetNames(typeof(Categoria)))
-            //    {
-            //        listaHash.Add(i, CategoriaRoupa);
-            //    }
-
-            //}
-           
-        }
-        /*public void AdicionarInteressado(int IdDoInteressado, string ProdutoInteressado)
-        {
-            if (IdDoInteressado != 0 && !String.IsNullOrEmpty(ProdutoInteressado))
-            {
-                listaInteressados.Add(IdDoInteressado, ProdutoInteressado);
-            }
-        }*/
-
-        // public ICollection<Usuario> Usuarios{ get; set; }
+            ProdutoCurtido = false;                          
+        }       
 
         public void CurtirProduto()/*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe
        para que assim ele estem método possa ser chamado por outro método no controle*/
         {
-            ProdutoCurtido = true;
-           /* return true;*/
+            ProdutoCurtido = true;         
         }
         public void DescurtirProduto()//Aqui um método para descurtir o produto,sera chamado quando apertar o botão curtir denovo,ou quando apertar o botão descurtir(ver depois)
         {
             ProdutoCurtido = false;
-        }
+        }    
          
-      
-
-        
         
     }
 

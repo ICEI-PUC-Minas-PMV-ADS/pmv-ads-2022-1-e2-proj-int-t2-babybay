@@ -99,12 +99,12 @@ namespace app_babybay.Controllers
             ViewData["AnuncioId"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");
 
             // O new serve para passar o parâmetro id e o parâmetro do anuncioSelect para o método SalvarPedido
-            return RedirectToAction("SalvarPedido", new { id = id, anuncioSelectPropostaId = anuncioSelect.AnuncioId });
+            return RedirectToAction("SalvarPedido", new { id = id, anuncioSelectPropostaId = anuncioSelect.AnuncioId, opcRadio = opcRadio });
         }
 
         // Vai salvar as informações do usuário interessado no anuncio do anunciante
         // Vai exibir uma pergunta para se o usuário quer realmente confirmar a solicitação de troca
-        public async Task<IActionResult> SalvarPedido(int? id, int? anuncioSelectPropostaId)
+        public async Task<IActionResult> SalvarPedido(int? id, int? anuncioSelectPropostaId, int opcRadio)
         {
             if (id == null)
             {
@@ -130,7 +130,15 @@ namespace app_babybay.Controllers
             anuncio.AdicionarNomeInteressado(User.Identity.Name);  // Nome do cliente
             anuncio.AdicionarAnuncioInteressado();   // Indica que há interesse na troca
             anuncio.ClienteId = usuarioCliente.Id; // Pega o usuário cliente          
-            anuncio.PropostaAnuncioTroca = anuncioSelectPropostaId; // ID do anúncio proposto pelo cliente
+
+            if (opcRadio == 1)      // É um (produto por produto)
+            {               
+                anuncio.PropostaAnuncioTroca = anuncioSelectPropostaId; // ID do anúncio proposto pelo cliente               
+            }
+			else            // É zero (BabyCoin)
+			{
+                // pegar baby coin do valor do produto - insetir na class produto o babycoin
+			}
 
             // Atualiza Banco
             _context.Update(anuncio);
@@ -150,8 +158,8 @@ namespace app_babybay.Controllers
 
             // Anunciante
             var anuncio = await _context.Anuncios
-                .Include(a => a.Produto)    
-                .Include(a => a.Usuario)   
+                .Include(a => a.Produto)
+                .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
             if (anuncio == null)
@@ -163,7 +171,7 @@ namespace app_babybay.Controllers
         }
 
         // Método chamado de quem aceita a troca, no caso, o Anunciante
-        public async Task<ActionResult> AceitarTroca(int? id) 
+        public async Task<ActionResult> AceitarTroca(int? id)
         {
             if (id == null)
             {
@@ -173,7 +181,7 @@ namespace app_babybay.Controllers
             // Produto do anunciannte (logado), que vai aceitar a troca
             var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)
-                .Include(a => a.Usuario)        
+                .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
             // Anuncio de quem propôs a troca (prod por prod), seria o cliente
@@ -193,7 +201,7 @@ namespace app_babybay.Controllers
 
             // Ponto de vista do cliente
             anuncio.Produto.UsuarioId = idCliente;  // Muda o UsuarioId do produto
-            _context.Update(anuncio);  
+            _context.Update(anuncio);
             await _context.SaveChangesAsync();
 
             _context.Anuncios.Remove(anuncio);  // Excluindo Anúncio (de quem aceita a troca)
@@ -205,8 +213,8 @@ namespace app_babybay.Controllers
             await _context.SaveChangesAsync();
 
             _context.Anuncios.Remove(anuncioProposta);  // Excluindo Anúncio (de quem solicita a troca)
-            await _context.SaveChangesAsync(); 
-        
+            await _context.SaveChangesAsync();
+
             return View(anuncio);
         }
 
@@ -315,7 +323,7 @@ namespace app_babybay.Controllers
         // POST: Anuncios/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AnuncioId,ProdutoId,Titulo")] Anuncio anuncio, int id)
+        public async Task<IActionResult> Create([Bind("AnuncioId,ProdutoId,Titulo,Babycoin")] Anuncio anuncio, int id)
         {   // int id pega o id passado no botão 'anunciar' na view Relatorios (controller usuarios)
 
             if (ModelState.IsValid)

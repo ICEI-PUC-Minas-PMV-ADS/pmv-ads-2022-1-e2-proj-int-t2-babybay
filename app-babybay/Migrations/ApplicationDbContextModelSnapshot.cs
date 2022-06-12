@@ -29,6 +29,9 @@ namespace app_babybay.Migrations
                     b.Property<bool>("AnuncioCurtido")
                         .HasColumnType("bit");
 
+                    b.Property<int>("Babycoin")
+                        .HasColumnType("int");
+
                     b.Property<int?>("ClienteId")
                         .HasColumnType("int");
 

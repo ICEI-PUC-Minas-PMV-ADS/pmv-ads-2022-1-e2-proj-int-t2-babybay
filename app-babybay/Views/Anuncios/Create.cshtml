@@ -12,22 +12,16 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<div class="form-group">
-                <label asp-for="UsuarioId" class="control-label"></label>
-                <select asp-for="UsuarioId" class ="form-control" asp-items="ViewBag.UsuarioId"></select>
-            </div>*@
-           @* @if(User.Identity.IsAuthenticated){
-
-            }*@
-           @* <div class="form-group">
-                <label asp-for="ProdutoId" class="control-label"></label>
-                <select asp-for="ProdutoId" class ="form-control" asp-items="ViewBag.ProdutoId"></select>
-            </div>*@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>          
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
                 <input asp-for="Titulo" class="form-control" />
                 <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Babycoin" class="control-label"></label>
+                <input asp-for="Babycoin" class="form-control" />
+                <span asp-validation-for="Babycoin" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
