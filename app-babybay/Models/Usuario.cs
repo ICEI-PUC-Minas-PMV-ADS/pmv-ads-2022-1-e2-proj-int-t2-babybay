@@ -50,6 +50,7 @@ namespace app_babybay.Models
         [DataType(DataType.Password)]
         public string Senha { get; set; }
 
+        [Display(Name = "Confirmar Senha")]
         [Required(ErrorMessage = "Favor confirmar a senha.")]
         [MinLength(8)]
         [DataType(DataType.Password)]
