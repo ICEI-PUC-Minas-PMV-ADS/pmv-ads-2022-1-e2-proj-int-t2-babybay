@@ -159,12 +159,6 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-            //// Buscando o cliente
-            //var buscaCliente = from cliente in _context.Usuarios
-            //                   select cliente;
-
-            //buscaCliente = buscaCliente.Where(s => s.Id == anuncio.ClienteId);
-
             return View(anuncio);
         }
 

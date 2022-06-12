@@ -21,8 +21,7 @@
 				<label asp-for="Email" class="container-login__label">Email</label>
 				<input asp-for="Email" class="container-login__input" placeholder="E-mail">
 				<span asp-validation-for="Email" class="text-danger"></span>
-			@*</div>
-			<div class="container-login__campo">*@
+		
 				<label asp-for="Senha" class="container-login__label">Senha</label>
 				<input asp-for="Senha" class="container-login__input" placeholder="Senha">
 				<span asp-validation-for="Senha" class="text-danger"></span>
@@ -32,14 +31,11 @@
 			</div>
 		</form>
 		<div class="container-login__esqueceu-senha">
-			<a asp-controller="Home" asp-action="Index">Voltar</a>
-			@*<a href="#">Esqueci a senha</a>*@
+			<a asp-controller="Home" asp-action="Index">Voltar</a>		
 		</div>
-
-	</div>
-	<!--container-login__campo-->
-	<!--container-login-->
+	</div><!--container-login-->	
 </main>
+
 <h6>@ViewBag.Message</h6>   <!--Exibe msg configurada no controller usuário login()-->
 @*<a class="btn btn-primary" asp-controller="Home" asp-action="Index">Voltar</a>*@
 

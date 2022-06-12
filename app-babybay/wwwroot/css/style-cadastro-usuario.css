@@ -51,9 +51,9 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
 }
 
 .article-c {
-    background-color: var(--clr--pink-dark);
+    background-color: var(--clr-second-background);
     border: 1px solid var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content-nivel-3);
+    box-shadow: var(--clr--box-shadow-content);
     margin: 40px;
     padding: 30px;
     /* flex*/
@@ -63,7 +63,7 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-    flex-shrink: 1;
+    flex-shrink: 1; 
 }
 
 .article-c__ul{    
@@ -82,6 +82,10 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     align-items: center;
 }
 
+    .article-c__ul > li > label {
+        display: block;
+    }
+
 .article-c__ul > li > input{
     background: #ffffff;   
     border-radius: 10px;    
@@ -99,6 +103,22 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     box-shadow: var(--clr--box-shadow-hover);
     border: 1.5px solid var(--clr-purple-dark);
 }
+
+    .article-c__ul > li >  .input__selected {
+        border-color: var(--clr--border-box);
+        box-shadow: var(--clr--box-shadow);
+        border-radius: 5px;
+        flex: 1 5 120px; /* grow shrink basis*/
+        font-size: 0.9em;
+        margin: 5px 20px;
+        padding: 2px;
+        width: 120px;
+    }
+
+        .article-c__ul > li > .input__selected:hover {
+            box-shadow: var(--clr--box-shadow-hover);
+            border: 1.8px solid var(--clr-purple-dark);          
+        }
 
 #btn-confirmar{
     background-color: var(--clr-purple-dark);
@@ -125,5 +145,3 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     background-color: var(--clr-purple-dark);
  
 }
-
-
