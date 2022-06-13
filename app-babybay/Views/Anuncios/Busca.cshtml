@@ -18,16 +18,19 @@
 						@*<h2>Nome do produto</h2>	*@
 						@Html.TextBox("nomeProduto")
 
-						<h6>Idade</h6>
-						@Html.TextBox("idadeProduto")
+						//<h6>Idade</h6>
+						List<int> listaIdade = new List<int>();
+						for (int i = 0; i < 14; i++)
+						{
+							listaIdade.Add(i);
+						}
+						ViewData["ListaIdade"] = new SelectList(listaIdade);
 
-						@*<div class="input-group">
-							<!-- Aqui mostra somente os anúncios do usuário logado (cliente)-->
-						@Html.DropDownList("ListaIdade",
-						(IEnumerable<SelectListItem>)ViewBag.listaIdade, new { @class ="form-select" })
-						</div>*@
+						@Html.DropDownList("idadeProduto",
+					(IEnumerable<SelectListItem>)ViewBag.listaIdade, "Idade",
+					new { @class = "input__selected" })
 
-						<h6>Categoria</h6>
+						//<h6>Categoria</h6>
 						@Html.DropDownList("Categoria",
 					new SelectList(Enum.GetValues(typeof(Categoria))),
 					"Selecione",

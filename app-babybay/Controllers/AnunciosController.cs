@@ -229,7 +229,7 @@ namespace app_babybay.Controllers
 
                 return View(anuncio);
             }
-            else
+            else               // Ajustar: QUando não tem produto para trocar, setar radio direto no babycoin
             {
                 // PRODUTO POR PRODUTO
                 var idAnunciante = anuncio.UsuarioId;
@@ -315,7 +315,7 @@ namespace app_babybay.Controllers
                 if (categoria == null)          // Se não tem idade nem categoria nem produto
                 {
                     return View(await buscaAnuncio.ToListAsync());      // Retorna tudo
-                }
+                }   
                 else                             // Se não tem idade nem produto e tem categoria
                 {
                     buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
@@ -324,13 +324,6 @@ namespace app_babybay.Controllers
             }
         }
 
-        /*             List<int> listaIdade = new List<int>();
-			for (int i = 0; i < 18; i++)
-			{
-                listaIdade.Add(i);
-			}
-            ViewData["ListaIdade"] = new SelectList(listaIdade);
- */
 
         // GET: Anuncios/Create   
         public async Task<IActionResult> CurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)//Aqui chama o o método da classe para curtir o produto
