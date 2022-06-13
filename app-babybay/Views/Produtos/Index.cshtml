@@ -4,11 +4,8 @@
 	ViewData["Title"] = "Produtos";
 }
 
-<h1>Produtos</h1>
+<h4>Produtos</h4>
 
-<p>
-	<a role="button" class="btn btn-primary" asp-action="Create">Cadastrar Produto</a>
-</p>
 <table class="table">
 	<thead>
 		<tr>
@@ -38,9 +35,7 @@
 	</thead>
 	<tbody>
 		@foreach (var item in Model)
-		{
-			@*if (User.Identity.Name == item.Usuario.Nome) <!--  erro-->
-			{*@
+		{		
 				<tr>
 					<td>
 						@Html.DisplayFor(modelItem => item.Nome)

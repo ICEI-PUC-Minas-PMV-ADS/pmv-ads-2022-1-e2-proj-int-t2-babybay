@@ -50,8 +50,8 @@
 
     .quadrados a:hover {
         transition-duration: 0.5s;
-       /* text-decoration: underline;*/
-        color: var(--clr-yellow-dark);
+        /* text-decoration: underline;*/
+        color: var(--clr-yellow-light);
     }
 
     .quadrados > img { /*Aqui é configuração do tamanho das imagens que vão dentro das caixas*/

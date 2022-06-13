@@ -25,7 +25,7 @@ namespace app_babybay.Controllers
         // GET: Produtos
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Produtos.Include(c => c.Usuario);          
+            var applicationDbContext = _context.Produtos.Include(c => c.Usuario);
 
             return View(await _context.Produtos.ToListAsync());
         }
@@ -55,8 +55,6 @@ namespace app_babybay.Controllers
             return View();
         }
 
-       
-
         // POST: Produtos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -64,12 +62,9 @@ namespace app_babybay.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                var TUser = User.Identity.Name; // Pega o nome do user logado
-
-                var usuario = new Usuario();
-                usuario = await _context.Usuarios  // Percorre no BD buscando pelo nome compara com  TUser
-                     .FirstOrDefaultAsync(m => m.Nome == TUser);
-                produto.Usuario = usuario; // Seta no Objeto Usuario  encontrado para Usuario no produto
+                var usuario = await _context.Usuarios   // User Logado
+                      .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
+                produto.Usuario = usuario; 
             }
             else
             {
@@ -81,7 +76,7 @@ namespace app_babybay.Controllers
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Usuarios");
             }
             return View(produto);
         }
@@ -115,12 +110,13 @@ namespace app_babybay.Controllers
             }
 
             if (ModelState.IsValid)
-            {               
+            {
                 try
-                {                  
-                    var usuario = await _context.Usuarios  
+                {
+                    var usuario = await _context.Usuarios
                          .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);  // Acha o usuário
                     produto.Usuario = usuario;      // Setando o usuario encontrado no Usuario do produto 
+                                                    // salvaUsuarioId = usuario.Id;
 
                     _context.Update(produto);
                     await _context.SaveChangesAsync();
@@ -136,10 +132,9 @@ namespace app_babybay.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("RedirecionarMenu", "Usuarios");
             }
 
-            // ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome", produto.UsuarioId);
             return View(produto);
         }
 
@@ -177,7 +172,7 @@ namespace app_babybay.Controllers
         {
             return _context.Produtos.Any(e => e.Id == id);
         }
-       
-        }
-    
+
+    }
+
 }

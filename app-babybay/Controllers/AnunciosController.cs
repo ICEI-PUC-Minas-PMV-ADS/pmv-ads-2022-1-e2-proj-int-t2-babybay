@@ -68,7 +68,7 @@ namespace app_babybay.Controllers
 
             // Passa pro SelectList somente os anúncios do cliente
             ViewData["AnuncioId"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");
-
+           
             return View(anuncio);
         }
 
@@ -323,6 +323,14 @@ namespace app_babybay.Controllers
                 }
             }
         }
+
+        /*             List<int> listaIdade = new List<int>();
+			for (int i = 0; i < 18; i++)
+			{
+                listaIdade.Add(i);
+			}
+            ViewData["ListaIdade"] = new SelectList(listaIdade);
+ */
 
         // GET: Anuncios/Create   
         public async Task<IActionResult> CurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)//Aqui chama o o método da classe para curtir o produto

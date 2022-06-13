@@ -12,14 +12,20 @@
 			<div class="article__busca--contorno">
 				<div class="menu-busca">
 					@*<input class="input__busca" type="search" name="input-buscar" id="input-buscar"
-						   placeholder="Busque uma roupa"> <!-- .input__busca-->*@
+					placeholder="Busque uma roupa"> <!-- .input__busca-->*@
 					@using (Html.BeginForm("Busca", "Anuncios", FormMethod.Post))
 					{
-						@*<h2>Nome do produto</h2>	*@					
+						@*<h2>Nome do produto</h2>	*@
 						@Html.TextBox("nomeProduto")
 
 						<h6>Idade</h6>
 						@Html.TextBox("idadeProduto")
+
+						@*<div class="input-group">
+							<!-- Aqui mostra somente os anúncios do usuário logado (cliente)-->
+						@Html.DropDownList("ListaIdade",
+						(IEnumerable<SelectListItem>)ViewBag.listaIdade, new { @class ="form-select" })
+						</div>*@
 
 						<h6>Categoria</h6>
 						@Html.DropDownList("Categoria",
@@ -47,10 +53,10 @@
 						@Html.DisplayFor(modelItem => item.Titulo)
 					</td>
 					@*<td>
-						@Html.DisplayFor(modelItem => item.ProdutoId)	
-					</td>*@
+				@Html.DisplayFor(modelItem => item.ProdutoId)
+				</td>*@
 					<td>
-						@Html.DisplayFor(modelItem => item.UsuarioId)	
+						@Html.DisplayFor(modelItem => item.UsuarioId)
 					</td>
 					@*	<td>
 				@Html.DisplayFor(modelItem => item.Produto.Id)
@@ -66,10 +72,10 @@
 						<a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.AnuncioId" class="btn btn-primary">Eu Quero!</a>
 					</td>
 				</tr>
-			}	
+			}
 		</tbody>
 	</table>
-	
+
 </section>
 
 

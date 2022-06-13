@@ -100,6 +100,14 @@ namespace app_babybay.Controllers
             return View(await _context.Usuarios.ToListAsync());
         }
 
+        public async Task<IActionResult> RedirecionarMenu()
+		{
+            var usuario = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.Nome.Contains(User.Identity.Name));
+
+            return RedirectToAction("Relatorio", "Usuarios", new { id = usuario.Id });
+		}
+
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
