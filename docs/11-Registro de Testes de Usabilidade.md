@@ -1,6 +1,6 @@
 
 
-12.2 Registro de Testes de Usabilidade  
+# 12.2 Registro de Testes de Usabilidade  
 
 O público alvo desses testes de usabilidade foram pais (solteiros ou casados), avôs e avós, tios, madrastas e padrastos e outros relacionados a crianças/adolescentes em fase de crescimento (madrinhas e padrinhos, como exemplo) e gostariam de participar de uma aplicação que os permitisse adquirir roupas para aqueles de forma sustentável e econômica, preferencialmente sem envolver gastos monetários. Inspetores de fora da equipe de desenvolvimento do layout também foram recrutados para realizarem um teste de usabilidade e fazerem sua avaliação.  
 Os testes serão realizados via protótipo do sistema, sendo a coleta de dados feita por meio de um Formulário online a partir da plataforma Google Forms (https://docs.google.com/forms/d/e/1FAIpQLSdiywnG57nmyhfQQGKwmRkBT8KN2PtksTFEqtMvBuRw28D-Qg/viewform), após cada um dos testadores serem instruídos dos passos que deveriam realizar com os direcionamentos descritos na Etapa 2 para os Testes de Usabilidade. 
