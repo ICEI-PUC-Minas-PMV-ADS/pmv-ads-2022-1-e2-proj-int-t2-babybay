@@ -34,7 +34,7 @@ Figura 36 - Display celular
  
 Figura 37 - Display computador e Tela de Menu
 
- ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/2parte_planilha_usabilidade.jpeg)
+ ![2parte_planilha_usabilidade](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/2parte_planilha_usabilidade.jpeg)
 Figura 38 - Tela “Meu Guarda-Roupa”
 
 
