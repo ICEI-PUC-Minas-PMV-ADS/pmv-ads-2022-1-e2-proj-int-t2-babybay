@@ -17,13 +17,13 @@ Layout padrão da aplicação que será utilizado em todas as páginas com a def
 # 11. Implementação de Solução 
 # 11.1 Template da Aplicação 
 A solução implementada para o template de Babybay é composta por um Header, composto pelo logotipo e as opções de login/sair, e um Footer com a versão da aplicação e os direitos autorais.  
- ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+ ![templatepadrao.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/9992444c532483d291235c584ffdf2368658a717/docs/img/templatepadrao.png)
 Figura 34 - Template padrão 
 
 
 A fonte escolhida para o logotipo é Baloo Bhai 2, cursiva e a fonte principal para títulos e parágrafos é Atlata, sans-serif.  Além disso, 5 cores foram selecionadas para todos os elementos, além do preto rgb(0, 0,0) e do branco rgb(255, 255,255). 
 
- ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+ ![paletadecores.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/paletadecores.png)
 Figura 35 - Paleta de cores
 
 Em relação à responsividade, a aplicação apresenta responsividade através de media queries, tal qual demostrado nas figuras 36 e 37.
