@@ -38,7 +38,7 @@ Figura 37 - Display computador e Tela de Menu
 Figura 38 - Tela “Meu Guarda-Roupa”
 
 
- !cadastro_usuario.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/cadastro_usuario.png)
+ ![cadastro_usuario.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/cadastro_usuario.png)
 Figura 39 - Tela “Cadastro de Usuário”
  ![tela_inicial_index.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/tela_inicial_index.png)
 Figura 40 - Tela Inicial/Index
