@@ -13,3 +13,63 @@ Layout padrão da aplicação que será utilizado em todas as páginas com a def
 
 
 ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+
+# 11. Implementação de Solução 
+# 11.1 Template da Aplicação 
+A solução implementada para o template de Babybay é composta por um Header, composto pelo logotipo e as opções de login/sair, e um Footer com a versão da aplicação e os direitos autorais.  
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+Figura 34 - Template padrão 
+
+
+A fonte escolhida para o logotipo é Baloo Bhai 2, cursiva e a fonte principal para títulos e parágrafos é Atlata, sans-serif.  Além disso, 5 cores foram selecionadas para todos os elementos, além do preto rgb(0, 0,0) e do branco rgb(255, 255,255). 
+
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+Figura 35 - Paleta de cores
+
+Em relação à responsividade, a aplicação apresenta responsividade através de media queries, tal qual demostrado nas figuras 36 e 37.
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+Figura 36 - Display celular
+
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+ 
+Figura 37 - Display computador e Tela de Menu
+
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/2parte_planilha_usabilidade.jpeg)
+Figura 38 - Tela “Meu Guarda-Roupa”
+
+
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+Figura 39 - Tela “Cadastro de Usuário”
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+Figura 40 - Tela Inicial/Index
+![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+ 
+Figura 41 - Tela “Configurações”
+![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+ 
+Figura 42 - Tela “Nova postagem”
+![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+ 
+Figura 43 - Tela “Anúncio”
+
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+Figura 44 - Tela “Compra de BabyCoin”
+
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+Figura 45 - Tela “Confirmação de compra”
+
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+Figura 46 - Tela “Denunciar postagem/usuário”
+![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+ 
+Figura 47 - Tela “Desativar conta”
+
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+Figura 48 - Tela “Excluir conta”
+
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+Figura 49 - Tela “Resultado de busca”
+
+ ![Diagrama de classes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png)
+Figura 50 - Tela “Solicitar item”
+
