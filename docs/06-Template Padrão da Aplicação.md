@@ -1,5 +1,5 @@
 # Template Padrão da Aplicação
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/6e9dba74c0b007defd057dc7e71250b9c9adc43d/docs/img/2parte_planilha_usabilidade.jpeg
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>
 
 Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
@@ -34,7 +34,7 @@ Figura 36 - Display celular
  
 Figura 37 - Display computador e Tela de Menu
 
- ![2parte_planilha_usabilidade](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/BabyBay_%20Diagrama_Classe%20.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/2parte_planilha_usabilidade.jpeg)
+ ![2parte_planilha_usabilidade](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/6e9dba74c0b007defd057dc7e71250b9c9adc43d/docs/img/2parte_planilha_usabilidade.jpeg)
 Figura 38 - Tela “Meu Guarda-Roupa”
 
 
