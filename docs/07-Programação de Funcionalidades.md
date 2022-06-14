@@ -32,13 +32,13 @@ Dessa forma após a chamada da função dos controllers, e sua correta execuçã
 
 **Listas**
 
-	Presente no controller para armazenar diferentes tipos de valores, nas etapas que exigem que o usuário selecione diferentes tipos de roupas, por exemplo, em um “catálogo” fornecido por um select list, afim que os valores armazenados na lista possam ser usados para identificar os valores da lista nos valores que estão presentes no banco de dados 
+Presente no controller para armazenar diferentes tipos de valores, nas etapas que exigem que o usuário selecione diferentes tipos de roupas, por exemplo, em um “catálogo” fornecido por um select list, afim que os valores armazenados na lista possam ser usados para identificar os valores da lista nos valores que estão presentes no banco de dados 
 
 # 11.2.2 Telas de funcionalidades
 
 **Tela inicial** 
 Com o menu de busca da aplicação, botão para cadastro de novo usuário e opção de entrar, caso já tenha sido cadastrado.
-
+![tela_inicial_bb.jpg](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/tela_inicial_bb.jpg)
  
 
 Figura 51 - Tela inicial
@@ -47,60 +47,60 @@ Figura 51 - Tela inicial
 Nessa tela é possível cadastrar-se na aplicação ao preencher devidamente os dados solicitados.
 
  
-
+![criarnovousuario.jpg](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/criarnovousuario.jpg)
 Figura 52 - Tela Criar novo usuário
 
 **Tela Login**
 Aqui fazemos o login na aplicação.
- 
+  ![telaloginn.jpg](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/telaloginn.jpg)
 
 Figura 53 - Tela Login 
 
 **Tela de busca logado**
 Tela inicial após o login do usuário com o menu de busca. No canto superior direto tem-se o nome do usuário e a opção de sair.
 
- 
+ ![telabuscalogado.jpg](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/telabuscalogado.jpg)
 
 Figura 54 - Tela de busca logado
 
 **Tela Detalhes de usuário**
 Nessa tela que será o Menu de usuário, temos as informações pessoais e opções de cadastrar nova roupa e buscar roupas cadastradas.
 
- 
+  ![teladetalhesusuario.jpg](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/teladetalhesusuario.jpg)
 
 Figura 55 - Tela Detalhes de usuário
 
 **Tela Busca por roupa do usuário**
 Guarda-Roupa do usuário.
 
- 
+  ![buscaroupadouser.jpg](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/buscaroupadouser.jpg)
 
 Figura 56 - Busca por roupa do usuário
 
 **Tela “Nova postagem”**
 Formulário de cadastro de produtos.
- 
+  ![cadastrodeprodutos.tif.jpg](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/cadastrodeprodutos.tif.jpg)
 
 Figura 57 - Tela Cadastro de Produtos
 
 **Tela “Meu Guarda-Roupa”**
 Espaço que contém as peças cadastradas na aplicação.
 
- 
+  ![meuguardaroupaaa.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/meuguardaroupaaa.png)
 
 Figura 58 - Tela Cadastro de Produtos
 
 **Tela “Anúncios de Usuário”**
 Lista de anúncios do usuário.
 
- 
+ ![anunciosdeuser.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/anunciosdeuser.png)
 
 Figura 59 - Tela “Anúncios de Usuário”
 
 **Tela “Retorno da Busca”**
 Retorna o resultado da busca feita pelo usuário de acordo com seus filtros.
 
- 
+  ![retornodabusca.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/retornodabusca.png)
 
 Figura 60 - Tela “Retorno da Busca”
 
@@ -109,5 +109,5 @@ Figura 60 - Tela “Retorno da Busca”
 Formulário para gerar anúncio.
 	
 	 
-
+ ![anunciarumprodutoo.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t2-babybay/blob/main/docs/img/anunciarumprodutoo.png)
 Figura 61 - Tela “Anunciar um Produto”
