@@ -4,6 +4,10 @@
   padding: 50px;
 }
 
+.sidebar {
+  margin-left: 300px;
+}
+
 h1 {
   color:#DA8BD2;
   text-align: center;
