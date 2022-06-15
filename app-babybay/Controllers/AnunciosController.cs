@@ -77,17 +77,35 @@ namespace app_babybay.Controllers
         // anuncioSelect é o anúncio selecionado pelo cliente para sugerir a troca com o anunciante
         public async Task<IActionResult> EnviarPedido(int? id, [Bind("AnuncioId")] Anuncio anuncioSelect, int opcRadio)
         {
+            
             if (id == null)
             {
                 return NotFound();
             }
-
+            var user = await _context.Usuarios.FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
+            var carteira = await _context.Carteiras.FirstOrDefaultAsync(a => a.Id == user.Id);
+            
             // Usuário anunciante, anúncio e produto anunciado
             var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)
                 .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
+
+            if (opcRadio == 0)//Se escolheu utilizar os babycoins,chama o metodo da carteira para tentar retirar o saldo,se retornar false é porque o produto custa mais que o usuário tem na carteira
+            {
+                bool temsaldo = carteira.Retirar(anuncio.Babycoin);
+
+
+                if (!temsaldo)
+                {
+                    ViewBag.Message = "Você não possui saldo suficiente";
+                    return View("Details", new {id});
+                }
+
+
+
+            }
             if (anuncio == null)
             {
                 return NotFound();

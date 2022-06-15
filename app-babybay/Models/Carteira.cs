@@ -55,11 +55,11 @@ namespace app_babybay.Models
 
         public bool Retirar(int quantidade)
         {
-            if (quantidade < 0)
+            if (quantidade < 0 ||quantidade > Saldo)
             {
                 return false;
             }
-
+           
             Saldo -= quantidade;
 
             return true;

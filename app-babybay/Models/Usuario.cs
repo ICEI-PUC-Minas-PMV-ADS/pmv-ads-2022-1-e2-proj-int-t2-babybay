@@ -55,11 +55,19 @@ namespace app_babybay.Models
         [MinLength(8)]
         [DataType(DataType.Password)]
         public string ConfirmarSenha { get; set; }
+    
+      
+
+        
+
+
    
         /* Navegação */
         public ICollection<Produto> Produtos { get; set; }     
         public ICollection<Troca> Trocas { get; set; }
         public ICollection<Anuncio> Anuncios { get; set; }
+
+ 
 
         // Instância de Carteira para passar ao UsuariosController 
         public Carteira CriarCarteira()
