@@ -23,6 +23,9 @@ namespace app_babybay.Models
 
         public DateTime _date = DateTime.Now;
 
+        public int AnuncioId { get; set; }
+        [ForeignKey("AnuncioId")]
+        public Anuncio Anuncio { get; set; }
         public DateTime Date
         {
             get { return _date; }

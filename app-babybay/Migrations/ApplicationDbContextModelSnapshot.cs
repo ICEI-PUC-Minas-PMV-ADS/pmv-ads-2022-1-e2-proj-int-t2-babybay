@@ -144,6 +144,9 @@ namespace app_babybay.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AnuncioId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -157,6 +160,8 @@ namespace app_babybay.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AnuncioId");
 
                     b.HasIndex("UsuarioId");
 
@@ -299,11 +304,19 @@ namespace app_babybay.Migrations
 
             modelBuilder.Entity("app_babybay.Models.Suporte", b =>
                 {
+                    b.HasOne("app_babybay.Models.Anuncio", "Anuncio")
+                        .WithMany()
+                        .HasForeignKey("AnuncioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("app_babybay.Models.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Anuncio");
 
                     b.Navigation("Usuario");
                 });

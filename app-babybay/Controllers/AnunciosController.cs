@@ -100,7 +100,7 @@ namespace app_babybay.Controllers
                 if (!temsaldo)
                 {
                     ViewBag.Message = "Você não possui saldo suficiente";
-                    return View("Details", new {id});
+                    return RedirectToAction("Details", new {id});
                 }
 
 
