@@ -9,12 +9,13 @@
 * {
     list-style: none;
 }
-main{
-    height:70vh;
+main {
+   /* height: 88vh;*/
+    height: auto;
 }
 
 p{
-    font-size:1.5em;
+    font-size:1.2em;
 }
 
 .div-confirmacompra {
@@ -115,11 +116,12 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: 14px;
+    height:10px;
 }
 
 
     .retornar > li > p > a {
         color: var(--clr-purple-dark);
-        ;
+        
     }
