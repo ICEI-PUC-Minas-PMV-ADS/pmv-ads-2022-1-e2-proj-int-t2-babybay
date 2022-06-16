@@ -21,7 +21,7 @@ namespace app_babybay.Controllers
         // GET: Suportes
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Suportes.Include(s => s.Usuario);
+            var applicationDbContext = _context.Suportes.Include(s => s.Anuncio).Include(s => s.Usuario);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -34,6 +34,7 @@ namespace app_babybay.Controllers
             }
 
             var suporte = await _context.Suportes
+                .Include(s => s.Anuncio)
                 .Include(s => s.Usuario)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (suporte == null)
@@ -47,6 +48,7 @@ namespace app_babybay.Controllers
         // GET: Suportes/Create
         public IActionResult Create()
         {
+            ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo");
             ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro");
             return View();
         }
@@ -56,7 +58,7 @@ namespace app_babybay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UsuarioId,TextoUsuario,TextoSuporte,Date")] Suporte suporte)
+        public async Task<IActionResult> RegistrarReclamacao([Bind("Id,UsuarioId,ReclamacaoUsuario,TextoSuporte,AnuncioId,Date")] Suporte suporte)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +66,7 @@ namespace app_babybay.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo", suporte.AnuncioId);
             ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", suporte.UsuarioId);
             return View(suporte);
         }
@@ -81,6 +84,7 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
+            ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo", suporte.AnuncioId);
             ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", suporte.UsuarioId);
             return View(suporte);
         }
@@ -90,7 +94,7 @@ namespace app_babybay.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UsuarioId,TextoUsuario,TextoSuporte,Date")] Suporte suporte)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UsuarioId,ReclamacaoUsuario,TextoSuporte,AnuncioId,Date")] Suporte suporte)
         {
             if (id != suporte.Id)
             {
@@ -117,6 +121,7 @@ namespace app_babybay.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo", suporte.AnuncioId);
             ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", suporte.UsuarioId);
             return View(suporte);
         }
@@ -130,6 +135,7 @@ namespace app_babybay.Controllers
             }
 
             var suporte = await _context.Suportes
+                .Include(s => s.Anuncio)
                 .Include(s => s.Usuario)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (suporte == null)

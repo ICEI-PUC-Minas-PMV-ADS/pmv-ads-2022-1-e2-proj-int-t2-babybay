@@ -17,10 +17,13 @@
                 @Html.DisplayNameFor(model => model.Usuario)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TextoUsuario)
+                @Html.DisplayNameFor(model => model.ReclamacaoUsuario)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TextoSuporte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anuncio)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Date)
@@ -35,10 +38,13 @@
                 @Html.DisplayFor(modelItem => item.Usuario.Bairro)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TextoUsuario)
+                @Html.DisplayFor(modelItem => item.ReclamacaoUsuario)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TextoSuporte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anuncio.Titulo)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)

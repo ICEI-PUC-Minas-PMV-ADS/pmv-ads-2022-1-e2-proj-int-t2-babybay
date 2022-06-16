@@ -16,10 +16,11 @@ namespace app_babybay.Models
         public Usuario Usuario { get; set; }
 
         [Display(Name = "Solicitação do Usuário")]
-        public string TextoUsuario { get; set; }
+        public string ReclamacaoUsuario { get; set; }
 
         [Display(Name = "Resposta do Suporte")]
         public string TextoSuporte { get; set; }
+        public static int Contador { get; set; }//Mais de 10 reclamações,suspendeiria o anuncio em questão
 
         public DateTime _date = DateTime.Now;
 
@@ -33,6 +34,25 @@ namespace app_babybay.Models
         }
 
         public ICollection<Usuario> Usuarios { get; set; }
+
+
+
+        public string RegistrarDenuncia(string reclamação)
+        {
+
+            if (string.IsNullOrEmpty(reclamação))
+            {
+                return "Digite alguma coisa na caixa de texto";
+            }
+            else
+            {
+                ReclamacaoUsuario += reclamação;
+                Contador++;
+                return "Denuncia Registrada com sucesso,nosso time irá analisa-lá";
+            }
+
+        }
+
 
     }
 }
