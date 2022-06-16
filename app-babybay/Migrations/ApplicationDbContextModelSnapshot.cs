@@ -150,10 +150,10 @@ namespace app_babybay.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("TextoSuporte")
+                    b.Property<string>("ReclamacaoUsuario")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextoUsuario")
+                    b.Property<string>("TextoSuporte")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UsuarioId")

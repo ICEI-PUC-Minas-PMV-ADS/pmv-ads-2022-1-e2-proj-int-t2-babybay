@@ -11,6 +11,8 @@ namespace app_babybay.Controllers
 {
     public class SuportesController : Controller
     {
+        public static int GuardaId;
+
         private readonly ApplicationDbContext _context;
 
         public SuportesController(ApplicationDbContext context)
@@ -46,8 +48,10 @@ namespace app_babybay.Controllers
         }
 
         // GET: Suportes/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
+
+            GuardaId = id;
             ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo");
             ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro");
             return View();
@@ -60,11 +64,23 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegistrarReclamacao([Bind("Id,UsuarioId,ReclamacaoUsuario,TextoSuporte,AnuncioId,Date")] Suporte suporte)
         {
+
+            var anuncio = await _context.Anuncios.FirstOrDefaultAsync(m => m.AnuncioId == GuardaId);
+
             if (ModelState.IsValid)
             {
+              bool Registro =  suporte.RegistrarDenuncia(suporte.ReclamacaoUsuario);
+                if (!Registro)//O metodo irá analisar,caso o usuário tenha digitado algo,se não retorna uma valor falso
+                {
+                    ViewBag.Message = "Digite alguma coisa na caixa de denúncia";
+                    return View("Create");
+                }
+                suporte.AdicionarIdAnuncio(anuncio.AnuncioId);
+               
+               
                 _context.Add(suporte);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                
             }
             ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo", suporte.AnuncioId);
             ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", suporte.UsuarioId);

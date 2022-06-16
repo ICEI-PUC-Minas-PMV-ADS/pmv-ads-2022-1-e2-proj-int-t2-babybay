@@ -37,20 +37,29 @@ namespace app_babybay.Models
 
 
 
-        public string RegistrarDenuncia(string reclamação)
+        public bool RegistrarDenuncia(string reclamação)
         {
 
             if (string.IsNullOrEmpty(reclamação))
             {
-                return "Digite alguma coisa na caixa de texto";
+                return false;
             }
             else
             {
                 ReclamacaoUsuario += reclamação;
+
                 Contador++;
-                return "Denuncia Registrada com sucesso,nosso time irá analisa-lá";
+                return true;
+
+
             }
 
+        }
+        public void AdicionarIdAnuncio(int id)
+        {
+            AnuncioId += id;/*No caso irá guarda o id na variável de AnuncioId,pois na tabela suporte ,ela 
+                             essa variável não tem muita utilidade com chave estrangeira,então será usada para
+                             outra utilizada*/
         }
 
 
