@@ -43,12 +43,12 @@ namespace app_babybay.Controllers
                 .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
-            // TRATAR - USUÁRIO NÃO PODE QUERER O PRODUTO QUE ELE MESMO ANUNCIOU
-            //if (anuncio.Usuario.Nome == User.Identity.Name)
-            //{
-            //    ViewBag.Message = "Não é possível escolher um produto que você anunciou, faça outra busca.";
-            //    return RedirectToAction("Busca");
-            //}
+             /*TRATAR - USUÁRIO NÃO PODE QUERER O PRODUTO QUE ELE MESMO ANUNCIOU*/
+            if (anuncio.Usuario.Nome == User.Identity.Name)
+            {
+                ViewBag.Message = "Não é possível escolher um produto que você anunciou, faça outra busca.";
+                return View("Busca");
+            }
 
             if (anuncio == null)
             {

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h2>Minhas reclamações</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -14,19 +14,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Usuario)
+                Dono do Anúncio
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReclamacaoUsuario)
+                Motivo da reclamação
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TextoSuporte)
+                Resposta do suporte
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Anuncio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Date)
+                Data da denúncia
             </th>
             <th></th>
         </tr>
@@ -35,7 +35,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Usuario.Bairro)
+                @Html.DisplayFor(modelItem => item.Anuncio.Usuario.Nome)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ReclamacaoUsuario)
@@ -50,9 +50,10 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Index"asp-controller="Usuarios"class="btn btn-primary" asp-route-id="@item.Id">Retornar a página inicial</a>
+                 @*<a asp-action="Edit" asp-route-id="@item.Id">Editar Denuncia</a> |
+               <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
             </td>
         </tr>
 }

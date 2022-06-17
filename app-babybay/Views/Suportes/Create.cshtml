@@ -67,14 +67,15 @@
 				
 				<input asp-for="ReclamacaoUsuario" class="container-reclamação__input" placeholder="Reclamação">
 				<span asp-validation-for="ReclamacaoUsuario" class="text-danger"></span>
-	    </div>
-			 <li>
+                 <li>
                 <input type="submit" value="Enviar" id="btn-confirmar">       
-            </li>        
+                </li>
+	    </div>
+           <h4>@ViewBag.Message</h4> 
+			        
         </div>
 		</form>
             </div>
-           <h6>@ViewBag.Message</h6> 
     <div class="retornar">
         <li>
             <p>

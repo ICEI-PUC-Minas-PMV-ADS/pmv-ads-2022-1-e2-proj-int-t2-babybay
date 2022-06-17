@@ -73,7 +73,10 @@
 					<td>
 						@*<h3>@ViewBag.Message</h3>*@
 						<a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.AnuncioId" class="btn btn-primary">Eu Quero!</a>
+					@*VER ALGUMA FOR DE O USUÁRIO NÃO DENUNCIAR A SI MESMO*@
 						<a asp-controller="Suportes" asp-action="Create" asp-route-id="@item.AnuncioId" class="btn btn-primary">Denunciar</a>
+						
+						
 						@*implementar o suporte*@
 
 					</td>

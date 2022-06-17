@@ -11,7 +11,7 @@ namespace app_babybay.Controllers
 {
     public class SuportesController : Controller
     {
-        public static int GuardaId;
+        public static int GuardaIdAnuncio;
 
         private readonly ApplicationDbContext _context;
 
@@ -48,10 +48,20 @@ namespace app_babybay.Controllers
         }
 
         // GET: Suportes/Create
-        public IActionResult Create(int id)
+        public  IActionResult Create(int id)
         {
+            var anuncio =  _context.Anuncios
+                .Include(a => a.Produto)
+                .Include(a => a.Usuario)
+                .FirstOrDefault(m => m.AnuncioId == id);
 
-            GuardaId = id;
+            /*TRATAR - USUÁRIO NÃO PODE QUERER O PRODUTO QUE ELE MESMO ANUNCIOU*//*
+            if (anuncio.Usuario.Nome == User.Identity.Name)
+            {
+                ViewBag.Message = "Não é possível escolher um produto que você anunciou, faça outra busca.";
+                return View("~/Views/Anuncios/Busca.cshtml");
+            }*/
+            GuardaIdAnuncio = id;
             ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo");
             ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro");
             return View();
@@ -64,23 +74,26 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegistrarReclamacao([Bind("Id,UsuarioId,ReclamacaoUsuario,TextoSuporte,AnuncioId,Date")] Suporte suporte)
         {
-
-            var anuncio = await _context.Anuncios.FirstOrDefaultAsync(m => m.AnuncioId == GuardaId);
+       
+            var anuncio = await _context.Anuncios.FirstOrDefaultAsync(m => m.AnuncioId == GuardaIdAnuncio);
+            var user = await _context.Usuarios.FirstOrDefaultAsync(a => a.Nome == User.Identity.Name);
 
             if (ModelState.IsValid)
             {
+                suporte.Usuario = user;
               bool Registro =  suporte.RegistrarDenuncia(suporte.ReclamacaoUsuario);
-                if (!Registro)//O metodo irá analisar,caso o usuário tenha digitado algo,se não retorna uma valor falso
+                if (Registro==false)//O metodo irá analisar,caso o usuário tenha digitado algo,se não retorna uma valor falso
                 {
                     ViewBag.Message = "Digite alguma coisa na caixa de denúncia";
                     return View("Create");
                 }
-                suporte.AdicionarIdAnuncio(anuncio.AnuncioId);
-               
+                suporte.AnuncioId = anuncio.AnuncioId;
+               /*Ver porque está registrando a reclamação duplicada*/
                
                 _context.Add(suporte);
                 await _context.SaveChangesAsync();
-                
+                return RedirectToAction("Index");
+
             }
             ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo", suporte.AnuncioId);
             ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Bairro", suporte.UsuarioId);
