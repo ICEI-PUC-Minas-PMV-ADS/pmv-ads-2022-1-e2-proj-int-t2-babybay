@@ -41,14 +41,7 @@ namespace app_babybay.Controllers
             var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)
                 .Include(a => a.Usuario)
-                .FirstOrDefaultAsync(m => m.AnuncioId == id);
-
-             /*TRATAR - USUÁRIO NÃO PODE QUERER O PRODUTO QUE ELE MESMO ANUNCIOU*/
-            if (anuncio.Usuario.Nome == User.Identity.Name)
-            {
-                ViewBag.Message = "Não é possível escolher um produto que você anunciou, faça outra busca.";
-                return View("Busca");
-            }
+                .FirstOrDefaultAsync(m => m.AnuncioId == id);                       
 
             if (anuncio == null)
             {
@@ -59,16 +52,23 @@ namespace app_babybay.Controllers
             var usuarioCliente = await _context.Usuarios
                .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
 
+            // LÓGICA FUNCIONA, MAS NÃO EXIBE MSG DO VIEW.MESSAGE NA VIEW
+            // NEM NA BUSCCA NEM   
+            if (anuncio.UsuarioId == usuarioCliente.Id)
+            {
+                ViewBag.Message = "Não é posível escolher um produto que você anunciou";
+                return RedirectToAction("Index", "Home");
+            }                      
+
             // Todos anúncios
             var anuncioCliente = from aCliente in _context.Anuncios
-                                 select aCliente;
-
+                                       select aCliente;
             // Anúncios do Usuário Logado
-            anuncioCliente = anuncioCliente.Where(s => s.UsuarioId == usuarioCliente.Id);
-
+            anuncioCliente = anuncioCliente.Where(s => s.UsuarioId == usuarioCliente.Id);          
+       
             // Passa pro SelectList somente os anúncios do cliente
             ViewData["AnuncioId"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");
-           
+
             return View(anuncio);
         }
 
@@ -77,14 +77,14 @@ namespace app_babybay.Controllers
         // anuncioSelect é o anúncio selecionado pelo cliente para sugerir a troca com o anunciante
         public async Task<IActionResult> EnviarPedido(int? id, [Bind("AnuncioId")] Anuncio anuncioSelect, int opcRadio)
         {
-            
             if (id == null)
             {
                 return NotFound();
             }
+
             var user = await _context.Usuarios.FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
-            var carteira = await _context.Carteiras.FirstOrDefaultAsync(a => a.Id == user.Id);
-            
+            var carteira = await _context.Carteiras.FirstOrDefaultAsync(a => a.UsuarioId == user.Id);
+
             // Usuário anunciante, anúncio e produto anunciado
             var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)
@@ -92,20 +92,17 @@ namespace app_babybay.Controllers
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
 
-            if (opcRadio == 0)//Se escolheu utilizar os babycoins,chama o metodo da carteira para tentar retirar o saldo,se retornar false é porque o produto custa mais que o usuário tem na carteira
-            {
-                bool temsaldo = carteira.Retirar(anuncio.Babycoin);
+            //if (opcRadio == 0)//Se escolheu utilizar os babycoins,chama o metodo da carteira para tentar retirar o saldo,se retornar false é porque o produto custa mais que o usuário tem na carteira
+            //{
+            //    bool temsaldo = carteira.Retirar(anuncio.Babycoin);
 
+            //    if (!temsaldo)
+            //    {
+            //        ViewBag.Message = "Você não possui saldo suficiente";
+            //        return RedirectToAction("Details", new {id});
+            //    }
 
-                if (!temsaldo)
-                {
-                    ViewBag.Message = "Você não possui saldo suficiente";
-                    return RedirectToAction("Details", new {id});
-                }
-
-
-
-            }
+            //}
             if (anuncio == null)
             {
                 return NotFound();
@@ -217,7 +214,7 @@ namespace app_babybay.Controllers
             }
 
             if (anuncio.PropostaAnuncioBabycoin)    // Se true, então é babycoin
-            {                
+            {
                 // Usuário anunciante - logado - quem aceita a troca
                 var usuarioAnunciante = await _context.Usuarios
                     .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
@@ -238,11 +235,11 @@ namespace app_babybay.Controllers
 
                 // Transferindo babycoin
                 carteiraCliente.Transferir(anuncio.Babycoin, carteiraAnunciante);
-              
+
                 _context.Anuncios.Remove(anuncio);       // Exclui Anúncio(de quem aceita a troca)
                 _context.Update(carteiraCliente);        // Atualiza o saldo da carteira do cliente        
                 _context.Update(carteiraAnunciante);     // Atualiza o saldo da carteira do anunciante
-           
+
                 await _context.SaveChangesAsync();       // Atualiza Banco
 
                 return View(anuncio);
@@ -255,18 +252,18 @@ namespace app_babybay.Controllers
 
                 // Ponto de vista do cliente
                 anuncio.Produto.UsuarioId = idCliente;  // Seta UsuarioId no prod (cliente x anunciante)
-                _context.Update(anuncio);          
+                _context.Update(anuncio);
                 _context.Anuncios.Remove(anuncio);       // Exclui Anúncio (de quem aceita a troca)
-               
+
                 // Ponto de vista do anunciante (quem aceita a troca)
                 anuncioProposta.Produto.UsuarioId = idAnunciante;
-                _context.Update(anuncioProposta);          
+                _context.Update(anuncioProposta);
                 _context.Anuncios.Remove(anuncioProposta);  // Exclui Anúncio (de quem solicita a troca)
 
                 await _context.SaveChangesAsync();          // Atualiza Banco
 
                 return View(anuncio);
-            }          
+            }
         }
 
         // Buscar Anúncios
@@ -333,7 +330,7 @@ namespace app_babybay.Controllers
                 if (categoria == null)          // Se não tem idade nem categoria nem produto
                 {
                     return View(await buscaAnuncio.ToListAsync());      // Retorna tudo
-                }   
+                }
                 else                             // Se não tem idade nem produto e tem categoria
                 {
                     buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);

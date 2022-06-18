@@ -35,8 +35,6 @@ namespace app_babybay.Models
 
         public ICollection<Usuario> Usuarios { get; set; }
 
-
-
         public bool RegistrarDenuncia(string reclamação)
         {
 
@@ -46,12 +44,10 @@ namespace app_babybay.Models
             }
             else
             {
-                ReclamacaoUsuario += reclamação;
+                ReclamacaoUsuario = reclamação;
 
                 Contador++;
                 return true;
-
-
             }
 
         }
