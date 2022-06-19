@@ -7,7 +7,7 @@
 <!--Ver uma forma de renderizar-->
 <link rel="stylesheet" href="~/css/template-page-index.css">	<!--Cod copiado de home/index -->
 @*<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">*@
-@*<link rel="stylesheet" href="~/css/style-busca.css">*@
+<link rel="stylesheet" href="~/css/style-busca.css">
 
 
 <div class="container">
@@ -46,73 +46,6 @@
 		</article> <!-- .article-busca -->
 	</section>
 </div><!--Cod copiado de home/index -->
-<section>
-	<table class="table">
-		<tbody>
-			@foreach (var item in Model)
-			{
-
-
-
-				<tr>
-					<td>
-						@Html.DisplayFor(modelItem => item.AnuncioId)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Titulo)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.UsuarioId)
-					</td>
-					<td>
-						<a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.AnuncioId" class="btn btn-primary">Eu Quero!</a>
-						<a asp-controller="Suportes" asp-action="Create" asp-route-id="@item.AnuncioId" class="btn btn-primary">Denunciar</a>
-
-					</td>
-				</tr>
-
-			}
-		</tbody>
-	</table>
-</section>
-
-
-
-
-
-
-
-
-@*<section>
-	<table class="table">
-		<tbody>
-			@foreach (var item in Model)
-			{
-				<tr>
-					<td>
-						@Html.DisplayFor(modelItem => item.AnuncioId)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Titulo)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.UsuarioId)
-					</td>
-					<td>
-						<a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.AnuncioId" class="btn btn-primary">Eu Quero!</a>
-						<a asp-controller="Suportes" asp-action="Create" asp-route-id="@item.AnuncioId" class="btn btn-primary">Denunciar</a>
-
-					</td>
-				</tr>
-			}
-		</tbody>
-	</table>
-
-</section>
-*@
-
-
-@*
 
 <section>
 	@foreach (var item in Model)
@@ -126,10 +59,9 @@
 						<div class="container space-between">
 							<div class="row d-flex justify-content-between">
 								<div class="card-text col text-left">
-									<p>@Html.DisplayFor(modelItem => item.Produto.Nome)</p>
-									<p class="small">@Html.DisplayFor(modelItem => item.Produto.Descricao)</p>
+									<p>@Html.DisplayFor(modelItem => item.Titulo)</p>
+								@*	<p class="small">@Html.DisplayFor(modelItem => item.Produto.Descricao)</p>*@
 								</div>
-
 							</div><!--row-->
 							<div class="row d-flex justify-content-between">
 								<div class="price text-left">@Html.DisplayFor(modelItem => item.Babycoin) bc</div>
@@ -143,4 +75,34 @@
 		</div>
 	}
 </section>
+
+
+
+							@*<section>
+	<table class="table">
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.AnuncioId)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Titulo)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.UsuarioId)
+					</td>
+					<td>
+						<a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.AnuncioId" class="btn btn-primary">Eu Quero!</a>
+						<a asp-controller="Suportes" asp-action="Create" asp-route-id="@item.AnuncioId" class="btn btn-primary">Denunciar</a>
+
+					</td>
+				</tr>
+
+			}
+		</tbody>
+	</table>
+</section>
+
 *@

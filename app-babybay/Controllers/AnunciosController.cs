@@ -237,7 +237,7 @@ namespace app_babybay.Controllers
                 carteiraCliente.Transferir(anuncio.Babycoin, carteiraAnunciante);
 
                 _context.Anuncios.Remove(anuncio);       // Exclui Anúncio(de quem aceita a troca)
-                _context.Update(carteiraCliente);        // Atualiza o saldo da carteira do cliente        
+                _context.Update(carteiraCliente);        // Atualiza o saldo da carteira do cliente       
                 _context.Update(carteiraAnunciante);     // Atualiza o saldo da carteira do anunciante
 
                 await _context.SaveChangesAsync();       // Atualiza Banco
@@ -272,6 +272,16 @@ namespace app_babybay.Controllers
         {
             var buscaAnuncio = from m in _context.Anuncios
                                select m;
+
+            // TENTANDO OCULTAR ANUNCIOS DE USUARIO LOGADO
+            //var usuario = await _context.Usuarios
+            //    .FirstOrDefaultAsync(u => u.Nome != User.Identity.Name);
+
+            ////var usuarioLogadoNome = User.Identity.Name;
+            ////buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto)
+            ////       || s.Produto.Nome.Contains(nomeProduto) && s.UsuarioId != usuario.Id);
+            //var usuarioLogado = buscaAnuncio.Where(s => s.UsuarioId == usuario.Id);
+            
 
             // Se tiver produto digitado
             if (!String.IsNullOrEmpty(nomeProduto))

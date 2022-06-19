@@ -1,12 +1,12 @@
 ﻿.container {
     max-width: 1080px;
-    margin: 0 auto;
+    margin: auto;
     padding: 50px;    
 }
 
-.sidebar {
+/*.sidebar {
     margin-left: 300px;
-}
+}*/
 
 h1 {
     color: #DA8BD2;
@@ -23,7 +23,8 @@ h1 {
 .container-gr {
     background-color: white;
     box-shadow: 1px 1px 2px #b6b6b694;
-    width: 900px;
+    width: 1200px;
+    margin: auto;
     border: 1px;
     border-radius: 10px 10px 0px 0px;
 }
@@ -31,6 +32,7 @@ h1 {
 #home-tab {
     width: 300px;
     border-radius: 10px 0px 0px 0px;
+    
 }
 
 #profile-tab {
@@ -39,6 +41,11 @@ h1 {
 }
 
 #contact-tab {
+    width: 300px;
+    border-radius: 0px;
+}
+
+#cad-tab {
     width: 300px;
     border-radius: 0px 10px 0px 0px;
     border: -1px;
@@ -69,7 +76,7 @@ h1 {
     background-color: #e6e3e318;
     border-radius: 5px;
     box-shadow: var(--clr--box-shadow-content);
-    max-width: 960px;
+    max-width: 1200px;
 }
 
 .card {
