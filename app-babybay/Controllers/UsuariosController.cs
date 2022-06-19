@@ -136,6 +136,7 @@ namespace app_babybay.Controllers
 
             var usuario = await _context.Usuarios
                 .Include(t => t.Produtos)
+                .Include(t => t.Anuncios)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (usuario == null)
             {
@@ -268,8 +269,15 @@ namespace app_babybay.Controllers
         public async Task<IActionResult> Delete(int id, string SenhaDelete)
         {
 
+            if (SenhaDelete == null)
+            {
+                ViewBag.Message = "Por favor, insira a sua senha";
+                return RedirectToAction("Delete");
+            }
+
             var usuario = await _context.Usuarios.FindAsync(id);
-            bool senhaOk = BCrypt.Net.BCrypt.Verify(SenhaDelete, usuario.Senha);
+            bool senhaOk = BCrypt.Net.BCrypt.Verify(SenhaDelete, usuario.Senha);           
+
             if (senhaOk)
             {
                 _context.Usuarios.Remove(usuario);

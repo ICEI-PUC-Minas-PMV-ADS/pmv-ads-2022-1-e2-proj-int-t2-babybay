@@ -1,53 +1,48 @@
 ﻿@model app_babybay.Models.Usuario
 
 @{
-    ViewData["Title"] = "Delete";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    <link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
-    <link rel="stylesheet" href="~/css/excluirConta.css">
+	ViewData["Title"] = "Delete";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	<link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
+	<link rel="stylesheet" href="~/css/excluirConta.css">
 
 }
 
-   
-
-    <title>BabyBay</title>
+<title>BabyBay</title>
 
 <main>
- <div class="div-confirmacompra">
-        <h1>Excluir conta</h1>
-    </div>
-        <div class="section-c">
-            <li>
-                <img src="~/img/excluirconta.jpeg" alt="excluirconta">  
-            </li>
-            <li>
-            <h4>Após excluir sua conta, ela será permanentemente deletada do nosso Banco de Dados e não poderá ser recuperada posteriormente. </h4>  
-            </li> 
-            @using (Html.BeginForm("Delete", "Usuarios", FormMethod.Post))
-        {
-            
-            	<h3>Digite sua senha</h3>
-			       @Html.TextBox("SenhaDelete")
-                    <form asp-action="Delete" style="padding:20px">
-               <input type="hidden" asp-for="Id" />
-                <input type="submit" value="Deletar" class="btn btn-danger" /> 
-                
-                 </form>  
+	<div class="container-delete">
+		<p class="section-c"><img src="~/img/excluirconta.jpeg" alt="excluirconta"></p>
+		<br />
+		<h2>Excluir conta</h2>
+		<ul>
+			<li class="texto-delete">
+				<hr>
+				Após excluir sua conta, ela será permanentemente deletada desativada não poderá ser recuperada. Deseja continuar?
+				
+			</li>
+			<li class="li-retornar-delete">
+				<a class="retornar-delete" asp-action="Details" asp-route-id="@Model.Id">Retornar</a>
+				<hr />
+			</li>			
 
-        } 
-   
-               <h3>@ViewBag.Message</h3>
-                  
-        </div>
-    <div class="retornar">
-        <li>
-            <p>
-                 <a role="button" class="btn btn-primary" asp-action="Index" asp-route-id="@Model.Id">Retornar</a>
-            </p>
-        </li>
-    </div>
-        
-
+			<li class="li-botao-delete">
+				@using (Html.BeginForm("Delete", "Usuarios", FormMethod.Post))
+				{
+					<h3>Digite sua senha</h3>
+					@Html.TextBox("SenhaDelete")
+					<form asp-action="Delete" style="padding:20px">
+						<input type="hidden" asp-for="Id" />
+						<input type="submit" value="Deletar" class="btn-delete" />
+					</form>
+					<h3>@ViewBag.Message</h3>
+				}				
+			</li>			
+		</ul>
+	</div>
 </main>
-    
-</div>
+
+
+
+
+

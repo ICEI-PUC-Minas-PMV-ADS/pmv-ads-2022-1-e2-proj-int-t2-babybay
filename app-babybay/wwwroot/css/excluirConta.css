@@ -1,3 +1,6 @@
+
+
+
 /* MENU USUÁRIO
 
     D - Arquivo NovoPost (page-css/NovoPost.css)
@@ -10,78 +13,89 @@
     list-style: none;
 }
 
-.div-confirmacompra {
-    margin: auto;
-    padding: 20px;
-    color: var(--clr-purple-dark);
-    height: 150px;
-    /* flex */
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.section-c {
-    /* flex */
-    display: flexbox;
-    vertical-align: middle;
-    justify-content: center;
-    width: 582px;
-    text-align: center;
-    margin: auto;
-    border: 0.5px solid #8D8D8D;
+.container-delete {
+    background-color: var(--clr-second-background);
+    border: 1px solid var(--clr--border-box);
     border-radius: 20px;
-    border-color: grey;
-    background-color: white;
-}
-
-    .section-c img {
-        width: 50px;
-        height: 50px;
-        border-radius: 4px;
-        object-fit: cover;
-        margin: 20px;
-    }
-
-    .section-c h3 {
-        /* flex */
-        color: black;
-        text-align: center;
-        margin: 20px;
-    }
-
-
-#btn-confirmar {
-    width: 408px;
-    height: 35px;
-    font-family: 'Alata';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 33px;
-    text-align: center;
-    color: #FFFFFF;
-    margin: 20px;
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    background: #ACABF2;
-    border-radius: 10px;
-}
-
-.retornar {
+    box-shadow: var(--clr--box-shadow-content);
+    margin: 120px auto;
+    padding: 40px;
+    max-width: 600px;
+    /* flex*/
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+h2 {
+    padding: 20px;
+    margin-bottom: 30px;
+    color: var(--clr-purple-dark);    
+    letter-spacing: 1px;
+    font-size: 2.5em;
+}
+
+.texto-delete {
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.li-botao-delete {
+    text-align: center;
+}
+
+form > input{
+    margin-top: 10px;
+    border: 0.5px solid #808080;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.btn-delete {
+    border: none;
+    color: #ffffff;
+    background-color: #DA8BD2;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+    .btn-delete:hover {
+        background-color: #dd5ed0;
+    }
+
+.section-c img {    
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    object-fit: cover;
     margin: 20px;
 }
 
+.section-c h3 {
+    /* flex */
+    color: black;
+    text-align: center;
+    margin: 20px;
+}
 
-    .retornar > li > p > a {
-        color: var(--clr-purple-dark);
-        
-    }
+.li-retornar-delete{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.li-retornar-delete > .retornar-delete {
+    color: var(--clr--pink-dark) !important;        
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+ 
+
+
+    
