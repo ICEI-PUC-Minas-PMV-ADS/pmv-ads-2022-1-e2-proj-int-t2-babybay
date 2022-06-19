@@ -40,9 +40,6 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
 }
 
 .section-c__div{
-    background-color: var(--clr-second-background);
-    border: 1px solid  var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content); 
     border-radius: 10px;
     margin: 20px;   
     padding: 20px;
@@ -72,34 +69,43 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
 }
 
 .article-c__ul{    
-    text-align: left;
+    text-align: center;
     /* align-self: flex-end; */
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: 200px;    
-} 
+    flex-basis: 200px; 
+    align-items: center;   
+}
 
-.article-c__ul > li{
+.sec_tab{
     display: flex;
+    margin: auto;
+    align-items: center;
+
+}
+
+.article-c__ul {
+    display: flexbox;
+    margin: auto;
     flex-direction: row; /* antes estava column*/
     justify-content: flex-end;
     align-items: center;
 }
 
-.article-c__ul > li > input{
+.botoess > input{
     background: #ffffff;   
     border-radius: 10px;    
     border-color: var(--clr--border-box);
     box-shadow: var(--clr--box-shadow);     
     height: 40px;
-    margin: 10px;
+    margin: auto;
     padding: 10px;        
     font-size: 1em;      
     flex-grow: 1; /* antes sem grow */
     flex-shrink: 1;
 }
 
-.article-c__ul > li > input:hover{
+.botoess > input:hover{
     box-shadow: var(--clr--box-shadow-hover);
     border: 1.5px solid var(--clr-purple-dark);
 }
@@ -111,6 +117,7 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     border-radius: 50px;
     color: #FFFFFF;
     font-size: 1.1em;
+    margin: auto;
     font-weight: bold;
     height: 48px;  
     letter-spacing: 1px;    
