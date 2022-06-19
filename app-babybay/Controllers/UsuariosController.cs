@@ -106,7 +106,7 @@ namespace app_babybay.Controllers
                 .FirstOrDefaultAsync(m => m.Nome.Contains(User.Identity.Name));
 
             return RedirectToAction("Relatorio", "Usuarios", new { id = usuario.Id });
-		}
+		}        
 
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)

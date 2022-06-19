@@ -30,6 +30,24 @@ namespace app_babybay.Controllers
             return View(await _context.Produtos.ToListAsync());
         }
 
+        // GET: Produtos/Edit/5
+        public async Task<IActionResult> MenuProduto(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var produto = await _context.Produtos.FindAsync(id);
+            if (produto == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome", produto.UsuarioId);
+            return View(produto);
+        }
+
         // GET: Produtos/Details/5
         public async Task<IActionResult> Details(int? id)
         {

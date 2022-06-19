@@ -29,6 +29,11 @@
 					</div>
 					<div class="card-price">
 						<h2>@Html.DisplayFor(model => model.Babycoin) BC</h2>
+						<br />
+						<!-- TTEM QUE ACERTAR PARA O CORAÇÃO FICAR VERMELHO-->
+						<a asp-controller="Anuncios" asp-action="CurtirAnuncio" asp-route-id="@Model.AnuncioId">
+							<img src="~/img/coracao-cinza-30x30.png" alt="curtir-anuncio">
+						</a>
 					</div>
 				</div>
 			</div><!--.card--> <!--Imagem-->
@@ -55,22 +60,25 @@
 
 					<div class="input-group">
 						<!-- Aqui mostra somente os anúncios do usuário logado (cliente)-->
-						@Html.DropDownList("AnuncioId", 
-						(IEnumerable<SelectListItem>)ViewBag.Anuncios, new { @class ="form-select" })	
+						@Html.DropDownList("AnuncioId",
+						(IEnumerable<SelectListItem>)ViewBag.Anuncios, new { @class ="form-select" })
 					</div>
-					<br>							
+					<br>
 					<input class="btn btn-primary" type="submit" value="Enviar Pedido" />
 				</div>
-				<br/>				
+				<br />
 				<div>
 					<a asp-controller="Home" asp-action="Index" asp- class="btn btn-primary">Voltar</a>
-				</div>						
-			</form>			
+				</div>
+			</form>
 		</div>
 	</div>
 </section>
 
+@*<a role="button" class="btn btn-primary" asp-controller="Anuncios" asp-action="CurtirAnuncio" asp-route-id="@Model.AnuncioId">Favoritar Anuncio</a>
+<a role="button" class="btn btn-primary" asp-controller="Anuncios" asp-action="DescurtirAnuncio" asp-route-id="@Model.AnuncioId">Tirar dos favoritos</a>
+*@
 
 
-	@*	<select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" asp-for="AnuncioId" class="form-control" asp-items="ViewBag.AnuncioId">
+@*	<select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" asp-for="AnuncioId" class="form-control" asp-items="ViewBag.AnuncioId">
 						</select>*@

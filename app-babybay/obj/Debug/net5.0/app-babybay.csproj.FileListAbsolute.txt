@@ -4588,3 +4588,4 @@ C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babyb
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Suportes\Details.cshtml.g.cs
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Suportes\Edit.cshtml.g.cs
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Suportes\Index.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Produtos\MenuProduto.cshtml.g.cs

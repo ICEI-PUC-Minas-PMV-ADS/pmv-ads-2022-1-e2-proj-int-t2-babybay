@@ -1,91 +1,91 @@
-﻿/* MENU USUÁRIO
+﻿
 
-    D - Arquivo NovoPost (page-css/NovoPost.css)
-    D1. Main
-
-/****************************************
-    5. Main
-/****************************************/
-* {
-    list-style: none;
+.article-busca {
+    /* flex */
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.div-comprababycoin {
-    padding: 20px;
-    color: var(--clr-purple-dark);
-    height: 150px;
-    /* flex */
+.article__busca--contorno {
+    background-color: var(--clr-second-background);
+    border: 1px solid var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow-content);
+    border-radius: 10px;
+}
 
+.menu-busca {
+    /* flex */
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
 }
 
-h3 {
-    padding: 20px;
-    text-align: center;
-    color: black;
+.input__busca {
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 10px;
+    font-size: 0.9em;
+    font-style: italic;
     /* flex */
-}
-
-li > input {
-    margin: auto;
-    width: 262px;
-}
-
-.section-c {
-    /* flex */
-    display: flex;
-    flex-direction: row;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    margin: 40px 60px;
-    border-radius: 4px;
-}
-
-
-
-.card-white {
-    background-color: #dd5ed0;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-    color: white;
-    padding: 18px;
-    border-radius: 4px;
+    flex: 2 8 960px; /* grow shrink basis*/
+    height: 45px;
+    margin: 10px;
     padding: 10px;
-    margin: 20px;
-    width: 262px;
-    text-align: center;
 }
 
-    .card-white h3 {
-        color: white;
-    }
+.input__selected {
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 5px;
+    flex: 1 5 120px; /* grow shrink basis*/
+    font-size: 0.9em;
+    margin: 5px 15px;
+    padding: 2px;
+    width: 120px;
+}
 
-    .card-white img {
-        width: 50px;
-        height: 50px;
-        border-radius: 4px;
-        object-fit: cover;
-        padding: 7px;
-    }
+/* Botão de buscar produtos */
+.input__busca--botao {
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 50px;
+    color: #FFFFFF;
+    font-size: 0.9em;
+    font-weight: bold;
+    height: 32px;
+    letter-spacing: 1px;
+    margin: 5px 15px;
+    min-width: 120px;
+    text-shadow: var(--clr--text-shadow);
+}
 
-    .card-white li input {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--clr-purple-dark);
-        border-color: var(--clr--border-box);
-        box-shadow: var(--clr--box-shadow);
-        border-radius: 10px;
-        color: #FFFFFF;
-        font-size: 1.1em;
-        font-weight: bold;
-        height: 48px;
-        letter-spacing: 1px;
-        max-width: 140px;
-        text-shadow: var(--clr--text-shadow);
-    }
+.input__busca:hover,
+.input__selected:hover {
+    box-shadow: var(--clr--box-shadow-hover);
+    border: 1.5px solid var(--clr-purple-dark);
+}
 
-.segunda-compra {
-    display: flex;
+.input__busca--botao:hover {
+    box-shadow: var(--clr--box-shadow-btn-hover);
+    background-color: var(--clr-purple-light);
+    cursor: pointer;
+}
+
+.input__busca--botao:active {
+    background-color: var(--clr-purple-dark);
+}
+
+.card-body {
+    padding: 5px;
+    margin: 0px;
+}
+
+.price {
+    padding-top: 10px;
+    padding-left: 5px;
 }

@@ -341,15 +341,15 @@ namespace app_babybay.Controllers
 
 
         // GET: Anuncios/Create   
-        public async Task<IActionResult> CurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)//Aqui chama o o método da classe para curtir o produto
+        public async Task<IActionResult> CurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)
         {
-            var roupa = await _context.Anuncios.FindAsync(id);//Aqui em teoria pega o valor do produto (id dele)e encontra o produto com aquele id
+            var anuncio = await _context.Anuncios.FindAsync(id);
 
-            roupa.CurtirAnuncio();//Aqui chama o método que faz com que a váriavel ProdutoCurtido passe para true,indicando que o produto foi favoritado
-            _context.Update(roupa);//Aqui deveria adicionar a objeto roupa,incluindo o ProdutoCurtido,mas da erro.
-            await _context.SaveChangesAsync();
+            anuncio.CurtirAnuncio();    // Chama método que manda true de retorno
+            _context.Update(anuncio);   // Atualiza a tabela anúncio com a informação da 'curtida'
+            await _context.SaveChangesAsync();  // Salva
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Anuncios", new {id});
         }
 
         public async Task<IActionResult> DescurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)
