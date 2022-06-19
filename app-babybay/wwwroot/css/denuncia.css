@@ -14,15 +14,13 @@ main {
     height: auto;
 }
 
-p{
-    font-size:1.2em;
-}
+
 
 .div-confirmacompra {
     margin: auto;
     padding: 5px;
     color: var(--clr-purple-dark);
-    height: 70px;
+   
     /* flex */
 
     display: flexbox;
@@ -37,7 +35,7 @@ p{
         height: 50px;
         border-radius: 4px;
         object-fit: cover;
-        margin: 20px;
+        margin: 15px;
     }
 
 
@@ -71,6 +69,8 @@ p{
     color: white;
     text-align: center;
     margin: 20px;
+    font-weight:bold;
+    font-size:1.0em;
 }
 .container-reclamação__campo {
     display: flex;
