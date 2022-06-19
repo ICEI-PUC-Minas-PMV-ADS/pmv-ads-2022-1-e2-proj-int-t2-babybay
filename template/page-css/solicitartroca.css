@@ -37,6 +37,7 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     flex-flow: row wrap;
     justify-content: center; 
     margin: 15px 20px;
+    
 }
 
 .section-c__div{
@@ -81,6 +82,8 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     display: flex;
     margin: auto;
     align-items: center;
+    width: fit-content;
+    padding: 15px;
 
 }
 
