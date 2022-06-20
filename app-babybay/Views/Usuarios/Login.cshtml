@@ -25,6 +25,7 @@
 				<label asp-for="Senha" class="container-login__label">Senha</label>
 				<input asp-for="Senha" class="container-login__input" placeholder="Senha">
 				<span asp-validation-for="Senha" class="text-danger"></span>
+				<h5 style="padding:10px">@ViewBag.Message</h5>
 			</div>
 			<div class="container-login__botao">
 				<input class="container-login__input--botao" type="submit" value="Entrar"> <!--Botão-->
@@ -36,7 +37,7 @@
 	</div><!--container-login-->	
 </main>
 
-<h6>@ViewBag.Message</h6>   <!--Exibe msg configurada no controller usuário login()-->
+   <!--Exibe msg configurada no controller usuário login()-->
 @*<a class="btn btn-primary" asp-controller="Home" asp-action="Index">Voltar</a>*@
 
 @section Scripts {

@@ -1,5 +1,8 @@
-﻿.container {
-    max-width: 1080px;
+﻿.Container {
+    display:flex;
+    flex-flow:row;
+    flex-wrap:wrap;
+    width:fit-content;
     margin: auto;
     padding: 50px;    
 }
@@ -8,10 +11,10 @@
     margin-left: 300px;
 }*/
 
-h1 {
+h2 {
     color: #DA8BD2;
     text-align: center;
-    margin: 0px 20px 60px 20px; 
+    margin: 0px auto 60px auto; 
     padding-left: 100px;
 }
 
@@ -28,11 +31,14 @@ h1 {
     border: 1px;
     border-radius: 10px 10px 0px 0px;
 }
-
+.nav nav-tabs justify-content-center{
+  display:flex;
+flex-flow:row;
+flex-wrap:wrap;
+}
 #home-tab {
     width: 300px;
     border-radius: 10px 0px 0px 0px;
-    
 }
 
 #profile-tab {
