@@ -1,10 +1,10 @@
 ﻿.Container {
-    display:flex;
-    flex-flow:row;
-    flex-wrap:wrap;
-    width:fit-content;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    width: fit-content;
     margin: auto;
-    padding: 50px;    
+    padding: 50px;
 }
 
 /*.sidebar {
@@ -14,7 +14,7 @@
 h2 {
     color: #DA8BD2;
     text-align: center;
-    margin: 0px auto 60px auto; 
+    margin: 0px auto 60px auto;
     padding-left: 100px;
 }
 
@@ -31,11 +31,13 @@ h2 {
     border: 1px;
     border-radius: 10px 10px 0px 0px;
 }
-.nav nav-tabs justify-content-center{
-  display:flex;
-flex-flow:row;
-flex-wrap:wrap;
+
+.nav nav-tabs justify-content-center {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
 }
+
 #home-tab {
     width: 300px;
     border-radius: 10px 0px 0px 0px;
@@ -88,5 +90,3 @@ flex-wrap:wrap;
 .card {
     transform: scale(0.8)
 }
-
-

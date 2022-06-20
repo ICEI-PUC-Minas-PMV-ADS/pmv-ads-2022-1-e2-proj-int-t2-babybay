@@ -9,7 +9,7 @@
 <section class="section-c">
 	<div class="section-c__div">
 		<article class="article-c">
-			<a class="btn btn-primary" asp-controller="Anuncios" asp-action="Create">Anunciar</a>
+			<a class="btn btn-primary" asp-controller="Anuncios" asp-action="Create" asp-route-id="@Model.Id"> Anunciar</a>
 			<a class="btn btn-primary" asp-controller="Produtos" asp-action="Edit" asp-route-id="@Model.Id">Editar Cadastro</a>	
 			<a class="btn btn-primary" asp-controller="Produtos"asp-action="Create">Cadastrar Roupa</a>
 		</article>

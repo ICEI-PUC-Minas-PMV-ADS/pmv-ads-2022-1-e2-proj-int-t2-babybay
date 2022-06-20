@@ -2,78 +2,67 @@
 
 @{
 	ViewData["Title"] = "Minha Carteira";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<h3>Carteira de @User.Identity.Name</h3>*@
 
-<!DOCTYPE html>
-<html lang="pt-br">
+<link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
+<link rel="stylesheet" href="~/css/Carteira.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
-    <link rel="stylesheet" href="~/css/Carteira.css">
-    
-     
-    <title>BabyBay</title>
-</head>
 
-<body>  
+<title>BabyBay</title>
+
+
 @foreach (var item in Model)
-		{
-			if (User.Identity.Name == item.Usuario.Nome)
-			{
-<main>
-    <div class="div-comprababycoin">
-        <h3>Olá @User.Identity.Name, você pode realizar a compra de Compra de BabyCoins com os planos abaixo,o saldo da sua carteira é de  @item.Saldo Babycoins</h3>
-    </div>
-    <h3>Sem peças para postar em troca de BabyCoins? Sem problema! Compre mais e receba o saldo em sua carteira em até 3 dias úteis*.</h3>
-        <div class="section-c"> 
-            <div class="card-white">
-                <h3>3 BabyCoins por R$ 10</h3>
-                <img src="~/img/coin.png" alt="coin">
-                <li>
-                    <a role="button" asp-action="Deposita10"asp-controller="Carteiras"asp-route-id="@item.Id" class="btn btn-primary">Light</a>       
-                </li>        
-            </div>
-            <div class="card-white">
-                <h3>6 BabyCoins por R$ 20</h3>
-                <img src="~/img/coin.png" alt="coin">
-                <li>
-                      <a role="button"asp-action="Deposita20"asp-controller="Carteiras" value="VIP" asp-route-id="@item.Id" class="btn btn-primary">Standard</a>             
-                </li>        
-            </div>
-            <div class="card-white">
-                <h3>12 BabyCoins por R$ 30</h3>
-                <img src="~/img/coin.png" alt="coin">
-                <li>
-                    <a role="button"asp-action="Deposita30"asp-controller="Carteiras" value="VIP" asp-route-id="@item.Id" class="btn btn-primary">VIP</a>       
-                </li>            
-            </div>
-        </div>
-    <li>
-        <h3>O pagamento é feito por transferência bancária ou PIX, devendo o comprovante ser enviado por e-mail para financeiro@babybay.com para que seu saldo seja liberado em até 3 dias úteis.</h3>
-    </li>
-       
-    <li>
-        <p>
-            <a asp-action="Index" asp-controller="Usuarios" class="btn btn-primary">Retornar</a>
-        </p>
-    </li>
+{
+	if (User.Identity.Name == item.Usuario.Nome)
+	{
+		<main>
+			<div class="div-comprababycoin">
+				<h3>Olá @User.Identity.Name, você pode realizar a compra de Compra de BabyCoins com os planos abaixo,o saldo da sua carteira é de  @item.Saldo Babycoins</h3>
+			</div>
+			<h3>Sem peças para postar em troca de BabyCoins? Sem problema! Compre mais e receba o saldo em sua carteira em até 3 dias úteis*.</h3>
+			<div class="section-c">
+				<div class="card-white">
+					<h3>3 BabyCoins por R$ 10</h3>
+					<img src="~/img/coin.png" alt="coin">
+					<li>
+						<a role="button" asp-action="Deposita10" asp-controller="Carteiras" asp-route-id="@item.Id" class="btn btn-primary">Light</a>
+					</li>
+				</div>
+				<div class="card-white">
+					<h3>6 BabyCoins por R$ 20</h3>
+					<img src="~/img/coin.png" alt="coin">
+					<li>
+						<a role="button" asp-action="Deposita20" asp-controller="Carteiras" value="VIP" asp-route-id="@item.Id" class="btn btn-primary">Standard</a>
+					</li>
+				</div>
+				<div class="card-white">
+					<h3>12 BabyCoins por R$ 30</h3>
+					<img src="~/img/coin.png" alt="coin">
+					<li>
+						<a role="button" asp-action="Deposita30" asp-controller="Carteiras" value="VIP" asp-route-id="@item.Id" class="btn btn-primary">VIP</a>
+					</li>
+				</div>
+			</div>
+			<li>
+				<h3>O pagamento é feito por transferência bancária ou PIX, devendo o comprovante ser enviado por e-mail para financeiro@babybay.com para que seu saldo seja liberado em até 3 dias úteis.</h3>
+			</li>
 
-</main>
+			<li>
+				<p>
+					<a asp-action="Index" asp-controller="Usuarios" class="btn btn-primary">Retornar</a>
+				</p>
+			</li>
+
+		</main>
+	}
 }
-}
 
-</body>
 
-</html>
-                
 
-		@*@foreach (var item in Model)
+
+@*@foreach (var item in Model)
 		{
 			if (User.Identity.Name == item.Usuario.Nome)
 			{
