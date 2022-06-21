@@ -932,3 +932,9 @@ C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babyb
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\app-babybay.pdb
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\app-babybay.genruntimeconfig.cache
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\ref\app-babybay.dll
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\Razor\Views\Produtos\MenuProduto.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\Razor\Views\Suportes\Create.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\Razor\Views\Suportes\Delete.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\Razor\Views\Suportes\Details.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\Razor\Views\Suportes\Edit.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\Razor\Views\Suportes\Index.cshtml.g.cs

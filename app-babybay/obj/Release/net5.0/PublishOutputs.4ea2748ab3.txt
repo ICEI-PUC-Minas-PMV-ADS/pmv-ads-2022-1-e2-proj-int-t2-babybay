@@ -2,11 +2,16 @@ C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babyb
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\card-style.css
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\Carteira.css
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\CompraConfirmada.css
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\denuncia.css
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\excluirConta.css
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\site.css
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\style-busca.css
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\style-cadastro-produto.css
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\style-cadastro-usuario.css
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\style-eu-quero.css
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\style-guarda-roupa.css
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\style-login.css
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\style-menu-produto.css
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\style-menu.css
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\template-page-index.css
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\css\template-style.css
@@ -19,7 +24,13 @@ C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babyb
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\favicon\favicon.ico
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\img\checkbox.png
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\img\coin.png
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\img\coracao-cinza-30x30.png
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\img\coracao-cinza.png
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\img\coracao-red-30x30.png
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\img\coracao-red.png
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\img\coracao-roxo.png
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\img\excluirconta.jpeg
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\img\frown.jpg
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\img\Group (1).png
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\img\Group.png
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Release\net5.0\PubTmp\Out\wwwroot\img\icone-hamburguer.png
