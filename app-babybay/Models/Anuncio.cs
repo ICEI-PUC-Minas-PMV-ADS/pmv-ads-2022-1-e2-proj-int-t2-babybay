@@ -22,7 +22,7 @@ namespace app_babybay.Models
 
         public int? ClienteId { get; set; }
         [ForeignKey("ClienteId")]
-
+        [MaxLength(20)]
         [Display(Name = "Título do Anúncio")]
         [Required(ErrorMessage = "É necessário informar um título para o anúncio")]
         public string Titulo { get; set; }
