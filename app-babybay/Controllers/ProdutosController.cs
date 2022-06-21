@@ -180,10 +180,13 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var usuario = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
+
             var produto = await _context.Produtos.FindAsync(id);
             _context.Produtos.Remove(produto);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Relatorio", "Usuarios", new { usuario.Id });
         }
 
         private bool ProdutoExists(int id)
