@@ -1,0 +1,120 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container-main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height:80vh;
+ 
+  }
+h1{
+    font-weight:bold
+}
+
+.container-login { /* main */
+    background-color: var(--clr-second-background);
+    border: 1px solid var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow-content);
+    border-radius: 10px;
+    /* height: 400px;      */
+    padding: 30px;
+    margin: 80px auto;
+    /*flex*/
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 450px;
+}
+
+.container-login__h1--titulo {
+    margin: 10px;
+    font-size: 1.1em;
+}
+
+.container-login__campo {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;    
+    /*margin: auto;*/
+    margin-top: -15px;
+}
+
+hr {
+    width: 350px;
+    color:black;
+}
+
+span{
+    display: block;
+}
+
+.container-login__input { /* li */
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    background: #ffffff;
+    border-radius: 6px;
+    height: 40px;
+    /* margin: 10px; */
+    padding: 10px;
+    font-size: 1em;
+    min-width: 200px;
+    flex: 1 1 100px;
+
+}
+
+    .container-login__input:hover {
+        box-shadow: var(--clr--box-shadow-hover);
+        border: 1.5px solid var(--clr-purple-dark);
+    }
+
+.container-login__label {
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-bottom: -1px;
+    padding: 10px;
+    flex: 1 1 200px;
+}
+
+.container-login__input--botao {
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 40px;
+    letter-spacing: 1px;
+    margin: 50px 25%;
+
+    min-width: 200px;
+    text-shadow: var(--clr--text-shadow);
+
+}
+
+    .container-login__input--botao:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr-purple-light);
+        cursor: pointer;
+    }
+
+    .container-login__input--botao:active {
+        background-color: var(--clr-purple-dark);
+    }
+
+.container-login__esqueceu-senha > a {
+    color: #000;
+    font-size: 1.1em;
+    justify-content: space-between;
+    color: var(--clr-purple-dark);
+}
+
+    .container-login__esqueceu-senha > a:hover {
+        font-weight: bold;
+    }

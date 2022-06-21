@@ -1,37 +1,37 @@
 ﻿@model app_babybay.Models.Troca
 
 @{
-    ViewData["Title"] = "Create";
+	ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>TESTE DE TROCA</h1>
 
-<h4>Troca</h4>
+<h4>Aqui tem que aparecer já os dados do anúncio e não um drop down</h4>
+<h4>Está redirecionando para index da troca, por enquanto.</h4>
+<h4>Tem que redirecionar para um view e trabalhar essa view para pegar as informações de ambos usuários</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ProdutoId" class="control-label"></label>
-                <select asp-for="ProdutoId" class ="form-control" asp-items="ViewBag.ProdutoId"></select>
-            </div>
-            @*<div class="form-group">
-                <label asp-for="UsuarioId" class="control-label"></label>
-                <select asp-for="UsuarioId" class ="form-control" asp-items="ViewBag.UsuarioId"></select>
-            </div>*@
-        
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+	<div class="col-md-4">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<!--Aqui tem que colocar direto para o anuncio, ao invés de viewbag-->
+			<div class="form-group">
+				<label asp-for="Anuncio" class="control-label"></label>
+				<select asp-for="AnunciooId" class="form-control" asp-items="ViewBag.AnuncioId"></select>
+			</div>
+			<div class="form-group">
+				<input type="submit" asp-controller="Trocas" asp-action="Index" value="Solicitar Troca" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
 </div>
+<h3>@ViewBag.Message</h3>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	}
+
+	

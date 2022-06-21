@@ -1,0 +1,63 @@
+﻿@model IEnumerable<app_babybay.Models.Anuncio>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Anuncios de @User.Identity.Name</h4>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Produto)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Titulo)
+			</th>
+		
+			<th width="700px">
+				Alguém está querendo trocar?
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			if (User.Identity.Name == item.Usuario.Nome)
+			{
+				<tr style="width:100vw">
+					@*<td>
+						@Html.DisplayFor(modelItem => item.Usuario.Nome)
+					</td>*@
+					<td width="300px">
+						@Html.DisplayFor(modelItem => item.Produto.Nome)
+					</td>
+					<td width="300px">
+						@Html.DisplayFor(modelItem => item.Titulo)
+					</td>
+					<td width="700px">
+						@if(item.InteresseTroca){
+							<p>Sim! Hoje é seu dia de sorte!</p>
+							<a asp-controller="Anuncios" class="btn btn-primary" asp-action="VisualizarSolicitacao" asp-route-id="@item.AnuncioId">Ver Interessados</a>
+						}
+						else
+						{
+							<p>Ainda não há pessoas com interesse no seu anúncio.</p>
+						}
+					</td>
+
+					<td style="width:1400px;">				
+						<a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.AnuncioId">Deletar Anúncio</a>|
+						<a role="button" class="btn btn-primary" asp-controller="Anuncios" asp-action="CurtirAnuncio" asp-route-id="@item.AnuncioId">Favoritar Anuncio</a>|
+						<a role="button" class="btn btn-primary" asp-controller="Anuncios" asp-action="DescurtirAnuncio" asp-route-id="@item.AnuncioId">Tirar dos favoritos</a>
+					</td>
+				</tr>
+			}
+		}
+	</tbody>
+</table>
+<div>
+	 <a class="btn btn-primary" asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar</a>
+</div>		

@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace app_babybay.Models
@@ -15,25 +17,53 @@ namespace app_babybay.Models
 
         public int Saldo { get; private set; }
 
-        public Carteira() 
-        {  
-            Saldo = 10;    
-        }
- 
-        public void Receber(int quantidade)
+        public Carteira()
         {
-            Saldo += quantidade;
+            Saldo = 10;
         }
 
-        public bool Retirar(int quantidade)
+        public void Receber(int quantidade)
+        {
+            if (quantidade > 0)
+            {
+                if (quantidade == 10)
+                {
+                    Saldo += 3;
+                }
+                else if (quantidade == 20)
+                {
+                    Saldo += 6;
+                }
+                else if (quantidade == 30)
+                {
+                    Saldo += 12;
+                }
+            }
+        }
+
+        public bool ReceberBabycoinAnuncio(int quantidade)
         {
             if (quantidade < 0)
             {
                 return false;
             }
-            Saldo -= quantidade;
+
+            Saldo += quantidade;
+
             return true;
-        }        
+        } 
+
+        public bool Retirar(int quantidade)
+        {
+            if (quantidade < 0 ||quantidade > Saldo)
+            {
+                return false;
+            }
+           
+            Saldo -= quantidade;
+
+            return true;
+        }
 
         public void Transferir(int quantidade, Carteira carteiraDestino)
         {
@@ -41,8 +71,9 @@ namespace app_babybay.Models
             {
                 return;
             }
+
             Retirar(quantidade);
-            carteiraDestino.Receber(quantidade);
+            carteiraDestino.ReceberBabycoinAnuncio(quantidade);
         }
     }
 }

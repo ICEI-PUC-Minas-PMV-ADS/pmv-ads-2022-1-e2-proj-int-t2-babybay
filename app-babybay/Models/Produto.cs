@@ -37,15 +37,41 @@ namespace app_babybay.Models
 
         [Required(ErrorMessage = "O tamanho é obrigatório")]
         public int Tamanho { get; set; }
-
+                
         [Required(ErrorMessage = "A categoria é obrigatória.")]
         public Categoria Categoria { get; set; }
 
-            
+        public bool ProdutoCurtido { get; set; }
+       /* public bool InteresseTroca { get; set; }
+
+        Dictionary<int, string> listaInteressados = new Dictionary<int, string>();*/
+
+        internal void Receber(int quantidade)
+        {
+            throw new NotImplementedException();
+        }
+
+        // Construtor que inicia o ProdutoCurtido com false
+        public Produto()
+        {
+            ProdutoCurtido = false;                          
+        }       
+
+        public void CurtirProduto()/*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe
+       para que assim ele estem método possa ser chamado por outro método no controle*/
+        {
+            ProdutoCurtido = true;         
+        }
+        public void DescurtirProduto()//Aqui um método para descurtir o produto,sera chamado quando apertar o botão curtir denovo,ou quando apertar o botão descurtir(ver depois)
+        {
+            ProdutoCurtido = false;
+        }    
+         
+        
     }
 
     public enum Categoria
-    {
+    {         
         Camiseta,
         Short,
         Calça,
@@ -53,5 +79,17 @@ namespace app_babybay.Models
         Calçado,
         Outros
     }
+
+    //public enum Idade
+    //{
+    //    Zero = 0,
+    //    Um = 1,
+    //    Dois = 2, 
+    //    Três = 3,
+    //    Quatro = 4,
+    //    Cinco = 5,
+    //    Seis = 6,
+    //    Outras = 7
+    //}
 }
 

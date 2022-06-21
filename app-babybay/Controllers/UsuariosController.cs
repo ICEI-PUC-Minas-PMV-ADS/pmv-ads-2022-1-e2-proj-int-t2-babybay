@@ -36,17 +36,14 @@ namespace app_babybay.Controllers
         {
             // Percorre o BD de forma assíncrona e compara o Id passado no método com o Id presente no BD
             var user = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.Email == usuario.Email);          
-                       
+                .FirstOrDefaultAsync(m => m.Email == usuario.Email);
+
             // Se null, exibe msg e volta pro login
             if (user == null)
             {
                 ViewBag.Message = "Usuário ou senha inválidos";
                 return View();
             }
-
-            //var produto = new Produto();
-            //produto.UsuarioId = usuario.Id;
 
             // Verifica se a senha inserida no login é igual a senha que existe no BD
             bool senhaOk = BCrypt.Net.BCrypt.Verify(usuario.Senha, user.Senha);
@@ -57,7 +54,7 @@ namespace app_babybay.Controllers
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, user.Nome),
-                    new Claim(ClaimTypes.NameIdentifier, user.Nome),                    
+                    new Claim(ClaimTypes.NameIdentifier, user.Nome),
                 };
 
                 var userIdentify = new ClaimsIdentity(claims, "login");
@@ -76,7 +73,7 @@ namespace app_babybay.Controllers
 
                 // Insere o usuário na seção da aplicação
                 await HttpContext.SignInAsync(principal, props);
-                return RedirectToAction("Index", "Home");       // Configurar para direcionar a tela de menu
+                return RedirectToAction("Index", "Usuarios");       // Configurar para direcionar a tela de menu
             }
 
             // A senha estiver incorreta, exibe na tela
@@ -97,16 +94,19 @@ namespace app_babybay.Controllers
             return View();
         }
 
-        //public IActionResult Menu()   // Configurar menu
-        //{
-        //    return View();
-        //}
-           
-        // GET: Usuarios
-        public async Task<IActionResult> Index()
+        // GET: Usuarios 
+        public async Task<IActionResult> Index()        // Menu será a Index
         {
             return View(await _context.Usuarios.ToListAsync());
         }
+
+        public async Task<IActionResult> RedirecionarMenu()
+		{
+            var usuario = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.Nome.Contains(User.Identity.Name));
+
+            return RedirectToAction("Relatorio", "Usuarios", new { id = usuario.Id });
+		}        
 
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -136,6 +136,7 @@ namespace app_babybay.Controllers
 
             var usuario = await _context.Usuarios
                 .Include(t => t.Produtos)
+                .Include(t => t.Anuncios)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (usuario == null)
             {
@@ -155,28 +156,41 @@ namespace app_babybay.Controllers
         // POST: Usuarios/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]    // Rota pública
         public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Cpf,Telefone,Rua,Bairro,Cidade,Estado,Email,Senha,ConfirmarSenha")] Usuario usuario)
-        {
-               /*Aqui ele ira comparar se a senha e o confirmar senha são iguais,caos sejam ele da proseguimento a criação do usuários
-                caso não sejam iguais,ele retorna a mesma pagina,ver depois como colocar mensagem de senha diferentes embaixo do display                                        */
+        {         
+           /*Aqui ele ira comparar se a senha e o confirmar senha são iguais,caos sejam ele da proseguimento a criação do usuários. Saso não sejam iguais, ele retorna a mesma página*/
             if (ModelState.IsValid && usuario.Senha == usuario.ConfirmarSenha)
             {
-                // Criptografia
-                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
-                usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);
-                // Usuário context
-                _context.Add(usuario);
-                await _context.SaveChangesAsync();
+               // Procura email/cpf que seja igual ao email/cpf digitado
+                var usuarioBanco = await _context.Usuarios.FirstOrDefaultAsync(m => m.Email == usuario.Email || m.Cpf == usuario.Cpf);
 
-                // Carteira context: Passando o usuario para pegar a chave estrangeira 
-                var carteira = usuario.CriarCarteira();
-                carteira.Usuario = usuario;
-                _context.Add(carteira);
-                await _context.SaveChangesAsync();
+                if (usuarioBanco == null)   // Significa que não está cadastrado
+                {
+                    // Criptografia
+                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                    usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);
+                    
+                    // Usuário context
+                    _context.Add(usuario);
+                    await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                    // Carteira context: Passando o usuario para pegar a chave estrangeira 
+                    var carteira = usuario.CriarCarteira();
+                    carteira.Usuario = usuario;
+                    _context.Add(carteira);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction(nameof(Index));
+                }
+                // Se não entrou acima, ou seja, se não tem cadastro, exibe a msg:
+                ViewBag.Message = "O Email ou CPF já estão cadastrados.";
+                return View();           
             }
-            return View(usuario);//Caso ou estado do model esteja inválido ou as senhas estejam diferentes,ele retornara a a view do usuário,a atual no caso
+            // Se a senha e confirma senha estão incorretas
+            ViewBag.Message = "A senha não confere, verifique.";
+
+            return View(usuario); //Caso ou estado do model esteja inválido ou as senhas estejam diferentes, ele retornara a a view do usuário(atual)
         }
 
         // GET: Usuarios/Edit/5
@@ -208,8 +222,9 @@ namespace app_babybay.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {
+                {   // Acertar para comparação de senha do BD com o que o usuário digitou, para alterar                    
                     usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                    usuario.ConfirmarSenha = BCrypt.Net.BCrypt.HashPassword(usuario.ConfirmarSenha);
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
                 }
@@ -250,13 +265,33 @@ namespace app_babybay.Controllers
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [AllowAnonymous]
+        public async Task<IActionResult> Delete(int id, string SenhaDelete)
         {
+
+            if (SenhaDelete == null)
+            {
+                ViewBag.Message = "Por favor, insira a sua senha";
+                return RedirectToAction("Delete");
+            }
+
             var usuario = await _context.Usuarios.FindAsync(id);
-            _context.Usuarios.Remove(usuario);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            bool senhaOk = BCrypt.Net.BCrypt.Verify(SenhaDelete, usuario.Senha);           
+
+            if (senhaOk)
+            {
+                _context.Usuarios.Remove(usuario);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+
+            }
+            else
+            {
+                ViewBag.Message = "Senha inválida,tente novamente";
+                return RedirectToAction("Delete");
+            }
         }
+
 
         private bool UsuarioExists(int id)
         {
@@ -264,3 +299,5 @@ namespace app_babybay.Controllers
         }
     }
 }
+
+

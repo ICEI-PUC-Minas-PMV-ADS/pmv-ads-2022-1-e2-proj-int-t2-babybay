@@ -1,0 +1,101 @@
+
+
+
+/* MENU USUÁRIO
+
+    D - Arquivo NovoPost (page-css/NovoPost.css)
+    D1. Main
+
+/****************************************
+    5. Main
+/****************************************/
+* {
+    list-style: none;
+}
+
+.container-delete {
+    background-color: var(--clr-second-background);
+    border: 1px solid var(--clr--border-box);
+    border-radius: 20px;
+    box-shadow: var(--clr--box-shadow-content);
+    margin: 120px auto;
+    padding: 40px;
+    max-width: 600px;
+    /* flex*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+h2 {
+    padding: 20px;
+    margin-bottom: 30px;
+    color: var(--clr-purple-dark);    
+    letter-spacing: 1px;
+    font-size: 2.5em;
+}
+
+.texto-delete {
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.li-botao-delete {
+    text-align: center;
+}
+
+form > input{
+    margin-top: 10px;
+    border: 0.5px solid #808080;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.btn-delete {
+    border: none;
+    color: #ffffff;
+    background-color: #DA8BD2;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+    .btn-delete:hover {
+        background-color: #dd5ed0;
+    }
+
+.section-c img {    
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    object-fit: cover;
+    margin: 20px;
+}
+
+.section-c h3 {
+    /* flex */
+    color: black;
+    text-align: center;
+    margin: 20px;
+}
+
+.li-retornar-delete{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.li-retornar-delete > .retornar-delete {
+    color: var(--clr--pink-dark) !important;        
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+ 
+
+
+    

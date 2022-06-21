@@ -1,0 +1,84 @@
+﻿@model app_babybay.Models.Anuncio
+
+@{
+	ViewData["Title"] = "Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+	  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link rel="stylesheet" href="~/css/style-eu-quero.css">
+<link rel="stylesheet" href="~/css/template-style.css">
+<link rel="stylesheet" href="~/css/card-style.css">
+
+<!-- View de Troca -->
+<section>
+	<div class="container">
+		<h2 class="text-center p-5 titulo">@Html.DisplayFor(model => model.Titulo)</h2>
+		<div class="d-flex justify-content-evenly">
+
+			<div class="card">
+				<!--Imagem-->
+				<img class="card-image" src="../img/roupa2.jpeg">
+				<div class="card-infos">
+					<div class="card-description">
+						<h2>@Html.DisplayFor(model => model.Produto.Nome)</h2>
+						<p>@Html.DisplayFor(model => model.Produto.Cor)</p>
+						<p>@Html.DisplayFor(model => model.Produto.Descricao)</p>
+						<p class="idade">@Html.DisplayFor(model => model.Produto.Idade) Ano(s)</p>
+					</div>
+					<div class="card-price">
+						<h2>@Html.DisplayFor(model => model.Babycoin) BC</h2>
+						<br />
+						<!-- TTEM QUE ACERTAR PARA O CORAÇÃO FICAR VERMELHO-->
+						<a asp-controller="Anuncios" asp-action="CurtirAnuncio" asp-route-id="@Model.AnuncioId">
+							<img src="~/img/coracao-cinza-30x30.png" alt="curtir-anuncio">
+						</a>
+					</div>
+				</div>
+			</div><!--.card--> <!--Imagem-->
+
+			<form asp-action="EnviarPedido" asp-route-id="@Model.AnuncioId">
+				<div class="item">
+					<div class="form-check">
+						@Html.RadioButton("opcRadio", 0,
+						new {@class = "form-check-input"})
+						<label class="form-check-label" for="opcRadio">
+							<h5>Utilizar meus babycoins</h5>
+						</label>
+					</div>
+
+					<div class="form-check">
+						<br>
+						<!--opcProdLabel para configurar a label da opção produtos, tem que ser assim para não dar conflito e ser mutualmente excludente-->
+						@Html.RadioButton("opcRadio", 1,
+						new {@class = "form-check-input", @id = "opcProdLabel", @checked="checked" })
+						<label class="form-check-label" for="opcProdLabel">
+							<h5>Sugerir troca</h5>
+						</label>
+					</div>
+
+					<div class="input-group">
+						<!-- Aqui mostra somente os anúncios do usuário logado (cliente)-->
+						@Html.DropDownList("AnuncioId",
+						(IEnumerable<SelectListItem>)ViewBag.Anuncios, new { @class ="form-select" })
+					</div>
+					<br>
+					<input class="btn btn-primary" type="submit" value="Enviar Pedido" />
+				</div>
+				<br />
+				<div>
+					<a asp-controller="Home" asp-action="Index" asp- class="btn btn-primary">Voltar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+@*<a role="button" class="btn btn-primary" asp-controller="Anuncios" asp-action="CurtirAnuncio" asp-route-id="@Model.AnuncioId">Favoritar Anuncio</a>
+<a role="button" class="btn btn-primary" asp-controller="Anuncios" asp-action="DescurtirAnuncio" asp-route-id="@Model.AnuncioId">Tirar dos favoritos</a>
+*@
+
+
+@*	<select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" asp-for="AnuncioId" class="form-control" asp-items="ViewBag.AnuncioId">
+						</select>*@

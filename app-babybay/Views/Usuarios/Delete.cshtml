@@ -1,75 +1,48 @@
 ﻿@model app_babybay.Models.Usuario
 
 @{
-    ViewData["Title"] = "Delete";
+	ViewData["Title"] = "Delete";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	<link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
+	<link rel="stylesheet" href="~/css/excluirConta.css">
+
 }
 
-<h1>Delete</h1>
+<title>BabyBay</title>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Usuario</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataNascimento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataNascimento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cpf)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cpf)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Rua)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rua)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Bairro)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Bairro)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cidade)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cidade)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a role="button" class="btn btn-primary" asp-action="Index">Back to List</a>
-    </form>
-</div>
+<main>
+	<div class="container-delete">
+		<p class="section-c"><img src="~/img/excluirconta.jpeg" alt="excluirconta"></p>
+		<br />
+		<h2>Excluir conta</h2>
+		<ul>
+			<li class="texto-delete">
+				<hr>
+				Após excluir sua conta, ela será permanentemente desativada e não poderá ser recuperada. Deseja continuar?
+				
+			</li>
+			<li class="li-retornar-delete">
+				<a class="retornar-delete" asp-action="Details" asp-route-id="@Model.Id">Retornar</a>
+				<hr />
+			</li>			
+
+			<li class="li-botao-delete">
+				@using (Html.BeginForm("Delete", "Usuarios", FormMethod.Post))
+				{
+					<h3>Digite sua senha</h3>
+					@Html.TextBox("SenhaDelete")
+					<form asp-action="Delete" style="padding:20px">
+						<input type="hidden" asp-for="Id" />
+						<input type="submit" value="Deletar" class="btn-delete" />
+					</form>
+					<h3>@ViewBag.Message</h3>
+				}				
+			</li>			
+		</ul>
+	</div>
+</main>
+
+
+
+
+

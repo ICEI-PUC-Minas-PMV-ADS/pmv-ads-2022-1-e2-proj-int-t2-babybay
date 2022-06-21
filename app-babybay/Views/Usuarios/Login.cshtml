@@ -1,6 +1,71 @@
 ﻿@model app_babybay.Models.Usuario
 
 @{
+	ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet" href="~/css/style-login.css">
+
+<main class="container-main">
+	<div class="container-login">
+		<div class="container-login__h1--titulo">
+			<h1>Login</h1>
+		</div>
+		<div>
+			<hr>
+			<br>
+		</div>
+		<form asp-action="Login">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="container-login__campo">
+				<label asp-for="Email" class="container-login__label">Email</label>
+				<input asp-for="Email" class="container-login__input" placeholder="E-mail">
+				<span asp-validation-for="Email" class="text-danger"></span>
+		
+				<label asp-for="Senha" class="container-login__label">Senha</label>
+				<input asp-for="Senha" class="container-login__input" placeholder="Senha">
+				<span asp-validation-for="Senha" class="text-danger"></span>
+				<h5 style="padding:10px">@ViewBag.Message</h5>
+			</div>
+			<div class="container-login__botao">
+				<input class="container-login__input--botao" type="submit" value="Entrar"> <!--Botão-->
+			</div>
+		</form>
+		<div class="container-login__esqueceu-senha">
+			<a asp-controller="Home" asp-action="Index">Voltar</a>		
+		</div>
+	</div><!--container-login-->	
+</main>
+
+   <!--Exibe msg configurada no controller usuário login()-->
+@*<a class="btn btn-primary" asp-controller="Home" asp-action="Index">Voltar</a>*@
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model app_babybay.Models.Usuario
+
+@{
     ViewData["Title"] = "Login";
 }
 
@@ -32,3 +97,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+*@

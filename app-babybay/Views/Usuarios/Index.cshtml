@@ -1,70 +1,110 @@
 ﻿@model IEnumerable<app_babybay.Models.Usuario>
 
+
 @{
-	ViewData["Title"] = "Index";
+	ViewData["Title"] = "Menu do Usuário";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	<link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
+	<link rel="stylesheet" href="~/css/style-menu.css">		
+
 }
 
-<h1>Index</h1>
+@foreach (var item in Model)
+{
+	if (User.Identity.Name == item.Nome)
+	{
+		<main>
+			<div class="container-principal">
+				  <h2>Bem vindo, @User.Identity.Name!</h2>
+				<div class="principais-funcionalidades">
+					<div class="quadrados">	
+						<img src="~/img/coin.png" alt="">
+						<p>
+							<a asp-controller="Carteiras" asp-action="Index" asp-route-id="@item.Id">Minha Carteira</a>
+						</p>
+					</div>
+					<div class="quadrados">
+						<img src="~/img/Group (1).png" alt="">
+						<p>
+							<a asp-controller="Home" asp-action="Index" >Buscar roupas</a>
+						</p>
+					</div>
+					<div class="quadrados">
+						<img src="~/img/Sweater.png" alt="">
+						<p>
+							<a asp-action="Relatorio" asp-route-id="@item.Id">Meu Guarda-Roupa</a>
+							
 
-<p>
-	<a role="button" class="btn btn-primary" asp-action="Create">Create New</a>
-</p>
-<table class="table">
-	<thead>
-		<tr>
-			<th>
-				@Html.DisplayNameFor(model => model.Nome)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Cpf)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Telefone)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Rua)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Cidade)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Email)
-			</th>
+						</p>
+					</div>
+					<div class="quadrados">
+						<img src="~/img/Sol.png" alt="">
+						<p>
+							<a asp-controller="Usuarios" asp-action="Details" asp-route-id="@item.Id">Minha Conta</a>
+						</p>
+					</div>
+				</div> <!--principais-funcionalidades-->
+			</div> <!-- .container-principal-->
+		</main>
+	}
+}
 
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var item in Model)
-		{
-			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => item.Nome)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Cpf)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Telefone)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Rua)
-				</td>
 
-				<td>
-					@Html.DisplayFor(modelItem => item.Cidade)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Email)
-				</td>
+@* Vari ficar dentro do guardaroupa*@
+@*        <a asp-controller="Produtos" asp-action="Create">Cadastrar Roupa</a>|
+                        <a asp-action="Index" asp-controller="Anuncios" asp-route-id="@item.Id">Meus Anúncios</a>
+                        <a asp-action="Index" asp-controller="Produtos" class="btn btn-primary" asp-action="Edit" as@*p-route-id="@item.Id">Editar Produtos</a> |*@
+@*
+<body>
 
-				<td style="display:flex;flex-direction:row">
-					<a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id">Editar</a> |
-					<a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Detalhes</a> |
-					<a asp-action="Delete" class="btn btn-primary" asp-route-id="@item.Id">Deletar</a> |
-					<a asp-action="Relatorio" class="btn btn-primary" asp-route-id="@item.Id">Relatório</a>
-				</td>
-			</tr>
-		}
-	</tbody>
-</table>
+
+	<main>
+		<div class="container-principal">
+			<h1>Bem vindo usuário xxxx</h1>
+			<div class="principais-funcionalidades">
+
+				<div class="quadrados">
+					<img src="../img/Group.png" alt="">
+					<p>
+						<a href="#">Criar novo anúncio</a>
+					</p>
+				</div>
+				<div class="quadrados">
+					<img src="../img/Group (1).png" alt="">
+					<p>
+						<a href="#">Buscar roupas</a>
+					</p>
+				</div>
+				<div class="quadrados">
+					<img src="../img/Sweater.png" alt="">
+					<p>
+						<a href="#">Meu guarda roupa</a>
+					</p>
+				</div>
+				<div class="quadrados">
+					<img src="../img/Sol.png" alt="">
+					<p>
+						<a href="#">Configurações</a>
+					</p>
+				</div>
+			</div> <!--principais-funcionalidades-->
+		</div> <!-- .container-principal-->
+	</main>
+
+	<footer class="footer-principal">
+		<div class="conteudo__footer">
+			<p class="conteudo__footer__frase">App Version - V1.0</p>
+			<p class="conteudo__footer__frase">ALL RIGHTS RESERVED TO BABYBAY © 2022</p>
+		</div> <!-- .conteudo__footer-->
+	</footer> <!-- .footer-principal" -->
+
+</body>
+</html>*@
+
+<!--
+	*** NÃO USAR ID
+	Exemplo nomenclatura de classes:
+.bloco-principal { padding:15px; }
+.bloco-principal__artigo { max-width:600px; }
+.bloco-principal__artigo--fundo-cinza { background: #c9c9c9; }
+-->

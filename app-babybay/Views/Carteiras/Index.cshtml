@@ -1,41 +1,96 @@
 ﻿@model IEnumerable<app_babybay.Models.Carteira>
 
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Minha Carteira";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Usuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Saldo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usuario.Bairro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Saldo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+<link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
+<link rel="stylesheet" href="~/css/Carteira.css">
+
+
+<title>BabyBay</title>
+
+
+@foreach (var item in Model)
+{
+	if (User.Identity.Name == item.Usuario.Nome)
+	{
+		<main>
+			<div class="div-comprababycoin">
+				<h3>Olá @User.Identity.Name, você pode realizar a compra de Compra de BabyCoins com os planos abaixo,o saldo da sua carteira é de  @item.Saldo Babycoins</h3>
+			</div>
+			<h3>Sem peças para postar em troca de BabyCoins? Sem problema! Compre mais e receba o saldo em sua carteira em até 3 dias úteis*.</h3>
+			<div class="section-c">
+				<div class="card-white">
+					<h3>3 BabyCoins por R$ 10</h3>
+					<img src="~/img/coin.png" alt="coin">
+					<li>
+						<a role="button" asp-action="Deposita10" asp-controller="Carteiras" asp-route-id="@item.Id" class="btn btn-primary">Light</a>
+					</li>
+				</div>
+				<div class="card-white">
+					<h3>6 BabyCoins por R$ 20</h3>
+					<img src="~/img/coin.png" alt="coin">
+					<li>
+						<a role="button" asp-action="Deposita20" asp-controller="Carteiras" value="VIP" asp-route-id="@item.Id" class="btn btn-primary">Standard</a>
+					</li>
+				</div>
+				<div class="card-white">
+					<h3>12 BabyCoins por R$ 30</h3>
+					<img src="~/img/coin.png" alt="coin">
+					<li>
+						<a role="button" asp-action="Deposita30" asp-controller="Carteiras" value="VIP" asp-route-id="@item.Id" class="btn btn-primary">VIP</a>
+					</li>
+				</div>
+			</div>
+			<li>
+				<h3>O pagamento é feito por transferência bancária ou PIX, devendo o comprovante ser enviado por e-mail para financeiro@babybay.com para que seu saldo seja liberado em até 3 dias úteis.</h3>
+			</li>
+
+			<li>
+				<p>
+					<a asp-action="Index" asp-controller="Usuarios" class="btn btn-primary">Retornar</a>
+				</p>
+			</li>
+
+		</main>
+	}
 }
-    </tbody>
+
+
+
+
+@*@foreach (var item in Model)
+		{
+			if (User.Identity.Name == item.Usuario.Nome)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Usuario.Nome)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Saldo)
+					</td>
+					<td>
+						<h4>Digite a quantidade de BabyCoins a serem adiciondos</h4>
+						@using (Html.BeginForm("Depositar", "Carteiras", FormMethod.Post))
+						{
+							<div style="display:block;padding:15px">@Html.TextBox("Deposito")</div>
+							<input class="btn btn-primary" type="submit" value="Depositar baby coin" asp-action="Depositar" asp-controller="Carteiras" asp-route-id="@item.Id" />
+						}
+
+						<h3>@ViewBag.Message</h3>
+						<div>
+							<a role="button" class="btn btn-primary" asp-controller="Usuarios" asp-action="Details" asp-route-id="@item.Id">Voltar</a>
+						</div>
+					</td>
+				</tr>
+			}
+		}
+	</tbody>
 </table>
+
+*@
+

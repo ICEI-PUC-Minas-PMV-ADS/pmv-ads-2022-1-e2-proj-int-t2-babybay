@@ -16,8 +16,61 @@ namespace app_babybay.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.16")
+                .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("app_babybay.Models.Anuncio", b =>
+                {
+                    b.Property<int>("AnuncioId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("AnuncioCurtido")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Babycoin")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ClienteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ContadorCurtidas")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("InteresseTroca")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("NomeInteressado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("PropostaAnuncioBabycoin")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("PropostaAnuncioTroca")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AnuncioId");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Anuncios");
+                });
 
             modelBuilder.Entity("app_babybay.Models.Carteira", b =>
                 {
@@ -65,6 +118,9 @@ namespace app_babybay.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("ProdutoCurtido")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Tamanho")
                         .HasColumnType("int");
 
@@ -79,6 +135,70 @@ namespace app_babybay.Migrations
                     b.HasIndex("UsuarioId");
 
                     b.ToTable("Produtos");
+                });
+
+            modelBuilder.Entity("app_babybay.Models.Suporte", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AnuncioId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReclamacaoUsuario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TextoSuporte")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnuncioId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Suportes");
+                });
+
+            modelBuilder.Entity("app_babybay.Models.Troca", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AnunciooId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioClienteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnunciooId");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Trocas");
                 });
 
             modelBuilder.Entity("app_babybay.Models.Usuario", b =>
@@ -127,28 +247,37 @@ namespace app_babybay.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("SuporteId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Telefone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("SuporteId");
+
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("app_babybay.Models.Troca", b =>
+            modelBuilder.Entity("app_babybay.Models.Anuncio", b =>
                 {
-                    b.HasBaseType("app_babybay.Models.Carteira");
+                    b.HasOne("app_babybay.Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                    b.HasOne("app_babybay.Models.Usuario", "Usuario")
+                        .WithMany("Anuncios")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("ProdutoId")
-                        .HasColumnType("int");
+                    b.Navigation("Produto");
 
-                    b.HasIndex("ProdutoId");
-
-                    b.ToTable("Trocas");
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("app_babybay.Models.Carteira", b =>
@@ -165,7 +294,7 @@ namespace app_babybay.Migrations
             modelBuilder.Entity("app_babybay.Models.Produto", b =>
                 {
                     b.HasOne("app_babybay.Models.Usuario", "Usuario")
-                        .WithMany()
+                        .WithMany("Produtos")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -173,12 +302,31 @@ namespace app_babybay.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("app_babybay.Models.Suporte", b =>
+                {
+                    b.HasOne("app_babybay.Models.Anuncio", "Anuncio")
+                        .WithMany()
+                        .HasForeignKey("AnuncioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("app_babybay.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Anuncio");
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("app_babybay.Models.Troca", b =>
                 {
-                    b.HasOne("app_babybay.Models.Carteira", null)
-                        .WithOne()
-                        .HasForeignKey("app_babybay.Models.Troca", "Id")
-                        .OnDelete(DeleteBehavior.ClientCascade)
+                    b.HasOne("app_babybay.Models.Anuncio", "Anuncio")
+                        .WithMany()
+                        .HasForeignKey("AnunciooId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("app_babybay.Models.Produto", "Produto")
@@ -187,7 +335,38 @@ namespace app_babybay.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("app_babybay.Models.Usuario", "Usuario")
+                        .WithMany("Trocas")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Anuncio");
+
                     b.Navigation("Produto");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("app_babybay.Models.Usuario", b =>
+                {
+                    b.HasOne("app_babybay.Models.Suporte", null)
+                        .WithMany("Usuarios")
+                        .HasForeignKey("SuporteId");
+                });
+
+            modelBuilder.Entity("app_babybay.Models.Suporte", b =>
+                {
+                    b.Navigation("Usuarios");
+                });
+
+            modelBuilder.Entity("app_babybay.Models.Usuario", b =>
+                {
+                    b.Navigation("Anuncios");
+
+                    b.Navigation("Produtos");
+
+                    b.Navigation("Trocas");
                 });
 #pragma warning restore 612, 618
         }
