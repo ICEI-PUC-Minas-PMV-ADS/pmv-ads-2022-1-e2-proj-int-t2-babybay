@@ -5,16 +5,94 @@
 }
 
 <link rel="stylesheet" href="~/css/style-menu-produto.css">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<section class="section-c">
-	<div class="section-c__div">
-		<article class="article-c">
-			<a class="btn btn-primary" asp-controller="Anuncios" asp-action="Create" asp-route-id="@Model.Id"> Anunciar</a>
-			<a class="btn btn-primary" asp-controller="Produtos" asp-action="Edit" asp-route-id="@Model.Id">Editar Cadastro</a>	
-			<a class="btn btn-primary" asp-controller="Produtos"asp-action="Create">Cadastrar Roupa</a>
-		</article>
-	</div>
-</section>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="../page-css/style-template.css">
+    <link rel="stylesheet" href="../page-css/pagpeca.css">    
+    <title>BabyBay - Solicitar troca</title>
+</head>
+
+<body>
+ 
+
+    <div class="div-titulo-cadastro">
+        <h2>@Model.Nome</h2>
+    </div>
+
+    <section class="section-c"> 
+        <div class="section-c__div">            
+            <article class="article-c">
+                <ul class="article-c__ul">
+                    <div class = sec_tab>
+                        <img src="../img/casacomegamanaa.jpg" alt="coin">
+                        <table>
+                            <tr>
+                                <th>
+                                    Seu anúncio:
+                                </th>
+                                <td>
+                                    @Model.Nome
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Descrição:
+                                </th>
+                                <td>
+                                   @Model.Descricao
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Idade:
+                                </th>
+                                <td>
+                                  @Model.Idade
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Categoria:
+                                </th>
+                                <td>
+                                   @Model.Categoria
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                        </table>
+                    </div>
+                    <div class="botoess">
+                    
+                        <a class="input__busca--botao" asp-controller="Produtos" asp-action="Edit" asp-route-id="@Model.Id">Editar Produto</a>	
+                    
+                        <a class="input__busca--botao" asp-controller="Anuncios" asp-action="Create" asp-route-id="@Model.Id"> Anunciar</a>
+                    </div>
+                </ul>
+            </article> <!-- .container-principal__article--dois-->
+        </div>
+    </section>
+
+
+ 
+
+</body>
+
+</html>
+
+<!--
+.bloco-principal { padding:15px; }
+.bloco-principal__artigo { max-width:600px; }
+.bloco-principal__artigo--fundo-cinza { background: #c9c9c9; }
+-->
+
 
 @section Scripts {
 	@{

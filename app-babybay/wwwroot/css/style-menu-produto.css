@@ -1,4 +1,4 @@
-/* TELA CADASTRO USUÁRIO 
+v /* TELA CADASTRO USUÁRIO 
 
 C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     C1. Section > Article
@@ -11,26 +11,18 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
 }
 
 .div-titulo-cadastro {
-    /* background-color: var(--clr--third-background);
-    border: 1px solid  var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content-nivel-3); */
-    border-radius: 10px;
-    font-size: 1.7em;
-    margin: auto;
-    max-width: 450px;
-    padding: 10px;
+    padding: 20px;
+    color: var(--clr-purple-dark);
+    height: 150px;
     /* flex */
+
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
 }
-
-hr {
-    margin-top: 10px;
-    margin-bottom: 10px;
+th{
+    padding:10px;
 }
-
 .section-c {
     /* flex */
     display: flex;
@@ -40,27 +32,20 @@ hr {
 }
 
 .section-c__div {
-    /* background-color: var(--clr-second-background);
-    border: 1px solid  var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content);  */
-    border-radius: 10px;
-    margin-bottom: 0px;
-    /* padding: 30px; */
     /* flex */
-    display: flex;
-    flex-flow: row wrap; /* wrap */
+    display: flexbox;
+    vertical-align: middle;
     justify-content: center;
-    flex-grow: 1;
-    flex-shrink: 1;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    color: black;
+    padding: 12px;
 }
 
 .article-c {
-     background-color: var(--clr-second-background);
-    border: 1px solid  var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content);  
-    margin-top: 15px;
-    padding: 10px 40px 20px 0px;
-    max-width: 600px;
+    margin: 40px;
+    padding: 30px;
     /* flex*/
     display: flex;
     flex-direction: row;
@@ -72,54 +57,70 @@ hr {
 }
 
 .article-c__ul {
-    text-align: left;
+    text-align: center;
     /* align-self: flex-end; */
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 200px;
+    align-items: center;
 }
 
-    .article-c__ul > li {
-        display: flex;
-        flex-direction: row; /* antes estava column*/
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-        .article-c__ul > li > input {
-            background: #ffffff;
-            border-radius: 10px;
-            border-color: var(--clr--border-box);
-            box-shadow: var(--clr--box-shadow);
-            height: 40px;
-            margin: 10px;
-            padding: 10px;
-            font-size: 1em;
-            flex-grow: 1; /* antes sem grow */
-            flex-shrink: 1;
-        }
-
-            .article-c__ul > li > input:hover {
-                box-shadow: var(--clr--box-shadow-hover);
-                /*  border: 1px solid var(--clr-purple-dark);*/
-                border-color: var(--clr-purple-dark);
-            }      
-
-.input__selected {
+.section-c img {
+    width: 200px;
+    height: 200px;
+    border-radius: 4px;
+    object-fit: cover;
+    margin: 10px;
+}
+.input__busca--botao {
+    background-color: var(--clr-purple-dark);
     border-color: var(--clr--border-box);
     box-shadow: var(--clr--box-shadow);
-    border-radius: 10px;
-    flex: 1 5 120px; /* grow shrink basis*/
-    font-size: 1em;
+    border-radius: 20px;
+    color: #FFFFFF !important;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding:12px;
+    height: 32px;
+    letter-spacing: 1px;
     margin: 5px 15px;
-    height: 35px;
-    padding: 2px;
-    width: 120px;
+    min-width: 120px;
+    text-shadow: var(--clr--text-shadow);
+    text-align: center;
+    line-height: 30px;
 }
-  
-    .input__selected:hover {
+.sec_tab {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    width: fit-content;
+    padding: 15px;
+}
+
+.article-c__ul {
+    display: flexbox;
+    margin: auto;
+    flex-direction: row; /* antes estava column*/
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.botoess > input {
+    background: #ffffff;
+    border-radius: 10px;
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    height: 40px;
+    margin: auto;
+    padding: 10px;
+    font-size: 1em;
+    flex-grow: 1; /* antes sem grow */
+    flex-shrink: 1;
+}
+
+    .botoess > input:hover {
         box-shadow: var(--clr--box-shadow-hover);
-        border: 1.2px solid var(--clr-purple-dark);
+        border: 1.5px solid var(--clr-purple-dark);
     }
 
 #btn-confirmar {
@@ -127,14 +128,17 @@ hr {
     border-color: var(--clr--border-box);
     box-shadow: var(--clr--box-shadow);
     border-radius: 50px;
-    color: #FFFFFF;
-    font-size: 1.1em;
+    color: #FFFFFF !important;
+    font-size: 0.9em;
     font-weight: bold;
-    height: 47px;
+    height: 32px;
     letter-spacing: 1px;
-    max-width: 135px; 
+    margin: 5px 15px;
+    min-width: 120px;
     text-shadow: var(--clr--text-shadow);
-    padding-bottom: 10px;   
+    text-align: center;
+    line-height: 30px;
+}
 }
 
     #btn-confirmar:hover {
@@ -145,16 +149,4 @@ hr {
 
     #btn-confirmar:active {
         background-color: var(--clr-purple-dark);
-    }
-
-.voltar {
-    margin: auto;
-    color: #000;
-    font-size: 1.1em;
-    justify-content: space-between;
-    color: var(--clr-purple-dark) !important;
-}
-
-    .voltar:hover {
-        font-weight: bold;
     }
