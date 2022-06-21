@@ -15,9 +15,14 @@ h2 {
     color: #DA8BD2;
     text-align: center;
     margin: 0px auto 60px auto;
-    padding-left: 100px;
+  
 }
-
+.card-description > h2 {
+    color: #DA8BD2;
+    text-align: center;
+    margin: auto;
+ 
+}
 #myTab {
     background-color: #a3a1f3;
     border-radius: 10px 10px 0px 0px;
@@ -79,7 +84,7 @@ h2 {
 
 .cards {
     display: flex;
-    justify-content: space-between;
+    justify-content:flex-start;
     margin-bottom: 30px;
     background-color: #e6e3e318;
     border-radius: 5px;
