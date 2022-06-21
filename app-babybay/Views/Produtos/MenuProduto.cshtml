@@ -5,22 +5,6 @@
 }
 
 <link rel="stylesheet" href="~/css/style-menu-produto.css">
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../favicon/favicon-32x32.png" type="image/x-icon">
-    <link rel="stylesheet" href="../page-css/style-template.css">
-    <link rel="stylesheet" href="../page-css/pagpeca.css">    
-    <title>BabyBay - Solicitar troca</title>
-</head>
-
-<body>
- 
 
     <div class="div-titulo-cadastro">
         <h2>@Model.Nome</h2>
@@ -30,7 +14,7 @@
         <div class="section-c__div">            
             <article class="article-c">
                 <ul class="article-c__ul">
-                    <div class = sec_tab>
+                    <div class = "sec_tab">
                         <img src="../img/casacomegamanaa.jpg" alt="coin">
                         <table>
                             <tr>
@@ -74,6 +58,7 @@
                         <a class="input__busca--botao" asp-controller="Produtos" asp-action="Edit" asp-route-id="@Model.Id">Editar Produto</a>	
                     
                         <a class="input__busca--botao" asp-controller="Anuncios" asp-action="Create" asp-route-id="@Model.Id"> Anunciar</a>
+                        <a class="input__busca--botao" asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar</a>
                     </div>
                 </ul>
             </article> <!-- .container-principal__article--dois-->
@@ -81,11 +66,6 @@
     </section>
 
 
- 
-
-</body>
-
-</html>
 
 <!--
 .bloco-principal { padding:15px; }
