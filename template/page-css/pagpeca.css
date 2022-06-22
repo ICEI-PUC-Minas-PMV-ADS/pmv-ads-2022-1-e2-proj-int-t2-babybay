@@ -20,7 +20,9 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     justify-content: center;
     align-items: center;
 }
-
+th{
+    padding:10px;
+}
 .section-c{    
     /* flex */
     display: flex;
@@ -35,7 +37,7 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     display: flexbox;
     vertical-align: middle;
     justify-content: center;
-    width: 582px;
+    width: fit-content;
     text-align: center;
     margin: auto;
     color: black;
