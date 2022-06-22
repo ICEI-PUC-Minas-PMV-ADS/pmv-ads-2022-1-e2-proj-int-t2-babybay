@@ -29,6 +29,29 @@ namespace app_babybay.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> MenuAnuncio(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            //var anuncio = await _context.Anuncios
+            //    .FindAsync(id);
+
+            var anuncio = await _context.Anuncios
+               .Include(a => a.Produto)
+               .Include(a => a.Usuario)
+               .FirstOrDefaultAsync(m => m.AnuncioId == id);
+
+            if (anuncio == null)
+            {
+                return NotFound();
+            }
+           
+            return View(anuncio);
+        }
+
         // GET: Anuncios/Details
         // É chamado depois de clicar em "Eu Quero" na busca
         public async Task<IActionResult> Details(int? id)
@@ -417,9 +440,10 @@ namespace app_babybay.Controllers
                     _context.Add(anuncio);
                     await _context.SaveChangesAsync();
 
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("Relatorio", "Usuarios", new { id = anuncio.UsuarioId });
                 }
             }
+
             // Se entrou no if, vai redirecionar para index
             return View(anuncio);
         }
@@ -451,10 +475,13 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var usuario = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
+
             var anuncio = await _context.Anuncios.FindAsync(id);
             _context.Anuncios.Remove(anuncio);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Relatorio", "Usuarios", new { usuario.Id });
         }
 
         private bool AnuncioExists(int id)

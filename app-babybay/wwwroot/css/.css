@@ -11,7 +11,7 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
 }
 
 .div-titulo-cadastro {
-    padding:    20px;
+    padding: 20px;
     color: var(--clr-purple-dark);
     height: 150px;
     /* flex */
@@ -65,7 +65,7 @@ th{
     background-color: var(--clr-second-background);
     border: 1px solid var(--clr--border-box);
     box-shadow: var(--clr--box-shadow-content);
-    margin: 10px;
+    margin: 40px;
     padding: 50px;
     /* flex*/
     display: flex;

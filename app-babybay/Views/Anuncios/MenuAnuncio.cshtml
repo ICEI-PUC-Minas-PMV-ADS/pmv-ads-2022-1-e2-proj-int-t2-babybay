@@ -1,0 +1,82 @@
+﻿@model app_babybay.Models.Anuncio
+
+@{
+	ViewData["Title"] = "MenuAnuncio";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/css/style-menu-produto.css">
+
+<div class="div-titulo-cadastro">
+	<h2>@Model.Titulo</h2>
+</div>
+
+<section class="section-c">
+	<div class="section-c__div">
+		<article class="article-c">
+			<ul class="article-c__ul">
+				<div class="sec_tab">
+					<img src="../img/casacomegamanaa.jpg" alt="coin">
+					<table>
+						<tr>
+							<th>
+								Produto:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Produto.Nome)
+							</td>
+						</tr>
+						<tr>
+							<th>
+								Título:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Titulo)
+							</td>
+						</tr>
+						<tr>
+							<th>
+								BabyCoin:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Babycoin) BC
+							</td>
+						</tr>
+						<tr>
+							<th>
+								Data:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Date)
+							</td>
+						</tr>
+						<tr>
+							<th>
+								Curtidas:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.ContadorCurtidas)
+							</td>
+						</tr>						
+					</table>
+				</div>
+				<div>
+					@if (@Model.InteresseTroca)
+					{
+						<p>Sim! Hoje é seu dia de sorte!</p>
+						<a class="input__busca--botao" asp-controller="Anuncios" asp-action="VisualizarSolicitacao" asp-route-id="@Model.AnuncioId">Ver Interessados</a>
+					}
+					else
+					{
+						<p>Ainda não há pessoas com interesse no seu anúncio.</p>
+					}
+					<div>
+						<a class="input__busca--botao" asp-controller="Anuncios" asp-action="Delete" asp-route-id="@Model.AnuncioId">Excluir</a>
+						<a class="input__busca--botao" asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar</a>
+
+					</div>
+				</div>
+
+			</ul>
+		</article> <!-- .container-principal__article--dois-->
+	</div>
+</section>
