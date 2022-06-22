@@ -1,0 +1,170 @@
+/* TELA CADASTRO USUÁRIO 
+
+C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
+    C1. Section > Article
+    
+/****************************************
+    C1. Section > Article
+/****************************************/
+*{
+    list-style: none;    
+}
+
+.div-titulo-cadastro{
+    padding: 20px;
+    color: var(--clr-purple-dark);
+    height: 150px;
+    /* flex */    
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.botoes{
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 10px;    
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);     
+    height: 40px;
+    padding: 10px;        
+    font-size: 1em;      
+    flex-grow: 1; /* antes sem grow */
+    flex-shrink: 1;
+}
+
+.botoes > input:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--clr--box-shadow-hover);
+    border: 1.5px solid var(--clr-purple-dark);
+}
+
+#btn-confirmar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow); 
+    border-radius: 50px;
+    color: #FFFFFF;
+    font-size: 1.1em;
+    margin: auto;
+    font-weight: bold;
+    height: 48px;  
+    letter-spacing: 1px;    
+    max-width: 200px;
+    text-shadow: var(--clr--text-shadow);   
+  
+}
+
+#btn-confirmar:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--clr--box-shadow-btn-hover);
+    background-color: var(--clr-purple-light);
+    cursor: pointer;
+}
+
+#btn-confirmar:active{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-purple-dark);
+ 
+}
+
+
+.section-c{    
+    /* flex */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; 
+    margin: 15px 20px;
+    
+}
+
+.section-c__div{
+    /* flex */
+    display: flexbox;
+    vertical-align: middle;
+    justify-content: center;
+    width: 582px;
+    text-align: center;
+    margin: auto;
+    color: black;
+    padding: 12px;  
+ 
+}
+
+.article-c{
+    margin: 40px;
+    padding: 30px; 
+    /* flex*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;    
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; 
+    flex-shrink: 1;   
+}
+
+.article-c__ul{    
+    text-align: center;
+    /* align-self: flex-end; */
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 200px; 
+    align-items: center;   
+}
+
+.section-c img{
+    width: 200px;
+    height: 200px;
+    border-radius: 4px;
+    object-fit: cover;
+    margin: 10px;
+  }
+
+.sec_tab{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    width: fit-content;
+    padding: 15px;
+
+}
+
+.article-c__ul {
+    display: flexbox;
+    margin: auto;
+    flex-direction: row; /* antes estava column*/
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.retornar > p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    font-size: large;
+    color: #6B71FF;
+}
+
+.retornar > li > p > a{
+    color: #6B71FF;
+}
+
+
+
+
