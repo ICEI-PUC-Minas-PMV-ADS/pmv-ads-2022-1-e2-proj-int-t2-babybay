@@ -27,7 +27,11 @@ h3 {
     color: black;
     /* flex */
 }
-
+.container-principal{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+}
 li > input {
     margin: auto;
     width: 262px;
