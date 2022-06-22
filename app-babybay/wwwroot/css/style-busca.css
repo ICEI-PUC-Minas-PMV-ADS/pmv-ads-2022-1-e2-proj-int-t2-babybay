@@ -20,7 +20,19 @@
     justify-content: center;
     align-items: center;
 }
+.botoes{
+    display:flex;
+    flex-direction:column;
+    
 
+}
+p{
+    width:253px;
+}
+.btn-light {
+    margin: 10px 0px;
+    width: 120px;
+}
 h3 {
     padding: 20px;
     text-align: center;
@@ -47,7 +59,12 @@ li > input {
     border-radius: 4px;
 }
 
-
+.card-image {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+}
 
 .card-white {
     background-color: #dd5ed0;
