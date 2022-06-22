@@ -27,7 +27,7 @@
 						</tr>
 						<tr>
 							<th>
-								Título:
+								Título anúncio:
 							</th>
 							<td>
 								@Html.DisplayFor(model => model.Titulo)
@@ -35,15 +35,15 @@
 						</tr>
 						<tr>
 							<th>
-								BabyCoin:
+								Preço em BabyCoin:
 							</th>
 							<td>
-								@Html.DisplayFor(model => model.Babycoin) BC
+								@Html.DisplayFor(model => model.Babycoin) BabyCoins
 							</td>
 						</tr>
 						<tr>
 							<th>
-								Data:
+								Anunciado em:
 							</th>
 							<td>
 								@Html.DisplayFor(model => model.Date)
@@ -51,10 +51,10 @@
 						</tr>
 						<tr>
 							<th>
-								Curtidas:
+								Curtidas no anúncio:
 							</th>
 							<td>
-								@Html.DisplayFor(model => model.ContadorCurtidas)
+								@Html.DisplayFor(model => model.ContadorCurtidas) Curtidas
 							</td>
 						</tr>						
 					</table>
@@ -62,8 +62,9 @@
 				<div>
 					@if (@Model.InteresseTroca)
 					{
-						<p>Sim! Hoje é seu dia de sorte!</p>
 						<a class="input__busca--botao" asp-controller="Anuncios" asp-action="VisualizarSolicitacao" asp-route-id="@Model.AnuncioId">Ver Interessados</a>
+						<p>Seu produto possui interesse em troca,clique no botão acima para ver o(s) interessado(s)</p>
+					
 					}
 					else
 					{

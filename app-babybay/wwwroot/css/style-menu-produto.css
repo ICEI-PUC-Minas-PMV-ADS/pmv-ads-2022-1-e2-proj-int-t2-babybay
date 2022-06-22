@@ -63,7 +63,7 @@ th{
 
 .article-c {
     background-color: var(--clr-second-background);
-    border: 1px solid var(--clr--border-box);
+    border: 1px solid #b3d7ff;
     box-shadow: var(--clr--box-shadow-content);
     margin: 10px;
     padding: 50px;
@@ -112,12 +112,16 @@ th{
     text-align: center;
     line-height: 30px;
 }
+p {
+    padding: 12px;
+   
+}
 
-    .input__busca--botao:hover {
-        box-shadow: var(--clr--box-shadow-btn-hover);
-        background-color: var(--clr-purple-light);
-        cursor: pointer;
-    }
+.input__busca--botao:hover {
+    box-shadow: var(--clr--box-shadow-btn-hover);
+    background-color: var(--clr-purple-light);
+    cursor: pointer;
+}
 
     .input__busca--botao:active {
         background-color: var(--clr-purple-dark);

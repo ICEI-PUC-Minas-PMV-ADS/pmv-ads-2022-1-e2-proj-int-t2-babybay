@@ -46,7 +46,24 @@ namespace app_babybay.Controllers
 
             return View(suporte);
         }
+        public async Task<IActionResult> confirmaDenuncia(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
+            var denuncia = await _context.Anuncios
+                  .Include(a => a.Produto)
+                  .Include(a => a.Usuario)
+                  .FirstOrDefaultAsync(m => m.AnuncioId == id);
+            if (denuncia == null)
+            {
+                return NotFound();
+            }
+
+            return View(denuncia);
+        }
         // GET: Suportes/Create
         public  IActionResult Create(int id)
         {
@@ -92,7 +109,7 @@ namespace app_babybay.Controllers
                
                 _context.Add(suporte);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return View("confirmaDenuncia");
 
             }
             ViewData["AnuncioId"] = new SelectList(_context.Anuncios, "AnuncioId", "Titulo", suporte.AnuncioId);
