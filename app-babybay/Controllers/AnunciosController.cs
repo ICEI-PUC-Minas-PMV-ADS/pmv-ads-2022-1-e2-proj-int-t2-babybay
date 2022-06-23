@@ -77,11 +77,11 @@ namespace app_babybay.Controllers
 
             // LÓGICA FUNCIONA, MAS NÃO EXIBE MSG DO VIEW.MESSAGE NA VIEW
             // NEM NA BUSCCA NEM   
-            if (anuncio.UsuarioId == usuarioCliente.Id)
-            {
-                ViewBag.Message = "Não é posível escolher um produto que você anunciou";
-                return RedirectToAction("Index", "Home");
-            }                      
+            //if (anuncio.UsuarioId == usuarioCliente.Id)
+            //{
+            //    ViewBag.Message = "Não é posível escolher um produto que você anunciou";
+            //    return RedirectToAction("Index", "Home");
+            //}                      
 
             // Todos anúncios
             var anuncioCliente = from aCliente in _context.Anuncios

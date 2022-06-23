@@ -48,6 +48,14 @@ namespace app_babybay.Controllers
             return View(produto);
         }
 
+        //public async Task<IActionResult> RedirecionarMenu()
+        //{
+        //    var produto = await _context.Produtos
+        //        .FirstOrDefaultAsync(m => m.Nome.Contains(User.Identity.Name));
+
+        //    return RedirectToAction("MenuProduto", "Produtos", new { id = usuario.Id });
+        //}
+
         // GET: Produtos/Details/5
         public async Task<IActionResult> Details(int? id)
         {

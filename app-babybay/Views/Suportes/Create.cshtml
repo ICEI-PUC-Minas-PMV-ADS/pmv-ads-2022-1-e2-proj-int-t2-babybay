@@ -1,89 +1,91 @@
 ﻿@model app_babybay.Models.Suporte
 
 @{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    <link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
-    <link rel="stylesheet" href="~/css/denuncia.css">
+	ViewData["Title"] = "Create";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	<link rel="shortcut icon" href="../favicon/favicon-16x16.png" type="image/x-icon">
+	<link rel="stylesheet" href="~/css/denuncia.css">
 }
 
 <main>
-    <div class="div-confirmacompra" style="height:124px;">
-        <img src="~/img/frown.jpg" alt="frown">
-        <h3 style="color:#ACABF2; font-weight:bold">Denunciar postagem/usuário</h3>
-    </div>
-        <div class="section-c">
-            <li>
+	<div class="div-confirmacompra">
+		<img src="~/img/frown.jpg" alt="frown">
+		<h3>Denunciar postagem/usuário</h3>
+	</div>
+	<div class="section-c">
+		<li>
 
-                <h3 style="font-size:1.17em;">Marque abaixo o motivo de sua denúncia e a equipe do BabyBay irá investigar:</h3>  
-            </li> 
-            <form asp-action="RegistrarReclamacao">
+			<h3 style="font-size:1.17em; color: black">Marque abaixo o motivo de sua denúncia e a equipe do BabyBay irá investigar:</h3>
+		</li>
+		<form asp-action="RegistrarReclamacao">
 
-            <div class="selecao">
-            <li>
-            <br>
-                <input type="checkbox" id="denuncia1" name="denuncia1" value="denuncia1">
-                <label for="denuncia1">Itens proibidos (Banidos)</label>
-            </br>
-            </li>
-            <li>
-                <br>
-                    <input type="checkbox" id="denuncia2" name="denuncia2" value="denuncia2">
-                    <label for="denuncia2">Itens ofensivos e/ou potencialmente ofensivos</label>
-                </br>
-            </li>
-            <li>
-                <br>
-                    <input type="checkbox" id="denuncia3" name="denuncia3" value="denuncia3">
-                    <label for="denuncia3">Propriedade furtada</label>
-                </br>
-            </li>
-            <li>
-                <br>
-                    <input type="checkbox" id="denuncia4" name="denuncia4" value="denuncia4">
-                    <label for="denuncia4">Listagens Fraudulentas</label>
-                </br>
-            </li>
-            <li>
-                <br>
-                    <input type="checkbox" id="denuncia5" name="denuncia5" value="denuncia5">
-                    <label for="denuncia5">Tentativa de golpe</label>
-                </br>
-            </li>
-            <li>
-                <br>
-                    <input type="checkbox" id="denuncia6" name="denuncia6" value="denuncia6">
-                    <label for="denuncia6">Mensagens de chat, imagens ou vídeos ofensivos</label>
-                </br>
-            </li>
-            <li>
-                <br>
-                    <input type="checkbox" id="denuncia7" name="denuncia7" value="denuncia7">
-                    <label for="denuncia7">Outro:</label>
-                </br>
-            </li>
-			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-			<div class="container-reclamação__campo">
-				
-				<input asp-for="ReclamacaoUsuario" class="container-reclamação__input" placeholder="Reclamação">
-				<span asp-validation-for="ReclamacaoUsuario" class="text-danger"></span>
-                 <li>
-                <input type="submit" value="Enviar" id="btn-confirmar">       
-                </li>
-	    </div>
-           <h4>@ViewBag.Message</h4> 
-			        
-        </div>
+			<div class="selecao">
+				<li>
+					<br>
+					<input type="checkbox" id="denuncia1" name="denuncia1" value="denuncia1">
+					<label for="denuncia1"> Itens proibidos (Banidos)</label>
+					</br>
+				</li>
+				<li>
+					<br>
+					<input type="checkbox" id="denuncia2" name="denuncia2" value="denuncia2">
+					<label for="denuncia2"> Itens ofensivos e/ou potencialmente ofensivos</label>
+					</br>
+				</li>
+				<li>
+					<br>
+					<input type="checkbox" id="denuncia3" name="denuncia3" value="denuncia3">
+					<label for="denuncia3"> Propriedade furtada</label>
+					</br>
+				</li>
+				<li>
+					<br>
+					<input type="checkbox" id="denuncia4" name="denuncia4" value="denuncia4">
+					<label for="denuncia4"> Postagens Fraudulentas</label>
+					</br>
+				</li>
+				<li>
+					<br>
+					<input type="checkbox" id="denuncia5" name="denuncia5" value="denuncia5">
+					<label for="denuncia5"> Tentativa de golpe</label>
+					</br>
+				</li>
+				<li>
+					<br>
+					<input type="checkbox" id="denuncia6" name="denuncia6" value="denuncia6">
+					<label for="denuncia6"> Mensagens de chat, imagens ou vídeos ofensivos</label>
+					</br>
+				</li>
+				<li>
+					<br>
+					<input type="checkbox" id="denuncia7" name="denuncia7" value="denuncia7">
+					<label for="denuncia7"> Outro:</label>
+					</br>
+				</li>
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="container-reclamação__campo">
+
+					<input asp-for="ReclamacaoUsuario" class="container-reclamação__input" placeholder="Reclamação">
+					<span asp-validation-for="ReclamacaoUsuario" class="text-danger"></span>
+					<li>
+						@*<input type="submit" value="Enviar" id="btn-confirmar"> *@
+						<button type="submit" id="btn-confirmar">Enviar</button>
+					</li>
+				</div>
+				<h4>@ViewBag.Message</h4>
+
+			</div>
 		</form>
-            </div>
-    <div class="retornar">
-        <li>
-            <p>
-                 <a href="Configuracoes.html">Retornar</a>
-            </p>
-        </li>
-    </div>
-        
+		<div class="retornar">
+			<li>
+				<p>
+					<a asp-controller="Home" asp-action="Index">Retornar</a>
+				</p>
+			</li>
+		</div>
+	</div>
+
+
 
 </main>
 

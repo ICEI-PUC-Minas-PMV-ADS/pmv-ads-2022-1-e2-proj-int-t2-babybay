@@ -62,8 +62,9 @@
 				<div>
 					@if (@Model.InteresseTroca)
 					{
-						<a class="input__busca--botao" asp-controller="Anuncios" asp-action="VisualizarSolicitacao" asp-route-id="@Model.AnuncioId">Ver Interessados</a>
-						<p>Seu produto possui interesse em troca,clique no botão acima para ver o(s) interessado(s)</p>
+						<a class="input__busca--botao" asp-controller="Anuncios" asp-action="VisualizarSolicitacao" asp-route-id="@Model.AnuncioId">Ver Interessados</a><br/><br/>
+						
+						<p>Alguém está interessado na sua roupa, clique no botão acima para ver!</p>
 					
 					}
 					else
@@ -71,6 +72,7 @@
 						<p>Ainda não há pessoas com interesse no seu anúncio.</p>
 					}
 					<div>
+						
 						<a class="input__busca--botao" asp-controller="Anuncios" asp-action="Delete" asp-route-id="@Model.AnuncioId">Excluir</a>
 						<a class="input__busca--botao" asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar</a>
 

@@ -4593,3 +4593,4 @@ C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj
 C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\MenuAnuncio.cshtml.g.cs
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Anuncios\MenuAnuncio.cshtml.g.cs
 C:\Users\user\Source\Repos\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Suportes\confirmaDenuncia.cshtml.g.cs
+C:\Users\carlos\Documents\GitHub\pmv-ads-2022-1-e2-proj-int-t2-babybay\app-babybay\obj\Debug\net5.0\Razor\Views\Suportes\confirmaDenuncia.cshtml.g.cs
