@@ -25,12 +25,43 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     align-items: center;
     font-weight: bold;
 }
+.inputs {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    margin:auto;
 
+}
+.input {
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    background: #ffffff;
+    border-radius: 6px;
+    height: 40px;
+    /* margin: 10px; */
+    padding: 10px;
+    font-size: 1em;
+    width: 400px;
+    flex: 1 1 100px;
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+}
+.descricao {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+h4{
+width:345px;
+padding:12px;
+}
 hr {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
+.titulo{
+    margin:auto;
+    width:287px;
+}
 .section-c {
     /* flex */
     display: flex;
@@ -121,6 +152,20 @@ hr {
         box-shadow: var(--clr--box-shadow-hover);
         border: 1.2px solid var(--clr-purple-dark);
     }
+.btn-criar {
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    display:block;
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: -21px;
+    letter-spacing: 1px;
+    min-width: 200px;
+    text-shadow: var(--clr--text-shadow);
+}
 
 #btn-confirmar {
     background-color: var(--clr-purple-dark);
@@ -158,3 +203,9 @@ hr {
     .voltar:hover {
         font-weight: bold;
     }
+
+@media(max-width:655px) {
+    .input {
+        width:250px;
+    }
+}
