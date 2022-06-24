@@ -4,34 +4,37 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="~/css/Criar-anuncio.css">
 
-<h4>Anunciar um produto</h4>
+<div class="titulo">
+<h4>Preencha as informações abaixo para anunciar seu produto</h4>
+</div>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div>
+    <div class="inputs">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>          
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
-                <input asp-for="Titulo" class="form-control" />
+                <input asp-for="Titulo" class="input" />
                 <span asp-validation-for="Titulo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Babycoin" class="control-label"></label>
-                <input asp-for="Babycoin" class="form-control" />
+                <input asp-for="Babycoin" class="input" />
                 <span asp-validation-for="Babycoin" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Anunciar" class="btn-criar-anuncio" />
             </div>
         </form>
         <h3>@ViewBag.Message</h3> 
     </div>
 </div>
 
-<div>
+@*<div>
     <a class="btn btn-primary" asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar</a>
-</div>
+</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

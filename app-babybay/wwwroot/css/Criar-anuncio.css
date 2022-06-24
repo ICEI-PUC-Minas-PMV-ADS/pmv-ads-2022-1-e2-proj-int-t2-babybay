@@ -1,0 +1,65 @@
+﻿/* MENU USUÁRIO
+
+    D - Arquivo NovoPost (page-css/NovoPost.css)
+    D1. Main
+
+/****************************************
+    5. Main
+/****************************************/
+* {
+    list-style: none;
+}
+main {
+   /* height: 88vh;*/
+    height: auto;
+}
+.titulo {
+    margin: 130px auto 0px auto;
+    width: 600px;
+}
+.btn-criar-anuncio {
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    display: block;
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: -21px;
+    letter-spacing: 1px;
+    min-width: 200px;
+    text-shadow: var(--clr--text-shadow);
+}
+h4 {
+    width: 656px;
+    margin:auto;
+}
+.inputs {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    margin: 20px auto;
+    
+}
+.input {
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    background: #ffffff;
+    border-radius: 6px;
+    height: 40px;
+    /* margin: 10px; */
+    padding: 10px;
+    font-size: 1em;
+    width: 300px;
+    flex: 1 1 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+@media(max-width:644px) {
+    h4 {
+        font-size:1em;
+        width:465px;
+    }
+}
