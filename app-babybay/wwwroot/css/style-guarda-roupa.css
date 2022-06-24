@@ -17,7 +17,22 @@ h2 {
     margin: 0px auto 60px auto;
   
 }
-
+.btn-cadastrar-produto-guarda-roupa {
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    display: block;
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: -21px;
+    letter-spacing: 1px;
+    min-width: 200px;
+    text-shadow: var(--clr--text-shadow);
+    width: 20px;
+    padding: 4px;
+}
 
 #myT
 .card-description > h2 {
