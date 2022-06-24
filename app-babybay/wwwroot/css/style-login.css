@@ -39,9 +39,10 @@ h1{
 .container-login__campo {
     display: flex;
     flex-flow: row wrap;
-    align-items: center;    
+    align-items: center;
     /*margin: auto;*/
     margin-top: -15px;
+  
 }
 
 hr {
@@ -64,6 +65,7 @@ span{
     font-size: 1em;
     min-width: 200px;
     flex: 1 1 100px;
+ 
 
 }
 
