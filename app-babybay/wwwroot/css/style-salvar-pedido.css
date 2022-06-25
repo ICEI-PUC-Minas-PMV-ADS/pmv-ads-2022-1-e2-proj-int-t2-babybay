@@ -86,13 +86,13 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     padding: 15px;
 }
 
-/*.article-c__ul {
+.article-c__ul {
     display: flexbox;
     margin: auto;
-    flex-direction: row;*/ /* antes estava column*/
-    /*justify-content: flex-end;
+    flex-direction: row;  /*antes estava column*/
+    justify-content: flex-end;
     align-items: center;
-}*/
+}
 
 
 .botao-menu-roupa {
@@ -107,7 +107,7 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     letter-spacing: 1px;
     text-shadow: var(--clr--text-shadow);
     width: 200px;
-    height: 0px;
+    height: 5000px;
 }
 
     .botao-menu-roupa:hover {
@@ -116,6 +116,6 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
         cursor: pointer;
     }
 
-.botao-menu-roupa:active {
-    background-color: var(--clr-purple-dark);
-}
+    .botao-menu-roupa:active {
+        background-color: var(--clr-purple-dark);
+    }

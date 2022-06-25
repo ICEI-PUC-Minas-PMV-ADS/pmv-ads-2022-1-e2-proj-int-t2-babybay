@@ -155,6 +155,37 @@ hr {
         font-weight: bold;
     }
 
+
+
+.btn-voltar {
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    display: block;
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 1.1em;
+    font-weight: bold;
+    height: 30px;
+    letter-spacing: 1px;
+    width: 100px;
+    text-shadow: var(--clr--text-shadow);
+    margin-left: 500px;
+    text-align: center;
+}
+
+
+    .btn-voltar:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr-purple-light);
+        cursor: pointer;
+    }
+
+    .btn-voltar:active {
+        background-color: var(--clr-purple-dark);
+    }
+
+
 @media(max-width:655px) {
     .input {
         width:250px;

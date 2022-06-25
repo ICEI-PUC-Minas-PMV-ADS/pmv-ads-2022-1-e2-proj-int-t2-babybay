@@ -219,3 +219,32 @@ p {
         background-color: var(--clr-purple-dark);
     }
 
+.input__busca--botao-aceitar {
+    background-color: var(--clr--pink-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 20px;
+    color: #FFFFFF !important;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 32px;
+    letter-spacing: 1px;
+    margin: 5px 15px;
+    min-width: 100px;
+    text-shadow: var(--clr--text-shadow);
+    text-align: center;
+    line-height: 30px;
+}
+
+    .input__busca--botao-aceitar:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr--pink-light);
+        cursor: pointer;
+    }
+
+    .input__busca--botao-aceitar:active {
+        background-color: var(--clr--pink-dark);
+    }

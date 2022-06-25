@@ -116,3 +116,18 @@ li > input {
     border-color: #DA8BD2;
     color: white;
 }
+
+.btn{
+    background-color: var(--clr--pink-dark) !important;    
+}
+
+    .btn:hover {
+        background-color: var(--clr--pink-light) !important;
+        color: white !important;
+        cursor: pointer !important;
+    }
+
+    .btn:active {
+        background-color: var(--clr--pink-dark) !important;
+        color: white !important;
+    }

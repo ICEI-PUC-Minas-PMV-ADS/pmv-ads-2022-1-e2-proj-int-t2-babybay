@@ -3,10 +3,22 @@
 }
 
 .btn {
-    background-color: #DA8BD2;
-    border-color: #DA8BD2;
-    color: white;
+    background-color: var(--clr--pink-dark) !important;
+    border-color: var(--clr--pink-light) !important;
 }
+
+    .btn:hover {
+        background-color: var(--clr--pink-light) !important;
+        color: white !important;
+        cursor: pointer !important;
+        border-color: var(--clr--pink-light) !important;
+    }
+
+    .btn:active {
+        background-color: var(--clr--pink-dark) !important;
+        color: white !important;
+        border-color: var(--clr--pink-light) !important;
+    }
 
 .color {
     background-color: #a3a1f3;

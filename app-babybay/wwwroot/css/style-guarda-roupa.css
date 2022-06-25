@@ -98,11 +98,11 @@ h2 {
 }
 
 .card-description > h2 {
-    color: #DA8BD2;
+    color: var(--clr-purple-dark);
+    font-weight: bold;
     margin-top: 30px;
     text-align: center;
     font-size: 1.5em;
-
 }
 
 .tab-content {
@@ -138,5 +138,4 @@ h2 {
 .card {
     transform: scale(0.8)
 }
-
 
