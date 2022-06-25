@@ -1,35 +1,86 @@
 ﻿@model app_babybay.Models.Anuncio
 
 @{
-    ViewData["Title"] = "AceitarTroca";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "AceitarTroca";	
 }
 
 <!--Ponto de vista de quem anunciou, quando aceita a troca-->
-<div>
-    <h4>Parabéns @Model.Usuario.Nome, sua troca foi realizada com sucesso!</h4>    
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Usuario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Usuario.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Produto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Produto.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Titulo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Titulo)
-        </dd>
-    </dl>
+@*<div>
+	<h4>Parabéns @Model.Usuario.Nome, sua troca foi realizada com sucesso!</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Usuario)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Usuario.Nome)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Produto)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Produto.Nome)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Titulo)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Titulo)
+		</dd>
+	</dl>
 </div>
 <div>
-    <a asp-controller="Usuarios" asp-action="Index" class="btn btn-primary">Voltar para menu</a>    
+	<a asp-controller="Usuarios" asp-action="Index" class="btn btn-primary">Voltar para menu</a>
+</div>*@
+
+
+
+<link rel="stylesheet" href="~/css/style-visualizar-troca.css">
+<div class="div-titulo-cadastro">
+	<h2>Troca Finalizada</h2>
 </div>
+<div class="div-frase">
+	<h4>Parabéns @Model.Usuario.Nome, sua troca foi realizada com sucesso!</h4>
+</div>
+
+<section class="section-c">
+	<div class="section-c__div">
+		<article class="article-c">
+			<ul class="article-c__ul">
+				<div class=sec_tab>
+					<table>
+						<tr>
+							<th>
+								Roupa
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Produto.Nome)
+							</td>
+						</tr>						
+						<tr>
+							<th>
+								Valor:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Babycoin) BabyCoins
+							</td>
+						</tr>
+						<tr>
+							<th>
+								Date:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Date)
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="botoess">
+
+					<a class="input__busca--botao" asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar para Menu</a>					
+				</div>
+			</ul>
+		</article> <!-- .container-principal__article--dois-->
+	</div>
+</section>
+

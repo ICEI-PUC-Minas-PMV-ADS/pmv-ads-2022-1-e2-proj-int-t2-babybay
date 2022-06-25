@@ -10,7 +10,9 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     list-style: none;
 }
 
-.div-titulo-cadastro {
+.div-titulo-cadastro {    
+    margin-top: 20px;
+    margin-bottom: -20px;
     padding: 20px;
     color: var(--clr-purple-dark);
     height: 150px;
@@ -21,9 +23,9 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     align-items: center;
 }
 
-.div-frase {
-    padding: 20px;
-    color: black;
+.div-frase {    
+    color: var(--clr--pink-dark);
+    padding: 40px;    
     height: 50px;
     /* flex */
 
@@ -42,7 +44,8 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
 
 .section-c__div {
     border-radius: 10px;
-    margin: 20px;
+    /*margin: 20px; AQQQUI*/
+    margin-top: -50px;
     padding: 20px;
     /* flex */
     display: flex;
@@ -98,7 +101,12 @@ td {
     align-items: center;
 }
 
-.botoess > input {
+.botoess {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.botoess > input {    
     background: #ffffff;
     border-radius: 10px;
     border-color: var(--clr--border-box);
@@ -125,16 +133,15 @@ td {
     color: #FFFFFF !important;
     font-size: 1.1em;
     font-weight: bold;
-    padding: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 10px 15px;
     height: 32px;
     letter-spacing: 1px;
-    margin: 5px 15px;
+    margin: 5px 25px;
     min-width: 100px;
     text-shadow: var(--clr--text-shadow);
     text-align: center;
     line-height: 30px;
+    
 }
 
     .input__busca--botao:hover {

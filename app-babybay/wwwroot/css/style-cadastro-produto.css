@@ -70,6 +70,13 @@ hr {
     width:287px;
 }
 
+.titulo-edit-usuario {
+    margin-top: 20px;
+    margin-left: 480px;
+    width: 960px;
+    color: var(--clr-purple-dark);    
+}
+
 .section-c__div {
     /* background-color: var(--clr-second-background);
     border: 1px solid  var(--clr--border-box);
@@ -101,8 +108,13 @@ hr {
         box-shadow: var(--clr--box-shadow-hover);
         border: 1.2px solid var(--clr-purple-dark);
     }
+
+#data{
+    font-size: 0.9em;
+}
+
 .btn-criar {
-    background-color: var(--clr-purple-dark);
+    background-color: var(--clr--pink-dark);
     border-color: var(--clr--border-box);
     display:block;
     box-shadow: var(--clr--box-shadow);
@@ -118,37 +130,24 @@ hr {
     margin: auto;
 }
 
-#btn-confirmar {
-    background-color: var(--clr-purple-dark);
-    border-color: var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow);
-    border-radius: 50px;
-    color: #FFFFFF;
-    font-size: 1.1em;
-    font-weight: bold;
-    height: 47px;
-    letter-spacing: 1px;
-    max-width: 135px; 
-    text-shadow: var(--clr--text-shadow);
-    padding-bottom: 10px;   
-}
 
-    #btn-confirmar:hover {
+    .btn-criar:hover {
         box-shadow: var(--clr--box-shadow-btn-hover);
-        background-color: var(--clr-purple-light);
+        background-color: var(--clr--pink-light);
         cursor: pointer;
     }
 
-    #btn-confirmar:active {
-        background-color: var(--clr-purple-dark);
+    .btn-criar:active {
+        background-color: var(--clr--pink-dark);
     }
+
 
 .voltar {
     margin: auto;
     color: #000;
     font-size: 1.1em;
     justify-content: space-between;
-    color: var(--clr-purple-dark) !important;
+    color: var(--clr-purple-dark) !important;    
 }
 
     .voltar:hover {

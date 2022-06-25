@@ -43,7 +43,7 @@ h2 {
     display: inline;
 }
 .btn-excluir {
-    background-color: var(--clr-purple-dark);
+    background-color: var(--clr--pink-dark);
     border-color: var(--clr--border-box);
     display: block;
     box-shadow: var(--clr--box-shadow);
@@ -59,6 +59,18 @@ h2 {
     margin: auto;
     padding:1px;
 }
+
+    .btn-excluir:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr--pink-light);
+        cursor: pointer;
+    }
+
+    .btn-excluir:active {
+        background-color: var(--clr--pink-dark);
+    }
+
+
 .texto-delete {
     font-size: 1.4em;
     text-align: center;
@@ -115,7 +127,31 @@ form > input{
     font-weight: bold;
     letter-spacing: 1px;
 }
- 
+
+.btn-voltar {
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    display: block;
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 1.1em;
+    font-weight: bold;
+    height: 40px;
+    letter-spacing: 1px;
+    width: 100px;
+    text-shadow: var(--clr--text-shadow);    
+    text-align: center;
+    padding: 8px;
+}
 
 
-    
+    .btn-voltar:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr-purple-light);
+        cursor: pointer;
+    }
+
+    .btn-voltar:active {
+        background-color: var(--clr-purple-dark);
+    }

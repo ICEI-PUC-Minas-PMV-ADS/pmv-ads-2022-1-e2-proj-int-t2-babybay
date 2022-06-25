@@ -120,3 +120,13 @@ span{
     .container-login__esqueceu-senha > a:hover {
         font-weight: bold;
     }
+
+.message {
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 1em;
+    margin-left: 85px;
+    margin-top: 12px;
+    color: red;
+    
+}

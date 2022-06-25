@@ -19,9 +19,14 @@
 	{
 		<main>
 			<div class="div-comprababycoin">
-				<h3>Olá @User.Identity.Name, você pode realizar a compra de Compra de BabyCoins com os planos abaixo,o saldo da sua carteira é de  @item.Saldo Babycoins</h3>
+				<h3>
+					<br>
+					Olá @User.Identity.Name, o saldo da sua carteira é de <strong>@item.Saldo Babycoins.</strong>
+					<br>					
+				</h3>
+
 			</div>
-			<h3>Sem peças para postar em troca de BabyCoins? Sem problema! Compre mais e receba o saldo em sua carteira em até 3 dias úteis*.</h3>
+			<h3>Sem roupas para postar? Sem problemas! Compre BabyCoins e receba o saldo em sua carteira em até 2 dias úteis*.</h3>
 			<div class="section-c">
 				<div class="card-white">
 					<h3>3 BabyCoins por R$ 10</h3>
@@ -46,12 +51,13 @@
 				</div>
 			</div>
 			<li>
-				<h3>O pagamento é feito por transferência bancária ou PIX, devendo o comprovante ser enviado por e-mail para financeiro@babybay.com para que seu saldo seja liberado em até 3 dias úteis.</h3>
+				<h4>*O pagamento é feito por transferência bancária ou PIX, devendo o comprovante ser enviado por e-mail para financeiro@babybay.com para que seu saldo seja liberado em até 3 dias úteis.</h4>
+				<br>
 			</li>
 
 			<li>
 				<p>
-					<a asp-action="Index" asp-controller="Usuarios" class="btn btn-primary">Retornar</a>
+					<a asp-action="Index" asp-controller="Usuarios" class="btn-excluir">Voltar</a>
 				</p>
 			</li>
 

@@ -2,7 +2,7 @@
 
 @{
 	ViewData["Title"] = "SalvarPedido";
-	
+
 }
 
 
@@ -10,14 +10,15 @@
 <div class="div-titulo-cadastro">
 	<h2>Solicitação de troca</h2>
 </div>
-<div class="div-frase">
-	<h3	>Parabéns, sua proposta foi enviada para @Model.Usuario.Nome!</h3>
-</div>
 
 <section class="section-c">
 	<div class="section-c__div">
 		<article class="article-c">
+			<div class="div-frase">
+				<h3>Parabéns, sua proposta foi enviada para @Model.Usuario.Nome!</h3>
+			</div>			
 			<ul class="article-c__ul">
+				<hr>
 				<div class=sec_tab>
 					<table>
 						<tr>
@@ -46,14 +47,6 @@
 						</tr>
 						<tr>
 							<th>
-								Date:
-							</th>
-							<td>
-								@Html.DisplayFor(model => model.Date)
-							</td>
-						</tr>
-						<tr>
-							<th>
 								Roupa proposta:
 							</th>
 							<td>
@@ -65,7 +58,15 @@
 								Valor:
 							</th>
 							<td>
-								@Html.DisplayFor(model => model.Babycoin) BabyCoin
+								@Html.DisplayFor(model => model.Babycoin) BabyCoins
+							</td>
+						</tr>
+						<tr>
+							<th>
+								Date:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Date)
 							</td>
 						</tr>
 					</table>
@@ -80,4 +81,3 @@
 	</div>
 </section>
 
-	

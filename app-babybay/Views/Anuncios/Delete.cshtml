@@ -14,8 +14,8 @@
         <ul>
             <li class="texto-delete">
                 <hr>
-               Clique no botão abaixo para excluir o anuncio <div class="anuncio">@Model.Titulo</div>,assim seu produto não aparecera
-               para outros usuários, mas não se preocupe,você podera anúnciar ser produto quantas vezes quiser
+               Clique no botão abaixo para excluir o anúncio <div class="anuncio">@Model.Titulo</div>. Assim, seu produto não aparecera
+               para outros usuários, mas não se preocupe, você podera anunciar seu produto quantas vezes quiser.
 
             </li>
         
@@ -28,5 +28,6 @@
 
             </li>
         </ul>
+        <a class="btn-voltar" asp-controller="Anuncios" asp-action="MenuAnuncio" asp-route-id="@Model.AnuncioId">Voltar</a>
     </div>
 </main>

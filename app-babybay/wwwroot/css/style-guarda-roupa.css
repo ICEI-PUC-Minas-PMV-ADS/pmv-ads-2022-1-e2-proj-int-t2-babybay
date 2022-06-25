@@ -97,12 +97,23 @@ h2 {
     border: -1px;
 }
 
+#cad {
+    background-color: var(--clr-second-background);
+    box-shadow: var(--clr--box-shadow-content);
+        
+}
+
 .card-description > h2 {
     color: var(--clr-purple-dark);
     font-weight: bold;
     margin-top: 30px;
     text-align: center;
     font-size: 1.5em;
+}
+
+.frase {
+    color: var(--clr--pink-dark) !important;
+    font-weight: normal !important;
 }
 
 .tab-content {

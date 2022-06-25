@@ -10,15 +10,10 @@
 		<article class="article-busca">
 			<div class="article__busca--contorno">
 				<div class="menu-busca">
-					@*<input class="input__busca" type="search" name="input-buscar" id="input-buscar"
-					placeholder="Busque uma roupa">*@
 					@using (Html.BeginForm("Busca", "Anuncios", FormMethod.Post))
 					{
 						//<h2>Nome do produto</h2>
 						@Html.TextBox("nomeProduto")
-
-						//h6>Idade</h6>					
-						//@Html.TextBox("idadeProduto")
 
 						// Criando Select da idade
 						List<int> listaIdade = new List<int>();
@@ -60,6 +55,6 @@
 				<a asp-controller="Usuarios" asp-action="Create" class="input__botao--cadastro">CADASTRE-SE</a>
 			</div> <!-- .conteudo__cadastre__botao-->
 		}
-
 	</main>
 </div>
+

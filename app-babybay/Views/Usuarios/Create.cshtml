@@ -11,11 +11,11 @@
 			<form asp-action="Create">
 				<ul class="article-c__ul">
 					<h1 class="div-titulo-cadastro">Cadastro de Usuário</h1>
-					<hr>				
+					<hr>
 					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 					<li>
 						<label asp-for="Nome"></label>
-						<input asp-for="Nome" />
+						<input id="foco" asp-for="Nome" />
 						<span asp-validation-for="Nome" class="text-danger"></span>
 					</li>
 					<li>
@@ -81,6 +81,10 @@
 </section>
 
 <h4 style="width:917px">@ViewBag.Message</h4>
+
+<script>
+	document.getElementById("foco").focus();
+</script>
 
 @section Scripts {
 	@{

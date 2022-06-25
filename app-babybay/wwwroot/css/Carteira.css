@@ -25,7 +25,11 @@ h3 {
     padding: 20px;
     text-align: center;
     color: black;
-    /* flex */
+    
+}
+
+strong {
+    color: var(--clr-purple-dark);
 }
 
 li > input {
@@ -89,3 +93,33 @@ li > input {
 .segunda-compra {
     display: flex;
 }
+
+.btn-excluir {
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    display: block;
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 40px;
+    letter-spacing: 1px;
+    width:200px;
+    text-shadow: var(--clr--text-shadow);
+    margin-top: 50px;
+    margin: auto;
+    padding: 6px;
+    text-align: center;
+}
+
+    .btn-excluir:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr-purple-light);
+        cursor: pointer;
+    }
+
+
+    .btn-excluir:active {
+        background-color: var(--clr-purple-dark);
+    }

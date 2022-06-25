@@ -19,14 +19,14 @@
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 			<div class="container-login__campo">
 				<label asp-for="Email" class="container-login__label">Email</label>
-				<input asp-for="Email" class="container-login__input" placeholder="E-mail">
+				<input id="foco" asp-for="Email" class="container-login__input" placeholder="E-mail">
 				<span asp-validation-for="Email" class="text-danger"></span>
 		
 				<label asp-for="Senha" class="container-login__label">Senha</label>
 				<input asp-for="Senha" class="container-login__input" placeholder="Senha">
 				<span asp-validation-for="Senha" class="text-danger"></span>
 			</div>
-				<h5 style="padding:10px">@ViewBag.Message</h5>
+				<h5 class="message">@ViewBag.Message</h5>
 			<div class="container-login__botao">
 				<input class="container-login__input--botao" type="submit" value="Entrar"> <!--Botão-->
 			</div>
@@ -37,8 +37,9 @@
 	</div><!--container-login-->	
 </main>
 
-   <!--Exibe msg configurada no controller usuário login()-->
-@*<a class="btn btn-primary" asp-controller="Home" asp-action="Index">Voltar</a>*@
+<script>
+	document.getElementById("foco").focus();
+</script>
 
 @section Scripts {
 	@{
