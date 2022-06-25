@@ -24,17 +24,19 @@
 				<input asp-for="Babycoin" class="input" />
 				<span asp-validation-for="Babycoin" class="text-danger"></span>
 			</div>
-			<div class="form-group">
+			<div>
 				<input type="submit" value="Anunciar" class="btn-criar-anuncio" />
 			</div>
-		</form>
+			
+		</form>		
 		<h3>@ViewBag.Message</h3>
 	</div>
 </div>
 
-@*<div>
-    <a class="btn btn-primary" asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar</a>
-</div>*@
+<div>
+	<a class="btn-voltar-anuncio"  asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar</a>	
+    @*<a class="btn-voltar-anuncio" asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar</a>*@
+</div>
 
 @section Scripts {
 	@{

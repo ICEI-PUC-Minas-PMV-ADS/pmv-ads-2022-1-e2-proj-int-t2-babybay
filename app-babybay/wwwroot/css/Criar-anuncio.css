@@ -12,13 +12,14 @@
 main {
    /* height: 88vh;*/
     height: auto;
+
 }
 .titulo {
     margin: 130px auto 0px auto;
     width: 600px;
 }
 .btn-criar-anuncio {
-    background-color: var(--clr-purple-dark);
+    background-color: var(--clr--pink-dark);
     border-color: var(--clr--border-box);
     display: block;
     box-shadow: var(--clr--box-shadow);
@@ -29,20 +30,51 @@ main {
     height: -21px;
     letter-spacing: 1px;
     min-width: 200px;
-    text-shadow: var(--clr--text-shadow);    
+    text-shadow: var(--clr--text-shadow);
     margin-left: 50px;
+    text-align: center;
+}
+
+    .btn-criar-anuncio:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr--pink-light);
+        cursor: pointer;
+    }
+
+    .btn-criar-anuncio:active {
+        background-color: var(--clr--pink-dark);
+    }
+
+
+.btn-voltar-anuncio {
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    display: block;
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 1.1em;
+    font-weight: bold;
+    height: 30px;
+    letter-spacing: 1px;
+    width: 100px;
+    text-shadow: var(--clr--text-shadow);
+    margin-left: 470px;
+    text-align: center; 
 }
 
 
-    .btn-criar-anuncio:hover {
+    .btn-voltar-anuncio:hover {
         box-shadow: var(--clr--box-shadow-btn-hover);
         background-color: var(--clr-purple-light);
         cursor: pointer;
     }
 
-    .btn-criar-anuncio:active {
+    .btn-voltar-anuncio:active {
         background-color: var(--clr-purple-dark);
     }
+
+
 
 h4 {
     width: 656px;
