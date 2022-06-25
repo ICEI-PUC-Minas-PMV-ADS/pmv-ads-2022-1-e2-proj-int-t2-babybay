@@ -62,7 +62,7 @@ main {
     text-align: justify;
     margin: auto;
     vertical-align: auto;
-}
+}   
 
 
 .section-c h3 {
@@ -93,6 +93,18 @@ main {
     flex: 1 1 100px;    
 }
 
+    .container-reclamação__input:hover {
+        box-shadow: var(--clr--box-shadow-hover);
+        /*  border: 1px solid var(--clr-purple-dark);*/
+        border-color: var(--clr-purple-dark);
+    }
+
+    
+
+label{
+    margin-left: 8px;
+}
+
 #btn-confirmar {
     display: block;
     background-color: var(--clr-purple-dark);
@@ -100,7 +112,7 @@ main {
     box-shadow: var(--clr--box-shadow);
     border-radius: 20px;
     width: 320px;
-    height: 38px;
+    height: 38px;    
     font-family: 'Alata';
     font-style: normal;
     font-weight: 400;

@@ -43,8 +43,7 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
-
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "id", "Nome", produto.UsuarioId);
+            
             return View(produto);
         }
 
@@ -103,6 +102,7 @@ namespace app_babybay.Controllers
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("Index", "Usuarios");
+                //return RedirectToAction("Relatorio", "Usuarios", new { produto.UsuarioId });
             }
             return View(produto);
         }

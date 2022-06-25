@@ -1,35 +1,35 @@
 ﻿@model app_babybay.Models.Anuncio
 
 @{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Create";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="~/css/Criar-anuncio.css">
 
 <div class="titulo">
-<h4>Preencha as informações abaixo para anunciar seu produto</h4>
+	<h4>Informe o nome do anúncio e o valor em BabyCoin</h4>
 </div>
 <hr />
 <div>
-    <div class="inputs">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>          
-            <div class="form-group">
-                <label asp-for="Titulo" class="control-label"></label>
-                <input asp-for="Titulo" class="input" />
-                <span asp-validation-for="Titulo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Babycoin" class="control-label"></label>
-                <input asp-for="Babycoin" class="input" />
-                <span asp-validation-for="Babycoin" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Anunciar" class="btn-criar-anuncio" />
-            </div>
-        </form>
-        <h3>@ViewBag.Message</h3> 
-    </div>
+	<div class="inputs">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="Titulo" class="control-label"></label>
+				<input asp-for="Titulo" class="input" />
+				<span asp-validation-for="Titulo" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Babycoin" class="control-label"></label>
+				<input asp-for="Babycoin" class="input" />
+				<span asp-validation-for="Babycoin" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Anunciar" class="btn-criar-anuncio" />
+			</div>
+		</form>
+		<h3>@ViewBag.Message</h3>
+	</div>
 </div>
 
 @*<div>
@@ -37,5 +37,7 @@
 </div>*@
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	}

@@ -98,9 +98,18 @@ a:visited {
 /****************************************
     2. Header > Menu 
 ****************************************/
+
+/*header {
+    position: absolute;
+    top: 0;
+    width: 100%;        
+}*/
+
+
 .menu-bg {
     background-color: var(--clr--pink-light);
     font-size: 1.1em;
+    
 }
 
 .menu {
@@ -111,7 +120,8 @@ a:visited {
     justify-content: space-between;
     max-width: 960px;
     margin: 0 auto;
-    padding: 7px;
+    padding: 7px;   
+    
 }
 
 .menu__logo {

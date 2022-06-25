@@ -58,6 +58,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a role="button" class="btn btn-primary" asp-action="Index">Voltar</a>
+        <a role="button" class="btn btn-primary" asp-controller="Produtos" asp-action="MenuProduto" asp-route-Id="@Model.Id">Voltar</a>
     </form>
 </div>

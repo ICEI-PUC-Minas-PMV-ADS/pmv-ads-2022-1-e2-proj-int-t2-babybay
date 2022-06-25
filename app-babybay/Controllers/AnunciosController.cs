@@ -48,8 +48,16 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
-           
+
             return View(anuncio);
+        }
+
+        public async Task<IActionResult> RedirecionarMenuProduto()
+        {
+            var usuario = await _context.Produtos
+                .FirstOrDefaultAsync(m => m.Nome.Contains(User.Identity.Name));
+
+            return RedirectToAction("Relatorio", "Usuarios", new { id = usuario.Id });
         }
 
         // GET: Anuncios/Details
@@ -64,7 +72,7 @@ namespace app_babybay.Controllers
             var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)
                 .Include(a => a.Usuario)
-                .FirstOrDefaultAsync(m => m.AnuncioId == id);                       
+                .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
             if (anuncio == null)
             {
@@ -85,10 +93,10 @@ namespace app_babybay.Controllers
 
             // Todos anúncios
             var anuncioCliente = from aCliente in _context.Anuncios
-                                       select aCliente;
+                                 select aCliente;
             // Anúncios do Usuário Logado
-            anuncioCliente = anuncioCliente.Where(s => s.UsuarioId == usuarioCliente.Id);          
-       
+            anuncioCliente = anuncioCliente.Where(s => s.UsuarioId == usuarioCliente.Id);
+
             // Passa pro SelectList somente os anúncios do cliente
             ViewData["AnuncioId"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");
 
@@ -296,21 +304,91 @@ namespace app_babybay.Controllers
             var buscaAnuncio = from m in _context.Anuncios
                                select m;
 
-            // TENTANDO OCULTAR ANUNCIOS DE USUARIO LOGADO
-            //var usuario = await _context.Usuarios
-            //    .FirstOrDefaultAsync(u => u.Nome != User.Identity.Name);
+            // User Logado
+            var usuario = await _context.Usuarios
+                .FirstOrDefaultAsync(u => u.Nome == User.Identity.Name);
 
-            ////var usuarioLogadoNome = User.Identity.Name;
-            ////buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto)
-            ////       || s.Produto.Nome.Contains(nomeProduto) && s.UsuarioId != usuario.Id);
-            //var usuarioLogado = buscaAnuncio.Where(s => s.UsuarioId == usuario.Id);
-            
+            // Se não estiver logado, então retorna tudo
+            if (usuario == null)
+            {
+                if (!String.IsNullOrEmpty(nomeProduto))
+                {
+                    buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto)
+                        || s.Produto.Nome.Contains(nomeProduto));
+
+                    if (idadeProduto == null && categoria == null)   // Sem categoria e sem idade
+                    {
+                        return View(await buscaAnuncio.ToListAsync());      // Retorna só a busca pelo nome
+                    }
+                    // Se idade igual outras(7) , então pesquisa somente maior que 6
+                    if (idadeProduto != null)           // Se tem idade
+                    {
+                        buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Idade == idadeProduto);
+
+                        if (categoria == null)          // Se tem idade e não tem categoria
+                        {
+                            return View(await buscaAnuncio.ToListAsync());      // Retorna pelo nome e idade
+                        }
+                        else                            // Se tem idade e categoria
+                        {
+                            buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+                            return View(await buscaAnuncio.ToListAsync());   // Retorna pelo nome idade e categoria
+                        }
+                    }
+                    else                                // Se não tem idade
+                    {
+                        if (categoria == null)          // Se não tem idade nem categoria
+                        {
+                            return View(await buscaAnuncio.ToListAsync());      // Retorna tudo
+                        }
+                        else                             // Se não tem idade e tem categoria
+                        {
+                            buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+                            return View(await buscaAnuncio.ToListAsync());
+                        }
+                    }
+                }
+                else if (idadeProduto != null)           // Se tem idade e não tem produto
+                {
+                    buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Idade == idadeProduto);
+
+                    if (categoria == null)          // Se tem idade e não tem categoria nem produto
+                    {
+                        return View(await buscaAnuncio.ToListAsync());
+                    }
+                    else                            // Se tem idade e categoria e não tem produto
+                    {
+                        buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+                        return View(await buscaAnuncio.ToListAsync());
+                    }
+                }
+                else                                // Se não tem idade nem produto
+                {
+                    if (categoria == null)          // Se não tem idade nem categoria nem produto
+                    {
+                        return View(await buscaAnuncio.ToListAsync());      // Retorna tudo
+                    }
+                    else                             // Se não tem idade nem produto e tem categoria
+                    {
+                        buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+                        return View(await buscaAnuncio.ToListAsync());
+                    }
+                }
+
+            }
 
             // Se tiver produto digitado
             if (!String.IsNullOrEmpty(nomeProduto))
             {
+                // Se o usuário estiver logado, então não mostrar os anúncios dele
                 buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto)
-                    || s.Produto.Nome.Contains(nomeProduto));
+                    && s.UsuarioId != usuario.Id
+                    || s.Produto.Nome.Contains(nomeProduto)
+                    && s.UsuarioId != usuario.Id);
+
+                // Original
+                //buscaAnuncio = buscaAnuncio.Where(s => s.Titulo.Contains(nomeProduto)                
+                //|| s.Produto.Nome.Contains(nomeProduto));
 
                 if (idadeProduto == null && categoria == null)   // Sem categoria e sem idade
                 {
@@ -319,7 +397,7 @@ namespace app_babybay.Controllers
                 // Se idade igual outras(7) , então pesquisa somente maior que 6
                 if (idadeProduto != null)           // Se tem idade
                 {
-                    buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Idade == idadeProduto);
+                    buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Idade == idadeProduto && s.UsuarioId != usuario.Id);
 
                     if (categoria == null)          // Se tem idade e não tem categoria
                     {
@@ -327,7 +405,7 @@ namespace app_babybay.Controllers
                     }
                     else                            // Se tem idade e categoria
                     {
-                        buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+                        buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria && s.UsuarioId != usuario.Id);
                         return View(await buscaAnuncio.ToListAsync());   // Retorna pelo nome idade e categoria
                     }
                 }
@@ -339,22 +417,22 @@ namespace app_babybay.Controllers
                     }
                     else                             // Se não tem idade e tem categoria
                     {
-                        buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
-                        return View(await buscaAnuncio.ToListAsync());
+                        buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria && s.UsuarioId != usuario.Id); return View(await buscaAnuncio.ToListAsync());
                     }
                 }
             }
             else if (idadeProduto != null)           // Se tem idade e não tem produto
             {
-                buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Idade == idadeProduto);
+                buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Idade == idadeProduto && s.UsuarioId != usuario.Id);
 
                 if (categoria == null)          // Se tem idade e não tem categoria nem produto
                 {
+
                     return View(await buscaAnuncio.ToListAsync());
                 }
                 else                            // Se tem idade e categoria e não tem produto
                 {
-                    buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+                    buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria && s.UsuarioId != usuario.Id);
                     return View(await buscaAnuncio.ToListAsync());
                 }
             }
@@ -362,11 +440,12 @@ namespace app_babybay.Controllers
             {
                 if (categoria == null)          // Se não tem idade nem categoria nem produto
                 {
+                    buscaAnuncio = buscaAnuncio.Where(s => s.UsuarioId != usuario.Id);
                     return View(await buscaAnuncio.ToListAsync());      // Retorna tudo
                 }
                 else                             // Se não tem idade nem produto e tem categoria
                 {
-                    buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria);
+                    buscaAnuncio = buscaAnuncio.Where(s => s.Produto.Categoria == categoria && s.UsuarioId != usuario.Id);
                     return View(await buscaAnuncio.ToListAsync());
                 }
             }
@@ -382,7 +461,7 @@ namespace app_babybay.Controllers
             _context.Update(anuncio);   // Atualiza a tabela anúncio com a informação da 'curtida'
             await _context.SaveChangesAsync();  // Salva
 
-            return RedirectToAction("Details", "Anuncios", new {id});
+            return RedirectToAction("Details", "Anuncios", new { id });
         }
 
         public async Task<IActionResult> DescurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)

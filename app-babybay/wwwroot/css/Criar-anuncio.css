@@ -29,8 +29,21 @@ main {
     height: -21px;
     letter-spacing: 1px;
     min-width: 200px;
-    text-shadow: var(--clr--text-shadow);
+    text-shadow: var(--clr--text-shadow);    
+    margin-left: 50px;
 }
+
+
+    .btn-criar-anuncio:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr-purple-light);
+        cursor: pointer;
+    }
+
+    .btn-criar-anuncio:active {
+        background-color: var(--clr-purple-dark);
+    }
+
 h4 {
     width: 656px;
     margin:auto;
@@ -56,6 +69,12 @@ h4 {
     flex-direction: column;
     flex-wrap: wrap;
 }
+
+    .input:hover {
+        box-shadow: var(--clr--box-shadow-hover);
+        /*  border: 1px solid var(--clr-purple-dark);*/
+        border-color: var(--clr-purple-dark);
+    }
 
 @media(max-width:644px) {
     h4 {
