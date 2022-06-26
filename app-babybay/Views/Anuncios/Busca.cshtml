@@ -54,7 +54,7 @@
             <div style="display:flex;justify-content:center">
                 <div class="card m-3" style="width: 18rem;">
                     <!--card-->
-                    <img src="~/img/Sol.png" class="card-image" alt="...">
+                    <img src="~/img/roupa3.png" class="card-image" alt="href='https://br.freepik.com/fotos-vetores-gratis/toddler'>Toddler foto criado por fabrikasimf - br.freepik.com">
                     <div class="card-body">
                         <div class="container space-between">
                             <div class="row d-flex justify-content-between">
@@ -69,9 +69,7 @@
                                     <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.AnuncioId" class="btn btn-light">Eu quero!</a>
                                     <a asp-controller="Suportes" asp-action="Create" asp-route-id="@item.AnuncioId" class="btn btn-light">Denunciar</a>
                       
-
                                 </div>
-
                             </div>
                         </div><!--container-->
                     </div>
@@ -81,33 +79,3 @@
     }
 </section>
 
-
-
-@*<section>
-	<table class="table">
-		<tbody>
-			@foreach (var item in Model)
-			{
-				<tr>
-					<td>
-						@Html.DisplayFor(modelItem => item.AnuncioId)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Titulo)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.UsuarioId)
-					</td>
-					<td>
-						<a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.AnuncioId" class="btn btn-primary">Eu Quero!</a>
-						<a asp-controller="Suportes" asp-action="Create" asp-route-id="@item.AnuncioId" class="btn btn-primary">Denunciar</a>
-
-					</td>
-				</tr>
-
-			}
-		</tbody>
-	</table>
-</section>
-
-*@

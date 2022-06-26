@@ -15,30 +15,22 @@
 		<article class="article-c">
 			<div class="div-frase">
 				<h3>Parabéns, sua proposta foi enviada para @Model.Usuario.Nome!</h3>
-			</div>			
+			</div>
 			<ul class="article-c__ul">
 				<hr>
 				<div class=sec_tab>
 					<table>
 						<tr>
 							<th>
-								E-mail:
+								Enviado para:
 							</th>
 							<td>
-								@Html.DisplayFor(model => model.Usuario.Email)
+								@Html.DisplayFor(model => model.Usuario.Nome)
 							</td>
-						</tr>
+						</tr>					
 						<tr>
 							<th>
-								Seu Produto:
-							</th>
-							<td>
-								@Html.DisplayFor(model => model.Produto.Nome)
-							</td>
-						</tr>
-						<tr>
-							<th>
-								Seu Anúncio:
+								Do Anúncio:
 							</th>
 							<td>
 								@Html.DisplayFor(model => model.Titulo)
@@ -46,10 +38,10 @@
 						</tr>
 						<tr>
 							<th>
-								Roupa proposta:
+								Roupa Solicitada:
 							</th>
 							<td>
-								@Html.DisplayFor(model => model.PropostaProdutoTroca)
+								@Html.DisplayFor(model => model.Produto.Nome)
 							</td>
 						</tr>
 						<tr>
@@ -60,6 +52,20 @@
 								@Html.DisplayFor(model => model.Babycoin) BabyCoins
 							</td>
 						</tr>
+						<tr>							
+							<td>
+								<hr />
+							</td>
+						</tr>
+						<tr>
+							<th>
+								Sua proposta:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.PropostaProdutoTroca)
+							</td>
+						</tr>				
+						
 						<tr>
 							<th>
 								Date:

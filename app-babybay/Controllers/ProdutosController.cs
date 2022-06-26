@@ -101,8 +101,8 @@ namespace app_babybay.Controllers
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Index", "Usuarios");
-                //return RedirectToAction("Relatorio", "Usuarios", new { produto.UsuarioId });
+               // return RedirectToAction("Index", "Usuarios");
+                return RedirectToAction("Relatorio", "Usuarios", new { id = produto.UsuarioId });
             }
             return View(produto);
         }

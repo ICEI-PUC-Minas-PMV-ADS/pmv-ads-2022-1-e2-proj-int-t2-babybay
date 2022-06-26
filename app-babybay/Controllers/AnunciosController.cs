@@ -68,7 +68,7 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
-            
+
 
             var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)
@@ -93,7 +93,7 @@ namespace app_babybay.Controllers
             //    ViewBag.Message = "Não é posível escolher um produto que você anunciou";
             //    return RedirectToAction("Index", "Home");
             //}                      
-            ViewBag.Message = "* Seu saldo na carteira é de " + carteiraCliente.Saldo +" BabyCoins";
+            ViewBag.Message = "* Seu saldo na carteira é de " + carteiraCliente.Saldo + " BabyCoins";
             // Todos anúncios
             var anuncioCliente = from aCliente in _context.Anuncios
                                  select aCliente;
@@ -129,12 +129,12 @@ namespace app_babybay.Controllers
 
             if (opcRadio == 0)//Se escolheu utilizar os babycoins,chama o metodo da carteira para tentar retirar o saldo,se retornar false é porque o produto custa mais que o usuário tem na carteira
             {
-               bool temsaldo = carteira.Retirar(anuncio.Babycoin);
+                bool temsaldo = carteira.Retirar(anuncio.Babycoin);
 
-               if (!temsaldo)
-               {
-                   ViewBag.Message = "Você não possui saldo suficiente";
-                    return RedirectToAction("Details", new {id});
+                if (!temsaldo)
+                {
+                    ViewBag.Message = "Você não possui saldo suficiente";
+                    return RedirectToAction("Details", new { id });
                 }
 
             }
@@ -173,65 +173,45 @@ namespace app_babybay.Controllers
                 .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
 
             // Chamando métodos e fazendo as atribuições para salvar no DB
-            anuncio.AdicionarNomeInteressado(usuarioCliente.Nome); ;       // Nome do cliente
-            anuncio.AdicionarAnuncioInteressado();          // Indica que há interesse na troca
-            //anuncio.AdicionarNomeProduto(usuarioCliente.Produto.Nome);
-            anuncio.ClienteId = usuarioCliente.Id;          // Pega o usuário cliente          
+            anuncio.AdicionarNomeInteressado(usuarioCliente.Nome);       // Nome do cliente
+            anuncio.AdicionarAnuncioInteressado();                  // Indica que há interesse na troca            
+            anuncio.ClienteId = usuarioCliente.Id;                  // Pega o usuário cliente          
 
             // Vai verificar se o interesse é prod por prod ou por babycoin
             if (opcRadio == 1)           // Produto por produto
             {
                 anuncio.PropostaAnuncioTroca = anuncioSelectPropostaId;  // ID anúncio proposto pelo cliente
 
-                var produtoCliente = from aCliente in _context.Produtos
-                                     select aCliente;
                 // Produtos do Usuário Logado
+                var produtoCliente = from aCliente in _context.Produtos
+                                     select aCliente;                
                 produtoCliente = produtoCliente.Where(s => s.UsuarioId == usuarioCliente.Id);
-
+                
+                // Anúncios do Usuário Logado
                 var anuncioCliente = from aCliente in _context.Anuncios
                                      select aCliente;
                 anuncioCliente = anuncioCliente.Where(s => s.UsuarioId == usuarioCliente.Id);
 
-
-                //foreach (var itemProduto in produtoCliente)
-                //{
-                //    var produtoSelect = new Produto();
-                //    produtoSelect = itemProduto;
-
-                //    foreach (var itemAnuncio in anuncioCliente)
-                //    {
-                //        var anuncioSelect = new Anuncio();
-                //        anuncioSelect = itemAnuncio;
-
-                //        if (itemAnuncio.AnuncioId == anuncioSelectPropostaId)
-                //        {
-                //            anuncioSelect.PropostaProdutoTroca = itemProduto.Nome;
-                //        }
-                //    }
-                //    //if (itemProduto.Id == anuncioSelectPropostaId) 
-                //    //{
-                //    //    anuncio.PropostaProdutoTroca = itemProduto.Nome;
-                //    //}
-
-                //}
-
+                // Percorre os anúncios do cliente e compara pra ver se é o mesmo da proposta
+                var anuncioSelect = new Anuncio();
                 foreach (var itemAnuncio in anuncioCliente)
-                {
-                    var anuncioSelect = new Anuncio();
-                    anuncioSelect = itemAnuncio;
-                 
-                        if (itemAnuncio.AnuncioId == anuncioSelectPropostaId)
-                        {                            
-                            //anuncioSelect.PropostaProdutoTroca = itemProduto.Nome;
-                        }                    
+                {                                   
+                    if (itemAnuncio.AnuncioId == anuncioSelectPropostaId)
+                    {
+                        anuncioSelect = itemAnuncio;
+                        break;
+                    }
                 }
 
-                
-
-                //var produtoProposta = await _context.Anuncios
-                //    .FirstOrDefaultAsync(m => m.AnuncioId == anuncioSelectPropostaId);
-
-                //anuncio.AdicionarNomeProduto(produtoProposta.Nome); // Salvando nome do produto
+                // Percorre os produtos e comparar para ver se o ID do produto bate com o do anúncio achado acima
+                foreach(var itemProduto in produtoCliente)
+                {                   
+                    if(anuncioSelect.ProdutoId == itemProduto.Id)
+                    {
+                        anuncio.PropostaProdutoTroca = itemProduto.Nome; // Adiciona o nome do produto encontrado 
+                        break;
+                    }
+                }             
 
                 // Atualiza banco
                 _context.Update(anuncio);
