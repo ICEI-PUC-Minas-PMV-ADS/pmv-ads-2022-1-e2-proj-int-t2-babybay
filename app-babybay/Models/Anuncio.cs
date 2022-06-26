@@ -41,6 +41,11 @@ namespace app_babybay.Models
         [Display(Name = "A solicitação de troca por BabyCoin:")]
         public bool PropostaAnuncioBabycoin { get; set; }
 
+        [Display(Name = "Roupa proposta para troca:")]
+        public string PropostaProdutoTroca { get; set; }
+
+        //public ICollection<Produto> Produtos { get; set; }
+
         [NotMapped]
         public Dictionary<int, string> listaInteressados { get;  private set; } = new Dictionary<int, string>();
         
@@ -86,7 +91,12 @@ namespace app_babybay.Models
             NomeInteressado = "";
         }
 
-        
+        public void AdicionarNomeProduto(string nome)
+        {
+            PropostaProdutoTroca = nome;
+        }
+
+
 
         public void CurtirAnuncio()/*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe
        para que assim ele estem método possa ser chamado por outro método no controle*/

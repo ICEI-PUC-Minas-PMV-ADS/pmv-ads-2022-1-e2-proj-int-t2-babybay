@@ -4,36 +4,6 @@
 	ViewData["Title"] = "AceitarTroca";	
 }
 
-<!--Ponto de vista de quem anunciou, quando aceita a troca-->
-@*<div>
-	<h4>Parabéns @Model.Usuario.Nome, sua troca foi realizada com sucesso!</h4>
-	<hr />
-	<dl class="row">
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Usuario)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Usuario.Nome)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Produto)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Produto.Nome)
-		</dd>
-		<dt class="col-sm-2">
-			@Html.DisplayNameFor(model => model.Titulo)
-		</dt>
-		<dd class="col-sm-10">
-			@Html.DisplayFor(model => model.Titulo)
-		</dd>
-	</dl>
-</div>
-<div>
-	<a asp-controller="Usuarios" asp-action="Index" class="btn btn-primary">Voltar para menu</a>
-</div>*@
-
-
 
 <link rel="stylesheet" href="~/css/style-visualizar-troca.css">
 <div class="div-titulo-cadastro">
@@ -51,12 +21,20 @@
 					<table>
 						<tr>
 							<th>
-								Roupa
+								Roupa enviada:
 							</th>
 							<td>
 								@Html.DisplayFor(model => model.Produto.Nome)
 							</td>
-						</tr>						
+						</tr>		
+						<tr>
+							<th>
+								Roupa recebida:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.PropostaProdutoTroca)
+							</td>
+						</tr>		
 						<tr>
 							<th>
 								Valor:

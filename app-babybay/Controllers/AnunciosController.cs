@@ -116,6 +116,7 @@ namespace app_babybay.Controllers
             var user = await _context.Usuarios.FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
             var carteira = await _context.Carteiras.FirstOrDefaultAsync(a => a.UsuarioId == user.Id);
 
+
             // Usuário anunciante, anúncio e produto anunciado
             var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)
@@ -166,17 +167,68 @@ namespace app_babybay.Controllers
 
             // Pegando o usuário logado (Cliente)           
             var usuarioCliente = await _context.Usuarios
-               .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
+                .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
 
             // Chamando métodos e fazendo as atribuições para salvar no DB
             anuncio.AdicionarNomeInteressado(usuarioCliente.Nome); ;       // Nome do cliente
             anuncio.AdicionarAnuncioInteressado();          // Indica que há interesse na troca
+            //anuncio.AdicionarNomeProduto(usuarioCliente.Produto.Nome);
             anuncio.ClienteId = usuarioCliente.Id;          // Pega o usuário cliente          
 
             // Vai verificar se o interesse é prod por prod ou por babycoin
             if (opcRadio == 1)           // Produto por produto
             {
                 anuncio.PropostaAnuncioTroca = anuncioSelectPropostaId;  // ID anúncio proposto pelo cliente
+
+                var produtoCliente = from aCliente in _context.Produtos
+                                     select aCliente;
+                // Produtos do Usuário Logado
+                produtoCliente = produtoCliente.Where(s => s.UsuarioId == usuarioCliente.Id);
+
+                var anuncioCliente = from aCliente in _context.Anuncios
+                                     select aCliente;
+                anuncioCliente = anuncioCliente.Where(s => s.UsuarioId == usuarioCliente.Id);
+
+
+                //foreach (var itemProduto in produtoCliente)
+                //{
+                //    var produtoSelect = new Produto();
+                //    produtoSelect = itemProduto;
+
+                //    foreach (var itemAnuncio in anuncioCliente)
+                //    {
+                //        var anuncioSelect = new Anuncio();
+                //        anuncioSelect = itemAnuncio;
+
+                //        if (itemAnuncio.AnuncioId == anuncioSelectPropostaId)
+                //        {
+                //            anuncioSelect.PropostaProdutoTroca = itemProduto.Nome;
+                //        }
+                //    }
+                //    //if (itemProduto.Id == anuncioSelectPropostaId) 
+                //    //{
+                //    //    anuncio.PropostaProdutoTroca = itemProduto.Nome;
+                //    //}
+
+                //}
+
+                foreach (var itemAnuncio in anuncioCliente)
+                {
+                    var anuncioSelect = new Anuncio();
+                    anuncioSelect = itemAnuncio;
+                 
+                        if (itemAnuncio.AnuncioId == anuncioSelectPropostaId)
+                        {                            
+                            //anuncioSelect.PropostaProdutoTroca = itemProduto.Nome;
+                        }                    
+                }
+
+                
+
+                //var produtoProposta = await _context.Anuncios
+                //    .FirstOrDefaultAsync(m => m.AnuncioId == anuncioSelectPropostaId);
+
+                //anuncio.AdicionarNomeProduto(produtoProposta.Nome); // Salvando nome do produto
 
                 // Atualiza banco
                 _context.Update(anuncio);
