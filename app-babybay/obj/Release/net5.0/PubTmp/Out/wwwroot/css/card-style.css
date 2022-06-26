@@ -8,10 +8,10 @@
 }
 
 .card-image {
-    width: 300px;
+    margin: auto;
+    width: 286px;
     height: 200px;
     object-fit: cover;
-    border-radius: 10px 10px 0px 0px;
 }
 
 .card-infos {
@@ -25,8 +25,8 @@
     }
 
     .card-infos p {
-        font-size: 16px;
-        color: #7c7c7cd7;
+        font-size: 20px;
+        color: #787878;
     }
 
 .card-price {
@@ -41,16 +41,22 @@
 }
 
 .btn-editar {
-    color: #ffffff;
-    background-color: #DA8BD2;
+    background-color: var(--clr--pink-light);    
+    color: #ffffff;    
     padding: 10px 10px;
     border-radius: 5px;
     position: absolute;
     bottom: 20px;
     right: 20px;
+
 }
 
     .btn-editar:hover {
-        opacity: 0.6;
+        background-color: var(--clr--pink-dark);
+        cursor: pointer;
+    }   
+
+    .btn-editar:active {
+        background-color: var(--clr--pink-dark);
     }
 

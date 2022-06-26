@@ -27,7 +27,7 @@
 							<td>
 								@Html.DisplayFor(model => model.Usuario.Nome)
 							</td>
-						</tr>					
+						</tr>
 						<tr>
 							<th>
 								Do Anúncio:
@@ -52,7 +52,7 @@
 								@Html.DisplayFor(model => model.Babycoin) BabyCoins
 							</td>
 						</tr>
-						<tr>							
+						<tr>
 							<td>
 								<hr />
 							</td>
@@ -61,11 +61,20 @@
 							<th>
 								Sua proposta:
 							</th>
-							<td>
-								@Html.DisplayFor(model => model.PropostaProdutoTroca)
-							</td>
-						</tr>				
-						
+							@if (Model.PropostaProdutoTroca != null)
+							{
+								<td>
+									@Html.DisplayFor(model => model.PropostaProdutoTroca)
+								</td>
+							}
+							else
+							{		
+								<td>
+									Troca por Babycoin. Valor @Model.Babycoin BC
+								</td>								
+							}
+						</tr>
+
 						<tr>
 							<th>
 								Date:

@@ -41,17 +41,30 @@
 			<form asp-action="EnviarPedido" asp-route-id="@Model.AnuncioId">
 				<div class="item">
 					<div class="form-check">
-						@Html.RadioButton("opcRadio", 0,
+						@if (@ViewBag.Message == "Seu saldo é insuficiente")
+						{
+							@Html.RadioButton("opcRadio", 0,
+						new {@class = "form-check-input", @disabled="disabled"})
+							<label class="form-check-label" for="opcRadio">
+								<h5>Utilizar meus babycoins</h5>
+								<h5 class="message" style="color:red">@ViewBag.Message</h5>
+							</label>
+						}
+						else
+						{
+							@Html.RadioButton("opcRadio", 0,
 						new {@class = "form-check-input"})
-						<label class="form-check-label" for="opcRadio">
-							<h5>Utilizar meus babycoins</h5>
-							<p>@ViewBag.Message</p>
-						</label>
+							<label class="form-check-label" for="opcRadio">
+								<h5>Utilizar meus babycoins</h5>
+								<h5 class="message">@ViewBag.Message</h5>
+							</label>
+						}
 					</div>
 
 					<div class="form-check">
 						<br>
 						<!--opcProdLabel para configurar a label da opção produtos, tem que ser assim para não dar conflito e ser mutualmente excludente-->
+						
 						@Html.RadioButton("opcRadio", 1,
 						new {@class = "form-check-input", @id = "opcProdLabel", @checked="checked" })
 						<label class="form-check-label" for="opcProdLabel">

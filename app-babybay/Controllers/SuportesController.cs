@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using app_babybay.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace app_babybay.Controllers
 {
+    [Authorize]
     public class SuportesController : Controller
     {
         public static int GuardaIdAnuncio;
@@ -197,10 +199,13 @@ namespace app_babybay.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var usuario = await _context.Usuarios
+               .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
+
             var suporte = await _context.Suportes.FindAsync(id);
             _context.Suportes.Remove(suporte);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Home");
         }
 
         private bool SuporteExists(int id)

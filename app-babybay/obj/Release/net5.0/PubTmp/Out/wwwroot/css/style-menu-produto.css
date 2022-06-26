@@ -10,10 +10,9 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     list-style: none;
 }
 
-.div-titulo-cadastro {
-    padding: 20px;
+.div-titulo-cadastro {    
     color: var(--clr-purple-dark);
-    height: 150px;
+    margin-top: 50px;
     /* flex */
 
     display: flex;
@@ -65,7 +64,7 @@ th{
     background-color: var(--clr-second-background);
     border: 1px solid var(--clr--border-box);
     box-shadow: var(--clr--box-shadow-content);
-    margin: 40px;
+    margin: 10px;
     padding: 50px;
     /* flex*/
     display: flex;
@@ -112,17 +111,50 @@ th{
     text-align: center;
     line-height: 30px;
 }
+p {
+    padding: 12px;
+   
+}
 
-    .input__busca--botao:hover {
-        box-shadow: var(--clr--box-shadow-btn-hover);
-        background-color: var(--clr-purple-light);
-        cursor: pointer;
-    }
+.input__busca--botao:hover {
+    box-shadow: var(--clr--box-shadow-btn-hover);
+    background-color: var(--clr-purple-light);
+    cursor: pointer;
+}
 
     .input__busca--botao:active {
         background-color: var(--clr-purple-dark);
     }
 
+.input__busca--botao-anunciar {
+    background-color: var(--clr--pink-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 20px;
+    color: #FFFFFF !important;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 32px;
+    letter-spacing: 1px;
+    margin: 5px 15px;
+    min-width: 120px;
+    text-shadow: var(--clr--text-shadow);
+    text-align: center;
+    line-height: 30px;
+}
+
+    .input__busca--botao-anunciar:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr--pink-light);
+        cursor: pointer;
+    }
+
+.input__busca--botao-anunciar:active {
+    background-color: var(--clr-purple-dark);
+}
 
 .sec_tab {
     display: flex;
@@ -187,3 +219,32 @@ th{
         background-color: var(--clr-purple-dark);
     }
 
+.input__busca--botao-aceitar {
+    background-color: var(--clr--pink-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 20px;
+    color: #FFFFFF !important;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 32px;
+    letter-spacing: 1px;
+    margin: 5px 15px;
+    min-width: 100px;
+    text-shadow: var(--clr--text-shadow);
+    text-align: center;
+    line-height: 30px;
+}
+
+    .input__busca--botao-aceitar:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr--pink-light);
+        cursor: pointer;
+    }
+
+    .input__busca--botao-aceitar:active {
+        background-color: var(--clr--pink-dark);
+    }

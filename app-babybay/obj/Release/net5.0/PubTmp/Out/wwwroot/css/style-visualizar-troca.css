@@ -1,0 +1,188 @@
+/* TELA CADASTRO USUÁRIO 
+
+C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
+    C1. Section > Article
+    
+/****************************************
+    C1. Section > Article
+/****************************************/
+* {
+    list-style: none;
+}
+
+.div-titulo-cadastro {    
+    margin-top: 20px;
+    margin-bottom: -20px;
+    padding: 20px;
+    color: var(--clr-purple-dark);
+    height: 150px;
+    /* flex */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-frase {    
+    color: var(--clr--pink-dark);
+    padding: 40px;    
+    height: 50px;
+    /* flex */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-c {
+    /* flex */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 15px 20px;
+}
+
+.section-c__div {
+    border-radius: 10px;
+    /*margin: 20px; AQQQUI*/
+    margin-top: -50px;
+    padding: 20px;
+    /* flex */
+    display: flex;
+    flex-flow: row wrap; /* wrap */
+    justify-content: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.article-c {
+    background-color: var(--clr-second-background);
+    border: 1px solid var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow-content);
+    border-radius: 10px;
+    margin: 40px;
+    padding: 30px;
+    /* flex*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.article-c__ul {
+    text-align: center;
+    /* align-self: flex-end; */
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 200px;
+    align-items: center;
+}
+
+.sec_tab {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    width: fit-content;
+    padding: 25px;
+}
+
+td {
+    padding: 8px;
+}
+
+.article-c__ul {
+    display: flexbox;
+    margin: auto;
+    flex-direction: row; /* antes estava column*/
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.botoess {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.botoess > input {    
+    background: #ffffff;
+    border-radius: 10px;
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    height: 40px;
+    margin: auto;
+    padding: 10px;
+    font-size: 1em;
+    flex-grow: 1; /* antes sem grow */
+    flex-shrink: 1;
+}
+
+    .botoess > input:hover {
+        box-shadow: var(--clr--box-shadow-hover);
+        border: 1.5px solid var(--clr-purple-dark);
+    }
+
+
+.input__busca--botao {
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 20px;
+    color: #FFFFFF !important;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px 15px;
+    height: 32px;
+    letter-spacing: 1px;
+    margin: 5px 25px;
+    min-width: 100px;
+    text-shadow: var(--clr--text-shadow);
+    text-align: center;
+    line-height: 30px;
+    
+}
+
+    .input__busca--botao:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr-purple-light);
+        cursor: pointer;
+    }
+
+    .input__busca--botao:active {
+        background-color: var(--clr-purple-dark);
+    }
+
+
+
+.input__busca--botao-aceitar {
+    background-color: var(--clr--pink-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 20px;
+    color: #FFFFFF !important;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 32px;
+    letter-spacing: 1px;
+    margin: 5px 15px;
+    min-width: 100px;
+    text-shadow: var(--clr--text-shadow);
+    text-align: center;
+    line-height: 30px;
+}
+
+    .input__busca--botao-aceitar:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr--pink-light);
+        cursor: pointer;
+    }
+
+    .input__busca--botao-aceitar:active {
+        background-color: var(--clr--pink-dark);
+    }
+

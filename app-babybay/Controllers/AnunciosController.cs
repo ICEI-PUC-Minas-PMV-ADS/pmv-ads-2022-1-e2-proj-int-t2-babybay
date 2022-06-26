@@ -69,7 +69,6 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-
             var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)
                 .Include(a => a.Usuario)
@@ -84,21 +83,24 @@ namespace app_babybay.Controllers
             var usuarioCliente = await _context.Usuarios
                .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
 
-            var carteiraCliente = await _context.Carteiras.FirstOrDefaultAsync(a => a.Id == usuarioCliente.Id);
+            var carteiraCliente = await _context.Carteiras
+                .FirstOrDefaultAsync(a => a.Id == usuarioCliente.Id);
+                                        
+                     
+            if(anuncio.Babycoin > carteiraCliente.Saldo)
+            {
+                ViewBag.Message = "Seu saldo é insuficiente";
+            }
+            else
+            {
+                ViewBag.Message = "Seu saldo na carteira é de " + carteiraCliente.Saldo + " BabyCoins";
+            }
 
-            // LÓGICA FUNCIONA, MAS NÃO EXIBE MSG DO VIEW.MESSAGE NA VIEW
-            // NEM NA BUSCCA NEM   
-            //if (anuncio.UsuarioId == usuarioCliente.Id)
-            //{
-            //    ViewBag.Message = "Não é posível escolher um produto que você anunciou";
-            //    return RedirectToAction("Index", "Home");
-            //}                      
-            ViewBag.Message = "* Seu saldo na carteira é de " + carteiraCliente.Saldo + " BabyCoins";
             // Todos anúncios
             var anuncioCliente = from aCliente in _context.Anuncios
                                  select aCliente;
             // Anúncios do Usuário Logado
-            anuncioCliente = anuncioCliente.Where(s => s.UsuarioId == usuarioCliente.Id);
+            anuncioCliente = anuncioCliente.Where(s => s.UsuarioId == usuarioCliente.Id);                      
 
             // Passa pro SelectList somente os anúncios do cliente
             ViewData["AnuncioId"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");

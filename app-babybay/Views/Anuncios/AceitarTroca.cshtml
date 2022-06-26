@@ -1,7 +1,7 @@
 ﻿@model app_babybay.Models.Anuncio
 
 @{
-	ViewData["Title"] = "AceitarTroca";	
+	ViewData["Title"] = "AceitarTroca";
 }
 
 
@@ -26,36 +26,39 @@
 							<td>
 								@Html.DisplayFor(model => model.Produto.Nome)
 							</td>
-						</tr>		
-						<tr>
-							<th>
-								Roupa recebida:
-							</th>
-							<td>
-								@Html.DisplayFor(model => model.PropostaProdutoTroca)
-							</td>
-						</tr>		
-						<tr>
-							<th>
-								Valor:
-							</th>
-							<td>
-								@Html.DisplayFor(model => model.Babycoin) BabyCoins
-							</td>
 						</tr>
+						<tr>
+							@if (Model.PropostaProdutoTroca != null)
+							{
+								<th>
+									Roupa recebida:
+								</th>
+								<td>
+									@Html.DisplayFor(model => model.PropostaProdutoTroca)
+								</td>
+							}
+							else
+							{
+								<th>
+									Valor Recebido:
+								</th>
+								<td>
+									@Html.DisplayFor(model => model.Babycoin) BabyCoins
+								</td>
+							}
 						<tr>
 							<th>
 								Date:
 							</th>
 							<td>
-								@Html.DisplayFor(model => model.Date)
+									@Html.DisplayFor(model => model.Date)
 							</td>
 						</tr>
 					</table>
 				</div>
 				<div class="botoess">
 
-					<a class="input__busca--botao" asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar para Menu</a>					
+					<a class="input__busca--botao" asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar para Menu</a>
 				</div>
 			</ul>
 		</article> <!-- .container-principal__article--dois-->

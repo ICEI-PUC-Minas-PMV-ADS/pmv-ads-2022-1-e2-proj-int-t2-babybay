@@ -2,83 +2,89 @@
 
 @{
 	ViewData["Title"] = "Minhas Trocas";
-	
+
 }
 <link rel="stylesheet" href="~/css/style-visualizar-troca.css">
 
-		 <div class="div-titulo-cadastro">
-        <h1>Aceitar Troca</h1>
-    </div>
-    <div class="div-frase">
-        <h2>Você deseja aceitar a troca do produto?</h2>
-    </div>
+<div class="div-titulo-cadastro">
+	<h1>Aceitar Troca</h1>
+</div>
+<div class="div-frase">
+	<h2>Você deseja aceitar a troca do produto?</h2>
+</div>
 
-    <section class="section-c"> 
-        <div class="section-c__div">            
-            <article class="article-c">
-                <ul class="article-c__ul">
-                    <div class = sec_tab>
-                        <table>
-                            <tr>
-                                <th>
-                                    Seu anúncio:
-                                </th>
-                                <td>
-                                    @Html.DisplayFor(model => model.Titulo)
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    Sua roupa:
-                                </th>
-                                <td>
-                                    @Html.DisplayFor(model => model.Produto.Nome)
-                                </td>
-                            </tr>                            
-                            <tr>
-                                <th>
-                                   <hr />
-                                </th>                              
-                            </tr>
-                            <tr>
-                                <th>
-                                    Interessado:
-                                </th>
-                                <td>
-                                    @Html.DisplayFor(model => model.NomeInteressado)
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    Roupa Proposta:
-                                </th>
-                                <td>
-                                    @Html.DisplayFor(model => model.PropostaProdutoTroca)
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    Troca em Valor:
-                                </th>
-                                <td>
-                                    @Html.DisplayFor(model => model.Babycoin) BabyCoins
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    Data da solicitação:
-                                </th>
-                                <td>
-                                    @Html.DisplayFor(model => model.Date)
-                                </td>
-                        </table>
-                    </div>
-                    <div class="botoess">
-                        <a asp-controller="Anuncios" asp-action="AceitarTroca" asp-route-id="@Model.AnuncioId" class="input__busca--botao-aceitar">Aceitar Troca</a>
-                        <a asp-controller="Anuncios" asp-action="MenuAnuncio" asp-route-id="@Model.AnuncioId" class="input__busca--botao">Voltar</a>
-                    </div>
-                </ul>
-            </article> <!-- .container-principal__article--dois-->
-        </div>
-    </section>
+<section class="section-c">
+	<div class="section-c__div">
+		<article class="article-c">
+			<ul class="article-c__ul">
+				<div class=sec_tab>
+					<table>
+						<tr>
+							<th>
+								Seu anúncio:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Titulo)
+							</td>
+						</tr>
+						<tr>
+							<th>
+								Sua roupa:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Produto.Nome)
+							</td>
+						</tr>
+						<tr>
+							<th>
+								<hr />
+							</th>
+						</tr>
+						<tr>
+							<th>
+								Interessado:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.NomeInteressado)
+							</td>
+						</tr>
+
+						<tr>
+							@if (Model.PropostaProdutoTroca != null)
+							{
+								<th>
+									Roupa Proposta:
+								</th>
+								<td>
+									@Html.DisplayFor(model => model.PropostaProdutoTroca)
+								</td>
+							}
+							else
+							{
+								<th>
+									Proposta por BabyCoin:
+								</th>
+								<td>
+									Valor @Model.Babycoin BC
+								</td>
+							}
+						</tr>
+						<tr>
+							<th>
+								Data da solicitação:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Date)
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="botoess">
+					<a asp-controller="Anuncios" asp-action="AceitarTroca" asp-route-id="@Model.AnuncioId" class="input__busca--botao-aceitar">Aceitar Troca</a>
+					<a asp-controller="Anuncios" asp-action="MenuAnuncio" asp-route-id="@Model.AnuncioId" class="input__busca--botao">Voltar</a>
+				</div>
+			</ul>
+		</article> <!-- .container-principal__article--dois-->
+	</div>
+</section>
 

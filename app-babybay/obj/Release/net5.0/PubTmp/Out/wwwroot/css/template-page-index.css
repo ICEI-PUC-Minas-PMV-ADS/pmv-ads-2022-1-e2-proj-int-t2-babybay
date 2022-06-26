@@ -116,10 +116,15 @@ input[type=text] {
 }
 
 
-input[type=text]:hover,
+input[type=text]:hover {
+    box-shadow: var(--clr--box-shadow-hover);
+    border-color: var(--clr-purple-dark);
+}
+
+
 .input__selected:hover {
     box-shadow: var(--clr--box-shadow-hover);
-    border: 1.8px solid var(--clr-purple-dark);
+    border: 1px solid var(--clr-purple-dark);
 }
 
 .input__busca--botao:hover {

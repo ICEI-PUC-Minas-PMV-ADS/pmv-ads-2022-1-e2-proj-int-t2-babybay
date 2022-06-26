@@ -17,7 +17,35 @@ h2 {
     margin: 0px auto 60px auto;
   
 }
+.btn-cadastrar-produto-guarda-roupa {
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    display: block;
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: -21px;
+    letter-spacing: 1px;
+    min-width: 250px;
+    text-shadow: var(--clr--text-shadow);
+    text-align: center;
+    width: 20px;
+    padding: 4px;
+    margin: auto;
+    margin-bottom:30px;
+}
 
+    .btn-cadastrar-produto-guarda-roupa:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr-purple-light);
+        cursor: pointer;
+    }
+
+    .btn-cadastrar-produto-guarda-roupa:active {
+        background-color: var(--clr-purple-dark);
+    }
 
 #myT
 .card-description > h2 {
@@ -37,12 +65,15 @@ h2 {
     margin: auto;
     border: 1px;
     border-radius: 10px 10px 0px 0px;
+    border-radius: 10px;
 }
 
 .nav nav-tabs justify-content-center {
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
+    border-radius: 10px;
+
 }
 
 #home-tab {
@@ -66,8 +97,28 @@ h2 {
     border: -1px;
 }
 
+#cad {
+    background-color: var(--clr-second-background);
+    box-shadow: var(--clr--box-shadow-content);
+        
+}
+
+.card-description > h2 {
+    color: var(--clr-purple-dark);
+    font-weight: bold;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.frase {
+    color: var(--clr--pink-dark) !important;
+    font-weight: normal !important;
+}
+
 .tab-content {
     box-shadow: 1px 1px 2px #b6b6b694;
+    border-radius: 10px;
 }
 
 .nav-link {
@@ -98,5 +149,4 @@ h2 {
 .card {
     transform: scale(0.8)
 }
-
 

@@ -60,6 +60,7 @@ namespace app_babybay.Migrations
                 name: "FK_Usuarios_Suportes_SuporteId",
                 table: "Usuarios");
 
+
             migrationBuilder.DropTable(
                 name: "Suportes");
 
