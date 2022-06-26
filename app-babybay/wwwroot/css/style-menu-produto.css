@@ -1,4 +1,4 @@
-v /* TELA CADASTRO USUÁRIO 
+/* TELA CADASTRO USUÁRIO 
 
 C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     C1. Section > Article
@@ -7,7 +7,7 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     C1. Section > Article
 /****************************************/
 * {
-    list-style: none;
+    list-style: none;    
 }
 
 .div-titulo-cadastro {    
