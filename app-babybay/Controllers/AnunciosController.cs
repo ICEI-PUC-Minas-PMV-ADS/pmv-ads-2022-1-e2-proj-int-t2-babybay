@@ -68,6 +68,7 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
+            
 
             var anuncio = await _context.Anuncios
                 .Include(a => a.Produto)
@@ -83,6 +84,8 @@ namespace app_babybay.Controllers
             var usuarioCliente = await _context.Usuarios
                .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
 
+            var carteiraCliente = await _context.Carteiras.FirstOrDefaultAsync(a => a.Id == usuarioCliente.Id);
+
             // LÓGICA FUNCIONA, MAS NÃO EXIBE MSG DO VIEW.MESSAGE NA VIEW
             // NEM NA BUSCCA NEM   
             //if (anuncio.UsuarioId == usuarioCliente.Id)
@@ -90,7 +93,7 @@ namespace app_babybay.Controllers
             //    ViewBag.Message = "Não é posível escolher um produto que você anunciou";
             //    return RedirectToAction("Index", "Home");
             //}                      
-
+            ViewBag.Message = "* Seu saldo na carteira é de " + carteiraCliente.Saldo +" BabyCoins";
             // Todos anúncios
             var anuncioCliente = from aCliente in _context.Anuncios
                                  select aCliente;
@@ -124,17 +127,17 @@ namespace app_babybay.Controllers
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
 
 
-            //if (opcRadio == 0)//Se escolheu utilizar os babycoins,chama o metodo da carteira para tentar retirar o saldo,se retornar false é porque o produto custa mais que o usuário tem na carteira
-            //{
-            //    bool temsaldo = carteira.Retirar(anuncio.Babycoin);
+            if (opcRadio == 0)//Se escolheu utilizar os babycoins,chama o metodo da carteira para tentar retirar o saldo,se retornar false é porque o produto custa mais que o usuário tem na carteira
+            {
+               bool temsaldo = carteira.Retirar(anuncio.Babycoin);
 
-            //    if (!temsaldo)
-            //    {
-            //        ViewBag.Message = "Você não possui saldo suficiente";
-            //        return RedirectToAction("Details", new {id});
-            //    }
+               if (!temsaldo)
+               {
+                   ViewBag.Message = "Você não possui saldo suficiente";
+                    return RedirectToAction("Details", new {id});
+                }
 
-            //}
+            }
             if (anuncio == null)
             {
                 return NotFound();
