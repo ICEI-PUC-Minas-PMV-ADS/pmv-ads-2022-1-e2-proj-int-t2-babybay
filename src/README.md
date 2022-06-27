@@ -2,7 +2,7 @@
 
 O site foi hospedado no SmartAspNet
 
-<li><a href="src/README.md"> 
+ 
 
 /-------------------CLASSE STARTUP--------------------------/
 
