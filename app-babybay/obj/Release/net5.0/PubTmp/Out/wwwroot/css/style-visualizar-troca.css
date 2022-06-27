@@ -140,8 +140,7 @@ td {
     min-width: 100px;
     text-shadow: var(--clr--text-shadow);
     text-align: center;
-    line-height: 30px;
-    
+    line-height: 50px !important;
 }
 
     .input__busca--botao:hover {
@@ -173,7 +172,7 @@ td {
     min-width: 100px;
     text-shadow: var(--clr--text-shadow);
     text-align: center;
-    line-height: 30px;
+    line-height: 100px !important;
 }
 
     .input__busca--botao-aceitar:hover {

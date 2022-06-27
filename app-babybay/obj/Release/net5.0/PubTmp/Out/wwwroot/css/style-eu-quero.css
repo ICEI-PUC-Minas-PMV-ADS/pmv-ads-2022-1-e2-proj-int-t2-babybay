@@ -25,3 +25,12 @@
     border-color: #a3a1f3;
     color: white;
 }
+
+.message {
+    font-weight: normal;
+    font-size: 1em;
+    margin-left: 85px;
+    margin-top: 12px;
+    color: var(--clr-purple-dark);
+    margin: auto;
+}

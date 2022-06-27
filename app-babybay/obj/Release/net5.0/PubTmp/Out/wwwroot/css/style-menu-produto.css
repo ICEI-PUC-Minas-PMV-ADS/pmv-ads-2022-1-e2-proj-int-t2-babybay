@@ -1,4 +1,4 @@
-v /* TELA CADASTRO USUÁRIO 
+/* TELA CADASTRO USUÁRIO 
 
 C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     C1. Section > Article
@@ -7,7 +7,7 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     C1. Section > Article
 /****************************************/
 * {
-    list-style: none;
+    list-style: none;    
 }
 
 .div-titulo-cadastro {    
@@ -100,13 +100,13 @@ th{
     color: #FFFFFF !important;
     font-size: 1.1em;
     font-weight: bold;
-    padding: 12px;
+    padding: 2px;
     padding-left: 20px;
     padding-right: 20px;
     height: 32px;
     letter-spacing: 1px;
     margin: 5px 15px;
-    min-width: 120px;
+    min-width: 130px;
     text-shadow: var(--clr--text-shadow);
     text-align: center;
     line-height: 30px;
@@ -134,7 +134,7 @@ p {
     color: #FFFFFF !important;
     font-size: 1.1em;
     font-weight: bold;
-    padding: 12px;
+    padding:2px;
     padding-left: 20px;
     padding-right: 20px;
     height: 32px;
@@ -172,7 +172,11 @@ p {
     justify-content: flex-end;
     align-items: center;
 }
-
+.botoess{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+}
 .botoess > input {
     background: #ffffff;
     border-radius: 10px;

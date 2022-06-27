@@ -25,7 +25,7 @@ h2 {
     margin: 14px;
     height: 10px;
     color: var(--clr-purple-dark) !important;
-    font-size: 1.1em;
+    font-size: 0.7em !important;
 }
     .retornar:hover {
         color: var(--clr--pink-light) !important;

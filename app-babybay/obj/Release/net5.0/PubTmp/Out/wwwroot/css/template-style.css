@@ -51,7 +51,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+    list-style: none;
 }
 
 body {
@@ -161,11 +161,11 @@ a:visited {
     7. Footer
 ****************************************/
 .footer-principal {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    background-color: var(--clr-yellow-light);
-    padding: 18px;
+    width: 100% !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    background-color: var(--clr-yellow-light) !important;
+    padding: 18px !important;
 }
 
 .conteudo__footer {
