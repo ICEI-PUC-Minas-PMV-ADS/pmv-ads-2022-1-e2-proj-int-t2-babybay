@@ -27,7 +27,7 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 
 # Código
 
-Site: <li><a href="babybay-001-site1.ftempurl.com"> Código Fonte</a></li>
+<li><a href="babybay-001-site1.ftempurl.com"> Site Baby Bay</a></li>
 
 Clique abaixo:
 <li><a href="src/README.md"> Código Fonte</a></li>
