@@ -60,6 +60,10 @@ namespace app_babybay.Migrations
                 name: "FK_Usuarios_Suportes_SuporteId",
                 table: "Usuarios");
 
+            migrationBuilder.DropForeignKey(
+             name: "FK_Suportes_Anuncios_AnuncioId",
+             table: "Suportes");
+
 
             migrationBuilder.DropTable(
                 name: "Suportes");

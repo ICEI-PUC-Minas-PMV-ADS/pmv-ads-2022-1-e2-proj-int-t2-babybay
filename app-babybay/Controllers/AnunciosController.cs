@@ -85,9 +85,9 @@ namespace app_babybay.Controllers
 
             var carteiraCliente = await _context.Carteiras
                 .FirstOrDefaultAsync(a => a.Id == usuarioCliente.Id);
-                                        
-                     
-            if(anuncio.Babycoin > carteiraCliente.Saldo)
+
+
+            if (anuncio.Babycoin > carteiraCliente.Saldo)
             {
                 ViewBag.Message = "Seu saldo é insuficiente";
             }
@@ -100,7 +100,7 @@ namespace app_babybay.Controllers
             var anuncioCliente = from aCliente in _context.Anuncios
                                  select aCliente;
             // Anúncios do Usuário Logado
-            anuncioCliente = anuncioCliente.Where(s => s.UsuarioId == usuarioCliente.Id);                      
+            anuncioCliente = anuncioCliente.Where(s => s.UsuarioId == usuarioCliente.Id);
 
             // Passa pro SelectList somente os anúncios do cliente
             ViewData["AnuncioId"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");
@@ -186,9 +186,9 @@ namespace app_babybay.Controllers
 
                 // Produtos do Usuário Logado
                 var produtoCliente = from aCliente in _context.Produtos
-                                     select aCliente;                
+                                     select aCliente;
                 produtoCliente = produtoCliente.Where(s => s.UsuarioId == usuarioCliente.Id);
-                
+
                 // Anúncios do Usuário Logado
                 var anuncioCliente = from aCliente in _context.Anuncios
                                      select aCliente;
@@ -197,7 +197,7 @@ namespace app_babybay.Controllers
                 // Percorre os anúncios do cliente e compara pra ver se é o mesmo da proposta
                 var anuncioSelect = new Anuncio();
                 foreach (var itemAnuncio in anuncioCliente)
-                {                                   
+                {
                     if (itemAnuncio.AnuncioId == anuncioSelectPropostaId)
                     {
                         anuncioSelect = itemAnuncio;
@@ -206,14 +206,14 @@ namespace app_babybay.Controllers
                 }
 
                 // Percorre os produtos e comparar para ver se o ID do produto bate com o do anúncio achado acima
-                foreach(var itemProduto in produtoCliente)
-                {                   
-                    if(anuncioSelect.ProdutoId == itemProduto.Id)
+                foreach (var itemProduto in produtoCliente)
+                {
+                    if (anuncioSelect.ProdutoId == itemProduto.Id)
                     {
                         anuncio.PropostaProdutoTroca = itemProduto.Nome; // Adiciona o nome do produto encontrado 
                         break;
                     }
-                }             
+                }
 
                 // Atualiza banco
                 _context.Update(anuncio);
@@ -280,8 +280,10 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
+                        
+            var idAnunciante = anuncio.UsuarioId;            
 
-            if (anuncio.PropostaAnuncioBabycoin)    // Se true, então é babycoin
+            if (anuncio.PropostaAnuncioBabycoin && anuncioProposta == null)    // Se true, então é babycoin
             {
                 // Usuário anunciante - logado - quem aceita a troca
                 var usuarioAnunciante = await _context.Usuarios
@@ -301,12 +303,16 @@ namespace app_babybay.Controllers
                     .Include(a => a.Usuario)
                     .FirstOrDefaultAsync(m => m.UsuarioId == usuarioCliente.Id);
 
-                // Transferindo babycoin
+                                // Transferindo babycoin
                 carteiraCliente.Transferir(anuncio.Babycoin, carteiraAnunciante);
 
-                _context.Anuncios.Remove(anuncio);       // Exclui Anúncio(de quem aceita a troca)
+                // _context.Anuncios.Remove(anuncio);       // Exclui Anúncio(de quem aceita a troca)
                 _context.Update(carteiraCliente);        // Atualiza o saldo da carteira do cliente       
                 _context.Update(carteiraAnunciante);     // Atualiza o saldo da carteira do anunciante
+
+                anuncio.Produto.UsuarioId = usuarioCliente.Id;  // Seta UsuarioId no prod (cliente x anunciante)
+                _context.Update(anuncio);
+                _context.Anuncios.Remove(anuncio);       // Exclui Anúncio (de quem aceita a troca)
 
                 await _context.SaveChangesAsync();       // Atualiza Banco
 
@@ -315,7 +321,7 @@ namespace app_babybay.Controllers
             else               // Ajustar: QUando não tem produto para trocar, setar radio direto no babycoin
             {
                 // PRODUTO POR PRODUTO
-                var idAnunciante = anuncio.UsuarioId;
+                //var idAnunciante = anuncio.UsuarioId;
                 var idCliente = anuncioProposta.UsuarioId;
 
                 // Ponto de vista do cliente

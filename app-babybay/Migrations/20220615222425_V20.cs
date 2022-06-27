@@ -24,7 +24,7 @@ namespace app_babybay.Migrations
                 column: "AnuncioId",
                 principalTable: "Anuncios",
                 principalColumn: "AnuncioId",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
