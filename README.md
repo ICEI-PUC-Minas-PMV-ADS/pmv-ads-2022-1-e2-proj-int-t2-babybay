@@ -23,10 +23,12 @@ O objetivo desse projeto é o desenvolvimento de uma aplicação para realizar a
 
 ## Instruções de utilização
 
-babybay-001-site1.ftempurl.com
 Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 
 # Código
+
+Site: <li><a href="babybay-001-site1.ftempurl.com"> Código Fonte</a></li>
+
 Clique abaixo:
 <li><a href="src/README.md"> Código Fonte</a></li>
 
