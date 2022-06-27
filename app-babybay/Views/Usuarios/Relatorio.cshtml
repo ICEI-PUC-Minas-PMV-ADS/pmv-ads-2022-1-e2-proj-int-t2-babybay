@@ -22,7 +22,7 @@
 					<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Meus Anúncios</button>
 				</li>
 				<li class="nav-item" role="presentation">
-					<button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Favoritos</button>
+					<button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Anúncios cobiçados</button>
 				</li>
 				<li class="nav-item" role="presentation">
 					<button class="nav-link" id="cad-tab" data-bs-toggle="tab" data-bs-target="#cad" type="button" role="tab" aria-controls="cad" aria-selected="false">Cadastrar Roupa</button>
@@ -67,7 +67,27 @@
 					</div><!--.cards-->
 				</div><!--segunda-tab-->
 				<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-					elementos favoritos
+					<div class="cards">
+						@foreach (var item in Model.Anuncios)
+						{
+							@if(item.InteresseTroca){
+
+							
+							<div class="card">
+								<img class="card-image" src="~/img/roupa3.png" alt="href='https://br.freepik.com/fotos-vetores-gratis/toddler'>Toddler foto criado por fabrikasimf - br.freepik.com">
+								<div class="card-infos">
+									<div class="card-description">
+										<h2>@Html.DisplayFor(modelItem => item.Titulo)</h2>
+									</div>
+									<div class="card-price">
+										<h2> @Html.DisplayFor(modelItem => item.Babycoin) BC</h2>
+									</div>
+									<a class="btn-editar" asp-controller="Anuncios" asp-action="MenuAnuncio" asp-route-id="@item.AnuncioId">Ver Anúncio</a>
+								</div>
+							</div>
+						}
+						}
+					</div><!--.cards-->
 				</div><!--terceira-tab-->
 				<div class="tab-pane fade" id="cad" role="tabpanel" aria-labelledby="cad-tab">
 					<div class="card-description">
