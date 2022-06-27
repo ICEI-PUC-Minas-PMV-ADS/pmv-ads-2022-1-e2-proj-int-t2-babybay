@@ -22,11 +22,16 @@ namespace app_babybay.Controllers
             _context = context;
         }
 
-        // Login View
-        [AllowAnonymous]    // Rota pública
+        //Login View
+        [AllowAnonymous]     // Rota pública
         public IActionResult Login()
         {
             return View();
+        }
+        [AllowAnonymous]
+        public IActionResult quem_somos()
+        {
+            return View("quem_somos");
         }
 
         // Login Validação     
