@@ -23,7 +23,7 @@ O objetivo desse projeto é o desenvolvimento de uma aplicação para realizar a
 
 ## Instruções de utilização
 
-*COMPLETAR APÓS PRIMEIRA VERSÃO*<br><br>
+babybay-001-site1.ftempurl.com
 Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 
 # Código
