@@ -1,6 +1,6 @@
 # Instalação do Site
 
-O site foi hospedado no https://www.smarterasp.net.
+O site foi hospedado no SmartAspNet
 
 <li><a href="src/README.md"> 
 
