@@ -27,7 +27,7 @@ O objetivo desse projeto é o desenvolvimento de uma aplicação para realizar a
 Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 
 # Código
-*COMPLETAR APÓS PRIMEIRA VERSÃO*<br><br>
+Clique abaixo:
 <li><a href="src/README.md"> Código Fonte</a></li>
 
 # Apresentação da Solução
