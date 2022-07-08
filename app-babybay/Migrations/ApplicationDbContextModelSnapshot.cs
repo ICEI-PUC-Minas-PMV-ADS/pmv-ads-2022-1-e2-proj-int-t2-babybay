@@ -96,6 +96,38 @@ namespace app_babybay.Migrations
                     b.ToTable("Carteiras");
                 });
 
+            modelBuilder.Entity("app_babybay.Models.Image", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ContentType")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Extension")
+                        .IsRequired()
+                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar(4)");
+
+                    b.Property<int>("Length")
+                        .HasColumnType("int");
+
+                    b.Property<byte[]>("Picture")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Image");
+                });
+
             modelBuilder.Entity("app_babybay.Models.Produto", b =>
                 {
                     b.Property<int>("Id")
@@ -118,6 +150,9 @@ namespace app_babybay.Migrations
                     b.Property<int>("Idade")
                         .HasColumnType("int");
 
+                    b.Property<Guid>("ImageId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -135,6 +170,8 @@ namespace app_babybay.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ImageId");
 
                     b.HasIndex("UsuarioId");
 
@@ -297,11 +334,19 @@ namespace app_babybay.Migrations
 
             modelBuilder.Entity("app_babybay.Models.Produto", b =>
                 {
+                    b.HasOne("app_babybay.Models.Image", "Image")
+                        .WithMany()
+                        .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("app_babybay.Models.Usuario", "Usuario")
                         .WithMany("Produtos")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Image");
 
                     b.Navigation("Usuario");
                 });

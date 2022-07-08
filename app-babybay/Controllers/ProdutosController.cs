@@ -9,6 +9,7 @@ using app_babybay.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace app_babybay.Controllers
 {
@@ -43,7 +44,7 @@ namespace app_babybay.Controllers
             {
                 return NotFound();
             }
-            
+
             return View(produto);
         }
 
@@ -83,13 +84,13 @@ namespace app_babybay.Controllers
         // POST: Produtos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Cor,Idade,TempoUso,Descricao,Tamanho,Categoria")] Produto produto)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Cor,Idade,TempoUso,Descricao,Tamanho,Categoria")] Image Image, IFormFile Img, [FromServices] ApplicationDbContext _context, Produto produto)
         {
             if (User.Identity.IsAuthenticated)
             {
                 var usuario = await _context.Usuarios   // User Logado
                       .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
-                produto.Usuario = usuario; 
+                produto.Usuario = usuario;
             }
             else
             {
@@ -98,14 +99,45 @@ namespace app_babybay.Controllers
 
             if (ModelState.IsValid)
             {
+                Image.Description = produto.Nome;
+                Image.Picture = Img.ToByteArray();
+                Image.Length = (int)Img.Length;
+                Image.Extension = Img.GetExtension();
+                Image.ContentType = Img.ContentType;
+                _context.Image.Add(Image);
+                _context.SaveChanges();
+
+                produto.ImageId = Image.Id;
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
 
-               // return RedirectToAction("Index", "Usuarios");
+                // return RedirectToAction("Index", "Usuarios");
                 return RedirectToAction("Relatorio", "Usuarios", new { id = produto.UsuarioId });
             }
             return View(produto);
         }
+
+        [HttpGet]
+        [ResponseCache(Duration = 3600)]
+        public async Task<FileResult> Render(int idProduto, [FromServices] ApplicationDbContext _context)
+        {
+
+            var produto = await _context.Produtos
+                .FirstOrDefaultAsync(m => m.Id == idProduto);
+
+            var item = _context.Image
+                .Where(x => x.Id == produto.ImageId)
+                .Select(s => new { s.Picture, s.ContentType })
+                .FirstOrDefault();
+
+            if (item != null)
+            {
+                return File(item.Picture, item.ContentType);
+            }
+
+            return null;
+        }
+
 
         // GET: Produtos/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -192,6 +224,10 @@ namespace app_babybay.Controllers
                 .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
 
             var produto = await _context.Produtos.FindAsync(id);
+            var image = await _context.Image
+                .FirstOrDefaultAsync(m => m.Id == produto.ImageId);
+
+            _context.Image.Remove(image);
             _context.Produtos.Remove(produto);
             await _context.SaveChangesAsync();
             return RedirectToAction("Relatorio", "Usuarios", new { usuario.Id });

@@ -54,7 +54,7 @@
             <div style="display:flex;justify-content:center">
                 <div class="card m-3" style="width: 18rem;">
                     <!--card-->
-                    <img src="~/img/roupa3.png" class="card-image" alt="href='https://br.freepik.com/fotos-vetores-gratis/toddler'>Toddler foto criado por fabrikasimf - br.freepik.com">
+                     <img class="card-image" src="@Url.Action("Render", "Produtos", new { idProduto = @item.ProdutoId })" />
                     <div class="card-body">
                         <div class="container space-between">
                             <div class="row d-flex justify-content-between">

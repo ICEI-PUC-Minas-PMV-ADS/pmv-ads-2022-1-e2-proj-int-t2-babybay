@@ -12,7 +12,7 @@
 <section class="section-c">
 	<div class="row">
 		<div class="inputs">
-			<form asp-action="Create">
+			<form asp-action="Create" enctype="multipart/form-data">
 				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 				<div class="form-group">
 					<label id="foco" asp-for="Nome" class="descricao"></label>
@@ -50,6 +50,11 @@
 					<span asp-validation-for="Categoria" class="text-danger"></span>
 				</div>
 				<div class="form-group">
+					<label asp-for="Image.Picture" class="control-label"></label>
+					<input type="file" name="Img" id="Img" class="form-control" />
+					<span asp-validation-for="Image.Picture" class="text-danger"></span>
+				</div>
+				<div class="form-group">
 					<br>
 					<input type="submit" value="Cadastrar Roupa" class="btn-criar" />
 				</div>
@@ -58,9 +63,9 @@
 		</div>
 	</div>
 
-		<div>
-			<a class="btn-voltar" asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar</a>
-		</div>
+	<div>
+		<a class="btn-voltar" asp-controller="Usuarios" asp-action="RedirecionarMenu">Voltar</a>
+	</div>
 </section>
 
 <script>

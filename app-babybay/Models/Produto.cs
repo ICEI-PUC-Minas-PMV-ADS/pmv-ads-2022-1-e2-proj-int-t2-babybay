@@ -17,7 +17,11 @@ namespace app_babybay.Models
         [ForeignKey("UsuarioId")]
         public Usuario Usuario { get; set; }
 
-        [Required(ErrorMessage = "O nome é obrigatório.")]
+		public Guid ImageId { get; set; }
+		[ForeignKey("ImageId")]
+        public Image Image { get; set; }
+
+		[Required(ErrorMessage = "O nome é obrigatório.")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "A cor é obrigatória.")]

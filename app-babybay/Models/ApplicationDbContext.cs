@@ -15,6 +15,16 @@ namespace app_babybay.Models
         public DbSet<Troca> Trocas { get; set; }
         public DbSet<Anuncio> Anuncios { get; set; }
         public DbSet<Suporte> Suportes { get; set; }
+        public DbSet<Image> Image { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(ImageMap.Create());
+        }
+
     }
 }
 
