@@ -14,10 +14,11 @@
 	<div class="section-c__div">
 		<article class="article-c">
 			<div class="div-frase">
-				<h3>Parabéns, sua proposta foi enviada para @Model.Usuario.Nome!</h3>
+				<h3 style="font-size:1.45em">Parabéns, sua proposta foi enviada para @Model.Usuario.Nome!</h3>
 			</div>
 			<ul class="article-c__ul">
 				<hr>
+				
 				<div class=sec_tab>
 					<table>
 						<tr>
@@ -53,6 +54,22 @@
 							</td>
 						</tr>
 						<tr>
+							<th>
+								Estado:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Usuario.Estado) 
+							</td>
+						</tr>
+						<tr>
+							<th>
+								Cidade:
+							</th>
+							<td>
+								@Html.DisplayFor(model => model.Usuario.Cidade) 
+							</td>
+						</tr>
+						<tr>
 							<td>
 								<hr />
 							</td>
@@ -77,7 +94,7 @@
 
 						<tr>
 							<th>
-								Date:
+								Data:
 							</th>
 							<td>
 								@Html.DisplayFor(model => model.Date)

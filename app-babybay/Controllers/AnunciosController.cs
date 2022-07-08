@@ -344,7 +344,7 @@ namespace app_babybay.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Busca(int? idadeProduto, string nomeProduto, Categoria? categoria)
         {
-            var buscaAnuncio = from m in _context.Anuncios
+            var buscaAnuncio = from m in _context.Anuncios.Include(a=>a.Usuario)
                                select m;
 
             // User Logado

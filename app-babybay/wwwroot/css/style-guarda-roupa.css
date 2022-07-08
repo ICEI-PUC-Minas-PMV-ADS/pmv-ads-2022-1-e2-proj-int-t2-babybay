@@ -52,7 +52,7 @@ h2 {
     width: 20px;
     padding: 4px;
     margin: auto;
-    margin-bottom:30px;
+  
 }
 
     .btn-cadastrar-produto-guarda-roupa:hover {
@@ -132,6 +132,7 @@ h2 {
 .frase {
     color: var(--clr--pink-dark) !important;
     font-weight: normal !important;
+    margin-bottom:20px;
 }
 
 .tab-content {

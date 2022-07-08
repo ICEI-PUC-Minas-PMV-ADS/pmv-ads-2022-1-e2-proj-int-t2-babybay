@@ -65,6 +65,8 @@
                             </div><!--row-->
                             <div >
                                 <div class="price text-left">@Html.DisplayFor(modelItem => item.Babycoin) bc</div>
+						    <p>@item.Usuario.Estado, @item.Usuario.Cidade</p>
+                                
                                 <div class="botoes">
                                     <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.AnuncioId" class="btn btn-light">Eu quero!</a>
                                     <a asp-controller="Suportes" asp-action="Create" asp-route-id="@item.AnuncioId" class="btn btn-light">Denunciar</a>
