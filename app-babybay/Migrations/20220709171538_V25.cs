@@ -11,8 +11,11 @@ namespace app_babybay.Migrations
                 columns: table  => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    AnuncioCod = table.Column<int>(type: "int", nullable: false),
+                    /*AnuncioCod = table.Column<int>(type: "int", nullable: false),*/
                     UsuarioId = table.Column<int>(type: "int", nullable: false),
+                    NomeAnuncio = table.Column<string>(type: "nvarchar(max)", nullable: false),
+
+
                 },
            constraints: table =>
            {
@@ -23,12 +26,12 @@ namespace app_babybay.Migrations
                    principalTable: "Usuarios",
                    principalColumn: "Id",
                    onDelete: ReferentialAction.Restrict);
-                table.ForeignKey(
+                /*table.ForeignKey(
                    name: "FK_AnunciosCurtidos_Anuncios_AnuncioCod",
                    column: x => x.AnuncioCod,
                    principalTable: "Anuncios",
                    principalColumn: "AnuncioId",
-                   onDelete: ReferentialAction.Restrict);
+                   onDelete: ReferentialAction.Restrict);*/
            });
 
             migrationBuilder.CreateIndex(
@@ -36,10 +39,6 @@ namespace app_babybay.Migrations
              table: "AnunciosCurtidos",
              column: "UsuarioId");
 
-            migrationBuilder.CreateIndex(
-                name: "IX_AnunciosCurtidos_AnuncioCod",
-                table: "AnunciosCurtidos",
-                column: "AnuncioCod");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

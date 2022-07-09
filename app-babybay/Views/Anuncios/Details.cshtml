@@ -31,10 +31,17 @@
 						<h2>@Html.DisplayFor(model => model.Babycoin) BC</h2>
 						<br />
 						<!-- TTEM QUE ACERTAR PARA O CORAÇÃO FICAR VERMELHO-->
-						<a asp-controller="Anuncios" asp-action="Curtir" asp-route-id="@Model.AnuncioId">
+						<a asp-controller="AnunciosCurtidos" asp-action="Curtir" asp-route-id="@Model.AnuncioId">
 							@*@if (User.Identity.Name == @Model.Usuario.Nome)
 							{*@
-							<img src="~/img/coracao-cinza-30x30.png" alt="curtir-anuncio">
+							@if (Model.AnuncioCurtido.NomeAnuncio == Model.Titulo)//Se o anuncio ja estiver no atributo NomeAnuncio,quer dizer que ja foi curtido,assim mostrara o coração vermelho
+							{
+								<img src="~/img/coracao-red-30x30.png" alt="curtir-anuncio">
+								
+							}
+
+								<img src="~/img/coracao-cinza-30x30.png" alt="curtir-anuncio">
+								
 							@*}*@
 							@*Html.ActionLink("RetornaCurtida", "AnunciosCurtidos", new {  @Model.AnuncioId }) |*@@*@Html.ActionLink("RetornaCurtida", "AnunciosCurtidos", new {  @Model.AnuncioId }) |*@
 

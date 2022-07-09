@@ -19,11 +19,14 @@ namespace app_babybay.Controllers
         {
             if (ModelState.IsValid)
             {
+                var anuncio = await _context.Anuncios
+                    .FirstOrDefaultAsync(m => m.AnuncioId == id);
                 var usuario = await _context.Usuarios
                     .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
+              anuncioCurtido.AdicionarNome(anuncio.Titulo);
 
                 anuncioCurtido.UsuarioId = usuario.Id;
-                anuncioCurtido.AnuncioCod = id;
+                /*anuncioCurtido.AnunciooId = id;*/
 
                 _context.Add(anuncioCurtido);
                 await _context.SaveChangesAsync();
@@ -34,16 +37,16 @@ namespace app_babybay.Controllers
         }
 
         // TEm que arrumar um jeito de chamar esse método pra mudar a cor do coração
-        public async Task<IActionResult> RetornaCurtida(int id)
+      /*  public async Task<IActionResult> RetornaCurtida(int id)
         {
             bool temAnuncio;
 
             var usuario = await _context.Usuarios
                 .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
 
-            var anuncioCurtido = await _context.AnunciosCurtidos
+           *//* var anuncioCurtido = await _context.AnunciosCurtidos
                 .FirstOrDefaultAsync(m => m.AnuncioCod == id && m.UsuarioId == usuario.Id);
-
+*//*
             if(anuncioCurtido != null)
             {
                 temAnuncio = true;
@@ -51,5 +54,6 @@ namespace app_babybay.Controllers
 
             return RedirectToAction("Details", "Anuncios", new { id });
         }
-    }
+    }*/
+}
 }

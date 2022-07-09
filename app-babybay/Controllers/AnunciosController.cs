@@ -73,6 +73,8 @@ namespace app_babybay.Controllers
                 .Include(a => a.Produto)
                 .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
+            var anuncioCurtido = await _context.AnunciosCurtidos
+                .FirstOrDefaultAsync(m => m.NomeAnuncio == anuncio.Titulo);
 
             if (anuncio == null)
             {
@@ -496,7 +498,7 @@ namespace app_babybay.Controllers
 
 
         // GET: Anuncios/Create   
-        public async Task<IActionResult> CurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)
+     /*   public async Task<IActionResult> CurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)
         {
             var anuncio = await _context.Anuncios.FindAsync(id);
          
@@ -518,7 +520,7 @@ namespace app_babybay.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");
-        }
+        }*/
 
         public IActionResult Create()
         {
@@ -605,11 +607,11 @@ namespace app_babybay.Controllers
             var anuncio = await _context.Anuncios.FindAsync(id);
             _context.Anuncios.Remove(anuncio);
 
-            var anuncioCurtido = await _context.AnunciosCurtidos
-                .FirstOrDefaultAsync(m => m.AnuncioCod == id);
+           /* var anuncioCurtido = await _context.AnunciosCurtidos
+                .FirstOrDefaultAsync(m => m.AnunciooId == id);
 
             _context.AnunciosCurtidos.Remove(anuncioCurtido);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();*/
 
             _context.Anuncios.Remove(anuncio);
             await _context.SaveChangesAsync();
