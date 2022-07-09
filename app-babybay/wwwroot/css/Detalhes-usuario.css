@@ -1,4 +1,4 @@
-v /* TELA CADASTRO USUÁRIO 
+ /* TELA CADASTRO USUÁRIO 
 
 C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     C1. Section > Article
@@ -139,6 +139,13 @@ th{
 p {
     padding: 12px;
    
+}
+
+
+.input__retornar--botao:hover {
+    box-shadow: var(--clr--box-shadow-btn-hover);
+    background-color: var(--clr-purple-light);
+    cursor: pointer;
 }
 
 .input__busca--botao:hover {

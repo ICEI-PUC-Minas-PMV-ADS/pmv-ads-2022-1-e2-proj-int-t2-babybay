@@ -14,7 +14,7 @@
 h2 {
     color: #DA8BD2;
     text-align: center;
-    margin: 0px auto 50px auto;
+    margin: -48px auto 50px auto;
     display: block;  
 }
 
@@ -22,18 +22,14 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 14px;
+    margin: 5px;
     height: 10px;
     color: var(--clr-purple-dark) !important;
     font-size: 0.7em !important;
 }
     .retornar:hover {
         color: var(--clr--pink-light) !important;
-    } 
-
-
-   
-
+    }  
 
 .btn-cadastrar-produto-guarda-roupa {
     background-color: var(--clr-purple-dark);
@@ -51,7 +47,7 @@ h2 {
     text-align: center;
     width: 20px;
     padding: 4px;
-    margin: auto;
+    margin: 10px auto 20px auto;
   
 }
 

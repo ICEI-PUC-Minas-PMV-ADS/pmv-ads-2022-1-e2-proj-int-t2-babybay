@@ -499,12 +499,14 @@ namespace app_babybay.Controllers
         public async Task<IActionResult> CurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)
         {
             var anuncio = await _context.Anuncios.FindAsync(id);
-
+         
             anuncio.CurtirAnuncio();    // Chama método que manda true de retorno
+            //var anuncioCurtido = anuncio.CriarAnuncioCurtido();
+
             _context.Update(anuncio);   // Atualiza a tabela anúncio com a informação da 'curtida'
             await _context.SaveChangesAsync();  // Salva
 
-            return RedirectToAction("Details", "Anuncios", new { id });
+            return RedirectToAction("Curtir", "AnunciosCurtidos", new { id });
         }
 
         public async Task<IActionResult> DescurtirAnuncio(int id, [Bind("AnuncioCurtido")] Produto produto)
@@ -602,7 +604,16 @@ namespace app_babybay.Controllers
 
             var anuncio = await _context.Anuncios.FindAsync(id);
             _context.Anuncios.Remove(anuncio);
+
+            var anuncioCurtido = await _context.AnunciosCurtidos
+                .FirstOrDefaultAsync(m => m.AnuncioCod == id);
+
+            _context.AnunciosCurtidos.Remove(anuncioCurtido);
             await _context.SaveChangesAsync();
+
+            _context.Anuncios.Remove(anuncio);
+            await _context.SaveChangesAsync();
+
             return RedirectToAction("Relatorio", "Usuarios", new { usuario.Id });
         }
 
@@ -614,13 +625,3 @@ namespace app_babybay.Controllers
 
 }
 
-
-//// Pegando todos os anuncios
-//var anuncioCliente = from aCliente in _context.Anuncios
-//                     select aCliente;
-
-//// Pegando somente os anúncios do usuário logado
-//anuncioCliente = anuncioCliente.Where(s => s.Usuario.Nome.Contains(User.Identity.Name));
-
-// Select somente dos anúncios do usuário logado
-//ViewData["Anuncios"] = new SelectList(anuncioCliente, "AnuncioId", "Titulo");

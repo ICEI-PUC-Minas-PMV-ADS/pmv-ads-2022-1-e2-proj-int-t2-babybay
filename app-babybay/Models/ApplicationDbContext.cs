@@ -16,7 +16,7 @@ namespace app_babybay.Models
         public DbSet<Anuncio> Anuncios { get; set; }
         public DbSet<Suporte> Suportes { get; set; }
         public DbSet<Image> Image { get; set; }
-
+        public DbSet<AnuncioCurtido> AnunciosCurtidos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -104,6 +104,13 @@ namespace app_babybay.Models
             AnuncioCurtido = true;
             ContadorCurtidas++;
         }
+
+        public AnuncioCurtido CriarAnuncioCurtido()
+        {
+            AnuncioCurtido anuncioCurtido = new AnuncioCurtido();
+            return anuncioCurtido;
+        }
+
         public void DescurtirAnuncio()//Aqui um método para descurtir o produto,sera chamado quando apertar o botão curtir denovo,ou quando apertar o botão descurtir(ver depois)
         {
             AnuncioCurtido = false;

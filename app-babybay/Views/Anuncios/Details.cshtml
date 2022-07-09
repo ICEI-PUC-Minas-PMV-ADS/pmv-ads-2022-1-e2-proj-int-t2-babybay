@@ -19,7 +19,7 @@
 
 			<div class="card">
 				<!--Imagem-->
-			   <img class="card-image" src="@Url.Action("Render", "Produtos", new { idProduto = @Model.ProdutoId })" />
+				<img class="card-image" src="@Url.Action("Render", "Produtos", new { idProduto = @Model.ProdutoId })" />
 				<div class="card-infos">
 					<div class="card-description">
 						<h2>@Html.DisplayFor(model => model.Produto.Nome)</h2>
@@ -31,9 +31,16 @@
 						<h2>@Html.DisplayFor(model => model.Babycoin) BC</h2>
 						<br />
 						<!-- TTEM QUE ACERTAR PARA O CORAÇÃO FICAR VERMELHO-->
-						<a asp-controller="Anuncios" asp-action="CurtirAnuncio" asp-route-id="@Model.AnuncioId">
+						<a asp-controller="Anuncios" asp-action="Curtir" asp-route-id="@Model.AnuncioId">
+							@*@if (User.Identity.Name == @Model.Usuario.Nome)
+							{*@
 							<img src="~/img/coracao-cinza-30x30.png" alt="curtir-anuncio">
+							@*}*@
+							@*Html.ActionLink("RetornaCurtida", "AnunciosCurtidos", new {  @Model.AnuncioId }) |*@@*@Html.ActionLink("RetornaCurtida", "AnunciosCurtidos", new {  @Model.AnuncioId }) |*@
+
+							@*Se o usuário logado curtiu algum produto*@
 						</a>
+
 					</div>
 				</div>
 			</div><!--.card--> <!--Imagem-->
@@ -60,11 +67,9 @@
 							</label>
 						}
 					</div>
-
 					<div class="form-check">
 						<br>
 						<!--opcProdLabel para configurar a label da opção produtos, tem que ser assim para não dar conflito e ser mutualmente excludente-->
-						
 						@Html.RadioButton("opcRadio", 1,
 						new {@class = "form-check-input", @id = "opcProdLabel", @checked="checked" })
 						<label class="form-check-label" for="opcProdLabel">
