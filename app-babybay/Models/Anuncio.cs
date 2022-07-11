@@ -20,10 +20,6 @@ namespace app_babybay.Models
         [ForeignKey("ProdutoId")]
         public Produto Produto { get; set; }
 
-        public int AnuncioCurtidoId { get; set; }
-        [ForeignKey("AnuncioCurtidoId")]
-        public AnuncioCurtido AnuncioCurtido { get; set; }
-
         public int? ClienteId { get; set; }
         [ForeignKey("ClienteId")]
         [MaxLength(20)]
@@ -64,12 +60,15 @@ namespace app_babybay.Models
             get { return _date; }
             set { _date = value; }
         }
-
+        public bool AnuncioCurtido { get; private set; }
 
         public int ContadorCurtidas { get; private set; }
         
         
-
+        public Anuncio()//Cria um construtor vazio,que é que sempre é instaciado quando o produto é criado,para sempre iniciar o produto como não curtido
+        {
+            AnuncioCurtido = false;
+        }
         public void AdicionarAnuncioInteressado()
         {
            
@@ -99,8 +98,8 @@ namespace app_babybay.Models
 
 
 
-      /*  public void CurtirAnuncio()*//*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe
-       para que assim ele estem método possa ser chamado por outro método no controle*//*
+        public void CurtirAnuncio()/*Aqui um método para curtir o produto,sera chamado quando apertar o botão Curtir,static é para ele ser um membro de classe
+       para que assim ele estem método possa ser chamado por outro método no controle*/
         {
             AnuncioCurtido = true;
             ContadorCurtidas++;
@@ -121,7 +120,7 @@ namespace app_babybay.Models
             {
                 ContadorCurtidas = 0;
             }
-        }*/
+        }
 
 
         public void ZeraContador()//Aqui caso precise,esta um método para zerar contador

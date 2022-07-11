@@ -26,8 +26,8 @@ namespace app_babybay.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AnuncioCurtidoId")
-                        .HasColumnType("int");
+                    b.Property<bool>("AnuncioCurtido")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Babycoin")
                         .HasColumnType("int");
@@ -69,30 +69,11 @@ namespace app_babybay.Migrations
 
                     b.HasKey("AnuncioId");
 
-                    b.HasIndex("AnuncioCurtidoId");
-
                     b.HasIndex("ProdutoId");
 
                     b.HasIndex("UsuarioId");
 
                     b.ToTable("Anuncios");
-                });
-
-            modelBuilder.Entity("app_babybay.Models.AnuncioCurtido", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
-
-                    b.ToTable("AnunciosCurtidos");
                 });
 
             modelBuilder.Entity("app_babybay.Models.Carteira", b =>
@@ -323,12 +304,6 @@ namespace app_babybay.Migrations
 
             modelBuilder.Entity("app_babybay.Models.Anuncio", b =>
                 {
-                    b.HasOne("app_babybay.Models.AnuncioCurtido", "AnuncioCurtido")
-                        .WithMany()
-                        .HasForeignKey("AnuncioCurtidoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("app_babybay.Models.Produto", "Produto")
                         .WithMany()
                         .HasForeignKey("ProdutoId")
@@ -341,20 +316,7 @@ namespace app_babybay.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AnuncioCurtido");
-
                     b.Navigation("Produto");
-
-                    b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("app_babybay.Models.AnuncioCurtido", b =>
-                {
-                    b.HasOne("app_babybay.Models.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.Navigation("Usuario");
                 });
