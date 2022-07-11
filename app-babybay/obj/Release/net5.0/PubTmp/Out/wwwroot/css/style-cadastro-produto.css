@@ -184,9 +184,20 @@ hr {
         background-color: var(--clr-purple-dark);
     }
 
+#Img {
+    border-radius: 10px; 
+}
+
+    #Img:hover {
+        box-shadow: var(--clr--box-shadow-hover);
+        /*  border: 1px solid var(--clr-purple-dark);*/
+        border-color: var(--clr-purple-dark);
+    }
+
 
 @media(max-width:655px) {
     .input {
         width:250px;
     }
 }
+

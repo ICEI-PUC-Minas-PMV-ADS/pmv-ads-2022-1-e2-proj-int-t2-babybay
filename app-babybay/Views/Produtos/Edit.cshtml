@@ -52,6 +52,12 @@
 					<span asp-validation-for="Categoria" class="text-danger"></span>
 				</div>
 				<div class="form-group">
+					<img style="display:block" class="card-image" src="@Url.Action("Render", "Produtos", new { idProduto = @Model.ImageId })" />
+					<label asp-for="Image.Picture"	class="control-label"></label>
+					<input type="file" name="Img" id="Img" class="form-control" />
+					<span asp-validation-for="Image.Picture" class="text-danger"></span>
+				</div>
+				<div class="form-group">
 					<input type="submit" value="Salvar" class="btn-criar" />
 				</div>
 			</form>

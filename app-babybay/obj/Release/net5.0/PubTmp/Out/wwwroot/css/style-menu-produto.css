@@ -42,24 +42,6 @@ th{
     padding: 12px;
 }
 
-/*.article-c {
-    background-color: var(--clr-second-background);
-    border: 1px solid var(--clr--border-box);
-    box-shadow: var(--clr--box-shadow-content);
-    margin-top: 15px;
-    padding: 10px 40px 20px 0px;
-    max-width: 600px;*/
-    /* flex*/
-    /*display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    flex-shrink: 1;
-}*/
-
-
 .article-c {
     background-color: var(--clr-second-background);
     border: 1px solid var(--clr--border-box);
@@ -252,3 +234,4 @@ p {
     .input__busca--botao-aceitar:active {
         background-color: var(--clr--pink-dark);
     }
+    

@@ -173,9 +173,13 @@ namespace app_babybay.Controllers
                 {
                     var usuario = await _context.Usuarios
                          .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);  // Acha o usuário
+
+                    var image = await _context.Image
+                        .FirstOrDefaultAsync(m => m.Id == produto.ImageId);
+
                     produto.Usuario = usuario;      // Setando o usuario encontrado no Usuario do produto 
                                                     // salvaUsuarioId = usuario.Id;
-
+                    
                     _context.Update(produto);
                     await _context.SaveChangesAsync();
                 }

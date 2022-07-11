@@ -32,6 +32,7 @@
 .card-price {
     color: #DA8BD2;
     /*position: absolute;*/
+    margin-top: 50px;
     bottom: 20px;
     left: 20px;
 }

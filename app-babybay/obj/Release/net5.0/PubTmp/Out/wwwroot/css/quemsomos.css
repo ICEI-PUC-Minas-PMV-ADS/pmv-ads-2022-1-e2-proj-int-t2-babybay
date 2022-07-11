@@ -1,0 +1,195 @@
+﻿/* MENU USUÁRIO
+
+    D - Arquivo NovoPost (page-css/NovoPost.css)
+    D1. Main
+
+/****************************************
+    5. Main
+/****************************************/
+* {
+    list-style: none;
+}
+main {
+   /* height: 88vh;*/
+    height: auto;
+}
+
+
+
+.div-confirmacompra {
+    margin: auto;
+    padding: 5px;
+    color: var(--clr-purple-dark);
+    margin-bottom: 5px;
+   
+    /* flex */
+
+    display: flexbox;
+    vertical-align: middle;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+    .div-confirmacompra img {
+        width: 50px;
+        height: 50px;
+        border-radius: 4px;
+        object-fit: cover;
+        margin: 15px;
+    }
+h2{
+   font-size: 1.5rem;
+   width:200px;
+}
+.mensagem{    
+    line-height:30px;
+    
+}
+.links>:hover {
+   color:white;
+}
+
+main{
+    margin-top: 50px;
+}
+
+.section-c {
+    /* flex */
+    background-color: var(--clr-second-background);
+    border: 1px solid var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow-content);
+    display: flexbox;
+    vertical-align: middle;
+    justify-content: center;
+    width: 582px;
+    text-align: center;
+    margin: auto;    
+    border-radius: 10px;        
+    color: black;
+    padding: 50px;
+}
+
+.selecao {
+    display: flexbox;
+    justify-content: baseline;
+    text-align: justify;
+    margin: auto;
+    vertical-align: auto;
+}
+.nomes {
+    display: flex;
+    flex-direction: row;
+    width: 449px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 0.7em;
+}
+
+.section-c h1 {
+    /* flex */
+    color: #DA8BD2;
+    text-align: center;
+    margin: 20px;
+    font-weight:bold;
+    font-size:1.75rem;
+}
+.container-reclamação__campo {
+    display: flex;
+    flex-flow: row wrap;    
+    justify-content: center;
+    /*margin: auto;*/
+    margin-top: 5px;
+}
+.container-reclamação__input { /* li */
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    background: #ffffff;
+    border-radius: 8px;
+    height: 40px;
+    /* margin: 10px; */
+    padding: 10px;
+    font-size: 1em;
+    min-width: 200px;
+    flex: 1 1 100px;    
+}
+
+    .container-reclamação__input:hover {
+        box-shadow: var(--clr--box-shadow-hover);
+        /*  border: 1px solid var(--clr-purple-dark);*/
+        border-color: var(--clr-purple-dark);
+    }
+
+    
+
+label{
+    margin-left: 8px;
+}
+
+#btn-confirmar {
+    display: block;
+    background-color: var(--clr-purple-dark);
+    border-color: var(--clr--border-box);
+    box-shadow: var(--clr--box-shadow);
+    border-radius: 20px;
+    width: 320px;
+    height: 38px;    
+    font-family: 'Alata';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 20px;
+       /* Inside auto layout */
+/*
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    background: #ACABF2;
+    border-radius: 10px;*/
+}
+
+    #btn-confirmar:hover {
+        box-shadow: var(--clr--box-shadow-btn-hover);
+        background-color: var(--clr-purple-light);
+        cursor: pointer;
+    }
+
+    #btn-confirmar:active {
+        background-color: var(--clr-purple-dark);
+    }
+
+/*background-color: var(--clr-purple-dark);
+border-color: var(--clr--border-box);
+box-shadow: var(--clr--box-shadow);
+border-radius: 20px;
+color: #FFFFFF !important;
+font-size: 1.1em;
+font-weight: bold;
+padding: 12px;
+padding-left: 20px;
+padding-right: 20px;
+height: 32px;
+letter-spacing: 1px;
+margin: 5px 15px;
+min-width: 120px;
+text-shadow: var(--clr--text-shadow);
+text-align: center;
+line-height: 30px;*/
+
+.retornar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 14px;
+    height: 10px;
+}
+
+
+    .retornar > li > p > a {
+        color: var(--clr-purple-dark);
+        
+    }
+

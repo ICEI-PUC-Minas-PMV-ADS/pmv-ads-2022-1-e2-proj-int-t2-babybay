@@ -303,15 +303,24 @@ namespace app_babybay.Controllers
                     .Include(a => a.Usuario)
                     .FirstOrDefaultAsync(m => m.UsuarioId == usuarioCliente.Id);
 
-                                // Transferindo babycoin
+                var anuncioCurtido = await _context.AnunciosCurtidos
+                    .FirstOrDefaultAsync(m => m.AnuncioCod == id);
+            
+                // Transferindo babycoin
                 carteiraCliente.Transferir(anuncio.Babycoin, carteiraAnunciante);
 
                 // _context.Anuncios.Remove(anuncio);       // Exclui Anúncio(de quem aceita a troca)
                 _context.Update(carteiraCliente);        // Atualiza o saldo da carteira do cliente       
-                _context.Update(carteiraAnunciante);     // Atualiza o saldo da carteira do anunciante
+                _context.Update(carteiraAnunciante);     // Atualiza o saldo da carteira do anunciante                
 
                 anuncio.Produto.UsuarioId = usuarioCliente.Id;  // Seta UsuarioId no prod (cliente x anunciante)
                 _context.Update(anuncio);
+
+                if(anuncioCurtido != null) 
+                {
+                    _context.AnunciosCurtidos.Remove(anuncioCurtido);
+                }                
+                
                 _context.Anuncios.Remove(anuncio);       // Exclui Anúncio (de quem aceita a troca)
 
                 await _context.SaveChangesAsync();       // Atualiza Banco
@@ -324,14 +333,32 @@ namespace app_babybay.Controllers
                 //var idAnunciante = anuncio.UsuarioId;
                 var idCliente = anuncioProposta.UsuarioId;
 
+                var anuncioCurtido = await _context.AnunciosCurtidos
+                    .FirstOrDefaultAsync(m => m.AnuncioCod == anuncio.AnuncioId);
+
+                var anuncioCurtidoProposta = await _context.AnunciosCurtidos
+                    .FirstOrDefaultAsync(m => m.AnuncioCod == anuncioProposta.AnuncioId);
+
                 // Ponto de vista do cliente
                 anuncio.Produto.UsuarioId = idCliente;  // Seta UsuarioId no prod (cliente x anunciante)
                 _context.Update(anuncio);
+
                 _context.Anuncios.Remove(anuncio);       // Exclui Anúncio (de quem aceita a troca)
+
+                if(anuncioCurtido != null)  // Se não tiver anuncioCurtido passa 
+                {
+                    _context.AnunciosCurtidos.Remove(anuncioCurtido); //AQRUI
+                }                
 
                 // Ponto de vista do anunciante (quem aceita a troca)
                 anuncioProposta.Produto.UsuarioId = idAnunciante;
                 _context.Update(anuncioProposta);
+
+                if (anuncioCurtidoProposta != null)  // Se não tiver anuncioCurtido passa 
+                {
+                    _context.AnunciosCurtidos.Remove(anuncioCurtidoProposta); //AQRUI
+                }
+
                 _context.Anuncios.Remove(anuncioProposta);  // Exclui Anúncio (de quem solicita a troca)
 
                 await _context.SaveChangesAsync();          // Atualiza Banco
@@ -608,9 +635,12 @@ namespace app_babybay.Controllers
             var anuncioCurtido = await _context.AnunciosCurtidos
                 .FirstOrDefaultAsync(m => m.AnuncioCod == id);
 
-            _context.AnunciosCurtidos.Remove(anuncioCurtido);
-            await _context.SaveChangesAsync();
-
+            if(anuncioCurtido != null)
+            {
+                _context.AnunciosCurtidos.Remove(anuncioCurtido);
+                //await _context.SaveChangesAsync();
+            }
+            
             _context.Anuncios.Remove(anuncio);
             await _context.SaveChangesAsync();
 

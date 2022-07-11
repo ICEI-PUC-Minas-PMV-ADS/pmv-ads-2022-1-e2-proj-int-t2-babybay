@@ -49,6 +49,11 @@ h2{
 .links>:hover {
    color:white;
 }
+
+main{
+    margin-top: 50px;
+}
+
 .section-c {
     /* flex */
     background-color: var(--clr-second-background);
@@ -78,6 +83,7 @@ h2{
     width: 449px;
     flex-wrap: wrap;
     justify-content: space-between;
+    font-size: 0.7em;
 }
 
 .section-c h1 {

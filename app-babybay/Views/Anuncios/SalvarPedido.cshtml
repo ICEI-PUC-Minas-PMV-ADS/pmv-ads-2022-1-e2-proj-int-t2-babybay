@@ -1,4 +1,4 @@
-﻿@model app_babybay.Models.Anuncio
+﻿	@model app_babybay.Models.Anuncio
 
 @{
 	ViewData["Title"] = "SalvarPedido";
@@ -14,13 +14,22 @@
 	<div class="section-c__div">
 		<article class="article-c">
 			<div class="div-frase">
-				<h3 style="font-size:1.45em">Parabéns, sua proposta foi enviada para @Model.Usuario.Nome!</h3>
+				<h3 style="font-size:1.6em, display:block" >Parabéns, sua proposta foi enviada para @Model.Usuario.Nome!</h3>
 			</div>
 			<ul class="article-c__ul">
 				<hr>
 				
 				<div class=sec_tab>
 					<table>
+						<tr>
+							<th>
+								Roupa desejada:
+							</th>
+							<td>
+								 <img  style="display:block" class="card-image" src="@Url.Action("Render", "Produtos", new { idProduto = @Model.ProdutoId })" />
+									 <br>
+							</td>
+						</tr>
 						<tr>
 							<th>
 								Enviado para:
@@ -80,7 +89,7 @@
 							</th>
 							@if (Model.PropostaProdutoTroca != null)
 							{
-								<td>
+								<td>									
 									@Html.DisplayFor(model => model.PropostaProdutoTroca)
 								</td>
 							}

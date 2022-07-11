@@ -31,7 +31,7 @@
 						<h2>@Html.DisplayFor(model => model.Babycoin) BC</h2>
 						<br />
 						<!-- TTEM QUE ACERTAR PARA O CORAÇÃO FICAR VERMELHO-->
-						<a asp-controller="Anuncios" asp-action="Curtir" asp-route-id="@Model.AnuncioId">
+						<a asp-controller="Anuncios" asp-action="CurtirAnuncio" asp-route-id="@Model.AnuncioId">
 							@*@if (User.Identity.Name == @Model.Usuario.Nome)
 							{*@
 							<img src="~/img/coracao-cinza-30x30.png" alt="curtir-anuncio">
@@ -62,7 +62,7 @@
 							@Html.RadioButton("opcRadio", 0,
 						new {@class = "form-check-input"})
 							<label class="form-check-label" for="opcRadio">
-								<h5>Utilizar meus babycoins</h5>
+								<h5>Utilizar meus BabyCoins</h5>
 								<h5 class="message">@ViewBag.Message</h5>
 							</label>
 						}

@@ -134,7 +134,7 @@ hr {
     letter-spacing: 1px;
     max-width: 135px; 
     text-shadow: var(--clr--text-shadow);
-    padding-bottom: 10px;   
+    padding-bottom: 10px;       
 }
 
     #btn-confirmar:hover {

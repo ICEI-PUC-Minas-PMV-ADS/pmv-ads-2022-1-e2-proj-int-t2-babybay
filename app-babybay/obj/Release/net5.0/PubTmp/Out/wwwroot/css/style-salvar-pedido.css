@@ -78,6 +78,13 @@ C - Arquivo Style Cadastro Usuárop (page-css/style-cadastro-usuario.css)
     align-items: center;
 }
 
+.card-image {
+    margin: auto;
+    width: 286px;
+    height: 200px;
+    object-fit: cover;
+}
+
 .sec_tab {
     display: flex;
     margin: auto;

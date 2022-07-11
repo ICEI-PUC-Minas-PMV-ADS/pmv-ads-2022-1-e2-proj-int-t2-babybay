@@ -17,8 +17,18 @@ namespace app_babybay.Controllers
         // POST: AnunciosCurtidos/Create      
         public async Task<IActionResult> Curtir(int id, AnuncioCurtido anuncioCurtido)
         {
+           
+
             if (ModelState.IsValid)
             {
+                var temCurtida = await _context.AnunciosCurtidos
+               .FirstOrDefaultAsync(m => m.Id == anuncioCurtido.Id);
+
+                if (temCurtida != null)
+                {
+                    return RedirectToAction("Details", "Anuncios", new { id });
+                }
+
                 var usuario = await _context.Usuarios
                     .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
 
