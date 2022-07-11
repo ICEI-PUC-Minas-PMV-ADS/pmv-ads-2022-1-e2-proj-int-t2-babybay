@@ -55,18 +55,23 @@
 							{
 							<tr>
 								<th>
-									Roupa Proposta:
+									Roupa proposta:
+								</th>
+
+								<td>
+									<img style="display:block" class="card-image" src="@Url.Action("Render", "Produtos", new { idProduto = @Model.ProdutoClienteId })" />
+									<br>
+								</td>
+
+							</tr>
+							<tr>
+								<th>
+
 								</th>
 								<td>
-								@*	<img style="display:block" class="card-image" src="@Url.Action("Render", "Produtos", new { idProduto = @Model.PropostaAnuncioTroca })" />
-									<br>*@
+										@Html.DisplayFor(model => model.PropostaProdutoTroca)
 								</td>
 							</tr>
-							<th>
-							</th>
-							<td>
-									@Html.DisplayFor(model => model.PropostaProdutoTroca)
-							</td>
 
 							}
 							else

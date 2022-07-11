@@ -27,7 +27,11 @@ namespace app_babybay.Models
         [Required(ErrorMessage = "É necessário informar um título para o anúncio")]
         public string Titulo { get; set; }
 
-		[Display(Name = "Valor em BabyCoin")]
+        public int? ProdutoClienteId { get; set; }
+        [ForeignKey("ProdutoClienteId")]
+       // public Image Image { get; set; }
+
+        [Display(Name = "Valor em BabyCoin")]
         [Required(ErrorMessage = "É necessário um valor em BabyCoin")]
         public int Babycoin { get; set; }
 

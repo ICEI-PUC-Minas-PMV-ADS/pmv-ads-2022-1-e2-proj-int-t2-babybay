@@ -19,32 +19,60 @@
 			<ul class="article-c__ul">
 				<div class=sec_tab>
 					<table>
-						<tr>
+						<tr>				
+
 							<th>
 								Roupa enviada:
+							</th>
+
+							<td>
+								<img style="display:block" class="card-image" src="@Url.Action("Render", "Produtos", new { idProduto = @Model.ProdutoId })" />
+								<br>
+							</td>
+
+						</tr>
+						<tr>
+							<th>
+
 							</th>
 							<td>
 								@Html.DisplayFor(model => model.Produto.Nome)
 							</td>
+
+
 						</tr>
 						<tr>
 							@if (Model.PropostaProdutoTroca != null)
-							{
+							{							
+							<tr>
 								<th>
 									Roupa recebida:
 								</th>
+
 								<td>
-									@Html.DisplayFor(model => model.PropostaProdutoTroca)
+									<img style="display:block" class="card-image" src="@Url.Action("Render", "Produtos", new { idProduto = @Model.ProdutoClienteId })" />
+									<br>
 								</td>
+
+							</tr>
+							<tr>
+								<th>
+
+								</th>
+								<td>
+										@Html.DisplayFor(model => model.PropostaProdutoTroca)
+								</td>
+							</tr>
+
 							}
 							else
 							{
-								<th>
-									Valor Recebido:
-								</th>
-								<td>
+							<th>
+								Valor Recebido:
+							</th>
+							<td>
 									@Html.DisplayFor(model => model.Babycoin) BabyCoins
-								</td>
+							</td>
 							}
 						<tr>
 							<th>

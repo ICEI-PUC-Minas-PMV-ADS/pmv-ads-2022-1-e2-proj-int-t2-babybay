@@ -118,9 +118,11 @@ namespace app_babybay.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Usuarios.FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
-            var carteira = await _context.Carteiras.FirstOrDefaultAsync(a => a.UsuarioId == user.Id);
-
+            var user = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.Nome == User.Identity.Name);
+            var carteira = await _context.Carteiras
+                .FirstOrDefaultAsync(a => a.UsuarioId == user.Id);
+         
 
             // Usuário anunciante, anúncio e produto anunciado
             var anuncio = await _context.Anuncios
@@ -174,6 +176,9 @@ namespace app_babybay.Controllers
             var usuarioCliente = await _context.Usuarios
                 .FirstOrDefaultAsync(p => p.Nome == User.Identity.Name);
 
+            var anuncioProposta = await _context.Anuncios
+             .FirstOrDefaultAsync(m => m.AnuncioId == anuncioSelectPropostaId);
+
             // Chamando métodos e fazendo as atribuições para salvar no DB
             anuncio.AdicionarNomeInteressado(usuarioCliente.Nome);       // Nome do cliente
             anuncio.AdicionarAnuncioInteressado();                  // Indica que há interesse na troca            
@@ -215,6 +220,7 @@ namespace app_babybay.Controllers
                     }
                 }
 
+                anuncio.ProdutoClienteId = anuncioProposta.ProdutoId;
                 // Atualiza banco
                 _context.Update(anuncio);
                 await _context.SaveChangesAsync();

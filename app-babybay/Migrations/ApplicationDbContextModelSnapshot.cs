@@ -47,6 +47,9 @@ namespace app_babybay.Migrations
                     b.Property<string>("NomeInteressado")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ProdutoClienteId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
 
@@ -74,6 +77,28 @@ namespace app_babybay.Migrations
                     b.HasIndex("UsuarioId");
 
                     b.ToTable("Anuncios");
+                });
+
+            modelBuilder.Entity("app_babybay.Models.AnuncioCurtido", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AnuncioCod")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnuncioCod");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("AnunciosCurtidos");
                 });
 
             modelBuilder.Entity("app_babybay.Models.Carteira", b =>
@@ -317,6 +342,25 @@ namespace app_babybay.Migrations
                         .IsRequired();
 
                     b.Navigation("Produto");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("app_babybay.Models.AnuncioCurtido", b =>
+                {
+                    b.HasOne("app_babybay.Models.Anuncio", "Anuncio")
+                        .WithMany()
+                        .HasForeignKey("AnuncioCod")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("app_babybay.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Anuncio");
 
                     b.Navigation("Usuario");
                 });
